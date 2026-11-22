@@ -6,14 +6,13 @@
 (function () {
   'use strict';
 
-  // --- Presentation State ---
-  let currentSlide = 1;
-  const totalSlides = 18;
-  let isFullscreen = false;
-
-  // --- DOM Elements ---
+  // --- DOM Elements & Presentation State ---
   const stageScaler = document.getElementById('stage-scaler');
   const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length || 18;
+  let currentSlide = 1;
+  let isFullscreen = false;
+
   const progressBar = document.getElementById('progress-bar');
   const slideIndicator = document.getElementById('slide-indicator');
   const categoryIndicator = document.getElementById('slide-category-indicator');
@@ -149,6 +148,17 @@
     stageScaler.style.transform = `scale(${scale})`;
   }
 
+  // --- URL Hash Helper ---
+  function getSlideFromHash() {
+    const hash = window.location.hash;
+    const match = hash.match(/#?(?:slide-)?(\d+)/i);
+    if (match) {
+      const num = parseInt(match[1], 10);
+      if (num >= 1 && num <= totalSlides) return num;
+    }
+    return 1;
+  }
+
   // --- Slide Navigation Engine ---
   function showSlide(index) {
     if (index < 1) index = 1;
@@ -170,7 +180,7 @@
 
     // Update Progress Bar
     if (progressBar) {
-      const progress = ((currentSlide - 1) / (totalSlides - 1)) * 100;
+      const progress = totalSlides > 1 ? ((currentSlide - 1) / (totalSlides - 1)) * 100 : 100;
       progressBar.style.width = `${progress}%`;
     }
 
@@ -180,6 +190,13 @@
       const formattedTot = String(totalSlides).padStart(2, '0');
       slideIndicator.textContent = `${formattedCur} / ${formattedTot}`;
     }
+
+    // Update URL hash without polluting browser history
+    try {
+      if (window.location.hash !== `#slide-${currentSlide}`) {
+        history.replaceState(null, '', `#slide-${currentSlide}`);
+      }
+    } catch (e) {}
 
     // Update Presenter Notes
     updateNotesContent();
@@ -219,8 +236,8 @@
 
     slides.forEach((slide, idx) => {
       const slideNum = idx + 1;
-      const titleElem = slide.querySelector('.slide-title') || slide.querySelector('.cover-subtitle');
-      const titleText = titleElem ? titleElem.textContent.trim() : `Slide ${slideNum}`;
+      const titleElem = slide.querySelector('h1, h2, h3, [class*="-title"], [class*="-heading"]') || slide.querySelector('.cover-subtitle');
+      const titleText = titleElem ? titleElem.textContent.replace(/\s+/g, ' ').trim() : `Slide ${slideNum}`;
       const category = slide.getAttribute('data-category') || 'OVERVIEW';
 
       const thumb = document.createElement('div');
@@ -410,8 +427,17 @@
     initOverviewGrid();
     initPulseAnimation();
 
-    // Show initial slide
-    showSlide(1);
+    // Show initial slide based on URL hash (default slide 1)
+    const initialSlide = getSlideFromHash();
+    showSlide(initialSlide);
+
+    // Support browser back/forward and hash links
+    window.addEventListener('hashchange', () => {
+      const target = getSlideFromHash();
+      if (target !== currentSlide) {
+        showSlide(target);
+      }
+    });
   }
 
   if (document.readyState === 'loading') {
