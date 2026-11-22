@@ -8,7 +8,7 @@
 
   // --- Presentation State ---
   let currentSlide = 1;
-  const totalSlides = 17;
+  const totalSlides = 18;
   let isFullscreen = false;
 
   // --- DOM Elements ---
@@ -72,58 +72,64 @@
         <strong>Why it matters:</strong> Demonstrates clean cloud architecture by keeping heavy images out of transactional databases.`,
 
     7: `<strong>What to say (30-45s):</strong><br>
+        "Now let's look at the true engineering depth behind Feature 02. This sequence diagram illustrates how we handle high-frequency image acquisition without bottlenecking the system. When the Basler line-scan camera sends raw lines via CoaXPress, our Edge PC buffers them into a full TIFF image. Notice the parallel execution phase: the Edge PC requests a pre-signed S3 URL from FastAPI, and uploads the 20MB TIFF image directly to AWS S3 while concurrently emitting camera telemetry over MQTT. FastAPI never handles heavy image bytes in memory — it only persists metadata in PostgreSQL and notifies the Next.js frontend via WebSockets."<br><br>
+        <strong>Technical highlights:</strong><br>
+        Direct S3 offloading, parallel MQTT event distribution, and secure presigned GET delivery to the browser.<br><br>
+        <strong>Why it matters:</strong> Proves production-grade distributed systems design to senior technical interviewers.`,
+
+    8: `<strong>What to say (30-45s):</strong><br>
         "Feature 03 is Production Intelligence. How do managers know what is happening right now? Take Stenter Frame #02: it is heat-setting cotton fabric. A temperature probe measures chamber heat every 500 milliseconds. AutoTaskX displays the current 185.5°C reading live. If the temperature exceeds the safe 190°C limit, the system triggers an immediate alert to prevent fabric burning."<br><br>
         <strong>What the visual means:</strong><br>
         The right side shows a live executive HUD with 18 of 20 machines active and an 8-hour temperature trend.<br><br>
         <strong>Why it matters:</strong> Moves factories from reactive firefighting to real-time proactive monitoring.`,
 
-    8: `<strong>What to say (30-45s):</strong><br>
+    9: `<strong>What to say (30-45s):</strong><br>
         "Feature 04 is Textile OS — the physical nervous system of the platform. Different factory machines use different physical wires, serial cables, or network ports. Textile OS uses industrial IoT gateways to read physical signals from temperature probes, pressure sensors, and power meters, converting them all into one unified software format."<br><br>
         <strong>What the visual means:</strong><br>
         The left side shows the physical devices we support. The right side shows the 5 simple steps to wire, configure, and connect any sensor.<br><br>
         <strong>Why it matters:</strong> Proves hands-on engineering knowledge of how software touches physical industrial hardware.`,
 
-    9: `<strong>What to say (30-45s):</strong><br>
+    10: `<strong>What to say (30-45s):</strong><br>
         "Let's trace one single sensor reading step by step. On Stenter #02, a PT100 temperature probe reads 185.5°C. The gateway reads that electrical voltage and creates a small data packet. It sends it over the factory network. AutoTaskX validates it and writes it to TimescaleDB. The dashboard screen immediately shows 185.5°C with a green status. You can click 'Animate Reading Pulse' to see the packet travel."<br><br>
         <strong>Interactive demo:</strong> Click the button in the top right to watch the packet pulse across all 6 nodes.<br><br>
         <strong>Why it matters:</strong> Clear, confident explanation of the complete data pipeline in plain English.`,
 
-    10: `<strong>What to say (30-45s):</strong><br>
+    11: `<strong>What to say (30-45s):</strong><br>
         "How do 50 machines talk to AutoTaskX without slowing down? We use MQTT. Think of MQTT as a digital post office: machines drop off small, lightweight telegrams, and the messaging server delivers them instantly. Most importantly, we follow a strict architecture rule: MQTT is only for small sensor numbers (under 1 KB). Large 20 MB fabric photos are uploaded separately via HTTPS directly to cloud storage."<br><br>
         <strong>Why it matters:</strong> Shows architectural maturity by decoupling high-frequency sensor telemetry from heavy file storage.`,
 
-    11: `<strong>What to say (30-45s):</strong><br>
+    12: `<strong>What to say (30-45s):</strong><br>
         "Where does all this factory information go? We use three specialized storage containers: PostgreSQL for organized business records like recipes and user accounts; TimescaleDB for continuous second-by-second measurements like temperature and pressure; and AWS S3 for large inspection photographs."<br><br>
         <strong>What the visual means:</strong><br>
         Three clean containers with everyday examples of what each one stores.<br><br>
         <strong>Why it matters:</strong> Explains database choices simply without confusing technical jargon.`,
 
-    12: `<strong>What to say (30-45s):</strong><br>
+    13: `<strong>What to say (30-45s):</strong><br>
         "Here is how data reaches the screen. A sensor reading is forwarded via MQTT, saved in TimescaleDB, and WebSockets push the update to the browser instantly without reloading the page. Notice the difference between Current Data (what is happening right now this second) and Historical Data (what happened over the last 8-hour shift)."<br><br>
         <strong>What the visual means:</strong><br>
         Contrasts live real-time dials for operators with historical trend lines for plant managers.<br><br>
         <strong>Why it matters:</strong> Demonstrates understanding of different user personas and real-time frontend engineering.`,
 
-    13: `<strong>What to say (30-45s):</strong><br>
+    14: `<strong>What to say (30-45s):</strong><br>
         "Textile factories already have enterprise software like SAP, Datatex NOW, or Infor. AutoTaskX does not replace them — it connects them to the shopfloor. The ERP sends work orders and customer recipes down to AutoTaskX, and AutoTaskX sends actual meters produced and chemical quantities consumed back up. No more manual paper data entry."<br><br>
         <strong>Before vs After:</strong><br>
         Before: Paper logs typed into ERP 2 days later with mistakes. After: Automated inventory sync as soon as fabric leaves the machine.`,
 
-    14: `<strong>What to say (30-45s):</strong><br>
+    15: `<strong>What to say (30-45s):</strong><br>
         "This slide brings everything together in one complete architecture map: Zone 1 is the physical factory with dye labs, cameras, and machines. Zone 2 is the gateway and network connection layer. Zone 3 is the AutoTaskX core with our backend and three specialized databases. Zone 4 is the live web interface and two-way ERP integration."<br><br>
         <strong>What the visual means:</strong><br>
         A 4-zone master blueprint summarizing the entire system.<br><br>
         <strong>Why it matters:</strong> Proves you can architect and explain an end-to-end industrial software solution.`,
 
-    15: `<strong>What to say (30-45s):</strong><br>
+    16: `<strong>What to say (30-45s):</strong><br>
         "What does the factory owner or general manager actually get? Instead of walking across noisy production floors and deciphering paper logs, they see complete reality on one screen: 24 active machines, 99.2% right-first-time quality, zero active temperature alerts, and 42,500 meters completed today. That means faster decisions, lower costs, and zero paperwork delays."<br><br>
         <strong>Why it matters:</strong> Ties all the technical engineering directly back to concrete business value and ROI.`,
 
-    16: `<strong>What to say (30-45s):</strong><br>
+    17: `<strong>What to say (30-45s):</strong><br>
         "Where can AutoTaskX go next? We have a phased, realistic roadmap: Stage 1 connects more legacy machines; Stage 2 expands automated AI defect classification; Stage 3 introduces deep historical recipe analytics; Stage 4 adds predictive maintenance warnings; and Stage 5 enables closed-loop autonomous machine adjustments."<br><br>
         <strong>Why it matters:</strong> Shows strategic product vision and honest engineering integrity about current vs future capabilities.`,
 
-    17: `<strong>What to say (30-45s):</strong><br>
+    18: `<strong>What to say (30-45s):</strong><br>
         "To conclude: AutoTaskX transforms disconnected textile factory operations into one unified, intelligent manufacturing platform. My name is Sheikh Shamiul Shakib, software engineer and textile engineering graduate from BUTEX. Thank you for your time, and I am very happy to answer any technical questions."<br><br>
         <strong>Why it matters:</strong> Professional, crisp, confident finish opening the floor for technical interview questions.`
   };
