@@ -1238,6 +1238,44 @@ html, body {
   margin-top: 10px;
 }
 
+.defect-examples-strip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-dark-nested);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 8px 14px;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.des-title {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--accent-cyan);
+  font-size: 11px;
+}
+
+.des-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 10px;
+  border-radius: 4px;
+  color: var(--text-body);
+}
+
+.des-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.des-dot.red { background: var(--alert-red); }
+.des-dot.amber { background: var(--alert-amber); }
+.des-dot.purple { background: var(--accent-purple); }
+
 .storage-rule-note strong {
   color: var(--accent-cyan);
 }
@@ -2404,6 +2442,14 @@ html, body {
   grid-template-columns: repeat(2, 1fr);
   padding: 18px;
   gap: 16px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.ehc-kpi-grid-8 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 14px 16px;
+  gap: 10px;
   border-bottom: 1px solid var(--border-subtle);
 }
 
