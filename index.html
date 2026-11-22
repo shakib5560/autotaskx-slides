@@ -1,0 +1,2429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoTaskX — Industrial Textile Intelligence Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app-container">
+    <!-- Top Progress Bar -->
+    <div id="progress-container">
+      <div id="progress-bar"></div>
+    </div>
+
+    <!-- Presentation Stage (Auto-scaled to 16:9 1920x1080) -->
+    <div id="stage-scaler">
+      <div id="presentation-stage">
+
+        <!-- ==================== SLIDE 01: COVER ==================== -->
+        <section class="slide slide-dark" data-slide="1" data-category="PLATFORM INTRODUCTION">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge cyan">SOFTWARE ENGINEER</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">TECHNICAL ARCHITECTURE BRIEFING</span>
+            </div>
+            <div class="header-right">
+              <span class="live-dot green"></span>
+              <span class="mono-text">GAZIPUR & NARAYANGANJ CLUSTERS: ONLINE</span>
+            </div>
+          </div>
+
+          <div class="slide-body cover-layout">
+            <div class="cover-content">
+              <div class="cover-brand">
+                <img src="logo-white.svg" alt="AutoTaskX Logo" class="brand-logo-white">
+              </div>
+              <h2 class="cover-subtitle">Industrial Textile Intelligence Platform</h2>
+              <div class="accent-line"></div>
+              <p class="cover-statement">"From Physical Factory Operations to Intelligent Digital Manufacturing."</p>
+
+              <div class="cover-grid-metrics">
+                <div class="cover-metric-item">
+                  <span class="cm-val">&lt; 25ms</span>
+                  <span class="cm-label">Telemetry & Sync Latency</span>
+                </div>
+                <div class="cover-metric-item">
+                  <span class="cm-val">0.32 ΔE00</span>
+                  <span class="cm-label">Lab-to-Bulk Color Match</span>
+                </div>
+                <div class="cover-metric-item">
+                  <span class="cm-val">16,384 px</span>
+                  <span class="cm-label">Line-Scan Optical Inspection</span>
+                </div>
+                <div class="cover-metric-item">
+                  <span class="cm-val">100% ACID</span>
+                  <span class="cm-label">TimescaleDB Time-Series Vault</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="cover-aside">
+              <div class="terminal-card">
+                <div class="term-header">
+                  <div class="term-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <span class="term-title">edge/system_mesh_status.log</span>
+                  <span class="term-tag">TLS 1.3 · DTLS 1.2</span>
+                </div>
+                <div class="term-body mono-text">
+                  <p class="term-line comment"># AutoTaskX Edge Gateway Telemetry Daemon v2.4</p>
+                  <p class="term-line"><span class="kwd">CONNECT</span> <span class="str">"coaps://iot.autotaskx.io:5684"</span> [OK]</p>
+                  <p class="term-line"><span class="kwd">DEVICE</span> <span class="val">urn:dev:plc:fong-jet-04</span> attached</p>
+                  <p class="term-line"><span class="kwd">BIND</span> IPSO 3303 (Temp) + IPSO 3323 (Bar) -> 124ms</p>
+                  <p class="term-line"><span class="kwd">VISION</span> Basler racer 2 L (16K @ 60kHz) -> CXP-12 [READY]</p>
+                  <p class="term-line"><span class="kwd">HYPERTABLE</span> TimescaleDB: 142k writes/sec chunked</p>
+                  <p class="term-line"><span class="kwd">ERP BRIDGE</span> Datatex NOW + SAP S/4HANA [SYNC ACTIVE]</p>
+                  <p class="term-line success">READY :: Closed-loop industrial loop armed.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">
+              <span class="author-name">Sheikh Shamiul Shakib</span>
+              <span class="author-role">Software Engineer</span>
+            </div>
+            <div class="footer-center">
+              <span class="footer-link">shamiulshakib.me</span>
+              <span class="footer-sep">·</span>
+              <span class="footer-link">github.com/shakib5560</span>
+              <span class="footer-sep">·</span>
+              <span class="footer-link">shamiulshakib.me/projects/autotaskx</span>
+            </div>
+            <div class="footer-right">
+              <span class="stack-tag">Next.js 16</span>
+              <span class="stack-tag">FastAPI</span>
+              <span class="stack-tag">TimescaleDB</span>
+              <span class="stack-tag">MQTT v5</span>
+              <span class="stack-tag">CoaXPress 2.0</span>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 02: THE INDUSTRIAL PROBLEM ==================== -->
+        <section class="slide slide-dark" data-slide="2" data-category="THE INDUSTRIAL CHALLENGE">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge green">THE CHALLENGE</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">CRITICAL MANUFACTURING BOTTLENECKS</span>
+            </div>
+            <div class="header-right">
+              <span class="mono-text">SOURCE: BUTEX TEXTILE ENGINEERING RESEARCH</span>
+            </div>
+          </div>
+
+          <div class="slide-body split-layout-45-55">
+            <div class="split-col-left">
+              <h2 class="slide-title">Textile Manufacturing Generates More Data Than It Can Effectively Use</h2>
+              <p class="slide-desc">Modern mills run multi-million dollar machinery across spinning, weaving, dyeing, and finishing. Yet operational decisions remain crippled by paper logs, subjective sensory checks, and disconnected data silos.</p>
+
+              <div class="problem-list">
+                <div class="problem-item">
+                  <div class="prob-num">01</div>
+                  <div class="prob-text">
+                    <h4>Fragmented Floor & Isolated Gauges</h4>
+                    <p>Analog dials, legacy 1990s PLCs, and clipboard notes force operators to manually walk the floor. High-frequency sensor trends are permanently lost at shift handoffs.</p>
+                  </div>
+                </div>
+
+                <div class="problem-item">
+                  <div class="prob-num">02</div>
+                  <div class="prob-text">
+                    <h4>Slow Lab Trials & Chemical Waste</h4>
+                    <p>Manual dye formulation requires 24–72 hours of trial-and-error lab dips. Each uncalibrated batch wastes dye auxiliaries, steam, and machine production slots.</p>
+                  </div>
+                </div>
+
+                <div class="problem-item">
+                  <div class="prob-num">03</div>
+                  <div class="prob-text">
+                    <h4>Subjective Fabric Quality Inspection</h4>
+                    <p>Human inspectors running fabric at 30 m/min miss 35–40% of micro-defects (warp floats, oil streaks, reed marks), leading to devastating export chargebacks.</p>
+                  </div>
+                </div>
+
+                <div class="problem-item">
+                  <div class="prob-num">04</div>
+                  <div class="prob-text">
+                    <h4>ERP Drift & Inventory Silos</h4>
+                    <p>End-of-day batch transcription introduces discrepancies between actual chemical floor consumption and SAP/Datatex stock ledgers.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="thesis-note">
+                <span class="thesis-pill">ACADEMIC FOUNDATION</span>
+                <span>Born from a 150-page BUTEX textile engineering thesis on closed-loop dyehouse automation.</span>
+              </div>
+            </div>
+
+            <div class="split-col-right">
+              <div class="factory-image-wrapper">
+                <img src="textile_factory_floor.png" alt="Industrial Textile Weaving and Warping Floor" class="factory-img">
+                <div class="image-overlay-card">
+                  <div class="ioc-header">
+                    <span class="ioc-dot red"></span>
+                    <span class="ioc-title">CRITICAL DISCONNECT: WEAVING & DYEHOUSE</span>
+                  </div>
+                  <div class="ioc-body">
+                    <div class="ioc-row">
+                      <span>Telemetry Loss:</span>
+                      <strong class="warn">94% of live sensor pulses discarded</strong>
+                    </div>
+                    <div class="ioc-row">
+                      <span>Lab Dip Cycle:</span>
+                      <strong class="warn">2.8 average revisions per shade</strong>
+                    </div>
+                    <div class="ioc-row">
+                      <span>Inspection Escape:</span>
+                      <strong class="warn">6–8 defects per 1000m undetected</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 02 / 22</div>
+            <div class="footer-right">THE INDUSTRIAL PROBLEM</div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 03: THE AUTOTASKX VISION ==================== -->
+        <section class="slide slide-dark" data-slide="3" data-category="PLATFORM VISION & STRATEGY">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge blue">PLATFORM VISION</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">UNIFIED INDUSTRIAL INTELLIGENCE</span>
+            </div>
+            <div class="header-right">
+              <span class="mono-text">ISO/CIE INDUSTRIAL TEXTILE STANDARD COMPLIANT</span>
+            </div>
+          </div>
+
+          <div class="slide-body split-layout-55-45">
+            <div class="split-col-left">
+              <h2 class="slide-title">One Connected Intelligence Layer for the Entire Textile Factory</h2>
+              <p class="slide-desc">AutoTaskX does not ask textile mills to discard their existing machines or ERP. Instead, it deploys a non-invasive edge-to-cloud intelligence nervous system that connects laboratory chemistry, high-speed machine vision, shopfloor telemetry, and enterprise business software.</p>
+
+              <div class="vision-pillars-grid">
+                <div class="v-pillar">
+                  <div class="v-pillar-icon blue">01</div>
+                  <div class="v-pillar-content">
+                    <h4>Precision Color Science</h4>
+                    <p>Kubelka-Munk NNLS spectral matching replaces trial-and-error dips with instant algorithmic formulations.</p>
+                  </div>
+                </div>
+                <div class="v-pillar">
+                  <div class="v-pillar-icon green">02</div>
+                  <div class="v-pillar-content">
+                    <h4>Continuous 16K Machine Vision</h4>
+                    <p>Basler line-scan inspection with sub-millimeter defect detection and AWS S3 cloud archiving.</p>
+                  </div>
+                </div>
+                <div class="v-pillar">
+                  <div class="v-pillar-icon amber">03</div>
+                  <div class="v-pillar-content">
+                    <h4>Autonomous Production OEE</h4>
+                    <p>Real-time machine state classification, bottleneck prediction, and natural-language AI analytics.</p>
+                  </div>
+                </div>
+                <div class="v-pillar">
+                  <div class="v-pillar-icon purple">04</div>
+                  <div class="v-pillar-content">
+                    <h4>Industrial IoT & TimescaleDB</h4>
+                    <p>Continuous LwM2M/MQTT ingestion of temperature, pressure, and motor telemetry at sub-25ms latency.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="vision-bottom-callout">
+                <span class="mono-badge navy">ENTERPRISE INTEROPERABILITY</span>
+                <span>Bidirectional transaction bridge for Datatex NOW, SAP S/4HANA, and Infor M3.</span>
+              </div>
+            </div>
+
+            <div class="split-col-right">
+              <div class="ui-hero-container">
+                <img src="autotaskx_ui_hero.png" alt="AutoTaskX Control Environment UI" class="ui-hero-img">
+                <div class="ui-kpi-sidebar">
+                  <div class="kpi-chip">
+                    <span class="kpi-num blue">0.32 ΔE00</span>
+                    <span class="kpi-lbl">Average spectral match</span>
+                  </div>
+                  <div class="kpi-chip">
+                    <span class="kpi-num green">99.4%</span>
+                    <span class="kpi-lbl">8K defect recall rate</span>
+                  </div>
+                  <div class="kpi-chip">
+                    <span class="kpi-num teal">-64%</span>
+                    <span class="kpi-lbl">Lab dip iterations</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 03 / 22</div>
+            <div class="footer-right">PLATFORM VISION</div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 04: PLATFORM OVERVIEW (5 MODULES) ==================== -->
+        <section class="slide slide-dark" data-slide="4" data-category="PLATFORM ARCHITECTURE">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge navy">PLATFORM OVERVIEW</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">FIVE INTEGRATED CORE MODULES</span>
+            </div>
+            <div class="header-right">
+              <span class="mono-text">END-TO-END INDUSTRIAL ECOSYSTEM</span>
+            </div>
+          </div>
+
+          <div class="slide-body vertical-flow">
+            <div class="section-title-wrap">
+              <h2 class="slide-title">Five Integrated Modules. One Industrial Ecosystem.</h2>
+              <p class="slide-desc">Every manufacturing department interacts with a unified software surface while sharing an ACID-compliant time-series and relational data core.</p>
+            </div>
+
+            <div class="modules-cards-5">
+              <!-- Module 1 -->
+              <div class="mod-card">
+                <div class="mod-num">01</div>
+                <div class="mod-badge blue">LAB CHEMISTRY</div>
+                <h3 class="mod-name">Color Formulation</h3>
+                <p class="mod-desc">Precision spectral matching, dye calculation, and automated chemical dispenser recipes.</p>
+                <div class="mod-img-wrap">
+                  <img src="module_01_color.jpg" alt="Color Formulation Chemistry & Spectral Pipetting" class="mod-card-img">
+                </div>
+                <div class="mod-spec-grid">
+                  <div class="msg-row"><span>Inputs:</span> <strong>Reflectance curve, GSM, Dye DB</strong></div>
+                  <div class="msg-row"><span>Engine:</span> <strong>Kubelka-Munk NNLS Solver</strong></div>
+                  <div class="msg-row"><span>Output:</span> <strong>Recipe (g/kg), Predicted ΔE</strong></div>
+                  <div class="msg-row"><span>Infra:</span> <strong>Spectrophotometer, Auto-Dispenser</strong></div>
+                </div>
+              </div>
+
+              <!-- Module 2 -->
+              <div class="mod-card">
+                <div class="mod-num">02</div>
+                <div class="mod-badge green">MACHINE VISION</div>
+                <h3 class="mod-name">Visual Quality Inspection</h3>
+                <p class="mod-desc">Continuous optical fabric inspection with sub-millimeter flaw classification and cloud image lake.</p>
+                <div class="mod-img-wrap">
+                  <img src="module_02_vision.png" alt="Basler Racer 2L Industrial Line Scan Camera" class="mod-card-img">
+                </div>
+                <div class="mod-spec-grid">
+                  <div class="msg-row"><span>Inputs:</span> <strong>16,384 px line frames @ 60kHz</strong></div>
+                  <div class="msg-row"><span>Engine:</span> <strong>Basler pylon + OpenCV Stitcher</strong></div>
+                  <div class="msg-row"><span>Output:</span> <strong>Defect Map, Bounding Boxes</strong></div>
+                  <div class="msg-row"><span>Infra:</span> <strong>CXP-12 Grabber, AWS S3, PostgreSQL</strong></div>
+                </div>
+              </div>
+
+              <!-- Module 3 -->
+              <div class="mod-card">
+                <div class="mod-num">03</div>
+                <div class="mod-badge amber">FACTORY OEE</div>
+                <h3 class="mod-name">Production Intelligence</h3>
+                <p class="mod-desc">Real-time floor monitoring, bottleneck analysis, shift forecasting, and conversational AI analyst.</p>
+                <div class="mod-img-wrap">
+                  <img src="textile_factory_floor.png" alt="Textile Mill Production Floor Machinery" class="mod-card-img">
+                </div>
+                <div class="mod-spec-grid">
+                  <div class="msg-row"><span>Inputs:</span> <strong>PLC speed, meters, runtime, faults</strong></div>
+                  <div class="msg-row"><span>Engine:</span> <strong>OEE & Anomaly Pattern Predictor</strong></div>
+                  <div class="msg-row"><span>Output:</span> <strong>Target vs Actual, RFT %, RUL</strong></div>
+                  <div class="msg-row"><span>Infra:</span> <strong>TimescaleDB, Redis, Next.js HUD</strong></div>
+                </div>
+              </div>
+
+              <!-- Module 4 -->
+              <div class="mod-card">
+                <div class="mod-num">04</div>
+                <div class="mod-badge teal">CENTRAL NERVOUS</div>
+                <h3 class="mod-name">Textile OS</h3>
+                <p class="mod-desc">Centralized industrial IoT data layer, protocol abstraction, device registry, and time-series hypertables.</p>
+                <div class="mod-img-wrap">
+                  <img src="module_04_iot.jpg" alt="Industrial IoT Gateway & Sensor Architecture" class="mod-card-img">
+                </div>
+                <div class="mod-spec-grid">
+                  <div class="msg-row"><span>Inputs:</span> <strong>Modbus, OPC UA, LwM2M, Serial</strong></div>
+                  <div class="msg-row"><span>Engine:</span> <strong>EMQX MQTT v5 Ingestion Gateway</strong></div>
+                  <div class="msg-row"><span>Output:</span> <strong>Sub-25ms Unified Telemetry Stream</strong></div>
+                  <div class="msg-row"><span>Infra:</span> <strong>Edge Gateways, TimescaleDB 16</strong></div>
+                </div>
+              </div>
+
+              <!-- Module 5 -->
+              <div class="mod-card">
+                <div class="mod-num">05</div>
+                <div class="mod-badge purple">ENTERPRISE BRIDGE</div>
+                <h3 class="mod-name">ERP Integration</h3>
+                <p class="mod-desc">Bidirectional industrial data bridge connecting shopfloor execution to enterprise accounting ledgers.</p>
+                <div class="mod-img-wrap">
+                  <img src="module_05_erp.jpg" alt="Enterprise Cloud Datacenter & ERP Data Bridge" class="mod-card-img">
+                </div>
+                <div class="mod-spec-grid">
+                  <div class="msg-row"><span>Inputs:</span> <strong>Work orders, BOM, customer specs</strong></div>
+                  <div class="msg-row"><span>Engine:</span> <strong>Schema Mapping & Transaction Outbox</strong></div>
+                  <div class="msg-row"><span>Output:</span> <strong>Stock depletion, Goods Receipt</strong></div>
+                  <div class="msg-row"><span>Infra:</span> <strong>Datatex NOW, SAP S/4HANA, Infor M3</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 04 / 22</div>
+            <div class="footer-right">PLATFORM OVERVIEW</div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 05: FEATURE 01 - COLOR FORMULATION ==================== -->
+        <section class="slide slide-dark" data-slide="5" data-category="FEATURE 01 · COLOR FORMULATION">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge blue">FEATURE 01</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">SPECTRAL DISPERSION SUITE & MOBILE FABRIC VISION</span>
+            </div>
+            <div class="header-right">
+              <span class="mono-text">CIELAB dE00 ALGORITHMIC CORE</span>
+            </div>
+          </div>
+
+          <div class="slide-body split-layout-50-50">
+            <div class="split-col-left">
+              <h2 class="slide-title">Precision Color Formulation with Computational Assistance</h2>
+              <p class="slide-desc">Replacing subjective trial-and-error recipe formulation with rigorous Kubelka-Munk spectral absorption and scattering math. Integrates laboratory spectrophotometers, mobile fabric vision, and historical recipe data.</p>
+
+              <div class="tri-input-box">
+                <span class="tri-title">TRIPLE INPUT INGESTION CHANNELS</span>
+                <div class="tri-grid">
+                  <div class="tri-item">
+                    <span class="tri-badge">01 · LAB HARDWARE</span>
+                    <strong>Spectrophotometer</strong>
+                    <p>Raw 380nm–700nm reflectance stream via MQTT edge gateway.</p>
+                  </div>
+                  <div class="tri-item">
+                    <span class="tri-badge">02 · MOBILE VISION</span>
+                    <strong>Smartphone Camera</strong>
+                    <p>Standardized RGB/HSV illumination calibration via Textile OS.</p>
+                  </div>
+                  <div class="tri-item">
+                    <span class="tri-badge">03 · PRODUCTION DB</span>
+                    <strong>Historical Recipes</strong>
+                    <p>Machine-specific dye affinity and exhaustion curves from past batches.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="math-card">
+                <div class="mc-title">KUBELKA-MUNK ABSORPTION MATRIX SOLVER</div>
+                <div class="math-eq">
+                  \frac{K}{S} = \frac{(1 - R_\lambda)^2}{2 R_\lambda} = \left(\frac{K}{S}\right)_{\text{substrate}} + \sum_{i=1}^{n} c_i \cdot \alpha_{i,\lambda}
+                </div>
+                <p class="math-expl">Non-Negative Least Squares (NNLS) calculates exact dye concentrations ($c_i$) to match the target spectral curve while minimizing metamerism under D65, TL84, and A illuminants.</p>
+              </div>
+
+              <div class="industrial-disclaimer">
+                <span class="disclaim-icon">⚠️</span>
+                <span><strong>Industrial Engineering Notice:</strong> Color formulation outputs are algorithmic mathematical predictions. Every calculated recipe requires physical sample verification (lab dip) prior to bulk liquor preparation.</span>
+              </div>
+            </div>
+
+            <div class="split-col-right">
+              <div class="formulation-workflow-card">
+                <div class="fwc-header">
+                  <span class="fwc-title">THE 8-STEP FORMULATION PIPELINE</span>
+                  <span class="mono-badge green">SOLVER LATENCY: 14.2ms</span>
+                </div>
+                <div class="pipeline-steps">
+                  <div class="p-step active">
+                    <span class="p-num">01</span>
+                    <div class="p-info"><strong>Fabric Type & Composition</strong><span>100% Combed Cotton, Single Jersey, 180 GSM</span></div>
+                  </div>
+                  <div class="p-step">
+                    <span class="p-num">02</span>
+                    <div class="p-info"><strong>Target Spectral Definition</strong><span>L*: 48.24, a*: 12.80, b*: -28.40 (Pantone 19-3952 Classic Blue)</span></div>
+                  </div>
+                  <div class="p-step">
+                    <span class="p-num">03</span>
+                    <div class="p-info"><strong>Inventory Dye Database Selection</strong><span>Reactive RGB: Sunfix Blue S-R, Yellow S-4G, Red S-3B</span></div>
+                  </div>
+                  <div class="p-step">
+                    <span class="p-num">04</span>
+                    <div class="p-info"><strong>Liquor Ratio & Volume Rules</strong><span>Material-to-Liquor Ratio: 1:8, Total Bath: 4,800 Liters</span></div>
+                  </div>
+                  <div class="p-step">
+                    <span class="p-num">05</span>
+                    <div class="p-info"><strong>NNLS Computational Solver</strong><span>Matrix inversion with penalty for metameric index > 0.5</span></div>
+                  </div>
+                  <div class="p-step">
+                    <span class="p-num">06</span>
+                    <div class="p-info"><strong>Dye & Chemical Quantity Calculation</strong><span>Dye: 2.148% (12.88 kg) · Glauber Salt: 60 g/L · Soda Ash: 15 g/L</span></div>
+                  </div>
+                  <div class="p-step">
+                    <span class="p-num">07</span>
+                    <div class="p-info"><strong>Automated Dispenser Transmission</strong><span>Encrypted MQTT dispatch to lab pipetting robot</span></div>
+                  </div>
+                  <div class="p-step">
+                    <span class="p-num">08</span>
+                    <div class="p-info"><strong>Lab Validation & Batch Archival</strong><span>Post-wash spectrophotometer scan: ΔE00 = 0.28 (PASS &lt; 0.50)</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 05 / 22</div>
+            <div class="footer-right">FEATURE 01 · COLOR FORMULATION</div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 06: FEATURE 01 - LAB EQUIPMENT IOT & MQTT ==================== -->
+        <section class="slide slide-dark" data-slide="6" data-category="FEATURE 01 · LAB IOT INTEGRATION">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge cyan">FEATURE 01 · PHYSICAL LAB IOT</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">HARDWARE CONNECTIVITY & SPECTRAL INGESTION</span>
+            </div>
+            <div class="header-right">
+              <span class="mono-text">EMQX BROKER · QoS 1 GUARANTEED DELIVERY</span>
+            </div>
+          </div>
+
+          <div class="slide-body split-layout-45-55">
+            <div class="split-col-left">
+              <h2 class="slide-title">Connecting Physical Lab Hardware via Industrial IoT Gateway</h2>
+              <p class="slide-desc">Textile laboratories rely on specialized equipment that rarely communicates over standard web protocols. AutoTaskX bridges serial, USB, and Modbus laboratory devices into standardized MQTT v5 telemetry.</p>
+
+              <div class="hardware-spec-cards">
+                <div class="hw-card">
+                  <div class="hw-icon">🔬</div>
+                  <div class="hw-content">
+                    <h4>Benchtop Spectrophotometer</h4>
+                    <p>RS-232 / USB to IoT Edge Gateway. Captures 31 spectral reflectance points (400–700nm at 10nm intervals) per flash.</p>
+                  </div>
+                </div>
+                <div class="hw-card">
+                  <div class="hw-icon">🧪</div>
+                  <div class="hw-content">
+                    <h4>Automatic Chemical Dispenser</h4>
+                    <p>Modbus TCP to Gateway. Accepts recipe g/kg dosing targets; returns valve metering telemetry and chemical stock.</p>
+                  </div>
+                </div>
+                <div class="hw-card">
+                  <div class="hw-icon">⚖️</div>
+                  <div class="hw-content">
+                    <h4>Precision Weighing Scale (0.001g)</h4>
+                    <p>Continuous serial weight stream. Prevents human transcription errors when weighing auxiliary chemicals.</p>
+                  </div>
+                </div>
+                <div class="hw-card">
+                  <div class="hw-icon">🌡️</div>
+                  <div class="hw-content">
+                    <h4>Laboratory Conditioning Sensors</h4>
+                    <p>Monitors ambient 20°C ± 2°C and 65% ± 4% RH to ensure international standard testing conditioning (ISO 139).</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="split-col-right">
+              <div class="mqtt-stream-wrapper">
+                <div class="topic-hierarchy-banner">
+                  <span class="th-label">TOPIC STRUCTURE:</span>
+                  <code>autotaskx/color/{device_type}/{device_id}/measurements</code>
+                </div>
+
+                <div class="terminal-card light-code-box">
+                  <div class="term-header">
+                    <div class="term-dots">
+                      <span class="dot red"></span>
+                      <span class="dot yellow"></span>
+                      <span class="dot green"></span>
+                    </div>
+                    <span class="term-title">MQTT Ingestion Stream :: autotaskx/color/spectrophotometer/readings</span>
+                    <span class="term-tag">PORT 8883 · TLS 1.3</span>
+                  </div>
+                  <div class="term-body mono-text code-scroll">
+<pre>{
+  <span class="str">"timestamp"</span>: <span class="str">"2026-11-22T17:15:08.412Z"</span>,
+  <span class="str">"mill_id"</span>: <span class="str">"MILL_GAZIPUR_01"</span>,
+  <span class="str">"device_id"</span>: <span class="str">"SPECTRO_DATACOLOR_800"</span>,
+  <span class="str">"illuminant"</span>: <span class="str">"D65_10deg"</span>,
+  <span class="str">"cielab"</span>: {
+    <span class="str">"L"</span>: <span class="val">64.21</span>,
+    <span class="str">"a"</span>: <span class="val">14.12</span>,
+    <span class="str">"b"</span>: <span class="val">8.31</span>
+  },
+  <span class="str">"delta_e_00"</span>: <span class="val">0.28</span>,
+  <span class="str">"spectral_reflectance"</span>: [
+    <span class="val">0.082</span>, <span class="val">0.091</span>, <span class="val">0.114</span>, <span class="val">0.158</span>, <span class="val">0.219</span>, <span class="val">0.298</span>, 
+    <span class="val">0.374</span>, <span class="val">0.441</span>, <span class="val">0.490</span>, <span class="val">0.518</span>, <span class="val">0.529</span>, <span class="val">0.531</span>
+  ],
+  <span class="str">"status"</span>: <span class="str">"PASS_TOLERANCE_ACCEPTED"</span>,
+  <span class="str">"operator_id"</span>: <span class="str">"OP_SHAKIB_55"</span>
+}</pre>
+                  </div>
+                </div>
+
+                <div class="mqtt-action-bar">
+                  <div class="mab-stat">
+                    <span>Broker Latency:</span>
+                    <strong class="green">3.4 ms</strong>
+                  </div>
+                  <div class="mab-stat">
+                    <span>FastAPI Queue:</span>
+                    <strong>Zero Backpressure</strong>
+                  </div>
+                  <div class="mab-stat">
+                    <span>Database Sink:</span>
+                    <strong class="blue">TimescaleDB Hypertable</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 06 / 22</div>
+            <div class="footer-right">FEATURE 01 · LAB IOT INTEGRATION</div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 07: FEATURE 02 - INDUSTRIAL CAMERA INTEGRATION ==================== -->
+        <section class="slide slide-dark" data-slide="7" data-category="FEATURE 02 · MACHINE VISION">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge green">FEATURE 02</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">INDUSTRIAL MACHINE VISION & LINE SCAN OPTICS</span>
+            </div>
+            <div class="header-right">
+              <span class="mono-text">AUTHENTIC TEXTILE INSPECTION VISION LAB SETUP</span>
+            </div>
+          </div>
+
+          <div class="slide-body split-layout-50-50">
+            <div class="split-col-left">
+              <h2 class="slide-title">See Every Fabric Defect. Capture Every Inspection.</h2>
+              <p class="slide-desc">Industrial fabric inspection cannot use standard consumer webcams or low-resolution area sensors. AutoTaskX integrates high-speed line scan cameras over CoaXPress 2.0 to capture continuous moving web textile rolls with microscopic clarity.</p>
+
+              <!-- Basler racer 2 L specs -->
+              <div class="camera-hero-card">
+                <div class="ch-badge">CORE INDUSTRIAL SENSOR</div>
+                <h3 class="ch-model">Basler racer 2 L – R2L16384-60cc</h3>
+                <p class="ch-tag">Color Industrial Line Scan Camera for Continuous Textile Inspection</p>
+
+                <div class="spec-table">
+                  <div class="st-row">
+                    <span class="st-k">Camera Architecture</span>
+                    <span class="st-v">Industrial Line Scan (Continuous Fabric Web)</span>
+                  </div>
+                  <div class="st-row">
+                    <span class="st-k">Optical Resolution</span>
+                    <span class="st-v highlight">16,384 × 2 pixels (True 16K Optical Width)</span>
+                  </div>
+                  <div class="st-row">
+                    <span class="st-k">Maximum Line Rate</span>
+                    <span class="st-v highlight">60 kHz (60,000 scanned lines / sec)</span>
+                  </div>
+                  <div class="st-row">
+                    <span class="st-k">Physical Interface</span>
+                    <span class="st-v">CoaXPress 2.0 (CXP-12 Micro-BNC Quad)</span>
+                  </div>
+                  <div class="st-row">
+                    <span class="st-k">Sensor Technology</span>
+                    <span class="st-v">Color CMOS with Spatial Line Correction</span>
+                  </div>
+                  <div class="st-row">
+                    <span class="st-k">Target Application</span>
+                    <span class="st-v">High-speed Greige & Finished Fabric Inspection</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hardware-chain-banner">
+                <div class="hcb-node">Basler 16K Camera</div>
+                <div class="hcb-arrow">→ CXP Cables →</div>
+                <div class="hcb-node">CXP-12 Grabber</div>
+                <div class="hcb-arrow">→ PCIe Bus →</div>
+                <div class="hcb-node">Edge PC (Python SDK)</div>
+              </div>
+            </div>
+
+            <div class="split-col-right">
+              <div class="lab-photo-frame">
+                <img src="Textile Inspection Vision Lab.png" alt="AutoTaskX Vision Lab Testbed with Basler Camera" class="lab-img">
+                <div class="lab-photo-badge">
+                  <span class="lpb-tag">VISION LAB TESTBED</span>
+                  <span>Basler racer 2 L mounted overhead on rigid aluminum gantry with LED array & industrial acquisition PC</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 07 / 22</div>
+            <div class="footer-right">FEATURE 02 · INDUSTRIAL CAMERA INTEGRATION</div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 08: FEATURE 02 - DUAL DATA PIPELINE ==================== -->
+        <section class="slide slide-dark" data-slide="8" data-category="FEATURE 02 · DUAL DATA PIPELINE">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge green">FEATURE 02 · ARCHITECTURE</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">HIGH-RESOLUTION S3 IMAGE STORAGE & REAL-TIME MQTT TELEMETRY</span>
+            </div>
+            <div class="header-right">
+              <span class="mono-text">TWO PARALLEL DECOUPLED PIPELINES</span>
+            </div>
+          </div>
+
+          <div class="slide-body vertical-flow">
+            <div class="section-title-wrap">
+              <h2 class="slide-title">End-to-End Vision Pipeline: Decoupling Heavy Storage from Ultra-Fast IoT</h2>
+              <p class="slide-desc">A critical architectural principle: <strong>Industrial cameras NEVER publish multi-gigabyte raw TIFF images through MQTT brokers.</strong> AutoTaskX implements dual parallel pipelines for lossless archival and sub-25ms event streaming.</p>
+            </div>
+
+            <div class="dual-pipeline-diagram">
+              <!-- Edge PC Central Box -->
+              <div class="dp-edge-source">
+                <div class="dp-box-header">
+                  <span class="mono-badge navy">PHYSICAL ACQUISITION EDGE</span>
+                  <h4>Industrial Edge PC (Linux RT)</h4>
+                  <span class="dp-sub">Basler pylon SDK · OpenCV Line Reconstructor · Ring Buffer</span>
+                </div>
+                <div class="dp-flow-split">
+                  <div class="split-arrow-a">
+                    <span class="arrow-lbl">PIPELINE A: Raw Image TIFF</span>
+                    <span class="arrow-sym">↘</span>
+                  </div>
+                  <div class="split-arrow-b">
+                    <span class="arrow-lbl">PIPELINE B: Lightweight JSON Event</span>
+                    <span class="arrow-sym">↗</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Two Parallel Streams -->
+              <div class="dp-lanes-container">
+                <!-- Pipeline A -->
+                <div class="dp-lane lane-storage">
+                  <div class="lane-header">
+                    <span class="lane-pill blue">PIPELINE A · CLOUD IMAGE ARCHIVAL</span>
+                    <h4>Heavyweight Image Storage (Direct to S3)</h4>
+                  </div>
+                  <div class="lane-steps">
+                    <div class="ls-card">
+                      <span class="ls-step">1</span>
+                      <strong>Pre-signed URL Request</strong>
+                      <p>Edge PC requests upload authorization from FastAPI backend.</p>
+                    </div>
+                    <div class="ls-card">
+                      <span class="ls-step">2</span>
+                      <strong>Direct AWS S3 Upload</strong>
+                      <p>High-resolution TIFF stream uploaded directly to S3 via HTTPS PUT.</p>
+                    </div>
+                    <div class="ls-card">
+                      <span class="ls-step">3</span>
+                      <strong>PostgreSQL Metadata</strong>
+                      <p>S3 object key, roll ID, and frame index indexed in PostgreSQL database.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Pipeline B -->
+                <div class="dp-lane lane-mqtt">
+                  <div class="lane-header">
+                    <span class="lane-pill green">PIPELINE B · REAL-TIME IOT TELEMETRY</span>
+                    <h4>Lightweight Device Telemetry (MQTT v5)</h4>
+                  </div>
+                  <div class="lane-steps">
+                    <div class="ls-card">
+                      <span class="ls-step">1</span>
+                      <strong>MQTT Event Publishing</strong>
+                      <p>Edge publishes camera FPS, encoder position, and defect bounding boxes.</p>
+                    </div>
+                    <div class="ls-card">
+                      <span class="ls-step">2</span>
+                      <strong>EMQX Message Broker</strong>
+                      <p>High-throughput topic routing on <code>autotaskx/inspection/defects</code>.</p>
+                    </div>
+                    <div class="ls-card">
+                      <span class="ls-step">3</span>
+                      <strong>WebSocket Broadcast</strong>
+                      <p>FastAPI pushes instant visual alert to Next.js dashboard (&lt;25ms).</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom Destination: Next.js Dashboard -->
+              <div class="dp-dashboard-sink">
+                <div class="sink-badge">UNIFIED DIGITAL TWIN DASHBOARD</div>
+                <p>The operator's Next.js HUD receives the real-time WebSocket event, then requests secure temporary CDN viewing tokens to display the high-resolution S3 inspection tiles seamlessly.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 08 / 22</div>
+            <div class="footer-right">FEATURE 02 · DUAL DATA PIPELINE</div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 09: FEATURE 02 - SEQUENCE & HUD PREVIEW ==================== -->
+        <section class="slide slide-dark" data-slide="9" data-category="FEATURE 02 · SEQUENCE & HUD">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge green">FEATURE 02 · SEQUENCE & HUD</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">TRANSACTION INTERACTION & LIVE INSPECTION HUD</span>
+            </div>
+            <div class="header-right">
+              <span class="mono-text">8K DEFECT RECALL: 99.4%</span>
+            </div>
+          </div>
+
+          <div class="slide-body split-layout-50-50">
+            <div class="split-col-left">
+              <h3 class="subsection-title">Inspection Sequence Protocol</h3>
+              <div class="sequence-box">
+                <div class="seq-step-item">
+                  <div class="seq-badge">01</div>
+                  <div class="seq-desc"><strong>Basler Line Sensor</strong> pulses 16,384 px line frames over CXP-12 to Frame Grabber at 60 kHz.</div>
+                </div>
+                <div class="seq-step-item">
+                  <div class="seq-badge">02</div>
+                  <div class="seq-desc"><strong>Edge PC Ring Buffer</strong> reconstructs complete 16K × 4096 fabric tile (0.5 meter running cloth).</div>
+                </div>
+                <div class="seq-step-item">
+                  <div class="seq-badge">03</div>
+                  <div class="seq-desc"><strong>Edge PC ↔ FastAPI</strong> requests pre-signed AWS S3 upload URL with SHA-256 integrity hash.</div>
+                </div>
+                <div class="seq-step-item">
+                  <div class="seq-badge">04</div>
+                  <div class="seq-desc"><strong>Edge PC → AWS S3</strong> executes direct multipart upload (<code>s3://autotaskx-vault/roll-8842/tile-0412.tif</code>).</div>
+                </div>
+                <div class="seq-step-item">
+                  <div class="seq-badge">05</div>
+                  <div class="seq-desc"><strong>Edge PC → EMQX Broker</strong> publishes capture event on <code>autotaskx/inspection/image</code> (QoS 1).</div>
+                </div>
+                <div class="seq-step-item">
+                  <div class="seq-badge">06</div>
+                  <div class="seq-desc"><strong>FastAPI Backend</strong> validates S3 object key, records metadata in PostgreSQL, pushes WebSocket alert.</div>
+                </div>
+                <div class="seq-step-item">
+                  <div class="seq-badge">07</div>
+                  <div class="seq-desc"><strong>Next.js Dashboard</strong> fetches image from S3 via secure signed URL and paints defect bounding boxes.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="split-col-right">
+              <h3 class="subsection-title">Proposed Inspection HUD Preview</h3>
+              <div class="hud-preview-card">
+                <div class="hud-top-bar">
+                  <div class="hud-cam-status">
+                    <span class="live-dot green"></span>
+                    <span>BASLER r2L16384-60cc · 59.8 kHz</span>
+                  </div>
+                  <div class="hud-roll-id">ROLL #R-8842-POLY-BLEND</div>
+                  <div class="hud-s3-status">S3 SYNC: ACK (200 OK)</div>
+                </div>
+
+                <div class="hud-fabric-canvas">
+                  <!-- Simulated fabric inspection tile -->
+                  <div class="fabric-texture-bg">
+                    <!-- Defect 1 -->
+                    <div class="defect-box defect-warp" style="top: 25%; left: 35%; width: 90px; height: 140px;">
+                      <span class="defect-label">WARP FLOAT · conf: 0.982</span>
+                    </div>
+                    <!-- Defect 2 -->
+                    <div class="defect-box defect-oil" style="top: 65%; left: 60%; width: 120px; height: 80px;">
+                      <span class="defect-label">OIL STAIN · conf: 0.964</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="hud-bottom-telemetry">
+                  <div class="hbt-item">
+                    <span>Line Speed:</span>
+                    <strong>42.5 m/min</strong>
+                  </div>
+                  <div class="hbt-item">
+                    <span>Scanned Length:</span>
+                    <strong>1,248.5 m</strong>
+                  </div>
+                  <div class="hbt-item">
+                    <span>Defects Found:</span>
+                    <strong class="warn">3 (Grade A)</strong>
+                  </div>
+                  <div class="hbt-item">
+                    <span>Resolution:</span>
+                    <strong>16,384 × 4,096 px</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 09 / 22</div>
+            <div class="footer-right">FEATURE 02 · SEQUENCE & HUD PREVIEW</div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 10: FEATURE 03 - PRODUCTION INTELLIGENCE ==================== -->
+        <section class="slide slide-dark" data-slide="10" data-category="FEATURE 03 · PRODUCTION INTELLIGENCE">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge amber">FEATURE 03</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">REAL-TIME FACTORY INTELLIGENCE & OEE ANALYTICS</span>
+            </div>
+            <div class="header-right">
+              <span class="mono-text">"YOUR ENTIRE FACTORY. ONE INTELLIGENT PLATFORM."</span>
+            </div>
+          </div>
+
+          <div class="slide-body vertical-flow">
+            <div class="section-title-wrap">
+              <h2 class="slide-title">Real-Time Factory Intelligence, Predictive Analytics & Autonomous Monitoring</h2>
+              <p class="slide-desc">Connecting physical shopfloor machinery, PLC controllers, and environmental sensors into continuous operational intelligence across spinning, knitting, dyeing, and finishing mills.</p>
+            </div>
+
+            <!-- KPI Summary Cards -->
+            <div class="kpi-banner-row">
+              <div class="kpi-banner-card">
+                <span class="kbc-title">OVERALL EQUIPMENT EFFECTIVENESS</span>
+                <div class="kbc-main">
+                  <span class="kbc-val green">86.4%</span>
+                  <span class="kbc-trend up">+3.2% vs target</span>
+                </div>
+                <div class="kbc-sub">Avail: 92.1% · Perf: 95.8% · Qual: 97.9%</div>
+              </div>
+
+              <div class="kpi-banner-card">
+                <span class="kbc-title">RIGHT FIRST TIME (RFT) RATE</span>
+                <div class="kbc-main">
+                  <span class="kbc-val blue">94.2%</span>
+                  <span class="kbc-trend up">-64% re-dyeing</span>
+                </div>
+                <div class="kbc-sub">Average ΔE00: 0.38 across 48 batches</div>
+              </div>
+
+              <div class="kpi-banner-card">
+                <span class="kbc-title">TODAY'S PRODUCTION OUTPUT</span>
+                <div class="kbc-main">
+                  <span class="kbc-val">142,850 m</span>
+                  <span class="kbc-trend">Target: 150,000 m</span>
+                </div>
+                <div class="kbc-sub">Shift A: 78.4k m · Shift B: 64.4k m (Active)</div>
+              </div>
+
+              <div class="kpi-banner-card">
+                <span class="kbc-title">CONNECTED MACHINE FLEET</span>
+                <div class="kbc-main">
+                  <span class="kbc-val">48 Units</span>
+                  <span class="kbc-trend green">38 Running</span>
+                </div>
+                <div class="kbc-sub">6 Idle · 4 Maintenance / Setup</div>
+              </div>
+            </div>
+
+            <!-- Live Machine Fleet Table -->
+            <div class="fleet-telemetry-container">
+              <div class="ft-header">
+                <span class="ft-title">LIVE SHOPFLOOR MACHINE TELEMETRY (GAZIPUR DYEHOUSE CLUSTER)</span>
+                <span class="mono-badge navy">PULL RATE: 124ms</span>
+              </div>
+              <div class="table-responsive">
+                <table class="fleet-table">
+                  <thead>
+                    <tr>
+                      <th>Machine ID</th>
+                      <th>Equipment Type</th>
+                      <th>Current Batch</th>
+                      <th>Temp (°C)</th>
+                      <th>Pressure</th>
+                      <th>Speed / RPM</th>
+                      <th>Status</th>
+                      <th>OEE</th>
+                      <th>Health</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>FONG-JET-01</strong></td>
+                      <td>High-Temp Dyeing Vessel</td>
+                      <td>#B-4902 (Single Jersey)</td>
+                      <td>130.4°C</td>
+                      <td>2.84 bar</td>
+                      <td>240 m/min</td>
+                      <td><span class="status-pill green">RUNNING (DOSING)</span></td>
+                      <td><strong>89.2%</strong></td>
+                      <td><span class="health-bar-fill green" style="width: 95%;">95%</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>FONG-JET-02</strong></td>
+                      <td>High-Temp Dyeing Vessel</td>
+                      <td>#B-4903 (French Terry)</td>
+                      <td>98.2°C</td>
+                      <td>1.42 bar</td>
+                      <td>210 m/min</td>
+                      <td><span class="status-pill green">RUNNING (RINSING)</span></td>
+                      <td><strong>87.8%</strong></td>
+                      <td><span class="health-bar-fill green" style="width: 92%;">92%</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>FONG-JET-04</strong></td>
+                      <td>Atmospheric Dyeing</td>
+                      <td>#B-4905 (Rib 1x1)</td>
+                      <td>128.5°C</td>
+                      <td>2.81 bar</td>
+                      <td>225 m/min</td>
+                      <td><span class="status-pill green">RUNNING (SOAPING)</span></td>
+                      <td><strong>91.4%</strong></td>
+                      <td><span class="health-bar-fill green" style="width: 98%;">98%</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>MONFORTS-ST-01</strong></td>
+                      <td>8-Chamber Stenter Frame</td>
+                      <td>#B-4899 (Heat Setting)</td>
+                      <td>185.0°C</td>
+                      <td>--</td>
+                      <td>45.0 m/min</td>
+                      <td><span class="status-pill amber">TEMP DRIFT (+5°C)</span></td>
+                      <td><strong>78.4%</strong></td>
+                      <td><span class="health-bar-fill amber" style="width: 74%;">74%</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>PICANOL-OMNI-08</strong></td>
+                      <td>Air-Jet Weaving Loom</td>
+                      <td>#B-4882 (Denim Weave)</td>
+                      <td>--</td>
+                      <td>6.20 bar</td>
+                      <td>850 RPM</td>
+                      <td><span class="status-pill green">RUNNING</span></td>
+                      <td><strong>94.0%</strong></td>
+                      <td><span class="health-bar-fill green" style="width: 96%;">96%</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 10 / 22</div>
+            <div class="footer-right">FEATURE 03 · PRODUCTION INTELLIGENCE</div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 11: FEATURE 03 - IOT PROTOCOLS & TOPIC ARCHITECTURE ==================== -->
+        <section class="slide slide-dark" data-slide="11" data-category="FEATURE 03 · IOT PROTOCOL ARCHITECTURE">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge amber">FEATURE 03 · INDUSTRIAL IOT</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">PROTOCOL ADAPTERS & TOPIC TAXONOMY</span>
+            </div>
+            <div class="header-right">
+              <span class="mono-text">LwM2M / CoAP · MODBUS TCP · OPC UA · MQTT v5</span>
+            </div>
+          </div>
+
+          <div class="slide-body split-layout-50-50">
+            <div class="split-col-left">
+              <h2 class="slide-title">Protocol Adapters & MQTT Topic Hierarchy</h2>
+              <p class="slide-desc">Industrial mill equipment runs diverse legacy protocols. AutoTaskX Edge Gateways convert PLC Modbus registers, Siemens S7 inputs, and OPC UA nodes into unified, typed MQTT v5 messages with TLS 1.3 encryption.</p>
+
+              <div class="protocol-grid">
+                <div class="proto-card">
+                  <div class="proto-hdr">
+                    <span class="proto-name">Modbus TCP / RTU</span>
+                    <span class="proto-badge">SERIAL & ETHERNET</span>
+                  </div>
+                  <p>Polls holding registers (40001–40120) for motor RPM, flow meters, and liquor valves every 250ms.</p>
+                </div>
+
+                <div class="proto-card">
+                  <div class="proto-hdr">
+                    <span class="proto-name">OPC UA Client</span>
+                    <span class="proto-badge">MODERN PLCS</span>
+                  </div>
+                  <p>Subscribes to structured node namespaces on Monforts Stenters and Thies dyeing controllers.</p>
+                </div>
+
+                <div class="proto-card">
+                  <div class="proto-hdr">
+                    <span class="proto-name">LwM2M over CoAP</span>
+                    <span class="proto-badge">STANDARDIZED OBJECTS</span>
+                  </div>
+                  <p>Binds physical sensors using IPSO 3303 (Temperature) and IPSO 3323 (Pressure) object schemas.</p>
+                </div>
+              </div>
+
+              <div class="topic-taxonomy-card">
+                <h4>ENTERPRISE MQTT TOPIC TAXONOMY</h4>
+                <div class="topic-tree">
+                  <div class="tt-item"><code>autotaskx/mill/{mill_id}/status</code> <span class="tt-desc">— Mill heartbeat & power status</span></div>
+                  <div class="tt-item"><code>autotaskx/machine/{machine_id}/telemetry</code> <span class="tt-desc">— High-frequency sensor values (124ms)</span></div>
+                  <div class="tt-item"><code>autotaskx/production/{line_id}/output</code> <span class="tt-desc">— Meterage counter & batch updates</span></div>
+                  <div class="tt-item"><code>autotaskx/quality/{line_id}/measurements</code> <span class="tt-desc">— Spectral ΔE & inspection defect counts</span></div>
+                  <div class="tt-item"><code>autotaskx/energy/{machine_id}/consumption</code> <span class="tt-desc">— kWh, steam kg, and water liters</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="split-col-right">
+              <div class="code-wrapper">
+                <div class="terminal-card dark">
+                  <div class="term-header">
+                    <div class="term-dots">
+                      <span class="dot red"></span>
+                      <span class="dot yellow"></span>
+                      <span class="dot green"></span>
+                    </div>
+                    <span class="term-title">gateway/mqtt_lwm2m_bridge.py</span>
+                    <span class="term-tag">Async Python 3.12</span>
+                  </div>
+                  <div class="term-body mono-text code-scroll">
+<pre><span class="kwd">import</span> asyncio
+<span class="kwd">from</span> aiomqtt <span class="kwd">import</span> Client
+<span class="kwd">from</span> lwm2m_client <span class="kwd">import</span> IPSOObject
+
+<span class="kwd">async def</span> <span class="func">on_lwm2m_notify</span>(ep: str, obj: int, val: float):
+    <span class="comment"># Normalize raw physical sensor to typed MQTT v5 payload</span>
+    topic = <span class="str">f"autotaskx/machine/{ep}/telemetry"</span>
+    payload = {
+        <span class="str">"mill_id"</span>: <span class="str">"MILL_01"</span>,
+        <span class="str">"device"</span>: ep,
+        <span class="str">"ipso"</span>: obj,
+        <span class="str">"val"</span>: val,
+        <span class="str">"unit"</span>: <span class="str">"C"</span> <span class="kwd">if</span> obj == <span class="val">3303</span> <span class="kwd">else</span> <span class="str">"bar"</span>,
+        <span class="str">"ts"</span>: utc_ms()
+    }
+    <span class="kwd">await</span> mqtt_client.publish(topic, dumps(payload), qos=<span class="val">1</span>)
+    <span class="kwd">await</span> tsdb_batch_queue.put((ep, obj, val))
+    <span class="kwd">await</span> redis.publish(<span class="str">"hud:telemetry"</span>, dumps(payload))</pre>
+                  </div>
+                </div>
+
+                <div class="terminal-card dark" style="margin-top: 15px;">
+                  <div class="term-header">
+                    <div class="term-dots"><span class="dot green"></span></div>
+                    <span class="term-title">MQTTX Live Ingestion Stream (Port 8883)</span>
+                    <span class="term-tag">QoS 1 · ACK 12ms</span>
+                  </div>
+                  <div class="term-body mono-text">
+<pre>{
+  <span class="str">"device"</span>: <span class="str">"fong-jet-04"</span>,
+  <span class="str">"ipso_3303_temp"</span>: <span class="val">130.42</span>,
+  <span class="str">"ipso_3323_bar"</span>: <span class="val">2.84</span>,
+  <span class="str">"valve_state"</span>: <span class="str">"DOSING"</span>,
+  <span class="str">"latency_ms"</span>: <span class="val">18.4</span>
+}</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 11 / 22</div>
+            <div class="footer-right">FEATURE 03 · PROTOCOL & TOPIC ARCHITECTURE</div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 12: FEATURE 03 - AI PRODUCTION ANALYST ==================== -->
+        <section class="slide slide-dark" data-slide="12" data-category="FEATURE 03 · AI ANALYST & ANOMALIES">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge amber">FEATURE 03 · AI ANALYST</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">NATURAL-LANGUAGE TELEMETRY REASONING & ANOMALIES</span>
+            </div>
+            <div class="header-right">
+              <span class="mono-text">RULE-BASED + STATISTICAL ML ANOMALY ENGINE</span>
+            </div>
+          </div>
+
+          <div class="slide-body split-layout-50-50">
+            <div class="split-col-left">
+              <h2 class="slide-title">AI Production Analyst & Continuous Anomaly Detection</h2>
+              <p class="slide-desc">Plant managers can query factory operations in plain English. The AI engine translates conversational inquiries into parameterized TimescaleDB SQL queries—delivering verified evidence rather than generative hallucination.</p>
+
+              <div class="ai-query-simulator">
+                <span class="aqs-title">SAMPLE OPERATIONAL INQUIRIES (CLICK TO RUN):</span>
+                <div class="query-pills">
+                  <button class="q-btn active" data-q="stenter">"Which stenter has highest temp deviation?"</button>
+                  <button class="q-btn" data-q="downtime">"Compare today's downtime vs yesterday"</button>
+                  <button class="q-btn" data-q="quality">"Show batches with declining RFT rate"</button>
+                </div>
+
+                <div class="ai-response-box">
+                  <div class="arb-header">
+                    <span class="arb-tag">AI ANALYSIS RESULT</span>
+                    <span class="arb-exec">TimescaleDB Exec: 8.4ms · Confidence: 99.2%</span>
+                  </div>
+                  <div class="arb-body" id="ai-query-result">
+                    <p class="arb-p"><strong>Stenter Frame MONFORTS-ST-01 (Chamber 4):</strong> Experiencing an abnormal +6.2°C thermal overshoot over the last 45 minutes.</p>
+                    <div class="arb-metrics">
+                      <div>Observed: <strong>191.2°C</strong></div>
+                      <div>Set Target: <strong>185.0°C</strong></div>
+                      <div>Root Cause: <strong>Damper 4 valve actuator sticking at 82% open</strong></div>
+                    </div>
+                    <div class="arb-rec">
+                      <strong>AI Operational Recommendation:</strong> Throttle Line Speed from 45 m/min to 38 m/min; dispatch shift technician to inspect pneumatic actuator on Chamber 4.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="split-col-right">
+              <div class="anomaly-matrix-card">
+                <div class="amc-header">
+                  <span class="amc-title">REAL-TIME INDUSTRIAL ANOMALY MONITOR</span>
+                  <span class="mono-badge red">2 ACTIVE WARNINGS</span>
+                </div>
+
+                <div class="anomaly-items">
+                  <div class="anomaly-item high">
+                    <div class="ai-badge red">HIGH</div>
+                    <div class="ai-content">
+                      <div class="ai-title">Vessel Overpressure Spurt (FONG-JET-02)</div>
+                      <div class="ai-meta">Detected: 14:12:08 UTC · IPSO 3323: 3.42 bar (Max Allowed: 3.00 bar)</div>
+                      <p class="ai-desc">Liquor circulation pump frequency jumped to 58 Hz. Pressure relief solenoid armed.</p>
+                    </div>
+                  </div>
+
+                  <div class="anomaly-item medium">
+                    <div class="ai-badge amber">MEDIUM</div>
+                    <div class="ai-content">
+                      <div class="ai-title">Thermal Deviation on Stenter Chamber 04</div>
+                      <div class="ai-meta">Detected: 14:02:15 UTC · Thermocouple Drift +6.2°C</div>
+                      <p class="ai-desc">Fabric yellowing risk detected on 100% white cotton batch #B-4899.</p>
+                    </div>
+                  </div>
+
+                  <div class="anomaly-item normal">
+                    <div class="ai-badge green">NORMAL</div>
+                    <div class="ai-content">
+                      <div class="ai-title">Weaving Loom Air Consumption Nominal</div>
+                      <div class="ai-meta">Line 03 Picanol Looms · Pressure: 6.2 bar stable</div>
+                      <p class="ai-desc">All 12 air nozzles within standard flow envelope.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 12 / 22</div>
+            <div class="footer-right">FEATURE 03 · AI REASONING & ANOMALIES</div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 13: FEATURE 03 - PREDICTIVE MAINTENANCE & BOTTLENECK ==================== -->
+        <section class="slide slide-dark" data-slide="13" data-category="FEATURE 03 · PREDICTIVE & BOTTLENECKS">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge amber">FEATURE 03 · ADVANCED ANALYTICS</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">PREDICTIVE MAINTENANCE & 8-STAGE BOTTLENECK TRACKER</span>
+            </div>
+            <div class="header-right">
+              <span class="mono-text">MTBF / RUL ESTIMATION ENGINE</span>
+            </div>
+          </div>
+
+          <div class="slide-body split-layout-50-50">
+            <div class="split-col-left">
+              <h2 class="slide-title">Predictive Maintenance & 8-Stage Bottleneck Analysis</h2>
+              <p class="slide-desc">By continuously analyzing vibration spectrums, motor current harmonics, and thermal histories, AutoTaskX detects machine degradation weeks before catastrophic failure occurs.</p>
+
+              <div class="pm-cards">
+                <div class="pm-card">
+                  <div class="pm-hdr">
+                    <h4>Main Liquor Pump Bearing (FONG-JET-01)</h4>
+                    <span class="health-pill amber">RISK: ELEVATED (74%)</span>
+                  </div>
+                  <div class="pm-body">
+                    <div class="pm-row"><span>Operating Hours:</span> <strong>4,820 hrs (Service at 5,000)</strong></div>
+                    <div class="pm-row"><span>Vibration (RMS):</span> <strong>4.8 mm/s (ISO limit: 4.5 mm/s)</strong></div>
+                    <div class="pm-row"><span>FFT Peak Harmonic:</span> <strong>Inner race defect frequency (BPFI) detected</strong></div>
+                    <div class="pm-row"><span>Recommended Action:</span> <strong>Replace SKF Explorer 6312 bearing at next shift turnaround</strong></div>
+                  </div>
+                </div>
+
+                <div class="pm-card">
+                  <div class="pm-hdr">
+                    <h4>Stenter Exhaust Fan Motor #2</h4>
+                    <span class="health-pill green">HEALTHY (96%)</span>
+                  </div>
+                  <div class="pm-body">
+                    <div class="pm-row"><span>Operating Hours:</span> <strong>1,240 hrs</strong></div>
+                    <div class="pm-row"><span>Vibration (RMS):</span> <strong>1.2 mm/s (Normal)</strong></div>
+                    <div class="pm-row"><span>Temperature:</span> <strong>64°C nominal</strong></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="split-col-right">
+              <h3 class="subsection-title">8-Stage Textile Manufacturing Bottleneck Tracker</h3>
+              <p class="sub-expl">Visualizing work-in-progress (WIP) queues, waiting times, and capacity utilization across all stages:</p>
+
+              <div class="bottleneck-stepper">
+                <div class="b-stage completed">
+                  <span class="bs-name">1. Preparation</span>
+                  <span class="bs-stat">98% Cap · 0.2h wait</span>
+                </div>
+                <div class="b-stage completed">
+                  <span class="bs-name">2. Dyeing</span>
+                  <span class="bs-stat">94% Cap · 0.4h wait</span>
+                </div>
+                <div class="b-stage completed">
+                  <span class="bs-name">3. Washing</span>
+                  <span class="bs-stat">91% Cap · 0.1h wait</span>
+                </div>
+                <div class="b-stage completed">
+                  <span class="bs-name">4. Drying</span>
+                  <span class="bs-stat">88% Cap · 0.3h wait</span>
+                </div>
+                <div class="b-stage bottleneck">
+                  <span class="bs-name">5. Stentering (CRITICAL)</span>
+                  <span class="bs-stat red">104% Overload · 3.8h queue</span>
+                  <span class="bs-alert">🚨 BOTTLENECK DETECTED</span>
+                </div>
+                <div class="b-stage pending">
+                  <span class="bs-name">6. Compacting</span>
+                  <span class="bs-stat">Idle waiting for fabric</span>
+                </div>
+                <div class="b-stage pending">
+                  <span class="bs-name">7. Inspection</span>
+                  <span class="bs-stat">Basler 16K Camera ready</span>
+                </div>
+                <div class="b-stage pending">
+                  <span class="bs-name">8. Packing & Dispatch</span>
+                  <span class="bs-stat">Finished goods staging</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 13 / 22</div>
+            <div class="footer-right">FEATURE 03 · PREDICTIVE & BOTTLENECK TRACKER</div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 14: FEATURE 03 - RESOURCE & MULTI-MILL ==================== -->
+        <section class="slide slide-dark" data-slide="14" data-category="FEATURE 03 · MULTI-MILL & RESOURCES">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge amber">FEATURE 03 · RESOURCE INTELLIGENCE</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">ENERGY, WATER, STEAM & MULTI-MILL BENCHMARKING</span>
+            </div>
+            <div class="header-right">
+              <span class="mono-text">CENTRALIZED CLUSTER INTELLIGENCE</span>
+            </div>
+          </div>
+
+          <div class="slide-body split-layout-50-50">
+            <div class="split-col-left">
+              <h2 class="slide-title">Industrial Utility Telemetry & Specific Consumption</h2>
+              <p class="slide-desc">Textile manufacturing is among the most resource-intensive industries worldwide. AutoTaskX correlates energy, steam, water, and chemical flow meters with exact kilograms of fabric processed.</p>
+
+              <div class="resource-meters-grid">
+                <div class="rm-card">
+                  <div class="rm-icon">⚡</div>
+                  <div class="rm-content">
+                    <span class="rm-lbl">ELECTRICITY CONSUMPTION</span>
+                    <strong class="rm-val">0.42 kWh / kg</strong>
+                    <span class="rm-sub green">-11% vs industry average</span>
+                  </div>
+                </div>
+
+                <div class="rm-card">
+                  <div class="rm-icon">💧</div>
+                  <div class="rm-content">
+                    <span class="rm-lbl">WATER CONSUMPTION</span>
+                    <strong class="rm-val">48.5 Liters / kg</strong>
+                    <span class="rm-sub green">Closed-loop liquor recovery</span>
+                  </div>
+                </div>
+
+                <div class="rm-card">
+                  <div class="rm-icon">♨️</div>
+                  <div class="rm-content">
+                    <span class="rm-lbl">STEAM CONSUMPTION</span>
+                    <strong class="rm-val">3.8 kg steam / kg</strong>
+                    <span class="rm-sub">Optimal heat recovery</span>
+                  </div>
+                </div>
+
+                <div class="rm-card">
+                  <div class="rm-icon">🧪</div>
+                  <div class="rm-content">
+                    <span class="rm-lbl">AUXILIARY CHEMICALS</span>
+                    <strong class="rm-val">18.2 g / kg</strong>
+                    <span class="rm-sub green">Zero manual over-dosing</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="forecast-card">
+                <h4>PRODUCTION FORECAST & SHIFT COMPLETION</h4>
+                <div class="fc-row">
+                  <span>Current Shift Progress (Shift B):</span>
+                  <strong>64,400 m of 75,000 m target</strong>
+                </div>
+                <div class="fc-bar">
+                  <div class="fc-fill" style="width: 85.8%;">85.8%</div>
+                </div>
+                <div class="fc-prob">
+                  <span>Target Achievement Probability:</span>
+                  <strong class="green">98.4% (Estimated completion: 21:40 local)</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="split-col-right">
+              <h3 class="subsection-title">Centralized Multi-Mill Benchmarking</h3>
+              <p class="sub-expl">Role-Based Access Control (RBAC) allows corporate leadership to benchmark multiple vertically integrated mill facilities in real time:</p>
+
+              <div class="mill-comparison-table">
+                <table class="m-table">
+                  <thead>
+                    <tr>
+                      <th>Mill Cluster</th>
+                      <th>Specialty</th>
+                      <th>Active Units</th>
+                      <th>OEE %</th>
+                      <th>RFT %</th>
+                      <th>kWh / kg</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="top-mill">
+                      <td><strong>MILL 01 (Gazipur)</strong></td>
+                      <td>Knitwear Dyeing & Finishing</td>
+                      <td>28 Machines</td>
+                      <td><strong class="green">88.4%</strong></td>
+                      <td><strong>94.8%</strong></td>
+                      <td>0.41</td>
+                    </tr>
+                    <tr>
+                      <td><strong>MILL 02 (Narayanganj)</strong></td>
+                      <td>Woven & Denim Finishing</td>
+                      <td>20 Machines</td>
+                      <td><strong class="blue">84.2%</strong></td>
+                      <td><strong>93.4%</strong></td>
+                      <td>0.44</td>
+                    </tr>
+                    <tr>
+                      <td><strong>MILL 03 (Chittagong)</strong></td>
+                      <td>Spinning & Yarn Dyeing</td>
+                      <td>32 Machines</td>
+                      <td><strong class="blue">86.1%</strong></td>
+                      <td><strong>95.1%</strong></td>
+                      <td>0.39</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="tenant-isolation-callout">
+                <span class="mono-badge navy">ENTERPRISE TENANT ISOLATION</span>
+                <p>Every query is cryptographically scoped to <code>tenant_id</code> and <code>mill_id</code> with row-level security (RLS) in PostgreSQL 16.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 14 / 22</div>
+            <div class="footer-right">FEATURE 03 · MULTI-MILL BENCHMARKING</div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 15: FEATURE 04 - TEXTILE OS ==================== -->
+        <section class="slide slide-dark" data-slide="15" data-category="FEATURE 04 · TEXTILE OS">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge teal">FEATURE 04</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">UNIFIED INDUSTRIAL OPERATING SYSTEM FOR MODERN TEXTILE MILLS</span>
+            </div>
+            <div class="header-right">
+              <span class="mono-text">CENTRALIZED INDUSTRIAL IOT INFRASTRUCTURE</span>
+            </div>
+          </div>
+
+          <div class="slide-body split-layout-45-55">
+            <div class="split-col-left">
+              <h2 class="slide-title">Unified Industrial Device Connectivity</h2>
+              <p class="slide-desc">Textile OS is the industrial nervous system. It continuously registers, monitors, and harmonizes telemetry from every physical sensor, PLC, and machine across five distinct device classes.</p>
+
+              <div class="device-cat-list">
+                <div class="dcl-item">
+                  <div class="dcl-dot teal">A</div>
+                  <div class="dcl-text">
+                    <h4>Environmental & Ambient Sensors</h4>
+                    <p>Ambient Temperature, Humidity, Air Quality, Water Temp, Flue Gas O2.</p>
+                  </div>
+                </div>
+
+                <div class="dcl-item">
+                  <div class="dcl-dot blue">B</div>
+                  <div class="dcl-text">
+                    <h4>Industrial Machine Telemetry</h4>
+                    <p>3-Axis Vibration, Hydraulic Pressure, Steam Flow, Motor RPM, Energy Encoders.</p>
+                  </div>
+                </div>
+
+                <div class="dcl-item">
+                  <div class="dcl-dot amber">C</div>
+                  <div class="dcl-text">
+                    <h4>Textile Production Equipment</h4>
+                    <p>Jet Dyeing Vessels, Stenters, Open-width Washers, Drying Cylinders, Rapier Looms.</p>
+                  </div>
+                </div>
+
+                <div class="dcl-item">
+                  <div class="dcl-dot purple">D</div>
+                  <div class="dcl-text">
+                    <h4>Laboratory Equipment</h4>
+                    <p>Benchtop Spectrophotometers, Auto Pipetting Robots, Precision Weighing Balances.</p>
+                  </div>
+                </div>
+
+                <div class="dcl-item">
+                  <div class="dcl-dot green">E</div>
+                  <div class="dcl-text">
+                    <h4>Visual Inspection Systems</h4>
+                    <p>Basler racer 2 L line scan cameras, Area scan surface inspection cameras.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="split-col-right">
+              <div class="device-registry-card">
+                <div class="drc-header">
+                  <span class="drc-title">CENTRALIZED DEVICE REGISTRY & HEARTBEAT MATRIX</span>
+                  <span class="mono-badge green">142 ACTIVE NODES</span>
+                </div>
+
+                <div class="table-responsive">
+                  <table class="drc-table">
+                    <thead>
+                      <tr>
+                        <th>Device Tag</th>
+                        <th>Class</th>
+                        <th>Assigned Unit</th>
+                        <th>Protocol</th>
+                        <th>Poll Rate</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>SENSOR-TH-012</code></td>
+                        <td>Ambient Sensor</td>
+                        <td>Lab Conditioning Room</td>
+                        <td>MQTT / TLS</td>
+                        <td>10s</td>
+                        <td><span class="status-pill green">ONLINE</span></td>
+                      </tr>
+                      <tr>
+                        <td><code>PLC-MODBUS-04</code></td>
+                        <td>Machine PLC</td>
+                        <td>Fong's Jet Vessel 04</td>
+                        <td>Modbus TCP</td>
+                        <td>124ms</td>
+                        <td><span class="status-pill green">ONLINE</span></td>
+                      </tr>
+                      <tr>
+                        <td><code>VIB-PIEZO-88</code></td>
+                        <td>Vibration Sensor</td>
+                        <td>Liquor Pump 01 Bearing</td>
+                        <td>LwM2M / CoAP</td>
+                        <td>500ms</td>
+                        <td><span class="status-pill amber">WARNING</span></td>
+                      </tr>
+                      <tr>
+                        <td><code>CAM-BASLER-16K</code></td>
+                        <td>Vision Sensor</td>
+                        <td>Inspection Line 01</td>
+                        <td>CoaXPress 2.0</td>
+                        <td>60 kHz</td>
+                        <td><span class="status-pill green">ONLINE</span></td>
+                      </tr>
+                      <tr>
+                        <td><code>METER-STEAM-02</code></td>
+                        <td>Resource Meter</td>
+                        <td>Stenter Boiler Line</td>
+                        <td>OPC UA</td>
+                        <td>1s</td>
+                        <td><span class="status-pill green">ONLINE</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="drc-footer">
+                  <span class="lwt-item">Auto-Reconnection: <strong>ENABLED</strong></span>
+                  <span class="lwt-item">Last Will & Testament (LWT): <strong>ARMED</strong></span>
+                  <span class="lwt-item">Ingestion Buffer: <strong>0 DROPPED</strong></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 15 / 22</div>
+            <div class="footer-right">FEATURE 04 · TEXTILE OS</div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 16: FEATURE 04 - TIMESCALEDB TIME-SERIES ==================== -->
+        <section class="slide slide-dark" data-slide="16" data-category="FEATURE 04 · TIMESCALEDB STORAGE">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge teal">FEATURE 04 · DATA PERSISTENCE</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">CONTINUOUS TIME-SERIES HYPERTABLE ENGINE</span>
+            </div>
+            <div class="header-right">
+              <span class="mono-text">POSTGRESQL 16 + TIMESCALEDB EXTENSION</span>
+            </div>
+          </div>
+
+          <div class="slide-body split-layout-50-50">
+            <div class="split-col-left">
+              <h2 class="slide-title">Continuous Time-Series Ingestion & Hypertable Architecture</h2>
+              <p class="slide-desc">Every incoming sensor and machine telemetry message is permanently captured. AutoTaskX leverages TimescaleDB hypertables partitioned across time and space to ensure sub-25ms writes and instant multi-month aggregations.</p>
+
+              <div class="tsdb-features-grid">
+                <div class="tf-card">
+                  <h4>Automatic Chunk Partitioning</h4>
+                  <p>Hypertables partition data into 1-day chunks. Queries for today's shift only scan the active chunk, bypassing gigabytes of older data.</p>
+                </div>
+                <div class="tf-card">
+                  <h4>7-Day Columnar Compression</h4>
+                  <p>Transparent background compression policy achieves a <strong>92% disk reduction</strong> while remaining queryable via standard SQL.</p>
+                </div>
+                <div class="tf-card">
+                  <h4>Continuous Aggregates</h4>
+                  <p>Materialized views pre-calculate 1-minute and 1-hour downsampled averages, eliminating repetitive scanning during dashboard rendering.</p>
+                </div>
+                <div class="tf-card">
+                  <h4>Idempotent Ingestion</h4>
+                  <p>UTC timestamps combined with device IDs guarantee zero duplicate inserts even during temporary edge network re-transmissions.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="split-col-right">
+              <div class="terminal-card dark">
+                <div class="term-header">
+                  <div class="term-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <span class="term-title">db/migrations/004_vessel_telemetry.sql — AutoTaskX (VS Code)</span>
+                  <span class="term-tag">PostgreSQL 16 + TimescaleDB</span>
+                </div>
+                <div class="term-body mono-text code-scroll">
+<pre><span class="comment">-- 124ms Jet Vessel Sensor Stream Hypertable</span>
+<span class="kwd">CREATE TABLE</span> vessel_telemetry (
+  time        <span class="typ">TIMESTAMPTZ</span>      <span class="kwd">NOT NULL</span>,
+  mill_id     <span class="typ">TEXT</span>             <span class="kwd">NOT NULL</span>,
+  vessel_id   <span class="typ">TEXT</span>             <span class="kwd">NOT NULL</span>,
+  temp_c      <span class="typ">DOUBLE PRECISION</span>, <span class="comment">-- IPSO 3303</span>
+  pressure_b  <span class="typ">DOUBLE PRECISION</span>, <span class="comment">-- IPSO 3323</span>
+  ph_level    <span class="typ">DOUBLE PRECISION</span>
+);
+
+<span class="kwd">SELECT</span> create_hypertable(<span class="str">'vessel_telemetry'</span>, <span class="str">'time'</span>);
+<span class="kwd">SELECT</span> add_compression_policy(<span class="str">'vessel_telemetry'</span>, <span class="typ">INTERVAL</span> <span class="str">'7 days'</span>);</pre>
+                </div>
+              </div>
+
+              <div class="terminal-card dark" style="margin-top: 15px;">
+                <div class="term-header">
+                  <div class="term-dots"><span class="dot green"></span></div>
+                  <span class="term-title">TERMINAL · psql&gt; SELECT * FROM vessel_telemetry ORDER BY time DESC LIMIT 2;</span>
+                  <span class="term-tag">124ms Writes</span>
+                </div>
+                <div class="term-body mono-text">
+<pre>time                      | mill_id | vessel_id  | temp_c | pressure_b | ph_level
+--------------------------+---------+------------+--------+------------+---------
+2026-11-22 17:18:09.124+06| MILL_01 | FONG_JET4  | 130.42 |       2.84 |     5.12
+2026-11-22 17:18:09.000+06| MILL_01 | FONG_JET4  | 130.38 |       2.83 |     5.12</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 16 / 22</div>
+            <div class="footer-right">FEATURE 04 · TIMESCALEDB TIME-SERIES</div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 17: FEATURE 04 - LIVE INDUSTRIAL TELEMETRY CONSOLE ==================== -->
+        <section class="slide slide-dark" data-slide="17" data-category="FEATURE 04 · LIVE TELEMETRY CONSOLE">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge teal">FEATURE 04 · LIVE CONSOLE</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">REAL-TIME INDUSTRIAL TELEMETRY WAVEFORM MONITOR</span>
+            </div>
+            <div class="header-right">
+              <span class="live-dot green"></span>
+              <span class="mono-text">WEBSOCKET STREAM ACTIVE (124ms PUSH)</span>
+            </div>
+          </div>
+
+          <div class="slide-body vertical-flow">
+            <div class="live-console-header">
+              <div class="lch-left">
+                <span class="lch-badge">LIVE DIGITAL TWIN HUD</span>
+                <h3>Vessel #FONG-JET-04 Real-Time Operating Canvas</h3>
+              </div>
+              <div class="lch-controls">
+                <span class="time-range-label">CHART HORIZON:</span>
+                <button class="tr-btn active">1 Min</button>
+                <button class="tr-btn">5 Min</button>
+                <button class="tr-btn">1 Hour</button>
+                <button class="tr-btn">24 Hours</button>
+                <button class="tr-btn">7 Days</button>
+              </div>
+            </div>
+
+            <!-- Live Canvas Waveform Container -->
+            <div class="live-chart-container">
+              <div class="chart-legend-row">
+                <div class="cl-item"><span class="legend-dot red"></span> Temperature (°C) — Target: 130.0°C</div>
+                <div class="cl-item"><span class="legend-dot blue"></span> Liquor Pressure (bar) — Target: 2.80 bar</div>
+                <div class="cl-item"><span class="legend-dot green"></span> Fabric Speed (m/min) — 240 m/min</div>
+              </div>
+              <!-- Real HTML5 Canvas for Animated Live Sensor Waveform -->
+              <canvas id="live-telemetry-canvas" width="1760" height="340"></canvas>
+            </div>
+
+            <!-- Telemetry Gauges Row -->
+            <div class="live-gauges-row">
+              <div class="gauge-card">
+                <span class="gc-name">CHAMBER TEMPERATURE</span>
+                <div class="gc-val-wrap">
+                  <strong class="gc-val" id="val-temp">130.42</strong>
+                  <span class="gc-unit">°C</span>
+                </div>
+                <div class="gc-bar"><div class="gc-fill red" style="width: 87%;"></div></div>
+                <span class="gc-status green">NOMINAL (±0.4°C)</span>
+              </div>
+
+              <div class="gauge-card">
+                <span class="gc-name">VESSEL PRESSURE</span>
+                <div class="gc-val-wrap">
+                  <strong class="gc-val" id="val-press">2.84</strong>
+                  <span class="gc-unit">bar</span>
+                </div>
+                <div class="gc-bar"><div class="gc-fill blue" style="width: 71%;"></div></div>
+                <span class="gc-status green">CLOSED-LOOP STABLE</span>
+              </div>
+
+              <div class="gauge-card">
+                <span class="gc-name">BATH PH LEVEL</span>
+                <div class="gc-val-wrap">
+                  <strong class="gc-val" id="val-ph">5.12</strong>
+                  <span class="gc-unit">pH</span>
+                </div>
+                <div class="gc-bar"><div class="gc-fill teal" style="width: 51%;"></div></div>
+                <span class="gc-status green">OPTIMAL DYE EXHAUSTION</span>
+              </div>
+
+              <div class="gauge-card">
+                <span class="gc-name">MAIN PUMP SPEED</span>
+                <div class="gc-val-wrap">
+                  <strong class="gc-val" id="val-rpm">1,420</strong>
+                  <span class="gc-unit">RPM</span>
+                </div>
+                <div class="gc-bar"><div class="gc-fill purple" style="width: 78%;"></div></div>
+                <span class="gc-status green">INVERTER 48 Hz</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 17 / 22</div>
+            <div class="footer-right">FEATURE 04 · LIVE TELEMETRY CONSOLE</div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 18: FEATURE 05 - ERP INTEGRATION ==================== -->
+        <section class="slide slide-dark" data-slide="18" data-category="FEATURE 05 · ERP INTEGRATION">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge purple">FEATURE 05</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">ENTERPRISE INTEROPERABILITY & INDUSTRIAL DATA BRIDGE</span>
+            </div>
+            <div class="header-right">
+              <span class="mono-text">"YOUR EXISTING ERP. YOUR ENTIRE FACTORY."</span>
+            </div>
+          </div>
+
+          <div class="slide-body split-layout-50-50">
+            <div class="split-col-left">
+              <h2 class="slide-title">Enterprise Interoperability without Ripping and Replacing</h2>
+              <p class="slide-desc">AutoTaskX does not ask textile enterprises to replace their existing ERP. Instead, AutoTaskX acts as an intelligent enterprise data bridge connecting physical factory operations and industrial IoT infrastructure to business management systems.</p>
+
+              <div class="erp-partner-grid">
+                <div class="epg-card">
+                  <div class="epg-logo-tag datatex">Datatex NOW</div>
+                  <h4>Textile-Native MES & ERP Integration</h4>
+                  <p>Bi-directional exchange for dyehouse production orders, recipe approval, dyeing batch recipes, and fabric stock.</p>
+                </div>
+
+                <div class="epg-card">
+                  <div class="epg-logo-tag sap">SAP S/4HANA</div>
+                  <h4>Enterprise Manufacturing & Materials (PP/QM)</h4>
+                  <p>Synchronizes production orders, material master, chemical goods movements, and batch release inspection lots.</p>
+                </div>
+
+                <div class="epg-card">
+                  <div class="epg-logo-tag infor">Infor M3</div>
+                  <h4>Fashion & Apparel Production Interoperability</h4>
+                  <p>Transfers live fabric meterage, cut-piece work-in-progress, and style variation batch tracking.</p>
+                </div>
+
+                <div class="epg-card">
+                  <div class="epg-logo-tag rest">Generic REST & OData</div>
+                  <h4>Extensible Enterprise Gateway Framework</h4>
+                  <p>Certified adapters for Oracle ERP, Microsoft Dynamics 365, and custom enterprise SQL ledgers.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="split-col-right">
+              <div class="erp-bridge-infographic">
+                <div class="ebi-top">
+                  <span class="mono-badge purple">ENTERPRISE BUSINESS TIER</span>
+                  <h4>Executive Financial & Supply Chain ERP</h4>
+                  <div class="ebi-logos">
+                    <span>SAP S/4HANA</span>
+                    <span>·</span>
+                    <span>Datatex NOW</span>
+                    <span>·</span>
+                    <span>Infor M3</span>
+                  </div>
+                </div>
+
+                <div class="ebi-bridge">
+                  <div class="bridge-arrow-down">
+                    <span class="bad-label">FLOW A: Orders, Batches, Recipes</span>
+                    <span class="bad-icon">▼</span>
+                  </div>
+                  <div class="bridge-core">
+                    <span class="bridge-title">AUTOTASKX ERP INTEGRATION GATEWAY</span>
+                    <span class="bridge-sub">Schema Mapping · Unit Normalization · Transactional Outbox · Dead-Letter Queue</span>
+                  </div>
+                  <div class="bridge-arrow-up">
+                    <span class="bau-icon">▲</span>
+                    <span class="bau-label">FLOW B: Actuals, Consumption, Quality Pass</span>
+                  </div>
+                </div>
+
+                <div class="ebi-bottom">
+                  <span class="mono-badge green">PHYSICAL SHOPFLOOR & LAB TIER</span>
+                  <h4>Physical Machines, Chemical Dispensers, 16K Vision</h4>
+                  <div class="ebi-devices">
+                    <span>Jet Vessels</span>
+                    <span>·</span>
+                    <span>Stenters</span>
+                    <span>·</span>
+                    <span>Basler Cameras</span>
+                    <span>·</span>
+                    <span>IoT Gateways</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 18 / 22</div>
+            <div class="footer-right">FEATURE 05 · ERP INTEGRATION</div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 19: FEATURE 05 - BIDIRECTIONAL SYNC & TRANSLATION ==================== -->
+        <section class="slide slide-dark" data-slide="19" data-category="FEATURE 05 · BIDIRECTIONAL SYNC">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge purple">FEATURE 05 · DATA FLOWS</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">BIDIRECTIONAL SYNCHRONIZATION & FIELD TRANSLATION ENGINE</span>
+            </div>
+            <div class="header-right">
+              <span class="mono-text">TRANSACTIONAL OUTBOX · ZERO DATA DRIFT</span>
+            </div>
+          </div>
+
+          <div class="slide-body split-layout-50-50">
+            <div class="split-col-left">
+              <h2 class="slide-title">Bidirectional Synchronization Architecture</h2>
+              <p class="slide-desc">Shopfloor IoT uses MQTT over TLS, whereas ERPs exchange data via REST, OData, or SOAP. AutoTaskX separates top-down work orders from bottom-up floor reality.</p>
+
+              <div class="flow-comparison-box">
+                <div class="flow-card flow-a">
+                  <div class="fc-hdr">
+                    <span class="fc-pill blue">FLOW A</span>
+                    <h4>ERP TO AUTOTASKX (TOP-DOWN)</h4>
+                  </div>
+                  <ul class="fc-list">
+                    <li>Production Orders (PO #PO-2042) & Scheduled Batches</li>
+                    <li>Greige Fabric Specifications & Target GSM</li>
+                    <li>Dyeing Instructions, Liquor Ratio & Color Target (L*a*b*)</li>
+                    <li>Customer Tolerance Limits (Max ΔE: 0.50)</li>
+                  </ul>
+                </div>
+
+                <div class="flow-card flow-b">
+                  <div class="fc-hdr">
+                    <span class="fc-pill green">FLOW B</span>
+                    <h4>AUTOTASKX TO ERP (BOTTOM-UP)</h4>
+                  </div>
+                  <ul class="fc-list">
+                    <li>Actual Chemical Consumption (Reactive Blue: 14.82 kg)</li>
+                    <li>Exact Meterage Produced (1,248.5 m finished)</li>
+                    <li>Machine Runtime, Energy kWh & Water Consumption</li>
+                    <li>Visual Inspection Defect Score & Quality Pass Certificate</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="split-col-right">
+              <div class="mapper-card">
+                <div class="mc-hdr">
+                  <span class="mc-title">INDUSTRIAL DATA TRANSLATION ENGINE</span>
+                  <span class="mono-badge purple">LIVE SCHEMA MAP</span>
+                </div>
+
+                <div class="mapping-table-wrap">
+                  <table class="map-table">
+                    <thead>
+                      <tr>
+                        <th>ERP Field (SAP / Datatex)</th>
+                        <th>Transformation</th>
+                        <th>AutoTaskX Internal Model</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>AUFNR: "0004902148"</code></td>
+                        <td>Trim Leading Zeroes</td>
+                        <td><code>batch_id: "4902148"</code></td>
+                      </tr>
+                      <tr>
+                        <td><code>MATNR: "TEX_COTTON_180"</code></td>
+                        <td>Lookup Fabric Master</td>
+                        <td><code>fabric_sku: "COT-180-SJ"</code></td>
+                      </tr>
+                      <tr>
+                        <td><code>GAMNG: 2400.0 (KG)</code></td>
+                        <td>Unit Normalization</td>
+                        <td><code>target_mass_kg: 2400.0</code></td>
+                      </tr>
+                      <tr>
+                        <td><code>COLOR_CODE: "PAN_19_3952"</code></td>
+                        <td>Spectral DB Link</td>
+                        <td><code>lab_target_id: "TGT_774"</code></td>
+                      </tr>
+                      <tr>
+                        <td><code>DISPENSED_DYE: 14820 (g)</code></td>
+                        <td>g → kg conversion</td>
+                        <td><code>actual_dye_kg: 14.82</code></td>
+                      </tr>
+                      <tr>
+                        <td><code>INSPECTION_RES: "PASS"</code></td>
+                        <td>S3 Link + Hash</td>
+                        <td><code>cert_s3_key: "s3://..."</code></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="reliability-note">
+                  <strong>Reliability Guarantee:</strong> In the event of an ERP network interruption, manufacturing telemetry continues uninterrupted. The local PostgreSQL outbox queues transactions and re-attempts with exponential backoff.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 19 / 22</div>
+            <div class="footer-right">FEATURE 05 · BIDIRECTIONAL SYNC & TRANSLATION</div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 20: FEATURE 05 - CONFIG CONSOLE & DISPATCH STREAM ==================== -->
+        <section class="slide slide-dark" data-slide="20" data-category="FEATURE 05 · ERP CONSOLE">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge purple">FEATURE 05 · CONSOLE & DISPATCH</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">MILL ERP CONFIGURATION & LIVE TRANSACTION DISPATCH STREAM</span>
+            </div>
+            <div class="header-right">
+              <span class="live-dot green"></span>
+              <span class="mono-text">GATEWAY STATUS: SYNCHRONIZED</span>
+            </div>
+          </div>
+
+          <div class="slide-body split-layout-45-55">
+            <div class="split-col-left">
+              <div class="erp-config-panel">
+                <div class="ecp-header">
+                  <span class="ecp-title">INTERACTIVE MILL ERP CONFIGURATION CONSOLE</span>
+                </div>
+
+                <div class="ecp-tabs">
+                  <button class="ecp-tab active">Datatex NOW</button>
+                  <button class="ecp-tab">SAP S/4HANA</button>
+                  <button class="ecp-tab">Infor M3</button>
+                  <button class="ecp-tab">Generic REST</button>
+                </div>
+
+                <div class="ecp-form">
+                  <div class="form-row">
+                    <label>Gateway Endpoint Host:</label>
+                    <input type="text" value="https://erp-gw.gazipur-mill01.autotaskx.io" readonly class="mono-inp">
+                  </div>
+                  <div class="form-row split-2">
+                    <div>
+                      <label>Client / Tenant ID:</label>
+                      <input type="text" value="MILL01_DATATEX_PROD" readonly class="mono-inp">
+                    </div>
+                    <div>
+                      <label>Auth Method:</label>
+                      <input type="text" value="mTLS + OAuth 2.0" readonly class="mono-inp">
+                    </div>
+                  </div>
+                  <div class="form-row split-2">
+                    <div>
+                      <label>Sync Frequency:</label>
+                      <input type="text" value="Event-Driven (Near Real-Time)" readonly class="mono-inp">
+                    </div>
+                    <div>
+                      <label>Retry Policy:</label>
+                      <input type="text" value="Exponential Backoff (5 retries)" readonly class="mono-inp">
+                    </div>
+                  </div>
+
+                  <div class="channel-toggles">
+                    <span class="ct-lbl">ENABLED SYNCHRONIZATION CHANNELS:</span>
+                    <div class="toggle-list">
+                      <label class="tgl-item"><input type="checkbox" checked disabled> <span>Chemical Dispensing & Stock Ledger</span></label>
+                      <label class="tgl-item"><input type="checkbox" checked disabled> <span>Production Order Synchronization</span></label>
+                      <label class="tgl-item"><input type="checkbox" checked disabled> <span>Quality Inspection & Defect Records</span></label>
+                      <label class="tgl-item"><input type="checkbox" checked disabled> <span>Machine Operating Hours & Energy</span></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="split-col-right">
+              <div class="terminal-card dark dispatch-stream-term">
+                <div class="term-header">
+                  <div class="term-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <span class="term-title">Live Mill ERP Transaction Dispatch Stream</span>
+                  <span class="term-tag">HTTP/2 TLS 1.3 · ACK 24ms</span>
+                </div>
+                <div class="term-body mono-text stream-lines">
+                  <p class="t-line"><span class="t-time">[23:05:12.14]</span> <span class="t-tag blue">[SYNC:IN]</span> Production Order #PO-2042 received from Datatex NOW.</p>
+                  <p class="t-line"><span class="t-time">[23:05:12.82]</span> <span class="t-tag green">[MAP:OK]</span>  Dyeing Batch #B-492 mapped to Fong's Jet-04 schedule.</p>
+                  <p class="t-line"><span class="t-time">[23:05:14.05]</span> <span class="t-tag blue">[LAB:REC]</span>  Kubelka-Munk recipe confirmed: 14.82 kg Reactive Blue 21.</p>
+                  <p class="t-line"><span class="t-time">[23:05:18.29]</span> <span class="t-tag cyan">[DISP:OUT]</span> Chemical stock depletion queued for SAP MM Ledger.</p>
+                  <p class="t-line"><span class="t-time">[23:05:19.45]</span> <span class="t-tag green">[ACK:200]</span>  SAP S/4HANA material document created (MBLNR: 4900214820).</p>
+                  <p class="t-line"><span class="t-time">[23:05:22.18]</span> <span class="t-tag cyan">[INSP:OUT]</span> Fabric Inspection Roll #R-8842 passed (Grade A, ΔE 0.28).</p>
+                  <p class="t-line"><span class="t-time">[23:05:22.90]</span> <span class="t-tag green">[ACK:200]</span>  Datatex quality clearance acknowledged. Ready for shipping.</p>
+                  <p class="t-line blink"><span class="t-time">[23:05:24.00]</span> <span class="t-tag green">[ACTIVE]</span>   Waiting for next shopfloor telemetry trigger...</p>
+                </div>
+              </div>
+
+              <div class="security-governance-box">
+                <div class="sgb-hdr">ENTERPRISE SECURITY & AUDIT GOVERNANCE</div>
+                <div class="sgb-pills">
+                  <span>AES-256 at Rest</span>
+                  <span>TLS 1.3 in Transit</span>
+                  <span>OAuth 2.0 Bearer</span>
+                  <span>Immutable Audit Log</span>
+                  <span>SOC-2 Compliant</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 20 / 22</div>
+            <div class="footer-right">FEATURE 05 · ERP CONFIG CONSOLE & STREAM</div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 21: COMPLETE SYSTEM ARCHITECTURE ==================== -->
+        <section class="slide slide-dark" data-slide="21" data-category="SYSTEM ARCHITECTURE">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge navy">SYSTEM ARCHITECTURE</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">COMPLETE 7-LAYER INDUSTRIAL TEXTILE INTELLIGENCE STACK</span>
+            </div>
+            <div class="header-right">
+              <span class="mono-text">UNIFIED END-TO-END DATA PIPELINE</span>
+            </div>
+          </div>
+
+          <div class="slide-body vertical-flow">
+            <div class="section-title-wrap">
+              <h2 class="slide-title">Complete End-to-End System Architecture</h2>
+              <p class="slide-desc">From physical factory floor sensors and 16K machine vision to TimescaleDB time-series storage and enterprise ERP synchronization.</p>
+            </div>
+
+            <!-- Full 7-Layer Architecture Diagram -->
+            <div class="arch-7layers-container">
+              <!-- Layer 1 -->
+              <div class="arch-layer-row l1">
+                <div class="al-tag">LAYER 01<br>PHYSICAL SHOPFLOOR</div>
+                <div class="al-items">
+                  <div class="al-node">Dyeing Jet Vessels (Fong's / Thies)</div>
+                  <div class="al-node">Stenter Finishing Frames (Monforts)</div>
+                  <div class="al-node">Air-Jet Looms (Picanol)</div>
+                  <div class="al-node highlight-green">Basler 16K Camera (racer 2 L)</div>
+                  <div class="al-node">Lab Spectrophotometer (Datacolor)</div>
+                  <div class="al-node">Temperature & Pressure Sensors</div>
+                </div>
+              </div>
+
+              <!-- Layer 2 -->
+              <div class="arch-layer-row l2">
+                <div class="al-tag">LAYER 02<br>DEVICE CONNECTIVITY</div>
+                <div class="al-items">
+                  <div class="al-node">Modbus TCP / RTU (Holding Registers)</div>
+                  <div class="al-node">OPC UA Client (Node Namespaces)</div>
+                  <div class="al-node highlight-green">CoaXPress 2.0 (CXP-12 Micro-BNC)</div>
+                  <div class="al-node">LwM2M / CoAP (IPSO 3303 & 3323)</div>
+                  <div class="al-node">RS-232 / USB Serial</div>
+                </div>
+              </div>
+
+              <!-- Layer 3 -->
+              <div class="arch-layer-row l3">
+                <div class="al-tag">LAYER 03<br>EDGE COMPUTING</div>
+                <div class="al-items">
+                  <div class="al-node">Industrial Edge Gateway (Linux RT)</div>
+                  <div class="al-node">CXP-12 Frame Grabber (PCIe Gen3)</div>
+                  <div class="al-node">OpenCV Ring Buffer (16K Tile Stitched)</div>
+                  <div class="al-node">Local Ingestion Queue (Offline Resilient)</div>
+                  <div class="al-node">Python Edge Telemetry Publisher</div>
+                </div>
+              </div>
+
+              <!-- Layer 4 -->
+              <div class="arch-layer-row l4">
+                <div class="al-tag">LAYER 04<br>MESSAGING BROKER</div>
+                <div class="al-items">
+                  <div class="al-node highlight-teal">EMQX MQTT v5 Cluster (TLS 1.3 · Port 8883)</div>
+                  <div class="al-node">Topic Partitioning (<code>autotaskx/mill/machine</code>)</div>
+                  <div class="al-node">QoS 1 Guaranteed Delivery</div>
+                  <div class="al-node">Redis Pub/Sub Microsecond Fan-Out</div>
+                </div>
+              </div>
+
+              <!-- Layer 5 -->
+              <div class="arch-layer-row l5">
+                <div class="al-tag">LAYER 05<br>CLOUD APPLICATION</div>
+                <div class="al-items">
+                  <div class="al-node highlight-blue">FastAPI Async Microservices</div>
+                  <div class="al-node">S3 Pre-Signed Upload URL Service</div>
+                  <div class="al-node">Kubelka-Munk Color NNLS Solver</div>
+                  <div class="al-node">AI Production Reasoning Engine</div>
+                  <div class="al-node">ERP Data Bridge & Field Mapper</div>
+                </div>
+              </div>
+
+              <!-- Layer 6 -->
+              <div class="arch-layer-row l6">
+                <div class="al-tag">LAYER 06<br>DATA PERSISTENCE</div>
+                <div class="al-items">
+                  <div class="al-node highlight-teal">PostgreSQL 16 + TimescaleDB (Hypertables & 7-Day Compression)</div>
+                  <div class="al-node highlight-blue">AWS S3 Cloud Storage (Lossless Inspection TIFF Archives)</div>
+                  <div class="al-node">PostgreSQL Relational DB (Recipes, Rolls, Defect Metadata)</div>
+                </div>
+              </div>
+
+              <!-- Layer 7 -->
+              <div class="arch-layer-row l7">
+                <div class="al-tag">LAYER 07<br>PRESENTATION & ERP</div>
+                <div class="al-items">
+                  <div class="al-node highlight-blue">Next.js 16 WebSockets Digital Twin (60 FPS HUD)</div>
+                  <div class="al-node">AI Production Analyst (Natural Language)</div>
+                  <div class="al-node highlight-purple">Datatex NOW MES</div>
+                  <div class="al-node highlight-purple">SAP S/4HANA (PP/QM)</div>
+                  <div class="al-node highlight-purple">Infor M3 Fashion</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 21 / 22</div>
+            <div class="footer-right">COMPLETE SYSTEM ARCHITECTURE</div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SLIDE 22: IMPACT & TECHNICAL DISCUSSION ==================== -->
+        <section class="slide slide-dark" data-slide="22" data-category="PRODUCTION IMPACT & CONCLUSION">
+          <div class="slide-header-bar">
+            <div class="header-left">
+              <span class="mono-badge cyan">MEASURABLE OUTCOMES</span>
+              <span class="header-sep">/</span>
+              <span class="header-sub">PRODUCTION IMPACT & TECHNICAL DISCUSSION</span>
+            </div>
+            <div class="header-right">
+              <span class="mono-text">ENGINEERING INTERVIEW & PARTNER BRIEFING</span>
+            </div>
+          </div>
+
+          <div class="slide-body vertical-flow conclusion-layout">
+            <div class="conclusion-title-wrap">
+              <h2 class="cover-title-small">Measurable Production Impact</h2>
+              <p class="cover-subtitle-small">Validated across simulated Gazipur and Narayanganj industrial textile clusters.</p>
+            </div>
+
+            <!-- Big 4 Impact Numbers -->
+            <div class="big-metrics-row">
+              <div class="bm-card">
+                <span class="bm-num cyan">&lt; 25ms</span>
+                <span class="bm-lbl">WebSocket & ERP Latency</span>
+                <p class="bm-sub">Sub-millisecond sensor acquisition to digital twin visualization.</p>
+              </div>
+
+              <div class="bm-card">
+                <span class="bm-num green">60%</span>
+                <span class="bm-lbl">Faster Lab-to-Bulk Cycle</span>
+                <p class="bm-sub">Reduced trial dips from 3–4 iterations down to a single algorithmic match.</p>
+              </div>
+
+              <div class="bm-card">
+                <span class="bm-num teal">0%</span>
+                <span class="bm-lbl">Manual Clipboard Transcription</span>
+                <p class="bm-sub">Automated IoT sensor harvesting eliminates human data entry errors.</p>
+              </div>
+
+              <div class="bm-card">
+                <span class="bm-num purple">35%</span>
+                <span class="bm-lbl">Fewer Customer Chargebacks</span>
+                <p class="bm-sub">16K line-scan vision detects micro-defects before goods are rolled and dispatched.</p>
+              </div>
+            </div>
+
+            <!-- Discussion & Contact Block -->
+            <div class="qna-card">
+              <div class="qna-header">
+                <h3>Technical Discussion & System Deep Dive</h3>
+                <span class="mono-badge green">OPEN FOR ARCHITECTURAL INQUIRY</span>
+              </div>
+              <div class="qna-topics-grid">
+                <div class="qt-item">
+                  <strong>1. Industrial Edge Hardening:</strong>
+                  <span>LwM2M CoAP connection reliability over noisy factory Wi-Fi / RS-485 busses.</span>
+                </div>
+                <div class="qt-item">
+                  <strong>2. High-Throughput Ingestion:</strong>
+                  <span>TimescaleDB hypertable chunk tuning under 150,000 writes/second.</span>
+                </div>
+                <div class="qt-item">
+                  <strong>3. 16K Optical Line Rate:</strong>
+                  <span>CXP-12 frame grabber DMA ring buffer management without frame drops.</span>
+                </div>
+                <div class="qt-item">
+                  <strong>4. ERP Transactional Integrity:</strong>
+                  <span>PostgreSQL transactional outbox ensuring zero data loss during network partitions.</span>
+                </div>
+              </div>
+
+              <div class="presenter-signature-bar">
+                <div class="psb-left">
+                  <span class="psb-name">Sheikh Shamiul Shakib</span>
+                  <span class="psb-title">Software Engineer · BUTEX Alumnus</span>
+                </div>
+                <div class="psb-links">
+                  <a href="https://shamiulshakib.me" target="_blank">shamiulshakib.me</a>
+                  <span class="sep">·</span>
+                  <a href="https://github.com/shakib5560" target="_blank">github.com/shakib5560</a>
+                  <span class="sep">·</span>
+                  <a href="https://shamiulshakib.me/projects/autotaskx" target="_blank">shamiulshakib.me/projects/autotaskx</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer-bar">
+            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
+            <div class="footer-center">SLIDE 22 / 22 · END OF PRESENTATION</div>
+            <div class="footer-right">THANK YOU · TECHNICAL DISCUSSION</div>
+          </div>
+        </section>
+
+      </div> <!-- /presentation-stage -->
+    </div> <!-- /stage-scaler -->
+
+    <!-- Global Floating Presenter HUD Navigation -->
+    <nav id="presenter-hud">
+      <div class="hud-left">
+        <button id="btn-overview" class="hud-btn" title="Slide Overview (Press O)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span>Overview</span>
+        </button>
+        <span class="hud-sep">|</span>
+        <span id="slide-category-indicator" class="hud-category">PLATFORM INTRODUCTION</span>
+      </div>
+
+      <div class="hud-center">
+        <button id="btn-prev" class="hud-nav-btn" title="Previous Slide (← / Space)">‹</button>
+        <div id="slide-counter-display">
+          <span id="current-slide-num">01</span>
+          <span class="sc-sep">/</span>
+          <span id="total-slide-num">22</span>
+        </div>
+        <button id="btn-next" class="hud-nav-btn" title="Next Slide (→ / Enter)">›</button>
+      </div>
+
+      <div class="hud-right">
+        <button id="btn-notes" class="hud-btn" title="Presenter Notes (Press N)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span>Notes</span>
+        </button>
+        <button id="btn-fullscreen" class="hud-btn" title="Toggle Fullscreen (Press F)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+          <span>Full</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Slide Overview Modal / Grid Drawer -->
+    <div id="overview-modal" class="modal-hidden">
+      <div class="modal-backdrop"></div>
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <div class="mh-left">
+            <h3>AutoTaskX Slide Navigator</h3>
+            <span class="mono-badge navy">22 SLIDES</span>
+          </div>
+          <button id="btn-close-overview" class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div id="overview-grid" class="overview-grid">
+            <!-- Dynamically populated by app.js -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Presenter Notes Drawer -->
+    <div id="notes-drawer" class="drawer-hidden">
+      <div class="drawer-header">
+        <h4>Presenter Engineering Notes</h4>
+        <button id="btn-close-notes" class="drawer-close">&times;</button>
+      </div>
+      <div id="notes-content" class="drawer-body">
+        <!-- Dynamically updated based on active slide -->
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
