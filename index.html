@@ -4,1882 +4,1728 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>AutoTaskX — Industrial Textile Intelligence Platform</title>
-  
-  <!-- Modern Clean Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="theme-dark">
+<body>
 
-  <!-- Fixed App Shell Wrapper -->
-  <div id="app-container">
-    
-    <!-- Top Global Progress Bar -->
-    <div id="progress-container">
-      <div id="progress-bar"></div>
-    </div>
+<div id="app-container">
 
-    <!-- Scaled 16:9 Presentation Stage -->
-    <div id="stage-scaler">
-      <div id="presentation-stage">
+  <div id="progress-container"><div id="progress-bar"></div></div>
 
-        <!-- ==================== SLIDE 01: INTRODUCTION ==================== -->
-        <section class="slide slide-dark active" data-slide="1" data-category="INTRODUCTION">
-          <div class="slide-header-bar">
-            <div class="header-left">
-              <span class="mono-badge cyan">SOFTWARE ENGINEER</span>
-              <span class="header-sep">/</span>
-              <span class="header-sub">TECHNICAL INTERVIEW PRESENTATION</span>
-            </div>
-            <div class="header-right">
-              <span class="live-dot green"></span>
-              <span class="mono-text">AUTOTASKX PLATFORM OVERVIEW</span>
-            </div>
+  <div id="stage-scaler">
+    <div id="presentation-stage">
+
+      <!-- ==================== SLIDE 01: INTRODUCTION ==================== -->
+      <section class="slide slide-dark active" data-slide="1" data-category="INTRODUCTION">
+
+        <!-- Dark header -->
+        <div class="s01-header">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="s01-h-badge">SOFTWARE ENGINEER</span>
+            <span class="s01-h-sep">/</span>
+            <span class="s01-h-sub">TECHNICAL INTERVIEW PRESENTATION</span>
           </div>
-
-          <div class="slide-body cover-layout">
-            <div class="cover-content">
-              <div class="cover-brand">
-                <img src="logo-white.svg" alt="AutoTaskX Logo" class="brand-logo-white">
-              </div>
-              <h2 class="cover-subtitle">Making Textile Manufacturing Smarter, Connected, and More Efficient.</h2>
-              <div class="accent-line"></div>
-              <p class="cover-statement">"AutoTaskX connects textile factory operations, machines, laboratory activities, and business systems in one platform."</p>
-
-              <div class="cover-pillars-grid">
-                <div class="cp-pill">
-                  <span class="cp-icon">🧪</span>
-                  <div class="cp-info">
-                    <strong>Smart Chemistry</strong>
-                    <span>Color recipe calculations</span>
-                  </div>
-                </div>
-                <div class="cp-pill">
-                  <span class="cp-icon">📷</span>
-                  <div class="cp-info">
-                    <strong>Machine Vision</strong>
-                    <span>Fabric quality inspection</span>
-                  </div>
-                </div>
-                <div class="cp-pill">
-                  <span class="cp-icon">⚡</span>
-                  <div class="cp-info">
-                    <strong>Textile OS</strong>
-                    <span>Live machine & sensor telemetry</span>
-                  </div>
-                </div>
-                <div class="cp-pill">
-                  <span class="cp-icon">🔄</span>
-                  <div class="cp-info">
-                    <strong>ERP Bridge</strong>
-                    <span>Two-way business synchronization</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="cover-aside">
-              <div class="hero-image-card">
-                <div class="hic-header">
-                  <span class="live-pulse"></span>
-                  <span class="hic-title">GAZIPUR TEXTILE MILL #04 · LIVE FLOOR HUD</span>
-                  <span class="hic-tag">ONLINE</span>
-                </div>
-                <div class="hic-img-wrap">
-                  <img src="autotaskx_ui_hero.png" alt="AutoTaskX Industrial HUD" class="hic-img">
-                </div>
-                <div class="hic-stats-row">
-                  <div class="hic-stat">
-                    <span class="hs-num">24 / 26</span>
-                    <span class="hs-lbl">Machines Active</span>
-                  </div>
-                  <div class="hic-stat">
-                    <span class="hs-num">185.5°C</span>
-                    <span class="hs-lbl">Chamber Temp</span>
-                  </div>
-                  <div class="hic-stat">
-                    <span class="hs-num">&lt; 25ms</span>
-                    <span class="hs-lbl">Sensor Latency</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="s01-h-right">
+            <span class="s01-live"></span>
+            <span>INDUSTRIAL IOT &amp; DIGITAL TWIN PLATFORM · MQTT</span>
           </div>
-
-          <div class="slide-footer-bar">
-            <div class="footer-left">
-              <span class="author-name">Sheikh Shamiul Shakib</span>
-              <span class="author-role">Software Engineer · BUTEX Alumnus</span>
-            </div>
-            <div class="footer-center">
-              <span class="footer-link">shamiulshakib.me</span>
-              <span class="footer-sep">·</span>
-              <span class="footer-link">github.com/shakib5560</span>
-              <span class="footer-sep">·</span>
-              <span class="footer-link">shamiulshakib.me/projects/autotaskx</span>
-            </div>
-            <div class="footer-right">
-              <span class="stack-tag">SLIDE 01 / 17</span>
-            </div>
-          </div>
-        </section>
-
-
-        <!-- ==================== SLIDE 02: THE ACTUAL PROBLEM ==================== -->
-        <section class="slide slide-dark" data-slide="2" data-category="THE ACTUAL PROBLEM">
-          <div class="slide-header-bar">
-            <div class="header-left">
-              <span class="mono-badge amber">THE INDUSTRIAL CHALLENGE</span>
-              <span class="header-sep">/</span>
-              <span class="header-sub">WHY TEXTILE FACTORIES NEED A SOLUTION</span>
-            </div>
-            <div class="header-right">
-              <span class="mono-text">REAL-WORLD PRODUCTION REALITY</span>
-            </div>
-          </div>
-
-          <div class="slide-body vertical-flow">
-            <div class="section-title-wrap">
-              <h2 class="slide-title">What Problems Do Textile Factories Face Today?</h2>
-              <p class="slide-desc">Textile manufacturing generates continuous activity, but most factories struggle with disconnected information and delayed decisions.</p>
-            </div>
-
-            <div class="four-problems-grid">
-              <!-- Problem 1 -->
-              <div class="problem-card">
-                <div class="pc-top">
-                  <span class="pc-num">01</span>
-                  <span class="pc-badge red">MANUAL RECIPES</span>
-                </div>
-                <h3 class="pc-title">Manual Work</h3>
-                <p class="pc-desc">Many laboratory and production activities still require repetitive manual work, paper notebooks, and handwritten calculations.</p>
-                <div class="pc-impact">
-                  <strong>The Result:</strong> Recipe human errors, inconsistent shades, and hours wasted doing routine math.
-                </div>
-              </div>
-
-              <!-- Problem 2 -->
-              <div class="problem-card">
-                <div class="pc-top">
-                  <span class="pc-num">02</span>
-                  <span class="pc-badge amber">ISOLATED EQUIPMENT</span>
-                </div>
-                <h3 class="pc-title">Disconnected Machines</h3>
-                <p class="pc-desc">Dyeing jets, stenters, and knitting frames operate independently. There is no central screen to monitor them together.</p>
-                <div class="pc-impact">
-                  <strong>The Result:</strong> Operators must walk the noisy factory floor just to check if a machine is running or stopped.
-                </div>
-              </div>
-
-              <!-- Problem 3 -->
-              <div class="problem-card">
-                <div class="pc-top">
-                  <span class="pc-num">03</span>
-                  <span class="pc-badge purple">DATA SILOS</span>
-                </div>
-                <h3 class="pc-title">Missing Information</h3>
-                <p class="pc-desc">Sensor readings, inspection photographs, and batch logs are stored across different computers, clipboards, or forgotten.</p>
-                <div class="pc-impact">
-                  <strong>The Result:</strong> When fabric defect complaints occur, finding the original production conditions is nearly impossible.
-                </div>
-              </div>
-
-              <!-- Problem 4 -->
-              <div class="problem-card">
-                <div class="pc-top">
-                  <span class="pc-num">04</span>
-                  <span class="pc-badge red">DELAYED VISIBILITY</span>
-                </div>
-                <h3 class="pc-title">Delayed Decisions</h3>
-                <p class="pc-desc">Factory managers only discover fabric defects or machine overheating hours after thousands of meters have already been damaged.</p>
-                <div class="pc-impact">
-                  <strong>The Result:</strong> Expensive fabric rework, wasted chemicals, and missed customer shipping deadlines.
-                </div>
-              </div>
-            </div>
-
-            <!-- Before vs After Comparison Summary Strip -->
-            <div class="comparison-strip">
-              <div class="cs-col cs-before">
-                <span class="cs-label red">BEFORE AUTOTASKX</span>
-                <p>Paper clipboards · Disconnected machines · Walk-the-floor monitoring · Delayed defect discovery</p>
-              </div>
-              <div class="cs-arrow">→</div>
-              <div class="cs-col cs-after">
-                <span class="cs-label green">WITH AUTOTASKX</span>
-                <p>Digital recipe calculations · Live sensor telemetry · Central web dashboard · Instant real-time alerts</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="slide-footer-bar">
-            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
-            <div class="footer-center">SLIDE 02 / 17 · THE ACTUAL PROBLEM</div>
-            <div class="footer-right">SHOPFLOOR PAIN POINTS</div>
-          </div>
-        </section>
-
-
-        <!-- ==================== SLIDE 03: OUR SOLUTION ==================== -->
-        <section class="slide slide-dark" data-slide="3" data-category="OUR SOLUTION">
-          <div class="slide-header-bar">
-            <div class="header-left">
-              <span class="mono-badge cyan">THE PLATFORM</span>
-              <span class="header-sep">/</span>
-              <span class="header-sub">FIVE INTEGRATED INDUSTRIAL MODULES</span>
-            </div>
-            <div class="header-right">
-              <span class="mono-text">CENTRAL FACTORY INTELLIGENCE LAYER</span>
-            </div>
-          </div>
-
-          <div class="slide-body vertical-flow">
-            <div class="section-title-wrap">
-              <h2 class="slide-title">One Platform to Connect the Entire Factory.</h2>
-              <p class="slide-desc">AutoTaskX connects laboratory chemistry, visual inspection, physical machines, and enterprise business software into one unified ecosystem.</p>
-            </div>
-
-            <div class="modules-cards-5">
-              <!-- Module 1 -->
-              <div class="mod-card">
-                <div class="mod-num">01</div>
-                <div class="mod-badge blue">LAB CHEMISTRY</div>
-                <h3 class="mod-name">Color Formulation</h3>
-                <p class="mod-desc">Helps calculate and manage dye recipes accurately for cotton, polyester, and blended fabrics.</p>
-                <div class="mod-img-wrap">
-                  <img src="module_01_color.jpg" alt="Color Formulation Chemistry" class="mod-card-img">
-                </div>
-                <div class="mod-point">
-                  <strong>Key Benefit:</strong> Reduces trial errors and computes exact dye quantities per kilogram.
-                </div>
-              </div>
-
-              <!-- Module 2 -->
-              <div class="mod-card">
-                <div class="mod-num">02</div>
-                <div class="mod-badge green">MACHINE VISION</div>
-                <h3 class="mod-name">Visual Quality Inspection</h3>
-                <p class="mod-desc">Helps capture and review fabric quality using industrial cameras or operator smartphones.</p>
-                <div class="mod-img-wrap">
-                  <img src="module_02_vision.png" alt="Industrial Line Scan Camera" class="mod-card-img">
-                </div>
-                <div class="mod-point">
-                  <strong>Key Benefit:</strong> Catches holes, oil stains, and yarn defects before fabric ships.
-                </div>
-              </div>
-
-              <!-- Module 3 -->
-              <div class="mod-card">
-                <div class="mod-num">03</div>
-                <div class="mod-badge amber">FACTORY OEE</div>
-                <h3 class="mod-name">Production Intelligence</h3>
-                <p class="mod-desc">Helps monitor production performance, running speed, chamber temperature, and efficiency.</p>
-                <div class="mod-img-wrap">
-                  <img src="textile_factory_floor.png" alt="Textile Production Floor" class="mod-card-img">
-                </div>
-                <div class="mod-point">
-                  <strong>Key Benefit:</strong> Live tracking of running vs stopped machines with instant fault alerts.
-                </div>
-              </div>
-
-              <!-- Module 4 -->
-              <div class="mod-card">
-                <div class="mod-num">04</div>
-                <div class="mod-badge teal">CENTRAL NERVOUS</div>
-                <h3 class="mod-name">Textile OS</h3>
-                <p class="mod-desc">Connects physical machines, sensors, and meters to the AutoTaskX software platform.</p>
-                <div class="mod-img-wrap">
-                  <img src="module_04_iot.jpg" alt="Industrial IoT Gateway" class="mod-card-img">
-                </div>
-                <div class="mod-point">
-                  <strong>Key Benefit:</strong> Collects temperature, pressure, and speed every few milliseconds.
-                </div>
-              </div>
-
-              <!-- Module 5 -->
-              <div class="mod-card">
-                <div class="mod-num">05</div>
-                <div class="mod-badge purple">ENTERPRISE BRIDGE</div>
-                <h3 class="mod-name">ERP Integration</h3>
-                <p class="mod-desc">Connects factory operations with existing business software like SAP, Datatex, and Infor.</p>
-                <div class="mod-img-wrap">
-                  <img src="module_05_erp.jpg" alt="Enterprise Datacenter Bridge" class="mod-card-img">
-                </div>
-                <div class="mod-point">
-                  <strong>Key Benefit:</strong> Syncs work orders, fabric output, and raw material usage automatically.
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="slide-footer-bar">
-            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
-            <div class="footer-center">SLIDE 03 / 17 · OUR SOLUTION</div>
-            <div class="footer-right">THE 5 CORE MODULES</div>
-          </div>
-        </section>
-
-
-        <!-- ==================== SLIDE 04: HOW AUTOTASKX WORKS ==================== -->
-        <section class="slide slide-dark" data-slide="4" data-category="HOW IT WORKS">
-          <div class="slide-header-bar">
-            <div class="header-left">
-              <span class="mono-badge blue">THE END-TO-END JOURNEY</span>
-              <span class="header-sep">/</span>
-              <span class="header-sub">FROM SHOPFLOOR TO SCREEN</span>
-            </div>
-            <div class="header-right">
-              <span class="mono-text">DATA PIPELINE ARCHITECTURE</span>
-            </div>
-          </div>
-
-          <div class="slide-body vertical-flow">
-            <div class="section-title-wrap">
-              <h2 class="slide-title">From the Factory Floor to One Digital Dashboard.</h2>
-              <p class="slide-desc">How physical activity on the mill floor turns into clear, actionable information on a manager's screen in 6 simple steps.</p>
-            </div>
-
-            <!-- The Big 6-Step Visual Journey Diagram -->
-            <div class="e2e-pipeline-container">
-              <!-- Step 1 -->
-              <div class="e2e-step">
-                <div class="e2e-step-header">
-                  <span class="e2e-num">01</span>
-                  <span class="e2e-badge">SHOPFLOOR</span>
-                </div>
-                <div class="e2e-icon">🏭</div>
-                <h4 class="e2e-title">Physical Machines</h4>
-                <p class="e2e-desc">Dyeing jets, stenter frames, and inspection machines running on the factory floor.</p>
-              </div>
-
-              <div class="e2e-connector"><span>→</span></div>
-
-              <!-- Step 2 -->
-              <div class="e2e-step">
-                <div class="e2e-step-header">
-                  <span class="e2e-num">02</span>
-                  <span class="e2e-badge">SENSING</span>
-                </div>
-                <div class="e2e-icon">🌡️</div>
-                <h4 class="e2e-title">Sensors & Cameras</h4>
-                <p class="e2e-desc">Temperature probes, pressure sensors, and cameras measure physical conditions continuously.</p>
-              </div>
-
-              <div class="e2e-connector"><span>→</span></div>
-
-              <!-- Step 3 -->
-              <div class="e2e-step">
-                <div class="e2e-step-header">
-                  <span class="e2e-num">03</span>
-                  <span class="e2e-badge">GATEWAY</span>
-                </div>
-                <div class="e2e-icon">📟</div>
-                <h4 class="e2e-title">Connection System</h4>
-                <p class="e2e-desc">An industrial IoT gateway collects sensor signals and sends them over the factory network.</p>
-              </div>
-
-              <div class="e2e-connector"><span>→</span></div>
-
-              <!-- Step 4 -->
-              <div class="e2e-step highlight-cyan">
-                <div class="e2e-step-header">
-                  <span class="e2e-num">04</span>
-                  <span class="e2e-badge cyan">CORE ENGINE</span>
-                </div>
-                <div class="e2e-icon">⚡</div>
-                <h4 class="e2e-title">AutoTaskX Platform</h4>
-                <p class="e2e-desc">Backend software validates, organizes, and processes every incoming reading in milliseconds.</p>
-              </div>
-
-              <div class="e2e-connector"><span>→</span></div>
-
-              <!-- Step 5 -->
-              <div class="e2e-step">
-                <div class="e2e-step-header">
-                  <span class="e2e-num">05</span>
-                  <span class="e2e-badge">STORAGE</span>
-                </div>
-                <div class="e2e-icon">🗄️</div>
-                <h4 class="e2e-title">Database Storage</h4>
-                <p class="e2e-desc">Readings are permanently stored for historical trends, compliance, and shift reports.</p>
-              </div>
-
-              <div class="e2e-connector"><span>→</span></div>
-
-              <!-- Step 6 -->
-              <div class="e2e-step highlight-green">
-                <div class="e2e-step-header">
-                  <span class="e2e-num">06</span>
-                  <span class="e2e-badge green">INTERFACE</span>
-                </div>
-                <div class="e2e-icon">💻</div>
-                <h4 class="e2e-title">Live Dashboard</h4>
-                <p class="e2e-desc">Managers and operators view real-time readings, machine status, and alerts on any device.</p>
-              </div>
-            </div>
-
-            <!-- Bottom Summary Banner -->
-            <div class="pipeline-summary-banner">
-              <div class="psb-tag">CORE TAKEAWAY</div>
-              <p>Every reading travels from the machine to the screen in <strong>under 25 milliseconds</strong> — eliminating clipboard paperwork and giving managers instant visibility.</p>
-            </div>
-          </div>
-
-          <div class="slide-footer-bar">
-            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
-            <div class="footer-center">SLIDE 04 / 17 · HOW AUTOTASKX WORKS</div>
-            <div class="footer-right">END-TO-END WORKFLOW</div>
-          </div>
-        </section>
-
-
-        <!-- ==================== SLIDE 05: FEATURE 01: COLOR FORMULATION ==================== -->
-        <section class="slide slide-dark" data-slide="5" data-category="FEATURE 01 · COLOR FORMULATION">
-          <div class="slide-header-bar">
-            <div class="header-left">
-              <span class="mono-badge blue">FEATURE 01</span>
-              <span class="header-sep">/</span>
-              <span class="header-sub">SMART DYE RECIPE ASSISTANCE</span>
-            </div>
-            <div class="header-right">
-              <span class="mono-text">LABORATORY CHEMISTRY</span>
-            </div>
-          </div>
-
-          <div class="slide-body two-col-layout">
-            <!-- Left: 6-Step Simple Workflow -->
-            <div class="col-main">
-              <div class="section-title-wrap">
-                <h2 class="slide-title">Calculate and Manage Dye Recipes More Easily.</h2>
-                <p class="slide-desc">A clear, step-by-step workflow that replaces manual paper calculations with computational recipe assistance.</p>
-              </div>
-
-              <div class="workflow-steps-vertical">
-                <div class="ws-item">
-                  <span class="ws-step-num">1</span>
-                  <div class="ws-text">
-                    <strong>Select the Fabric</strong>
-                    <span>Choose fabric type and composition (e.g. 100% Combed Cotton Single Jersey).</span>
-                  </div>
-                </div>
-                <div class="ws-item">
-                  <span class="ws-step-num">2</span>
-                  <div class="ws-text">
-                    <strong>Enter Fabric Quantity</strong>
-                    <span>Input total batch weight to be dyed (e.g. 100 kg bulk lot).</span>
-                  </div>
-                </div>
-                <div class="ws-item">
-                  <span class="ws-step-num">3</span>
-                  <div class="ws-text">
-                    <strong>Choose Target Color</strong>
-                    <span>Pick standard color code or enter target color values (e.g. Deep Navy Blue).</span>
-                  </div>
-                </div>
-                <div class="ws-item">
-                  <span class="ws-step-num">4</span>
-                  <div class="ws-text">
-                    <strong>Select Available Dyes & Chemicals</strong>
-                    <span>Choose active dyes and auxiliaries currently available in the factory lab inventory.</span>
-                  </div>
-                </div>
-                <div class="ws-item">
-                  <span class="ws-step-num">5</span>
-                  <div class="ws-text">
-                    <strong>Calculate Required Quantities</strong>
-                    <span>AutoTaskX calculates exact dye quantities per kilogram and total batch amounts.</span>
-                  </div>
-                </div>
-                <div class="ws-item">
-                  <span class="ws-step-num">6</span>
-                  <div class="ws-text">
-                    <strong>Save and Review Formulation</strong>
-                    <span>Save recipe ticket to the database and export for dispensary preparation.</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right: Realistic Formulation Example Card -->
-            <div class="col-side">
-              <div class="card-example">
-                <div class="ce-header">
-                  <span class="ce-tag">REAL-WORLD BATCH EXAMPLE</span>
-                  <span class="ce-badge">BATCH #CTX-402</span>
-                </div>
-                <div class="ce-body">
-                  <div class="ce-meta-grid">
-                    <div><span class="lbl">Fabric:</span> <strong>100% Cotton Knit</strong></div>
-                    <div><span class="lbl">Weight:</span> <strong>100.0 kg</strong></div>
-                    <div><span class="lbl">Target Color:</span> <strong>Deep Navy</strong></div>
-                    <div><span class="lbl">Liquor Ratio:</span> <strong>1:6 (600 L)</strong></div>
-                  </div>
-
-                  <div class="ce-table-wrap">
-                    <table class="simple-table">
-                      <thead>
-                        <tr>
-                          <th>Dye / Chemical</th>
-                          <th>Concentration</th>
-                          <th>Total Amount</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Reactive Navy Blue 222</td>
-                          <td class="mono">18.5 g/kg</td>
-                          <td class="mono highlight">1,850 g</td>
-                        </tr>
-                        <tr>
-                          <td>Reactive Red 195</td>
-                          <td class="mono">4.2 g/kg</td>
-                          <td class="mono highlight">420 g</td>
-                        </tr>
-                        <tr>
-                          <td>Glauber's Salt (Na2SO4)</td>
-                          <td class="mono">50.0 g/kg</td>
-                          <td class="mono">5,000 g</td>
-                        </tr>
-                        <tr>
-                          <td>Soda Ash (Na2CO3)</td>
-                          <td class="mono">15.0 g/kg</td>
-                          <td class="mono">1,500 g</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-
-                  <div class="ce-disclaimer-box">
-                    <strong>⚠️ Important Industrial Note:</strong>
-                    <p>Formulation results are computational estimates. Actual dye recipes require appropriate laboratory beaker trials and spectrophotometer validation before bulk production.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="slide-footer-bar">
-            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
-            <div class="footer-center">SLIDE 05 / 17 · COLOR FORMULATION</div>
-            <div class="footer-right">RECIPE COMPUTATION</div>
-          </div>
-        </section>
-
-
-        <!-- ==================== SLIDE 06: FEATURE 02: VISUAL QUALITY INSPECTION ==================== -->
-        <section class="slide slide-dark" data-slide="6" data-category="FEATURE 02 · QUALITY INSPECTION">
-          <div class="slide-header-bar">
-            <div class="header-left">
-              <span class="mono-badge green">FEATURE 02</span>
-              <span class="header-sep">/</span>
-              <span class="header-sub">OPTICAL FABRIC DEFECT DETECTION</span>
-            </div>
-            <div class="header-right">
-              <span class="mono-text">MACHINE VISION & MOBILE</span>
-            </div>
-          </div>
-
-          <div class="slide-body vertical-flow">
-            <div class="section-title-wrap">
-              <h2 class="slide-title">Inspect Fabric Using Industrial Cameras or Smartphones.</h2>
-              <p class="slide-desc">Capture high-resolution fabric images during production to identify and classify defects before finished rolls ship to customers.</p>
-            </div>
-
-            <!-- Two Dual Sources -->
-            <div class="two-sources-grid">
-              <div class="source-card">
-                <div class="sc-badge">SOURCE A · CONTINUOUS SCANNING</div>
-                <div class="sc-content">
-                  <div class="sc-img-wrap">
-                    <img src="Textile Inspection Vision Lab.png" alt="Basler racer 2L Camera Lab" class="sc-img">
-                  </div>
-                  <div class="sc-text">
-                    <h3 class="sc-title">Industrial Line-Scan Camera</h3>
-                    <p class="sc-name">Basler racer 2 L – r2L16384-60cc</p>
-                    <p class="sc-desc">Installed directly above the fabric inspection gantry. Continuously captures high-speed 16,384-pixel line frames as fabric rolls move at factory speeds.</p>
-                    <span class="sc-tag">High-Volume Roll Inspection</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="source-card">
-                <div class="sc-badge cyan">SOURCE B · SPOT CHECKING</div>
-                <div class="sc-content">
-                  <div class="sc-icon-wrap">📱</div>
-                  <div class="sc-text">
-                    <h3 class="sc-title">Smartphone Inspection</h3>
-                    <p class="sc-name">Textile OS Mobile Web App</p>
-                    <p class="sc-desc">Floor operators can use a connected smartphone or tablet to take clear photos of suspected fabric sections during manual table spot checks.</p>
-                    <span class="sc-tag cyan">Fast On-the-Floor Audits</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Clear 5-Stage Image Workflow -->
-            <div class="img-workflow-strip">
-              <div class="iws-step">
-                <span class="iws-num">1</span>
-                <strong>Camera / Phone</strong>
-                <span>Captures fabric image</span>
-              </div>
-              <div class="iws-arrow">→</div>
-              <div class="iws-step">
-                <span class="iws-num">2</span>
-                <strong>AutoTaskX</strong>
-                <span>Receives & validates file</span>
-              </div>
-              <div class="iws-arrow">→</div>
-              <div class="iws-step highlight">
-                <span class="iws-num">3</span>
-                <strong>AWS S3 Cloud</strong>
-                <span>Stores original image safely</span>
-              </div>
-              <div class="iws-arrow">→</div>
-              <div class="iws-step">
-                <span class="iws-num">4</span>
-                <strong>Quality Analysis</strong>
-                <span>Identifies defect & location</span>
-              </div>
-              <div class="iws-arrow">→</div>
-              <div class="iws-step green">
-                <span class="iws-num">5</span>
-                <strong>Inspection Screen</strong>
-                <span>Shows defect map to operator</span>
-              </div>
-            </div>
-
-            <!-- Defect Examples Strip -->
-            <div class="defect-examples-strip">
-              <span class="des-title">CLASSIFIED DEFECT EXAMPLES:</span>
-              <div class="des-pill"><span class="des-dot red"></span> <strong>Oil Stain:</strong> Roll #04 at 142m · 98.4% conf</div>
-              <div class="des-pill"><span class="des-dot amber"></span> <strong>Broken Yarn:</strong> Roll #04 at 215m · 99.1% conf</div>
-              <div class="des-pill"><span class="des-dot purple"></span> <strong>Needle Hole:</strong> Roll #04 at 380m · 97.8% conf</div>
-            </div>
-
-            <!-- Key Clarification Note -->
-            <div class="storage-rule-note">
-              <strong>💡 Clear Storage Separation:</strong>
-              Original large image files (10–50 MB) are stored in secure <strong>AWS S3 Cloud Storage</strong>, while defect classifications, timestamps, roll meters, and file links are saved in the <strong>PostgreSQL Database</strong>.
-            </div>
-          </div>
-
-          <div class="slide-footer-bar">
-            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
-            <div class="footer-center">SLIDE 06 / 17 · VISUAL QUALITY INSPECTION</div>
-            <div class="footer-right">OPTICAL DEFECT DETECTION</div>
-          </div>
-        </section>
-
-
-        <!-- ==================== SLIDE 07: FEATURE 03: PRODUCTION INTELLIGENCE ==================== -->
-        <section class="slide slide-dark" data-slide="7" data-category="FEATURE 03 · PRODUCTION INTELLIGENCE">
-          <div class="slide-header-bar">
-            <div class="header-left">
-              <span class="mono-badge amber">FEATURE 03</span>
-              <span class="header-sep">/</span>
-              <span class="header-sub">REAL-TIME FLOOR MONITORING</span>
-            </div>
-            <div class="header-right">
-              <span class="mono-text">OPERATIONAL VISIBILITY</span>
-            </div>
-          </div>
-
-          <div class="slide-body two-col-layout">
-            <!-- Left: Practical Industrial Example -->
-            <div class="col-main">
-              <div class="section-title-wrap">
-                <h2 class="slide-title">Know What Is Happening Inside Your Factory.</h2>
-                <p class="slide-desc">Track machine running status, temperature, pressure, and line speed so you can prevent problems before they cause costly downtime.</p>
-              </div>
-
-              <!-- Practical Stenter Machine Example Card -->
-              <div class="example-box-dark">
-                <div class="ebd-header">
-                  <span class="ebd-tag">PRACTICAL SHOPFLOOR SCENARIO</span>
-                  <span class="ebd-machine">STENTER FRAME #02 (HEAT-SETTING)</span>
-                </div>
-                <div class="ebd-body">
-                  <div class="scenario-step">
-                    <span class="ss-dot green"></span>
-                    <p><strong>1. Machine Running:</strong> Stenter Frame #02 is drying and heat-setting a 100% cotton knit batch.</p>
-                  </div>
-                  <div class="scenario-step">
-                    <span class="ss-dot cyan"></span>
-                    <p><strong>2. Continuous Measurement:</strong> Temperature sensors continuously measure heat inside all 8 heating chambers.</p>
-                  </div>
-                  <div class="scenario-step">
-                    <span class="ss-dot blue"></span>
-                    <p><strong>3. Live Display:</strong> AutoTaskX displays the current temperature (<strong>185.5°C</strong>) and historical curve on screen.</p>
-                  </div>
-                  <div class="scenario-step">
-                    <span class="ss-dot amber"></span>
-                    <p><strong>4. Automatic Protection:</strong> If temperature exceeds the 190.0°C limit, the system instantly triggers an alert to prevent fabric yellowing or burning.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="oee-features-list">
-                <div class="ofl-item"><span>✅</span> <strong>Machine Running vs Stopped:</strong> Know immediately when a machine halts.</div>
-                <div class="ofl-item"><span>✅</span> <strong>Production Progress:</strong> Track meters completed vs target order length.</div>
-                <div class="ofl-item"><span>✅</span> <strong>Energy & Water Tracking:</strong> Spot machines consuming abnormal steam or power.</div>
-              </div>
-            </div>
-
-            <!-- Right: Clean Live Production Monitor HUD -->
-            <div class="col-side">
-              <div class="hud-card">
-                <div class="hud-header">
-                  <span class="live-dot green"></span>
-                  <span class="hud-title">MILL FLOOR OVERVIEW</span>
-                  <span class="hud-time">10:42:18 AM</span>
-                </div>
-
-                <div class="hud-metric-row">
-                  <div class="hud-metric">
-                    <span class="hm-val text-green">18 / 20</span>
-                    <span class="hm-lbl">Active Machines (90%)</span>
-                  </div>
-                  <div class="hud-metric">
-                    <span class="hm-val text-cyan">185.5°C</span>
-                    <span class="hm-lbl">Chamber 4 Temp (Stable)</span>
-                  </div>
-                </div>
-
-                <div class="hud-metric-row">
-                  <div class="hud-metric">
-                    <span class="hm-val text-blue">42.0 m/min</span>
-                    <span class="hm-lbl">Fabric Line Speed</span>
-                  </div>
-                  <div class="hud-metric">
-                    <span class="hm-val text-amber">81%</span>
-                    <span class="hm-lbl">Batch #TX-8821 Progress</span>
-                  </div>
-                </div>
-
-                <div class="hud-chart-preview">
-                  <div class="hcp-header">
-                    <span>CHAMBER TEMPERATURE HISTORY (LAST 60 MIN)</span>
-                    <span class="hcp-status text-green">SAFE ZONE [180°C - 190°C]</span>
-                  </div>
-                  <div class="hcp-bar-chart">
-                    <div class="bar" style="height: 72%;"></div>
-                    <div class="bar" style="height: 75%;"></div>
-                    <div class="bar" style="height: 74%;"></div>
-                    <div class="bar" style="height: 76%;"></div>
-                    <div class="bar" style="height: 78%;"></div>
-                    <div class="bar" style="height: 77%;"></div>
-                    <div class="bar highlight-bar" style="height: 79%;" title="Current: 185.5°C"></div>
-                  </div>
-                </div>
-
-                <div class="hud-alert-item">
-                  <span class="hai-icon text-green">●</span>
-                  <span class="hai-text">All parameters operating within safe tolerance limits.</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="slide-footer-bar">
-            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
-            <div class="footer-center">SLIDE 07 / 17 · PRODUCTION INTELLIGENCE</div>
-            <div class="footer-right">SHOPFLOOR MONITORING</div>
-          </div>
-        </section>
-
-
-        <!-- ==================== SLIDE 08: FEATURE 04: TEXTILE OS ==================== -->
-        <section class="slide slide-dark" data-slide="8" data-category="FEATURE 04 · TEXTILE OS">
-          <div class="slide-header-bar">
-            <div class="header-left">
-              <span class="mono-badge teal">FEATURE 04</span>
-              <span class="header-sep">/</span>
-              <span class="header-sub">THE PHYSICAL CONNECTIVITY LAYER</span>
-            </div>
-            <div class="header-right">
-              <span class="mono-text">HARDWARE-TO-SOFTWARE BRIDGE</span>
-            </div>
-          </div>
-
-          <div class="slide-body two-col-layout">
-            <!-- Left: Supported Physical Devices -->
-            <div class="col-main">
-              <div class="section-title-wrap">
-                <h2 class="slide-title">Connect Your Physical Factory to AutoTaskX.</h2>
-                <p class="slide-desc">Textile OS acts as the digital bridge connecting physical machines, sensors, and factory instruments directly to our software platform.</p>
-              </div>
-
-              <div class="devices-catalog-grid">
-                <div class="dev-item">
-                  <span class="dev-icon">🌡️</span>
-                  <div class="dev-info">
-                    <strong>Temperature & Humidity</strong>
-                    <span>Chamber heat & ambient humidity</span>
-                  </div>
-                </div>
-                <div class="dev-item">
-                  <span class="dev-icon">🎛️</span>
-                  <div class="dev-info">
-                    <strong>Liquid Pressure & Level</strong>
-                    <span>Dye vessel liquor pressure & volume</span>
-                  </div>
-                </div>
-                <div class="dev-item">
-                  <span class="dev-icon">⚡</span>
-                  <div class="dev-info">
-                    <strong>Energy & Steam Meters</strong>
-                    <span>Kilowatt hours & steam consumption</span>
-                  </div>
-                </div>
-                <div class="dev-item">
-                  <span class="dev-icon">🔄</span>
-                  <div class="dev-info">
-                    <strong>Machine Speed Encoders</strong>
-                    <span>Line meters per minute & runtime</span>
-                  </div>
-                </div>
-                <div class="dev-item">
-                  <span class="dev-icon">📟</span>
-                  <div class="dev-info">
-                    <strong>PLC Controllers</strong>
-                    <span>Fong's, Thies, Monforts controllers</span>
-                  </div>
-                </div>
-                <div class="dev-item">
-                  <span class="dev-icon">📷</span>
-                  <div class="dev-info">
-                    <strong>Cameras & Spectros</strong>
-                    <span>Optical line cameras & color meters</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="compat-note">
-                <strong>💡 Multi-Brand Compatibility:</strong>
-                Different machines use different connectors (RS485 serial cables, 4-20mA analog wires, or Ethernet). The industrial gateway bridges them all into one common software format.
-              </div>
-            </div>
-
-            <!-- Right: 5-Step Physical Connection Sequence -->
-            <div class="col-side">
-              <div class="connection-steps-card">
-                <div class="csc-header">
-                  <span class="csc-title">HOW A PHYSICAL DEVICE CONNECTS</span>
-                </div>
-                <div class="csc-body">
-                  <div class="cs-step">
-                    <span class="cs-badge">STEP 1</span>
-                    <div class="cs-content">
-                      <strong>Install the Sensor</strong>
-                      <p>Mount the sensor securely on the machine (e.g. heating chamber or liquor pipe).</p>
-                    </div>
-                  </div>
-
-                  <div class="cs-step">
-                    <span class="cs-badge">STEP 2</span>
-                    <div class="cs-content">
-                      <strong>Wire to Industrial Gateway</strong>
-                      <p>Connect the sensor wire to an industrial edge gateway computer mounted nearby.</p>
-                    </div>
-                  </div>
-
-                  <div class="cs-step">
-                    <span class="cs-badge">STEP 3</span>
-                    <div class="cs-content">
-                      <strong>Gateway Collects Readings</strong>
-                      <p>The gateway reads the physical electrical signal and converts it into a digital number.</p>
-                    </div>
-                  </div>
-
-                  <div class="cs-step">
-                    <span class="cs-badge">STEP 4</span>
-                    <div class="cs-content">
-                      <strong>Send to AutoTaskX</strong>
-                      <p>The gateway transmits the reading over the factory Wi-Fi or Ethernet network.</p>
-                    </div>
-                  </div>
-
-                  <div class="cs-step highlight">
-                    <span class="cs-badge green">STEP 5</span>
-                    <div class="cs-content">
-                      <strong>Save & Display Live</strong>
-                      <p>AutoTaskX saves the number permanently and updates the live web dashboard.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="slide-footer-bar">
-            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
-            <div class="footer-center">SLIDE 08 / 17 · TEXTILE OS</div>
-            <div class="footer-right">PHYSICAL DEVICE INTEGRATION</div>
-          </div>
-        </section>
-
-
-        <!-- ==================== SLIDE 09: HOW A PHYSICAL SENSOR CONNECTS ==================== -->
-        <section class="slide slide-dark" data-slide="9" data-category="FEATURE 04 · SENSOR DEEP DIVE">
-          <div class="slide-header-bar">
-            <div class="header-left">
-              <span class="mono-badge cyan">TRACE ONE READING</span>
-              <span class="header-sep">/</span>
-              <span class="header-sub">STEP-BY-STEP DATA JOURNEY</span>
-            </div>
-            <div class="header-right">
-              <button class="demo-btn" id="btn-pulse-packet">▶ ANIMATE READING PULSE</button>
-            </div>
-          </div>
-
-          <div class="slide-body vertical-flow">
-            <div class="section-title-wrap">
-              <h2 class="slide-title">Let's Follow One Sensor.</h2>
-              <p class="slide-desc">Follow exactly how a single temperature reading travels from a hot machine chamber to a manager's screen in 20 milliseconds.</p>
-            </div>
-
-            <!-- Large Interactive 6-Node Horizontal Chain -->
-            <div class="trace-chain-container" id="sensor-trace-chain">
-              <!-- Node 1 -->
-              <div class="tc-node active" id="tn-1">
-                <div class="tc-tag">MACHINE</div>
-                <div class="tc-icon">🏭</div>
-                <h4 class="tc-title">Stenter Machine</h4>
-                <div class="tc-reading">Heat-Setting Fabric</div>
-                <p class="tc-note">Chamber 4 heating cotton fabric</p>
-              </div>
-
-              <div class="tc-flow-arrow"><span class="pulse-dot" id="pulse-1"></span>→</div>
-
-              <!-- Node 2 -->
-              <div class="tc-node" id="tn-2">
-                <div class="tc-tag cyan">SENSOR</div>
-                <div class="tc-icon">🌡️</div>
-                <h4 class="tc-title">PT100 Sensor</h4>
-                <div class="tc-reading text-cyan">185.5°C Measured</div>
-                <p class="tc-note">Detects electrical resistance</p>
-              </div>
-
-              <div class="tc-flow-arrow"><span class="pulse-dot" id="pulse-2"></span>→</div>
-
-              <!-- Node 3 -->
-              <div class="tc-node" id="tn-3">
-                <div class="tc-tag">GATEWAY</div>
-                <div class="tc-icon">📟</div>
-                <h4 class="tc-title">IoT Gateway</h4>
-                <div class="tc-reading mono text-yellow">{"temp": 185.5}</div>
-                <p class="tc-note">Converts signal to digital data</p>
-              </div>
-
-              <div class="tc-flow-arrow"><span class="pulse-dot" id="pulse-3"></span>→</div>
-
-              <!-- Node 4 -->
-              <div class="tc-node" id="tn-4">
-                <div class="tc-tag">NETWORK</div>
-                <div class="tc-icon">📡</div>
-                <h4 class="tc-title">Factory Network</h4>
-                <div class="tc-reading">MQTT Message</div>
-                <p class="tc-note">Sent securely over Wi-Fi / LAN</p>
-              </div>
-
-              <div class="tc-flow-arrow"><span class="pulse-dot" id="pulse-4"></span>→</div>
-
-              <!-- Node 5 -->
-              <div class="tc-node" id="tn-5">
-                <div class="tc-tag blue">BACKEND</div>
-                <div class="tc-icon">⚡</div>
-                <h4 class="tc-title">AutoTaskX</h4>
-                <div class="tc-reading text-blue">Verified & Saved</div>
-                <p class="tc-note">Stored in TimescaleDB database</p>
-              </div>
-
-              <div class="tc-flow-arrow"><span class="pulse-dot" id="pulse-5"></span>→</div>
-
-              <!-- Node 6 -->
-              <div class="tc-node highlight-green" id="tn-6">
-                <div class="tc-tag green">DASHBOARD</div>
-                <div class="tc-icon">💻</div>
-                <h4 class="tc-title">Live Screen</h4>
-                <div class="tc-reading text-green">185.5°C [NORMAL]</div>
-                <p class="tc-note">Manager sees green status live</p>
-              </div>
-            </div>
-
-            <!-- Plain English Explanation Box -->
-            <div class="plain-english-card">
-              <div class="pec-icon">🗣️</div>
-              <div class="pec-text">
-                <strong>How to explain this slide in 30 seconds:</strong>
-                <p>"When a stenter machine is running, its temperature probe measures 185.5°C. A small gateway computer on the machine panel reads that value, turns it into a simple message, and sends it over the factory network. AutoTaskX receives it, saves it in the database, and displays it on the live dashboard. The whole trip takes less than 25 milliseconds."</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="slide-footer-bar">
-            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
-            <div class="footer-center">SLIDE 09 / 17 · HOW A SENSOR CONNECTS</div>
-            <div class="footer-right">END-TO-END DATA PATH</div>
-          </div>
-        </section>
-
-
-        <!-- ==================== SLIDE 10: HOW DEVICES COMMUNICATE: MQTT ==================== -->
-        <section class="slide slide-dark" data-slide="10" data-category="COMMUNICATION PROTOCOL">
-          <div class="slide-header-bar">
-            <div class="header-left">
-              <span class="mono-badge blue">COMMUNICATION</span>
-              <span class="header-sep">/</span>
-              <span class="header-sub">HOW MACHINES SEND INFORMATION</span>
-            </div>
-            <div class="header-right">
-              <span class="mono-text">MQTT PROTOCOL EXPLAINED</span>
-            </div>
-          </div>
-
-          <div class="slide-body two-col-layout">
-            <!-- Left: Simple Analogy & Diagram -->
-            <div class="col-main">
-              <div class="section-title-wrap">
-                <h2 class="slide-title">How Do Machines Send Information to AutoTaskX?</h2>
-                <p class="slide-desc">Understanding MQTT through a simple real-world analogy: A high-speed digital post office.</p>
-              </div>
-
-              <!-- The Analogy Box -->
-              <div class="analogy-card">
-                <div class="ac-icon">📬</div>
-                <div class="ac-content">
-                  <h3 class="ac-title">The Digital Post Office Analogy</h3>
-                  <p class="ac-text">"Imagine 50 machines on a factory floor sending quick telegrams to one central post office (EMQX Messaging Server). The post office receives each telegram and instantly delivers it to the exact department that needs it — without any machine waiting in line."</p>
-                </div>
-              </div>
-
-              <!-- Visual Communication Flow -->
-              <div class="mqtt-flow-container">
-                <div class="mf-box">
-                  <span class="mf-title">Sensors & Machines</span>
-                  <span class="mf-desc">Generate temperature, pressure, & speed readings</span>
-                </div>
-                <div class="mf-arrow">↓</div>
-                <div class="mf-box">
-                  <span class="mf-title">Industrial Gateway</span>
-                  <span class="mf-desc">Packages readings into lightweight messages</span>
-                </div>
-                <div class="mf-arrow">↓</div>
-                <div class="mf-box highlight-blue">
-                  <span class="mf-title">MQTT Communication Server (EMQX)</span>
-                  <span class="mf-desc">The digital post office that delivers messages instantly</span>
-                </div>
-                <div class="mf-arrow">↓</div>
-                <div class="mf-box highlight-green">
-                  <span class="mf-title">AutoTaskX Backend & Dashboard</span>
-                  <span class="mf-desc">Receives, stores, and displays live data to users</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right: The 2 Golden Rules (Small Data vs Big Images) -->
-            <div class="col-side">
-              <div class="rules-card">
-                <div class="rc-header">
-                  <span class="rc-tag">CRITICAL ARCHITECTURE RULE</span>
-                </div>
-                <div class="rc-body">
-                  <!-- Rule 1: MQTT for Small Data -->
-                  <div class="rule-item">
-                    <div class="ri-badge blue">RULE 01 · FAST & LIGHTWEIGHT</div>
-                    <h4 class="ri-title">MQTT is for Small Sensor Readings</h4>
-                    <p class="ri-desc">Machine status, temperature numbers, pressure readings, and on/off signals are tiny (under 1 KB). MQTT handles thousands of these every second without slowing down.</p>
-                    <div class="ri-example mono">{"machine": "stenter-02", "temp": 185.5}</div>
-                  </div>
-
-                  <div class="rule-divider"></div>
-
-                  <!-- Rule 2: Separate Upload for Photos -->
-                  <div class="rule-item">
-                    <div class="ri-badge amber">RULE 02 · SEPARATE STORAGE</div>
-                    <h4 class="ri-title">Large Photos Never Use MQTT</h4>
-                    <p class="ri-desc">Fabric inspection photographs (10 MB – 50 MB) are large files. They are uploaded separately through the web application directly to Cloud Storage (AWS S3) so sensor traffic stays lightning fast.</p>
-                    <div class="ri-example text-amber">Direct HTTPS Upload → AWS S3 Cloud</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="slide-footer-bar">
-            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
-            <div class="footer-center">SLIDE 10 / 17 · DEVICE COMMUNICATION</div>
-            <div class="footer-right">MQTT MESSAGING SYSTEM</div>
-          </div>
-        </section>
-
-
-        <!-- ==================== SLIDE 11: WHERE DOES THE DATA GO? ==================== -->
-        <section class="slide slide-dark" data-slide="11" data-category="STORAGE ARCHITECTURE">
-          <div class="slide-header-bar">
-            <div class="header-left">
-              <span class="mono-badge purple">DATA STORAGE</span>
-              <span class="header-sep">/</span>
-              <span class="header-sub">PURPOSE-BUILT INDUSTRIAL STORAGE</span>
-            </div>
-            <div class="header-right">
-              <span class="mono-text">THREE SPECIALIZED CONTAINERS</span>
-            </div>
-          </div>
-
-          <div class="slide-body vertical-flow">
-            <div class="section-title-wrap">
-              <h2 class="slide-title">Every Type of Information Has Its Own Storage.</h2>
-              <p class="slide-desc">Different kinds of factory data need different storage containers to stay fast, organized, and reliable.</p>
-            </div>
-
-            <div class="three-storage-grid">
-              <!-- Storage 1: PostgreSQL -->
-              <div class="storage-card">
-                <div class="sc-top">
-                  <span class="sc-num">01</span>
-                  <span class="sc-badge blue">ORGANIZED RECORDS</span>
-                </div>
-                <div class="sc-icon">🗄️</div>
-                <h3 class="sc-title">PostgreSQL Database</h3>
-                <div class="sc-role">Stores Structured Business Information</div>
-                <p class="sc-desc">Permanent home for user profiles, machine lists, factory settings, chemical dye recipes, and quality inspection tickets.</p>
-                <div class="sc-example-box">
-                  <strong>Practical Example:</strong>
-                  <p>"Batch #CTX-402 was dyed with Navy Recipe #12 by Operator Karim on Fong's Jet #03."</p>
-                </div>
-              </div>
-
-              <!-- Storage 2: TimescaleDB -->
-              <div class="storage-card highlight-cyan">
-                <div class="sc-top">
-                  <span class="sc-num">02</span>
-                  <span class="sc-badge cyan">CONTINUOUS SENSORS</span>
-                </div>
-                <div class="sc-icon">⏱️</div>
-                <h3 class="sc-title">TimescaleDB Database</h3>
-                <div class="sc-role">Stores Measurements That Change Over Time</div>
-                <p class="sc-desc">Specialized time-series database designed to store millions of continuous readings: temperature, pressure, motor speed, and power.</p>
-                <div class="sc-example-box">
-                  <strong>Practical Example:</strong>
-                  <p>"Stenter #02 was 184.2°C at 10:00:01 AM, 185.0°C at 10:00:02 AM, and 185.5°C at 10:00:03 AM."</p>
-                </div>
-              </div>
-
-              <!-- Storage 3: AWS S3 -->
-              <div class="storage-card highlight-green">
-                <div class="sc-top">
-                  <span class="sc-num">03</span>
-                  <span class="sc-badge green">CLOUD FILE VAULT</span>
-                </div>
-                <div class="sc-icon">☁️</div>
-                <h3 class="sc-title">AWS S3 Cloud Storage</h3>
-                <div class="sc-role">Stores Large Files and Photographs</div>
-                <p class="sc-desc">Secure cloud object storage built to hold heavy files like high-resolution 16K inspection scans and operator smartphone photos.</p>
-                <div class="sc-example-box">
-                  <strong>Practical Example:</strong>
-                  <p>"A 25 MB high-resolution fabric roll scan is stored safely in S3; PostgreSQL saves the web link."</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Unified Data Synergy Strip -->
-            <div class="synergy-strip">
-              <span class="syn-badge">SYNERGY</span>
-              <p>When an operator clicks on a defect, <strong>PostgreSQL</strong> loads the ticket details, <strong>AWS S3</strong> shows the high-resolution photo, and <strong>TimescaleDB</strong> shows the exact machine temperature when that defect occurred.</p>
-            </div>
-          </div>
-
-          <div class="slide-footer-bar">
-            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
-            <div class="footer-center">SLIDE 11 / 17 · STORAGE DESTINATIONS</div>
-            <div class="footer-right">POSTGRESQL · TIMESCALEDB · S3</div>
-          </div>
-        </section>
-
-
-        <!-- ==================== SLIDE 12: HOW DATA REACHES THE DASHBOARD ==================== -->
-        <section class="slide slide-dark" data-slide="12" data-category="DASHBOARD DELIVERY">
-          <div class="slide-header-bar">
-            <div class="header-left">
-              <span class="mono-badge green">LIVE DELIVERY</span>
-              <span class="header-sep">/</span>
-              <span class="header-sub">CURRENT DATA VS HISTORICAL DATA</span>
-            </div>
-            <div class="header-right">
-              <span class="mono-text">WEBSOCKETS REAL-TIME STREAM</span>
-            </div>
-          </div>
-
-          <div class="slide-body two-col-layout">
-            <!-- Left: The 5-Step Delivery Pipeline -->
-            <div class="col-main">
-              <div class="section-title-wrap">
-                <h2 class="slide-title">From a Physical Reading to a Live Dashboard.</h2>
-                <p class="slide-desc">How AutoTaskX shows what is happening right now this second, while keeping a permanent historical record of earlier shifts.</p>
-              </div>
-
-              <!-- 5-Step Vertical Flow -->
-              <div class="delivery-steps-list">
-                <div class="ds-item">
-                  <span class="ds-num">1</span>
-                  <div class="ds-text">
-                    <strong>Sensor Measures Physical Condition</strong>
-                    <span>Chamber temperature sensor measures 185.5°C on Stenter #02.</span>
-                  </div>
-                </div>
-                <div class="ds-item">
-                  <span class="ds-num">2</span>
-                  <div class="ds-text">
-                    <strong>Gateway Forwards Reading via MQTT</strong>
-                    <span>Small gateway computer sends reading over factory network in 5ms.</span>
-                  </div>
-                </div>
-                <div class="ds-item">
-                  <span class="ds-num">3</span>
-                  <div class="ds-text">
-                    <strong>AutoTaskX Backend Validates Data</strong>
-                    <span>FastAPI backend verifies device ID and checks if temperature is within limits.</span>
-                  </div>
-                </div>
-                <div class="ds-item">
-                  <span class="ds-num">4</span>
-                  <div class="ds-text">
-                    <strong>Saved in TimescaleDB with Timestamp</strong>
-                    <span>Reading is stored permanently for history: <code>[2026-11-23 10:42:18, 185.5°C]</code>.</span>
-                  </div>
-                </div>
-                <div class="ds-item highlight-green">
-                  <span class="ds-num green">5</span>
-                  <div class="ds-text">
-                    <strong>WebSockets Update Screen Instantly</strong>
-                    <span>The live web page updates automatically without the manager needing to refresh.</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right: Current vs Historical Data Explanation -->
-            <div class="col-side">
-              <div class="two-types-card">
-                <div class="ttc-header">
-                  <span class="ttc-tag">TWO TYPES OF VALUABLE INFORMATION</span>
-                </div>
-                <div class="ttc-body">
-                  <!-- Type 1: Current Data -->
-                  <div class="tt-box green-border">
-                    <div class="tt-top">
-                      <span class="tt-badge green">CURRENT DATA</span>
-                      <span class="tt-sub">What is happening right now</span>
-                    </div>
-                    <div class="tt-display">
-                      <span class="tt-big-num text-green">185.5°C</span>
-                      <span class="tt-status">🟢 STABLE · CHAMBER 4</span>
-                    </div>
-                    <p class="tt-desc">Used by floor operators to catch overheating, machine jams, and speed drops before damage happens.</p>
-                  </div>
-
-                  <!-- Type 2: Historical Data -->
-                  <div class="tt-box blue-border">
-                    <div class="tt-top">
-                      <span class="tt-badge blue">HISTORICAL DATA</span>
-                      <span class="tt-sub">What happened earlier</span>
-                    </div>
-                    <div class="tt-chart-sketch">
-                      <div class="chart-line"></div>
-                      <span class="chart-label">8-Hour Shift Temperature Consistency</span>
-                    </div>
-                    <p class="tt-desc">Used by factory managers to compare shift performance, evaluate energy efficiency, and audit quality.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="slide-footer-bar">
-            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
-            <div class="footer-center">SLIDE 12 / 17 · DASHBOARD DATA DELIVERY</div>
-            <div class="footer-right">REAL-TIME WEBSOCKETS</div>
-          </div>
-        </section>
-
-
-        <!-- ==================== SLIDE 13: ERP INTEGRATION ==================== -->
-        <section class="slide slide-dark" data-slide="13" data-category="FEATURE 05 · ERP INTEGRATION">
-          <div class="slide-header-bar">
-            <div class="header-left">
-              <span class="mono-badge purple">FEATURE 05</span>
-              <span class="header-sep">/</span>
-              <span class="header-sub">BUSINESS SOFTWARE BRIDGE</span>
-            </div>
-            <div class="header-right">
-              <span class="mono-text">TWO-WAY ENTERPRISE SYNC</span>
-            </div>
-          </div>
-
-          <div class="slide-body vertical-flow">
-            <div class="section-title-wrap">
-              <h2 class="slide-title">AutoTaskX Works With Your Existing Business Software.</h2>
-              <p class="slide-desc">Factories do not need to replace their existing accounting or ERP software. AutoTaskX connects the physical shopfloor directly to your business system.</p>
-            </div>
-
-            <!-- Two-Way Highway Diagram -->
-            <div class="erp-highway-container">
-              <!-- ERP Side -->
-              <div class="eh-side erp-side">
-                <span class="eh-tag purple">EXISTING BUSINESS SOFTWARE</span>
-                <h3 class="eh-title">Enterprise ERP</h3>
-                <div class="eh-logos-row">
-                  <span class="el-badge">Datatex NOW</span>
-                  <span class="el-badge">SAP S/4HANA</span>
-                  <span class="el-badge">Infor M3</span>
-                  <span class="el-badge">Oracle</span>
-                </div>
-                <p class="eh-desc">Where management handles customer sales orders, financial accounting, and raw material inventory purchases.</p>
-              </div>
-
-              <!-- Two-Way Highway Channels -->
-              <div class="eh-channels">
-                <!-- Channel A: Orders Down -->
-                <div class="channel-row down">
-                  <div class="ch-text">
-                    <strong>1. Work Orders & Recipes Down</strong>
-                    <span>ERP sends customer orders, required meters, and approved dye recipes to AutoTaskX</span>
-                  </div>
-                  <div class="ch-arrow">→</div>
-                </div>
-
-                <!-- Channel B: Actuals Up -->
-                <div class="channel-row up">
-                  <div class="ch-arrow">←</div>
-                  <div class="ch-text">
-                    <strong>2. Completed Production & Usage Up</strong>
-                    <span>AutoTaskX sends actual meters produced, exact chemical grams used, and quality grades</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- AutoTaskX Side -->
-              <div class="eh-side atx-side">
-                <span class="eh-tag cyan">SHOPFLOOR EXECUTION</span>
-                <h3 class="eh-title">AutoTaskX Platform</h3>
-                <div class="eh-modules-row">
-                  <span class="em-badge">Color Lab</span>
-                  <span class="em-badge">Inspection</span>
-                  <span class="em-badge">Machine IoT</span>
-                </div>
-                <p class="eh-desc">Where operators run machines, mix chemical recipes, inspect fabric rolls, and monitor live sensors.</p>
-              </div>
-            </div>
-
-            <!-- Before vs After Strip -->
-            <div class="comparison-strip">
-              <div class="cs-col cs-before">
-                <span class="cs-label red">BEFORE (MANUAL PAPER ENTRY)</span>
-                <p>Operators write output on clipboards; clerks manually type them into ERP 2 days later with errors.</p>
-              </div>
-              <div class="cs-arrow">→</div>
-              <div class="cs-col cs-after">
-                <span class="cs-label green">WITH AUTOTASKX (AUTOMATIC SYNC)</span>
-                <p>Inventory is updated and orders are marked completed the moment the fabric roll leaves the machine.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="slide-footer-bar">
-            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
-            <div class="footer-center">SLIDE 13 / 17 · ERP INTEGRATION</div>
-            <div class="footer-right">TWO-WAY SYNCHRONIZATION</div>
-          </div>
-        </section>
-
-
-        <!-- ==================== SLIDE 14: COMPLETE FACTORY WORKFLOW ==================== -->
-        <section class="slide slide-dark" data-slide="14" data-category="COMPLETE ARCHITECTURE">
-          <div class="slide-header-bar">
-            <div class="header-left">
-              <span class="mono-badge blue">THE BIG PICTURE</span>
-              <span class="header-sep">/</span>
-              <span class="header-sub">UNIFIED INDUSTRIAL ARCHITECTURE</span>
-            </div>
-            <div class="header-right">
-              <span class="mono-text">ALL MODULES CONNECTED</span>
-            </div>
-          </div>
-
-          <div class="slide-body vertical-flow">
-            <div class="section-title-wrap">
-              <h2 class="slide-title">How Everything Works Together.</h2>
-              <p class="slide-desc">The complete journey connecting laboratory chemistry, fabric inspection, shopfloor machines, and enterprise business systems.</p>
-            </div>
-
-            <!-- Grand 4-Zone Industrial Architecture Map -->
-            <div class="grand-architecture-map">
-              <!-- Zone 1: Physical Shopfloor -->
-              <div class="arch-zone zone-floor">
-                <div class="az-header">
-                  <span class="az-num">ZONE 1</span>
-                  <span class="az-title">PHYSICAL FACTORY DEPARTMENTS</span>
-                </div>
-                <div class="az-body">
-                  <div class="az-card">
-                    <span class="az-icon">🧪</span>
-                    <strong>Color Laboratory</strong>
-                    <span>Spectrophotometer & dye dispenser</span>
-                  </div>
-                  <div class="az-card">
-                    <span class="az-icon">📷</span>
-                    <strong>Inspection Frames</strong>
-                    <span>Basler line camera & operator phones</span>
-                  </div>
-                  <div class="az-card">
-                    <span class="az-icon">🏭</span>
-                    <strong>Floor Machinery</strong>
-                    <span>Stenters, dyeing jets, & knitting frames</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Zone 2: Connectivity -->
-              <div class="arch-zone zone-conn">
-                <div class="az-header">
-                  <span class="az-num">ZONE 2</span>
-                  <span class="az-title">CONNECTION LAYER</span>
-                </div>
-                <div class="az-body vertical">
-                  <div class="az-card highlight">
-                    <span class="az-icon">📟</span>
-                    <strong>Industrial IoT Gateways</strong>
-                    <span>Collects signals from all machines</span>
-                  </div>
-                  <div class="az-card">
-                    <span class="az-icon">📡</span>
-                    <strong>MQTT & HTTPS Network</strong>
-                    <span>Carries telemetry & images securely</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Zone 3: AutoTaskX Core & Storage -->
-              <div class="arch-zone zone-core">
-                <div class="az-header">
-                  <span class="az-num">ZONE 3</span>
-                  <span class="az-title">AUTOTASKX ENGINE & STORAGE</span>
-                </div>
-                <div class="az-body">
-                  <div class="az-card cyan-border">
-                    <span class="az-icon">⚡</span>
-                    <strong>AutoTaskX Backend</strong>
-                    <span>FastAPI business logic & APIs</span>
-                  </div>
-                  <div class="az-storage-stack">
-                    <div class="ass-item">🗄️ <strong>PostgreSQL:</strong> Recipes, users, logs</div>
-                    <div class="ass-item">⏱️ <strong>TimescaleDB:</strong> Sensor measurements</div>
-                    <div class="ass-item">☁️ <strong>AWS S3:</strong> Inspection photos</div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Zone 4: Interfaces & ERP -->
-              <div class="arch-zone zone-ui">
-                <div class="az-header">
-                  <span class="az-num">ZONE 4</span>
-                  <span class="az-title">DELIVERY & ENTERPRISE</span>
-                </div>
-                <div class="az-body vertical">
-                  <div class="az-card green-border">
-                    <span class="az-icon">💻</span>
-                    <strong>Live Management HUD</strong>
-                    <span>Real-time screens for managers & operators</span>
-                  </div>
-                  <div class="az-card purple-border">
-                    <span class="az-icon">🔄</span>
-                    <strong>Enterprise ERP Sync</strong>
-                    <span>Two-way bridge with SAP & Datatex</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Bottom Architecture Principle -->
-            <div class="arch-takeaway-banner">
-              <strong>Architecture Principle:</strong> One single source of truth. Every department enters data into its purpose-built interface, and all managers see the same real-time reality.
-            </div>
-          </div>
-
-          <div class="slide-footer-bar">
-            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
-            <div class="footer-center">SLIDE 14 / 17 · COMPLETE ARCHITECTURE</div>
-            <div class="footer-right">END-TO-END FACTORY MAP</div>
-          </div>
-        </section>
-
-
-        <!-- ==================== SLIDE 15: WHAT DOES THE FACTORY OWNER GET? ==================== -->
-        <section class="slide slide-dark" data-slide="15" data-category="BUSINESS VALUE">
-          <div class="slide-header-bar">
-            <div class="header-left">
-              <span class="mono-badge green">PRACTICAL VALUE</span>
-              <span class="header-sep">/</span>
-              <span class="header-sub">BUSINESS OUTCOMES & EXECUTIVE HUD</span>
-            </div>
-            <div class="header-right">
-              <span class="mono-text">RETURN ON INVESTMENT</span>
-            </div>
-          </div>
-
-          <div class="slide-body two-col-layout">
-            <!-- Left: Executive Dashboard Preview -->
-            <div class="col-main">
-              <div class="section-title-wrap">
-                <h2 class="slide-title">One Place to Understand the Entire Factory.</h2>
-                <p class="slide-desc">Instead of checking multiple machines and separate paper records, factory leaders see complete operational reality from one clean screen.</p>
-              </div>
-
-              <!-- Realistic Executive HUD Card -->
-              <div class="exec-hud-card">
-                <div class="ehc-header">
-                  <span class="live-dot green"></span>
-                  <span class="ehc-title">AUTOTASKX EXECUTIVE SUMMARY</span>
-                  <span class="ehc-shift">SHIFT A · TODAY</span>
-                </div>
-
-                <div class="ehc-kpi-grid-8">
-                  <div class="kpi-box">
-                    <span class="kpi-val text-cyan">26</span>
-                    <span class="kpi-lbl">Connected Machines</span>
-                    <span class="kpi-sub">Total Floor Network</span>
-                  </div>
-                  <div class="kpi-box">
-                    <span class="kpi-val text-green">24</span>
-                    <span class="kpi-lbl">Running Machines</span>
-                    <span class="kpi-sub">92% Floor Utilization</span>
-                  </div>
-                  <div class="kpi-box">
-                    <span class="kpi-val text-muted">2</span>
-                    <span class="kpi-lbl">Offline / Idle</span>
-                    <span class="kpi-sub">Scheduled Cleaning</span>
-                  </div>
-                  <div class="kpi-box">
-                    <span class="kpi-val text-cyan">185.5°C</span>
-                    <span class="kpi-lbl">Current Temperature</span>
-                    <span class="kpi-sub">Stenter Chamber 4 (Stable)</span>
-                  </div>
-                  <div class="kpi-box">
-                    <span class="kpi-val text-purple">42,500 m</span>
-                    <span class="kpi-lbl">Production Status</span>
-                    <span class="kpi-sub">85% Shift Target Met</span>
-                  </div>
-                  <div class="kpi-box">
-                    <span class="kpi-val text-green">99.2%</span>
-                    <span class="kpi-lbl">Inspection Results</span>
-                    <span class="kpi-sub">Right-First-Time (Grade A)</span>
-                  </div>
-                  <div class="kpi-box">
-                    <span class="kpi-val text-green">0</span>
-                    <span class="kpi-lbl">Recent Alerts</span>
-                    <span class="kpi-sub">All Chambers Within Limits</span>
-                  </div>
-                  <div class="kpi-box">
-                    <span class="kpi-val text-blue">+14%</span>
-                    <span class="kpi-lbl">Historical Performance</span>
-                    <span class="kpi-sub">Shift OEE Improvement</span>
-                  </div>
-                </div>
-
-                <div class="ehc-recent-events">
-                  <div class="re-title">RECENT FACTORY ACTIVITY:</div>
-                  <div class="re-item">
-                    <span class="re-dot green"></span>
-                    <span>10:35 AM — Fong's Jet #03 completed Batch #CTX-402 (100 kg Navy Knit) successfully.</span>
-                  </div>
-                  <div class="re-item">
-                    <span class="re-dot cyan"></span>
-                    <span>10:41 AM — Stenter #02 temperature stabilized at 185.5°C; line speed 42.0 m/min.</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right: 4 Practical Business Benefits -->
-            <div class="col-side">
-              <div class="benefits-vertical-card">
-                <div class="bvc-header">
-                  <span class="bvc-tag">MEASURABLE FACTORY GAINS</span>
-                </div>
-                <div class="bvc-body">
-                  <div class="benefit-item">
-                    <span class="bi-icon">👁️</span>
-                    <div class="bi-text">
-                      <strong>Instant Visibility from Anywhere</strong>
-                      <p>Check running machines, floor speed, and production progress from a phone or laptop.</p>
-                    </div>
-                  </div>
-
-                  <div class="benefit-item">
-                    <span class="bi-icon">⏱️</span>
-                    <div class="bi-text">
-                      <strong>Immediate Action on Problems</strong>
-                      <p>Stop overheating and fabric defects before thousands of meters are ruined.</p>
-                    </div>
-                  </div>
-
-                  <div class="benefit-item">
-                    <span class="bi-icon">💰</span>
-                    <div class="bi-text">
-                      <strong>Accurate Chemical & Energy Costs</strong>
-                      <p>Know exact dye grams and electricity consumed per kilogram of finished fabric.</p>
-                    </div>
-                  </div>
-
-                  <div class="benefit-item">
-                    <span class="bi-icon">📋</span>
-                    <div class="bi-text">
-                      <strong>Zero Paperwork Delay</strong>
-                      <p>Production output and inventory synchronize automatically with accounting software.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="slide-footer-bar">
-            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
-            <div class="footer-center">SLIDE 15 / 17 · BUSINESS VALUE</div>
-            <div class="footer-right">EXECUTIVE HUD & OUTCOMES</div>
-          </div>
-        </section>
-
-
-        <!-- ==================== SLIDE 16: FUTURE POSSIBILITIES ==================== -->
-        <section class="slide slide-dark" data-slide="16" data-category="FUTURE ROADMAP">
-          <div class="slide-header-bar">
-            <div class="header-left">
-              <span class="mono-badge blue">FUTURE POSSIBILITIES</span>
-              <span class="header-sep">/</span>
-              <span class="header-sub">SCALABLE INDUSTRIAL ROADMAP</span>
-            </div>
-            <div class="header-right">
-              <span class="mono-text">TECHNOLOGY EVOLUTION</span>
-            </div>
-          </div>
-
-          <div class="slide-body vertical-flow">
-            <div class="section-title-wrap">
-              <h2 class="slide-title">Where Can AutoTaskX Go Next?</h2>
-              <p class="slide-desc">A realistic, phased roadmap for expanding factory intelligence step by step as mill operations mature.</p>
-            </div>
-
-            <!-- 5 Phased Roadmap Milestone Cards -->
-            <div class="roadmap-stages-5">
-              <!-- Stage 1 -->
-              <div class="stage-card">
-                <div class="sc-badge-stage">STAGE 01</div>
-                <h4 class="stage-name">Connect More Machines</h4>
-                <p class="stage-desc">Expand IoT gateway connections to older legacy looms, winding frames, and auxiliary pumps.</p>
-                <div class="stage-target">Goal: 100% Floor Sensor Coverage</div>
-              </div>
-
-              <!-- Stage 2 -->
-              <div class="stage-card">
-                <div class="sc-badge-stage">STAGE 02</div>
-                <h4 class="stage-name">Automated Inspection</h4>
-                <p class="stage-desc">Train computer vision models to automatically detect and flag subtle weaving slubs and needle lines.</p>
-                <div class="stage-target">Goal: Sub-millimeter Flaw Detection</div>
-              </div>
-
-              <!-- Stage 3 -->
-              <div class="stage-card highlight-cyan">
-                <div class="sc-badge-stage cyan">STAGE 03</div>
-                <h4 class="stage-name">Historical Analytics</h4>
-                <p class="stage-desc">Analyze months of historical recipe and temperature data to find ideal running speeds for every fabric weight.</p>
-                <div class="stage-target cyan">Goal: Optimized Process Windows</div>
-              </div>
-
-              <!-- Stage 4 -->
-              <div class="stage-card">
-                <div class="sc-badge-stage">STAGE 04</div>
-                <h4 class="stage-name">Predictive Maintenance</h4>
-                <p class="stage-desc">Warn maintenance engineers before a motor bearing fails or a heating element burns out.</p>
-                <div class="stage-target">Goal: Zero Unplanned Machine Stoppages</div>
-              </div>
-
-              <!-- Stage 5 -->
-              <div class="stage-card">
-                <div class="sc-badge-stage">STAGE 05</div>
-                <h4 class="stage-name">Autonomous Adjustments</h4>
-                <p class="stage-desc">Allow AutoTaskX to adjust machine line speed or chemical dispensary dosing in closed-loop control.</p>
-                <div class="stage-target">Goal: Self-Optimizing Factory Floor</div>
-              </div>
-            </div>
-
-            <!-- Honest Engineering Statement -->
-            <div class="roadmap-clarification">
-              <strong>Honest Engineering Clarity:</strong> These five stages represent our planned growth trajectory. AutoTaskX is built on modular foundations so factories can adopt connectivity first and layer advanced AI when ready.
-            </div>
-          </div>
-
-          <div class="slide-footer-bar">
-            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
-            <div class="footer-center">SLIDE 16 / 17 · FUTURE ROADMAP</div>
-            <div class="footer-right">FIVE EXPANSION STAGES</div>
-          </div>
-        </section>
-
-
-        <!-- ==================== SLIDE 17: CLOSING ==================== -->
-        <section class="slide slide-dark" data-slide="17" data-category="CONCLUSION">
-          <div class="slide-header-bar">
-            <div class="header-left">
-              <span class="mono-badge cyan">CONCLUSION</span>
-              <span class="header-sep">/</span>
-              <span class="header-sub">SUMMARY & TECHNICAL DISCUSSION</span>
-            </div>
-            <div class="header-right">
-              <span class="live-dot green"></span>
-              <span class="mono-text">READY FOR QUESTIONS</span>
-            </div>
-          </div>
-
-          <div class="slide-body cover-layout">
-            <div class="cover-content">
-              <div class="cover-brand">
-                <img src="logo-white.svg" alt="AutoTaskX Logo" class="brand-logo-white">
-              </div>
-              <h2 class="cover-subtitle">Connecting Every Part of Textile Manufacturing.</h2>
-              <div class="accent-line"></div>
-              <p class="cover-statement">"AutoTaskX transforms disconnected factory operations into one connected industrial intelligence platform."</p>
-
-              <!-- Four Core Pillars Recap -->
-              <div class="closing-pillars-row">
-                <div class="cpr-item">
-                  <span class="cpr-icon">🧪</span>
+        </div>
+
+        <!-- Body: left content + right HUD -->
+        <div class="slide-01-body">
+          <div class="s01-left">
+            <img src="logo-white.svg" alt="AutoTaskX" class="s01-logo">
+            <h1 class="s01-heading">Making Textile Manufacturing<br>Smarter, Connected,<br>and More Efficient.</h1>
+            <div class="s01-accent"></div>
+            <p class="s01-desc">"AutoTaskX is an industrial IoT &amp; digital twin platform that connects textile factory operations, machines via MQTT, laboratory activities, and business systems into one unified ecosystem."</p>
+            <div class="s01-pillars">
+              <div class="s01-pill">
+                <span class="s01-pill-icon">🧪</span>
+                <div class="s01-pill-text">
                   <strong>Smart Chemistry</strong>
-                  <span>Accurate dye recipe math</span>
-                </div>
-                <div class="cpr-item">
-                  <span class="cpr-icon">📷</span>
-                  <strong>Visual Inspection</strong>
-                  <span>Camera & mobile flaw detection</span>
-                </div>
-                <div class="cpr-item">
-                  <span class="cpr-icon">⚡</span>
-                  <strong>Textile OS</strong>
-                  <span>Sub-25ms sensor telemetry</span>
-                </div>
-                <div class="cpr-item">
-                  <span class="cpr-icon">🔄</span>
-                  <strong>ERP Synchronization</strong>
-                  <span>Two-way enterprise data bridge</span>
+                  <span>Color recipe calculations</span>
                 </div>
               </div>
-            </div>
-
-            <!-- Presenter Bio & Contact Card -->
-            <div class="cover-aside">
-              <div class="presenter-card-dark">
-                <div class="pcd-badge">PRESENTER & DEVELOPER</div>
-                <h3 class="pcd-name">Sheikh Shamiul Shakib</h3>
-                <p class="pcd-title">Software Engineer · BUTEX Alumnus</p>
-                <div class="pcd-divider"></div>
-                
-                <div class="pcd-links">
-                  <div class="pl-row">
-                    <span class="pl-lbl">Portfolio:</span>
-                    <a href="https://shamiulshakib.me" target="_blank" class="pl-val">shamiulshakib.me</a>
-                  </div>
-                  <div class="pl-row">
-                    <span class="pl-lbl">GitHub:</span>
-                    <a href="https://github.com/shakib5560" target="_blank" class="pl-val">github.com/shakib5560</a>
-                  </div>
-                  <div class="pl-row">
-                    <span class="pl-lbl">Project:</span>
-                    <a href="https://shamiulshakib.me/projects/autotaskx" target="_blank" class="pl-val">shamiulshakib.me/projects/autotaskx</a>
-                  </div>
+              <div class="s01-pill">
+                <span class="s01-pill-icon">📷</span>
+                <div class="s01-pill-text">
+                  <strong>Machine Vision</strong>
+                  <span>Fabric quality inspection</span>
                 </div>
-
-                <div class="pcd-action-box">
-                  <div class="pcd-dot green"></div>
-                  <span>Open for technical questions, architecture deep dive, and interview discussion.</span>
+              </div>
+              <div class="s01-pill">
+                <span class="s01-pill-icon">⚡</span>
+                <div class="s01-pill-text">
+                  <strong>Textile OS &amp; Digital Twin</strong>
+                  <span>Live MQTT machine telemetry</span>
+                </div>
+              </div>
+              <div class="s01-pill">
+                <span class="s01-pill-icon">🔄</span>
+                <div class="s01-pill-text">
+                  <strong>ERP Bridge</strong>
+                  <span>Two-way business synchronization</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="slide-footer-bar">
-            <div class="footer-left">AutoTaskX — Industrial Textile Intelligence Platform</div>
-            <div class="footer-center">SLIDE 17 / 17 · THANK YOU</div>
-            <div class="footer-right">END OF PRESENTATION</div>
+          <div class="s01-right">
+            <div class="s01-hud">
+              <div class="s01-hud-top">
+                <span class="hud-pulse"></span>
+                <span class="hud-top-label">GAZIPUR TEXTILE MILL #04 · LIVE FLOOR HUD</span>
+                <span class="hud-online">ONLINE</span>
+              </div>
+              <div class="s01-hud-img">
+                <img src="autotaskx_ui_hero.png" alt="AutoTaskX Industrial HUD">
+              </div>
+              <div class="s01-hud-stats">
+                <div>
+                  <span class="hs-val">24 / 26</span>
+                  <span class="hs-label">Machines Active</span>
+                </div>
+                <div>
+                  <span class="hs-val">185.5°C</span>
+                  <span class="hs-label">Chamber Temp</span>
+                </div>
+                <div>
+                  <span class="hs-val">&lt; 25ms</span>
+                  <span class="hs-label">Sensor Latency</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </section>
-
-      </div> <!-- /presentation-stage -->
-    </div> <!-- /stage-scaler -->
-
-    <!-- ==================== FIXED NAVIGATION HUD ==================== -->
-    <div id="nav-bar">
-      <button id="btn-prev" class="nav-btn" title="Previous Slide (← / Backspace)">
-        <span>←</span>
-      </button>
-
-      <div class="nav-slide-info">
-        <span id="slide-indicator">01 / 17</span>
-        <span class="nav-sep">·</span>
-        <span id="slide-category-indicator" class="nav-cat">INTRODUCTION</span>
-      </div>
-
-      <button id="btn-next" class="nav-btn" title="Next Slide (→ / Space)">
-        <span>→</span>
-      </button>
-
-      <div class="nav-divider"></div>
-
-      <button id="btn-overview" class="nav-btn" title="Slide Overview Grid (O)">
-        <span>⊞</span>
-      </button>
-
-      <button id="btn-notes" class="nav-btn text-btn" title="Presenter Notes Drawer (N)">
-        <span>Notes</span>
-      </button>
-
-      <button id="btn-fullscreen" class="nav-btn" title="Toggle Fullscreen (F)">
-        <span>⛶</span>
-      </button>
-    </div>
-
-    <!-- ==================== PRESENTER NOTES DRAWER ==================== -->
-    <div id="notes-drawer" class="drawer-hidden">
-      <div class="drawer-header">
-        <h4>Presenter Guide · 30-Second Speaking Track</h4>
-        <button id="btn-close-notes" class="drawer-close">✕</button>
-      </div>
-      <div id="notes-content" class="drawer-body">
-        <!-- Injected via JavaScript -->
-      </div>
-    </div>
-
-    <!-- ==================== SLIDE OVERVIEW MODAL ==================== -->
-    <div id="overview-modal" class="modal-hidden">
-      <div class="modal-backdrop" id="overview-backdrop"></div>
-      <div class="modal-container">
-        <div class="modal-header">
-          <h3>Slide Navigation Overview</h3>
-          <span class="modal-tip">Click any slide to jump · Press ESC or O to close</span>
-          <button id="btn-close-overview" class="modal-close">✕</button>
         </div>
-        <div class="modal-grid" id="overview-grid">
-          <!-- 17 Slide thumbnails populated by JS -->
+
+        <!-- Dark footer -->
+        <div class="s01-footer">
+          <div class="s01-footer-left">
+            <span class="s01-fname">Sheikh Shamiul Shakib</span>
+            <span class="s01-frole">Software Engineer · BUTEX Alumnus</span>
+          </div>
+          <div class="s01-footer-center">
+            <span>SLIDE 01 / 17</span>
+            <span class="s01-fdot">·</span>
+            <span>INTRODUCTION</span>
+          </div>
+          <div class="s01-footer-right">AutoTaskX — Industrial Textile Intelligence Platform</div>
         </div>
-      </div>
+
+      </section>
+
+      <!-- ==================== SLIDE 02: THE ACTUAL PROBLEM ==================== -->
+      <section class="slide slide-light alt-bg" data-slide="2" data-category="THE ACTUAL PROBLEM">
+
+        <div class="slide-header">
+          <div class="sh-left">
+            <span class="sh-label">THE PROBLEM</span>
+            <span class="sh-sep">/</span>
+            <span class="sh-sub">Why textile factories need AutoTaskX</span>
+          </div>
+          <div class="sh-right">SLIDE 02 / 17</div>
+        </div>
+
+        <div class="slide-content">
+          <div class="s02-layout">
+            <!-- Full-height photo left -->
+            <div class="s02-photo">
+              <img src="photo_textile_loom.jpg" alt="Textile loom factory floor">
+              <div class="s02-photo-overlay"></div>
+            </div>
+            <!-- Content right -->
+            <div class="s02-right">
+              <p class="s02-eyebrow">The Core Challenge</p>
+              <h2 class="s02-title">Most Textile Factories Still Run on Guesswork.</h2>
+              <div class="s02-problems">
+                <div class="s02-item">
+                  <span class="s02-num">01</span>
+                  <div class="s02-item-body">
+                    <div class="s02-item-title">Manual Work — Slow and Error-Prone</div>
+                    <div class="s02-item-desc">Lab technicians write color formulas by hand. Supervisors record machine data in notebooks. Everything is slow, inconsistent, and human-error dependent.</div>
+                  </div>
+                </div>
+                <div class="s02-item">
+                  <span class="s02-num">02</span>
+                  <div class="s02-item-body">
+                    <div class="s02-item-title">Disconnected Machines — No Shared Awareness</div>
+                    <div class="s02-item-desc">Every machine works independently. A temperature spike on one machine doesn't alert other departments. Problems stay invisible until they cause damage.</div>
+                  </div>
+                </div>
+                <div class="s02-item">
+                  <span class="s02-num">03</span>
+                  <div class="s02-item-body">
+                    <div class="s02-item-title">Missing Information — Decisions Without Data</div>
+                    <div class="s02-item-desc">Factory owners have no live view of production. Reports are generated once a week — too late to fix problems that happened on Monday.</div>
+                  </div>
+                </div>
+                <div class="s02-item">
+                  <span class="s02-num">04</span>
+                  <div class="s02-item-body">
+                    <div class="s02-item-title">Delayed Decisions — Problems Become Losses</div>
+                    <div class="s02-item-desc">By the time management learns about a defective batch, 10,000 metres of fabric are already ruined. Prevention is impossible without real-time monitoring.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="s02-comparison">
+                <div class="s02-cmp-col">
+                  <div class="s02-cmp-label before">Before AutoTaskX</div>
+                  <div class="s02-cmp-text">Manual logs · Weekly reports · No machine visibility · Reactive problem-solving · Disconnected departments</div>
+                </div>
+                <div class="s02-cmp-col">
+                  <div class="s02-cmp-label after">With AutoTaskX</div>
+                  <div class="s02-cmp-text">Live sensor data · Instant alerts · Connected machines · Proactive decisions · Unified platform</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <span class="sf-left">AutoTaskX — Industrial Textile Intelligence Platform</span>
+          <span class="sf-center">SLIDE 02 / 17 · THE ACTUAL PROBLEM</span>
+          <span class="sf-right">PROBLEM</span>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 03: OUR SOLUTION ==================== -->
+      <section class="slide slide-light" data-slide="3" data-category="OUR SOLUTION">
+
+        <div class="slide-header">
+          <div class="sh-left">
+            <span class="sh-label">OUR SOLUTION</span>
+            <span class="sh-sep">/</span>
+            <span class="sh-sub">Five integrated modules. One industrial ecosystem.</span>
+          </div>
+          <div class="sh-right">SLIDE 03 / 17</div>
+        </div>
+
+        <div class="slide-content">
+          <div class="s03-layout">
+            <div class="s03-top">
+              <p class="s03-eyebrow">What AutoTaskX Does</p>
+              <h2 class="s03-title">Five Integrated Modules.<br>One Industrial Ecosystem.</h2>
+            </div>
+            <div class="s03-modules">
+              <div class="s03-row">
+                <span class="s03-num">01</span>
+                <span class="s03-module-name">Color Formulation</span>
+                <div class="s03-dash"></div>
+                <span class="s03-module-desc">Precision spectral matching, automated dye calculations, and chemical dispenser recipe generation. Eliminates manual lab guesswork.</span>
+                <span class="s03-module-tag">Lab Chemistry</span>
+                <img src="module_01_color.jpg" alt="Color Formulation" class="s03-img">
+              </div>
+              <div class="s03-row">
+                <span class="s03-num">02</span>
+                <span class="s03-module-name">Visual Quality Inspection</span>
+                <div class="s03-dash"></div>
+                <span class="s03-module-desc">Continuous optical fabric inspection with sub-millimeter flaw classification. Industrial camera and smartphone both supported.</span>
+                <span class="s03-module-tag">Machine Vision</span>
+                <img src="module_02_vision.png" alt="Visual Quality Inspection" class="s03-img">
+              </div>
+              <div class="s03-row">
+                <span class="s03-num">03</span>
+                <span class="s03-module-name">Production Intelligence</span>
+                <div class="s03-dash"></div>
+                <span class="s03-module-desc">Real-time floor monitoring, bottleneck analysis, shift forecasting, and AI-powered production anomaly detection.</span>
+                <span class="s03-module-tag">Factory OS</span>
+                <img src="textile_factory_floor.png" alt="Production Intelligence" class="s03-img">
+              </div>
+              <div class="s03-row">
+                <span class="s03-num">04</span>
+                <span class="s03-module-name">Textile OS &amp; Digital Twin</span>
+                <div class="s03-dash"></div>
+                <span class="s03-module-desc">Centralized industrial IoT layer. MQTT protocol abstraction, real-time machine digital twin state, and time-series hypertables.</span>
+                <span class="s03-module-tag">IoT &amp; Digital Twin</span>
+                <img src="module_04_iot.jpg" alt="Textile OS &amp; Digital Twin" class="s03-img">
+              </div>
+              <div class="s03-row">
+                <span class="s03-num">05</span>
+                <span class="s03-module-name">ERP Integration</span>
+                <div class="s03-dash"></div>
+                <span class="s03-module-desc">Bidirectional industrial data bridge. Connects shopfloor execution to enterprise accounting ledgers and business planning systems.</span>
+                <span class="s03-module-tag">Enterprise Bridge</span>
+                <img src="module_05_erp.jpg" alt="ERP Integration" class="s03-img">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <span class="sf-left">AutoTaskX — Industrial Textile Intelligence Platform</span>
+          <span class="sf-center">SLIDE 03 / 17 · OUR SOLUTION</span>
+          <span class="sf-right">SOLUTION</span>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 04: HOW IT WORKS ==================== -->
+      <section class="slide slide-light" data-slide="4" data-category="HOW IT WORKS">
+
+        <div class="slide-header">
+          <div class="sh-left">
+            <span class="sh-label">HOW IT WORKS</span>
+            <span class="sh-sep">/</span>
+            <span class="sh-sub">From physical machine to live dashboard</span>
+          </div>
+          <div class="sh-right">SLIDE 04 / 17</div>
+        </div>
+
+        <div class="slide-content">
+          <div class="s04-layout">
+            <div class="s04-top">
+              <p class="s04-eyebrow">The Complete Flow</p>
+              <h2 class="s04-title">From Physical Machine to Live Dashboard.</h2>
+              <p class="s04-desc">Here is exactly how information travels from a factory floor sensor to the manager's screen — in under 25 milliseconds.</p>
+            </div>
+
+            <div class="s04-flow">
+              <div class="s04-node">
+                <div class="s04-circle">
+                  <span class="s04-circle-icon">🏭</span>
+                </div>
+                <div class="s04-node-label">Physical Machines</div>
+                <div class="s04-node-sub">Stenter, loom, dyeing, compactor</div>
+              </div>
+
+              <div class="s04-connector">
+                <div class="s04-connector-line">
+                  <div class="s04-dot"></div>
+                  <div class="s04-dot"></div>
+                  <div class="s04-dot"></div>
+                  <span class="s04-connector-arrow">›</span>
+                </div>
+              </div>
+
+              <div class="s04-node">
+                <div class="s04-circle">
+                  <span class="s04-circle-icon">🌡️</span>
+                </div>
+                <div class="s04-node-label">Sensors &amp; Cameras</div>
+                <div class="s04-node-sub">Temp, pressure, speed, vision</div>
+              </div>
+
+              <div class="s04-connector">
+                <div class="s04-connector-line">
+                  <div class="s04-dot"></div>
+                  <div class="s04-dot"></div>
+                  <div class="s04-dot"></div>
+                  <span class="s04-connector-arrow">›</span>
+                </div>
+              </div>
+
+              <div class="s04-node">
+                <div class="s04-circle">
+                  <span class="s04-circle-icon">📟</span>
+                </div>
+                <div class="s04-node-label">Connection System</div>
+                <div class="s04-node-sub">IoT gateway · MQTT protocol</div>
+              </div>
+
+              <div class="s04-connector">
+                <div class="s04-connector-line">
+                  <div class="s04-dot"></div>
+                  <div class="s04-dot"></div>
+                  <div class="s04-dot"></div>
+                  <span class="s04-connector-arrow">›</span>
+                </div>
+              </div>
+
+              <div class="s04-node">
+                <div class="s04-circle">
+                  <span class="s04-circle-icon">⚡</span>
+                </div>
+                <div class="s04-node-label">Digital Twin Engine</div>
+                <div class="s04-node-sub">FastAPI · MQTT stream · State model</div>
+              </div>
+
+              <div class="s04-connector">
+                <div class="s04-connector-line">
+                  <div class="s04-dot"></div>
+                  <div class="s04-dot"></div>
+                  <div class="s04-dot"></div>
+                  <span class="s04-connector-arrow">›</span>
+                </div>
+              </div>
+
+              <div class="s04-node">
+                <div class="s04-circle">
+                  <span class="s04-circle-icon">🗄️</span>
+                </div>
+                <div class="s04-node-label">Database Storage</div>
+                <div class="s04-node-sub">PostgreSQL · TimescaleDB · S3</div>
+              </div>
+
+              <div class="s04-connector">
+                <div class="s04-connector-line">
+                  <div class="s04-dot"></div>
+                  <div class="s04-dot"></div>
+                  <div class="s04-dot"></div>
+                  <span class="s04-connector-arrow">›</span>
+                </div>
+              </div>
+
+              <div class="s04-node">
+                <div class="s04-circle">
+                  <span class="s04-circle-icon">💻</span>
+                </div>
+                <div class="s04-node-label">Live Dashboard</div>
+                <div class="s04-node-sub">Manager's screen · Alerts · Reports</div>
+              </div>
+            </div>
+
+            <blockquote class="s04-insight">
+              "A PT100 temperature sensor on the stenter machine reads 185.5°C and publishes over MQTT. Within 25 milliseconds, FastAPI updates the machine's digital twin state and delivers it live to the manager's dashboard."
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <span class="sf-left">AutoTaskX — Industrial Textile Intelligence Platform</span>
+          <span class="sf-center">SLIDE 04 / 17 · HOW IT WORKS</span>
+          <span class="sf-right">ARCHITECTURE</span>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 05: COLOR FORMULATION ==================== -->
+      <section class="slide slide-light" data-slide="5" data-category="FEATURE 01 · COLOR FORMULATION">
+
+        <div class="slide-header">
+          <div class="sh-left">
+            <span class="sh-label">FEATURE 01</span>
+            <span class="sh-sep">/</span>
+            <span class="sh-sub">Color Formulation — Smart Chemistry</span>
+          </div>
+          <div class="sh-right">SLIDE 05 / 17</div>
+        </div>
+
+        <div class="slide-content">
+          <div class="s05-layout">
+            <div class="s05-photo">
+              <img src="photo_dye_lab.jpg" alt="Textile dye laboratory">
+              <div class="s05-photo-overlay"></div>
+            </div>
+            <div class="s05-right">
+              <p class="s05-eyebrow">Feature 01 · Lab Chemistry</p>
+              <h2 class="s05-title">Precise Color Recipes.<br>Calculated in Seconds.</h2>
+              <p class="s05-desc">Instead of a chemist spending hours trying different dye combinations, AutoTaskX calculates the exact recipe mathematically.</p>
+
+              <div class="s05-steps">
+                <div class="s05-step">
+                  <span class="s05-step-num">01</span>
+                  <span class="s05-step-text"><strong>Customer sends a target color sample</strong> — a fabric swatch or Pantone code.</span>
+                </div>
+                <div class="s05-step">
+                  <span class="s05-step-num">02</span>
+                  <span class="s05-step-text"><strong>Spectrophotometer measures the color</strong> — captures exact light wavelength values.</span>
+                </div>
+                <div class="s05-step">
+                  <span class="s05-step-num">03</span>
+                  <span class="s05-step-text"><strong>Kubelka-Munk algorithm calculates</strong> which dyes to mix and in what exact quantities.</span>
+                </div>
+                <div class="s05-step">
+                  <span class="s05-step-num">04</span>
+                  <span class="s05-step-text"><strong>AutoTaskX generates the recipe</strong> — exact grams per 100kg fabric, ready for the lab.</span>
+                </div>
+                <div class="s05-step">
+                  <span class="s05-step-num">05</span>
+                  <span class="s05-step-text"><strong>Auto-dispenser receives instructions</strong> and measures chemicals automatically without human error.</span>
+                </div>
+                <div class="s05-step">
+                  <span class="s05-step-num">06</span>
+                  <span class="s05-step-text"><strong>Color difference (ΔE) confirmed below 1.0</strong> — industry standard for a perfect match.</span>
+                </div>
+              </div>
+
+              <div class="s05-recipe-wrap">
+                <div class="s05-recipe-title">Sample Output — 100 kg Navy Cotton Recipe</div>
+                <table class="s05-table">
+                  <thead>
+                    <tr><th>Chemical</th><th>Role</th><th>Amount</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Reactive Blue</td><td>Primary dye</td><td>1850 g</td></tr>
+                    <tr><td>Red 420</td><td>Shade adjustment</td><td>420 g</td></tr>
+                    <tr><td>Salt</td><td>Dye fixation</td><td>5000 g</td></tr>
+                    <tr><td>Soda Ash</td><td>Alkali catalyst</td><td>1500 g</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="s05-note"><strong>Note:</strong> All quantities auto-scaled by fabric weight. ΔE target: &lt; 1.0 (imperceptible to the human eye).</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <span class="sf-left">AutoTaskX — Industrial Textile Intelligence Platform</span>
+          <span class="sf-center">SLIDE 05 / 17 · FEATURE 01 · COLOR FORMULATION</span>
+          <span class="sf-right">LAB CHEMISTRY</span>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 06: VISUAL QUALITY INSPECTION ==================== -->
+      <section class="slide slide-light" data-slide="6" data-category="FEATURE 02 · QUALITY INSPECTION">
+
+        <div class="slide-header">
+          <div class="sh-left">
+            <span class="sh-label">FEATURE 02</span>
+            <span class="sh-sep">/</span>
+            <span class="sh-sub">Visual Quality Inspection — Machine Vision</span>
+          </div>
+          <div class="sh-right">SLIDE 06 / 17</div>
+        </div>
+
+        <div class="slide-content">
+          <div class="s06-layout">
+            <!-- Left side: Feature capabilities & workflow -->
+            <div class="s06-left">
+              <div>
+                <p class="s06-eyebrow">Feature 02 · Machine Vision</p>
+                <h2 class="s06-title">Every Metre of Fabric.<br>Inspected Automatically.</h2>
+                <p class="s06-desc">Continuous optical fabric inspection with sub-millimeter flaw classification. Industrial line-scan cameras and mobile spot inspections both stream to a unified vision model.</p>
+              </div>
+
+              <div class="s06-sources">
+                <div class="s06-col">
+                  <div class="s06-source-label">Source A · Industrial Continuous</div>
+                  <div class="s06-source-title">Line-Scan Camera</div>
+                  <div class="s06-source-name">Basler racer 2L · 16,384 px @ 60 Hz</div>
+                  <div class="s06-source-desc">Continuous full-width fabric scan on production line. Detects micro-defects at line speeds up to 120 m/min.</div>
+                  <span class="s06-source-tag">Automated · Inline</span>
+                </div>
+
+                <div class="s06-col-divider"></div>
+
+                <div class="s06-col">
+                  <div class="s06-source-label">Source B · Flexible Mobile</div>
+                  <div class="s06-source-title">Floor Inspection App</div>
+                  <div class="s06-source-name">Android / iOS via AutoTaskX Mobile</div>
+                  <div class="s06-source-desc">Floor auditors snap spot samples. Same computer vision model analyzes defects on-demand.</div>
+                  <span class="s06-source-tag">On-Demand · Floor</span>
+                </div>
+              </div>
+
+              <div class="s06-workflow">
+                <div class="s06-wf-step">
+                  <span class="s06-wf-num">01</span>
+                  <span class="s06-wf-title">Capture</span>
+                  <span class="s06-wf-sub">Camera / phone</span>
+                </div>
+                <span class="s06-wf-arrow">→</span>
+                <div class="s06-wf-step">
+                  <span class="s06-wf-num">02</span>
+                  <span class="s06-wf-title">Stitch</span>
+                  <span class="s06-wf-sub">OpenCV merge</span>
+                </div>
+                <span class="s06-wf-arrow">→</span>
+                <div class="s06-wf-step">
+                  <span class="s06-wf-num">03</span>
+                  <span class="s06-wf-title">Analyse</span>
+                  <span class="s06-wf-sub">AI classification</span>
+                </div>
+                <span class="s06-wf-arrow">→</span>
+                <div class="s06-wf-step">
+                  <span class="s06-wf-num">04</span>
+                  <span class="s06-wf-title">Map</span>
+                  <span class="s06-wf-sub">Bounding box</span>
+                </div>
+                <span class="s06-wf-arrow">→</span>
+                <div class="s06-wf-step">
+                  <span class="s06-wf-num">05</span>
+                  <span class="s06-wf-title">Store</span>
+                  <span class="s06-wf-sub">S3 + PostgreSQL</span>
+                </div>
+              </div>
+
+              <div class="s06-storage-note">
+                <strong>Storage:</strong> High-res defect images stream directly to AWS S3. Bounding box coordinates &amp; defect tags save to PostgreSQL for batch traceability.
+              </div>
+
+              <div class="s06-defects">
+                <span class="s06-defects-label">Detectable Defects:</span>
+                <span class="s06-defect-pill"><span class="s06-pill-dot red"></span><span>Oil Stain</span></span>
+                <span class="s06-defect-pill"><span class="s06-pill-dot amber"></span><span>Broken Yarn</span></span>
+                <span class="s06-defect-pill"><span class="s06-pill-dot blue"></span><span>Needle Hole</span></span>
+                <span class="s06-defect-pill"><span class="s06-pill-dot red"></span><span>Weft Missing</span></span>
+                <span class="s06-defect-pill"><span class="s06-pill-dot amber"></span><span>Shade Variation</span></span>
+              </div>
+            </div>
+
+            <!-- Right side: Fully shown user image -->
+            <div class="s06-right">
+              <div class="s06-image-card">
+                <div class="s06-image-top">
+                  <span class="s06-image-top-title">AUTOTASKX VISION LAB · INSPECTION INTERFACE</span>
+                  <span class="s06-image-badge"><span class="s01-live"></span>ACTIVE SCAN</span>
+                </div>
+                <div class="s06-img-viewport">
+                  <img src="Textile Inspection Vision Lab.png" alt="AutoTaskX Textile Inspection Vision Lab" class="s06-full-img">
+                </div>
+                <div class="s06-image-footer">
+                  <span>FRAME RESOLUTION: 16,384 × 4,096 PX</span>
+                  <span>AI CONFIDENCE: 98.6%</span>
+                  <span>LATENCY: &lt; 45MS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <span class="sf-left">AutoTaskX — Industrial Textile Intelligence Platform</span>
+          <span class="sf-center">SLIDE 06 / 17 · FEATURE 02 · QUALITY INSPECTION</span>
+          <span class="sf-right">MACHINE VISION</span>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 07: PRODUCTION INTELLIGENCE ==================== -->
+      <section class="slide slide-light alt-bg" data-slide="7" data-category="FEATURE 03 · PRODUCTION INTELLIGENCE">
+
+        <div class="slide-header">
+          <div class="sh-left">
+            <span class="sh-label">FEATURE 03</span>
+            <span class="sh-sep">/</span>
+            <span class="sh-sub">Production Intelligence — Live Floor Monitoring</span>
+          </div>
+          <div class="sh-right">SLIDE 07 / 17</div>
+        </div>
+
+        <div class="slide-content">
+          <div class="s07-layout">
+            <div class="s07-left">
+              <p class="s07-eyebrow">Feature 03 · Factory Intelligence</p>
+              <h2 class="s07-title">See Every Machine.<br>Know Every Problem.</h2>
+              <p class="s07-desc">AutoTaskX reads live data from every PLC, speed encoder, and energy meter on the factory floor. It detects bottlenecks before they stop production.</p>
+
+              <div class="s07-scenario-label">Real Scenario — Stenter Machine Overheating</div>
+              <div class="s07-steps">
+                <div class="s07-step">
+                  <span class="s07-step-num">1</span>
+                  <div class="s07-step-text">
+                    <div class="s07-step-title">Temperature sensor reads 192°C</div>
+                    <div class="s07-step-desc">Above the 185°C safe operating limit for this fabric type.</div>
+                  </div>
+                </div>
+                <div class="s07-step">
+                  <span class="s07-step-num">2</span>
+                  <div class="s07-step-text">
+                    <div class="s07-step-title">AutoTaskX raises an instant alert</div>
+                    <div class="s07-step-desc">Dashboard highlights the machine in red. SMS notification sent to shift supervisor within 3 seconds.</div>
+                  </div>
+                </div>
+                <div class="s07-step">
+                  <span class="s07-step-num">3</span>
+                  <div class="s07-step-text">
+                    <div class="s07-step-title">Supervisor investigates and adjusts</div>
+                    <div class="s07-step-desc">Checks the AutoTaskX temperature history chart to identify when the drift began.</div>
+                  </div>
+                </div>
+                <div class="s07-step">
+                  <span class="s07-step-num">4</span>
+                  <div class="s07-step-text">
+                    <div class="s07-step-title">Production continues without fabric waste</div>
+                    <div class="s07-step-desc">Early warning prevented the entire batch from being overheated and rejected.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right live data panel -->
+            <div class="s07-right">
+              <div class="s07-hud-label">Live Machine Data — Stenter Line 03</div>
+              <div class="s07-temp-display">
+                <div class="s07-temp-val">185.5<span class="s07-temp-unit">°C</span></div>
+                <div class="s07-temp-label">Chamber Temperature · Zone 4</div>
+                <div class="s07-temp-status">
+                  <span class="s07-status-dot"></span>
+                  <span class="s07-status-text">WITHIN SAFE RANGE</span>
+                </div>
+              </div>
+              <div class="s07-chart-label">Temperature history — last 7 readings</div>
+              <div class="s07-bars">
+                <div class="s07-bar" style="height:55%"></div>
+                <div class="s07-bar" style="height:60%"></div>
+                <div class="s07-bar" style="height:65%"></div>
+                <div class="s07-bar" style="height:68%"></div>
+                <div class="s07-bar" style="height:72%"></div>
+                <div class="s07-bar" style="height:75%"></div>
+                <div class="s07-bar active" style="height:80%"></div>
+              </div>
+              <div class="s07-bar-baseline"></div>
+              <div class="s07-metrics">
+                <div class="s07-metric">
+                  <span class="s07-metric-label">Line Speed</span>
+                  <span class="s07-metric-val">42 m/min</span>
+                </div>
+                <div class="s07-metric">
+                  <span class="s07-metric-label">Batch Progress</span>
+                  <span class="s07-metric-val">81 %</span>
+                </div>
+                <div class="s07-metric">
+                  <span class="s07-metric-label">Machines Active</span>
+                  <span class="s07-metric-val">18 / 20</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <span class="sf-left">AutoTaskX — Industrial Textile Intelligence Platform</span>
+          <span class="sf-center">SLIDE 07 / 17 · FEATURE 03 · PRODUCTION INTELLIGENCE</span>
+          <span class="sf-right">FACTORY OS</span>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 08: TEXTILE OS ==================== -->
+      <section class="slide slide-light" data-slide="8" data-category="FEATURE 04 · TEXTILE OS">
+
+        <div class="slide-header">
+          <div class="sh-left">
+            <span class="sh-label">FEATURE 04</span>
+            <span class="sh-sep">/</span>
+            <span class="sh-sub">Textile OS — Industrial IoT Layer</span>
+          </div>
+          <div class="sh-right">SLIDE 08 / 17</div>
+        </div>
+
+        <div class="slide-content">
+          <div class="s08-layout">
+            <div class="s08-photo">
+              <img src="photo_plc_panel.jpg" alt="Industrial PLC control panel">
+              <div class="s08-photo-overlay"></div>
+            </div>
+            <div class="s08-center">
+              <p class="s08-eyebrow">Feature 04 · Central Nervous System</p>
+              <h2 class="s08-title">Textile OS &amp; Digital Twin<br>Connect Every Machine.</h2>
+              <p class="s08-desc">AutoTaskX captures high-frequency industrial IoT signals over MQTT, creating a synchronized digital twin of every machine on the factory floor regardless of age or brand.</p>
+
+              <div class="s08-devices">
+                <div class="s08-device">
+                  <div class="s08-device-name">🌡️ Temperature Sensors</div>
+                  <div class="s08-device-desc">PT100 / PT1000 RTD probes</div>
+                </div>
+                <div class="s08-device">
+                  <div class="s08-device-name">💧 Humidity Sensors</div>
+                  <div class="s08-device-desc">SHT40 digital hygro sensors</div>
+                </div>
+                <div class="s08-device">
+                  <div class="s08-device-name">⚙️ Pressure Gauges</div>
+                  <div class="s08-device-desc">0–10 bar industrial transducers</div>
+                </div>
+                <div class="s08-device">
+                  <div class="s08-device-name">📏 Level Sensors</div>
+                  <div class="s08-device-desc">Ultrasonic &amp; float switches</div>
+                </div>
+                <div class="s08-device">
+                  <div class="s08-device-name">⚡ Energy Meters</div>
+                  <div class="s08-device-desc">3-phase RS485 power meters</div>
+                </div>
+                <div class="s08-device">
+                  <div class="s08-device-name">💨 Steam Flow Meters</div>
+                  <div class="s08-device-desc">Vortex &amp; thermal mass meters</div>
+                </div>
+                <div class="s08-device">
+                  <div class="s08-device-name">🔄 Speed Encoders</div>
+                  <div class="s08-device-desc">Incremental rotary encoders</div>
+                </div>
+                <div class="s08-device">
+                  <div class="s08-device-name">🏭 PLC Controllers</div>
+                  <div class="s08-device-desc">Siemens S7, Schneider Modicon</div>
+                </div>
+                <div class="s08-device">
+                  <div class="s08-device-name">📷 Inspection Cameras</div>
+                  <div class="s08-device-desc">Basler racer / FLIR vision</div>
+                </div>
+                <div class="s08-device">
+                  <div class="s08-device-name">🔬 Spectrophotometers</div>
+                  <div class="s08-device-desc">Datacolor &amp; X-Rite series</div>
+                </div>
+              </div>
+              <p class="s08-compat">Compatible protocols: <strong>Modbus RTU/TCP · OPC-UA · LwM2M · MQTT · BACnet · Serial RS485</strong></p>
+            </div>
+
+            <div class="s08-right">
+              <div class="s08-steps-title">How Data Reaches AutoTaskX</div>
+              <div class="s08-steps">
+                <div class="s08-step-line"></div>
+                <div class="s08-step">
+                  <div class="s08-step-bubble">1</div>
+                  <div class="s08-step-body">
+                    <div class="s08-step-title">Sensor reads machine</div>
+                    <div class="s08-step-desc">Physical measurement every 100ms</div>
+                  </div>
+                </div>
+                <div class="s08-step">
+                  <div class="s08-step-bubble">2</div>
+                  <div class="s08-step-body">
+                    <div class="s08-step-title">IoT Gateway collects</div>
+                    <div class="s08-step-desc">Edge device aggregates local sensors</div>
+                  </div>
+                </div>
+                <div class="s08-step">
+                  <div class="s08-step-bubble">3</div>
+                  <div class="s08-step-body">
+                    <div class="s08-step-title">MQTT broker routes</div>
+                    <div class="s08-step-desc">EMQX distributes to subscribers</div>
+                  </div>
+                </div>
+                <div class="s08-step">
+                  <div class="s08-step-bubble">4</div>
+                  <div class="s08-step-body">
+                    <div class="s08-step-title">FastAPI syncs digital twin</div>
+                    <div class="s08-step-desc">TimescaleDB stores time-series</div>
+                  </div>
+                </div>
+                <div class="s08-step">
+                  <div class="s08-step-bubble final">5</div>
+                  <div class="s08-step-body">
+                    <div class="s08-step-title">Dashboard displays</div>
+                    <div class="s08-step-desc">Live update in &lt; 25ms</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <span class="sf-left">AutoTaskX — Industrial Textile Intelligence Platform</span>
+          <span class="sf-center">SLIDE 08 / 17 · FEATURE 04 · TEXTILE OS</span>
+          <span class="sf-right">INDUSTRIAL IoT</span>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 09: SENSOR DEEP DIVE ==================== -->
+      <section class="slide slide-light alt-bg" data-slide="9" data-category="FEATURE 04 · SENSOR DEEP DIVE">
+
+        <div class="slide-header">
+          <div class="sh-left">
+            <span class="sh-label">FEATURE 04 · DEEP DIVE</span>
+            <span class="sh-sep">/</span>
+            <span class="sh-sub">How one temperature reading reaches the screen</span>
+          </div>
+          <div class="sh-right">SLIDE 09 / 17</div>
+        </div>
+
+        <div class="slide-content">
+          <div class="s09-layout">
+            <div class="s09-top">
+              <p class="s09-eyebrow">Sensor Trace — Step by Step</p>
+              <h2 class="s09-title">One Reading. Six Hops. Under 25ms.</h2>
+              <p class="s09-desc">Follow a single temperature reading from the stenter machine all the way to the manager's dashboard.</p>
+            </div>
+
+            <div class="s09-chain">
+              <div class="s09-node">
+                <div class="s09-bubble">
+                  <span class="s09-bubble-icon">🏭</span>
+                </div>
+                <div class="s09-node-title">Stenter Machine</div>
+                <div class="s09-node-reading">Machine running</div>
+                <div class="s09-node-sub">Fabric heating zone 4</div>
+              </div>
+
+              <div class="s09-connector">
+                <div class="s09-line">
+                  <div class="s09-pulse" style="--delay: 0s"></div>
+                </div>
+                <span class="s09-arrow">›</span>
+              </div>
+
+              <div class="s09-node">
+                <div class="s09-bubble">
+                  <span class="s09-bubble-icon">🌡️</span>
+                </div>
+                <div class="s09-node-title">PT100 Sensor</div>
+                <div class="s09-node-reading">185.5°C</div>
+                <div class="s09-node-sub">Reads every 100ms</div>
+              </div>
+
+              <div class="s09-connector">
+                <div class="s09-line">
+                  <div class="s09-pulse" style="--delay: 0.3s"></div>
+                </div>
+                <span class="s09-arrow">›</span>
+              </div>
+
+              <div class="s09-node">
+                <div class="s09-bubble">
+                  <span class="s09-bubble-icon">📟</span>
+                </div>
+                <div class="s09-node-title">IoT Gateway</div>
+                <div class="s09-node-reading">Aggregated</div>
+                <div class="s09-node-sub">Edge processing unit</div>
+              </div>
+
+              <div class="s09-connector">
+                <div class="s09-line">
+                  <div class="s09-pulse" style="--delay: 0.6s"></div>
+                </div>
+                <span class="s09-arrow">›</span>
+              </div>
+
+              <div class="s09-node">
+                <div class="s09-bubble">
+                  <span class="s09-bubble-icon">🌐</span>
+                </div>
+                <div class="s09-node-title">Factory Network</div>
+                <div class="s09-node-reading">MQTT packet</div>
+                <div class="s09-node-sub">Ethernet / WiFi</div>
+              </div>
+
+              <div class="s09-connector">
+                <div class="s09-line">
+                  <div class="s09-pulse" style="--delay: 0.9s"></div>
+                </div>
+                <span class="s09-arrow">›</span>
+              </div>
+
+              <div class="s09-node">
+                <div class="s09-bubble">
+                  <span class="s09-bubble-icon">⚡</span>
+                </div>
+                <div class="s09-node-title">AutoTaskX</div>
+                <div class="s09-node-reading">Processed</div>
+                <div class="s09-node-sub">Alert check + storage</div>
+              </div>
+
+              <div class="s09-connector">
+                <div class="s09-line">
+                  <div class="s09-pulse" style="--delay: 1.2s"></div>
+                </div>
+                <span class="s09-arrow">›</span>
+              </div>
+
+              <div class="s09-node">
+                <div class="s09-bubble highlight">
+                  <span class="s09-bubble-icon">💻</span>
+                </div>
+                <div class="s09-node-title">Live Screen</div>
+                <div class="s09-node-reading final">185.5°C ✓</div>
+                <div class="s09-node-sub">Manager sees live</div>
+              </div>
+            </div>
+
+            <button id="btn-pulse-packet" class="s09-animate-btn">▶ Animate Data Flow</button>
+
+            <div class="s09-plain-english">
+              <span class="s09-quote-icon">💬</span>
+              <div class="s09-quote-text">
+                <strong>In plain English:</strong>
+                <p>The temperature sensor is like a thermometer that never stops measuring. The IoT Gateway is like a local post office that bundles all sensor readings. MQTT is the postal service that delivers packages. AutoTaskX is the central warehouse that receives, sorts, and displays every package — all in under 25 milliseconds.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <span class="sf-left">AutoTaskX — Industrial Textile Intelligence Platform</span>
+          <span class="sf-center">SLIDE 09 / 17 · FEATURE 04 · SENSOR DEEP DIVE</span>
+          <span class="sf-right">DATA FLOW</span>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 10: COMMUNICATION PROTOCOL ==================== -->
+      <section class="slide slide-light" data-slide="10" data-category="COMMUNICATION PROTOCOL">
+
+        <div class="slide-header">
+          <div class="sh-left">
+            <span class="sh-label">COMMUNICATION</span>
+            <span class="sh-sep">/</span>
+            <span class="sh-sub">How machines talk to AutoTaskX</span>
+          </div>
+          <div class="sh-right">SLIDE 10 / 17</div>
+        </div>
+
+        <div class="slide-content">
+          <div class="s10-layout">
+            <div class="s10-left">
+              <p class="s10-eyebrow">The Communication Layer</p>
+              <h2 class="s10-title">MQTT — The Language Machines Use to Talk.</h2>
+
+              <div class="s10-svg-wrap">
+                <svg class="s10-svg" viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Machine boxes -->
+                  <rect x="10" y="40" width="100" height="40" rx="4" fill="#F5F5F2" stroke="#203B59" stroke-width="1.5"/>
+                  <text x="60" y="65" text-anchor="middle" font-size="12" fill="#203B59" font-family="Inter, sans-serif" font-weight="600">Stenter</text>
+
+                  <rect x="10" y="100" width="100" height="40" rx="4" fill="#F5F5F2" stroke="#203B59" stroke-width="1.5"/>
+                  <text x="60" y="125" text-anchor="middle" font-size="12" fill="#203B59" font-family="Inter, sans-serif" font-weight="600">Dyeing M/C</text>
+
+                  <rect x="10" y="160" width="100" height="40" rx="4" fill="#F5F5F2" stroke="#203B59" stroke-width="1.5"/>
+                  <text x="60" y="185" text-anchor="middle" font-size="12" fill="#203B59" font-family="Inter, sans-serif" font-weight="600">Compactor</text>
+
+                  <rect x="10" y="220" width="100" height="40" rx="4" fill="#F5F5F2" stroke="#203B59" stroke-width="1.5"/>
+                  <text x="60" y="245" text-anchor="middle" font-size="12" fill="#203B59" font-family="Inter, sans-serif" font-weight="600">Loom</text>
+
+                  <!-- Lines to hub -->
+                  <line x1="110" y1="60" x2="210" y2="155" stroke="#C8CBC6" stroke-width="1.5"/>
+                  <line x1="110" y1="120" x2="210" y2="160" stroke="#C8CBC6" stroke-width="1.5"/>
+                  <line x1="110" y1="180" x2="210" y2="165" stroke="#C8CBC6" stroke-width="1.5"/>
+                  <line x1="110" y1="240" x2="210" y2="170" stroke="#C8CBC6" stroke-width="1.5"/>
+
+                  <!-- EMQX Hub -->
+                  <circle cx="245" cy="162" r="38" fill="#203B59"/>
+                  <text x="245" y="156" text-anchor="middle" font-size="11" fill="white" font-family="Inter, sans-serif" font-weight="700">EMQX</text>
+                  <text x="245" y="170" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.7)" font-family="Inter, sans-serif">MQTT Broker</text>
+
+                  <!-- Line to AutoTaskX -->
+                  <line x1="283" y1="162" x2="370" y2="162" stroke="#203B59" stroke-width="2"/>
+                  <polygon points="368,156 380,162 368,168" fill="#203B59"/>
+
+                  <!-- AutoTaskX box -->
+                  <rect x="382" y="130" width="108" height="64" rx="4" fill="#203B59"/>
+                  <text x="436" y="156" text-anchor="middle" font-size="11" fill="white" font-family="Inter, sans-serif" font-weight="700">AutoTaskX</text>
+                  <text x="436" y="172" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.7)" font-family="Inter, sans-serif">Platform</text>
+
+                  <!-- Label -->
+                  <text x="245" y="285" text-anchor="middle" font-size="11" fill="#626966" font-family="Inter, sans-serif">All machines publish to one central MQTT broker</text>
+                </svg>
+              </div>
+            </div>
+
+            <div class="s10-right">
+              <div class="s10-rule">
+                <span class="s10-rule-badge">Rule 01 — Small Data</span>
+                <div class="s10-rule-title">MQTT for Sensor Readings</div>
+                <div class="s10-rule-desc">
+                  Every sensor reading — temperature, speed, pressure — is a tiny piece of data (a few bytes). MQTT is designed for this: lightweight, fast, and reliable even on slow factory networks. It streams IoT machine events directly into FastAPI to maintain an up-to-the-millisecond digital twin.
+                  <br><br>
+                  Think of MQTT like text messages. Lightweight, instant, and perfect for streaming live factory states continuously.
+                </div>
+                <div class="s10-rule-example">factory/stenter_03/temperature → 185.5°C @ 14:32:01.004</div>
+              </div>
+
+              <div class="s10-rule">
+                <span class="s10-rule-badge amber">Rule 02 — Large Files</span>
+                <div class="s10-rule-title">Direct Upload for Images</div>
+                <div class="s10-rule-desc">
+                  Inspection photos are large (5–20 MB each). Sending them through MQTT would clog the network. AutoTaskX uploads fabric images directly to AWS S3 cloud storage, separately from sensor data.
+                  <br><br>
+                  Think of S3 like a filing cabinet for large documents — the sensor system only stores the cabinet reference, not the document itself.
+                </div>
+                <div class="s10-rule-example amber">s3://autotaskx/inspection/batch_441/frame_19842.jpg</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <span class="sf-left">AutoTaskX — Industrial Textile Intelligence Platform</span>
+          <span class="sf-center">SLIDE 10 / 17 · COMMUNICATION PROTOCOL</span>
+          <span class="sf-right">MQTT · PROTOCOL</span>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 11: STORAGE ARCHITECTURE ==================== -->
+      <section class="slide slide-light alt-bg" data-slide="11" data-category="STORAGE ARCHITECTURE">
+
+        <div class="slide-header">
+          <div class="sh-left">
+            <span class="sh-label">STORAGE</span>
+            <span class="sh-sep">/</span>
+            <span class="sh-sub">Three databases. One unified data layer.</span>
+          </div>
+          <div class="sh-right">SLIDE 11 / 17</div>
+        </div>
+
+        <div class="slide-content">
+          <div class="s11-layout">
+            <div class="s11-top">
+              <p class="s11-eyebrow">The Storage Architecture</p>
+              <h2 class="s11-title">Three Databases. Each Does One Job Perfectly.</h2>
+              <p class="s11-desc">AutoTaskX uses three specialized storage systems. Each is chosen because it is the best tool for its specific type of data.</p>
+            </div>
+
+            <div class="s11-panels">
+              <div class="s11-panel">
+                <div class="s11-panel-num">01</div>
+                <div class="s11-panel-title">
+                  <span class="s11-db-name">PostgreSQL</span>
+                  Relational Database
+                </div>
+                <div class="s11-panel-role">Stores permanent records. Orders, users, recipes, machine profiles, production batches.</div>
+                <div class="s11-panel-vl"></div>
+                <div class="s11-panel-example">
+                  <div class="s11-panel-example-label">Example</div>
+                  <div class="s11-panel-example-text">
+                    "Batch #441 — 10,000m Navy Cotton — Customer: Hamid Textiles — Started: 14 Nov 2024 — Recipe: <em>recipe_navy_441</em>"
+                  </div>
+                </div>
+              </div>
+
+              <div class="s11-panel blue">
+                <div class="s11-panel-num">02</div>
+                <div class="s11-panel-title">
+                  <span class="s11-db-name">TimescaleDB</span>
+                  Time-Series Database
+                </div>
+                <div class="s11-panel-role">Stores sensor readings over time. Built on PostgreSQL but optimized for millions of time-stamped measurements.</div>
+                <div class="s11-panel-vl"></div>
+                <div class="s11-panel-example">
+                  <div class="s11-panel-example-label">Example</div>
+                  <div class="s11-panel-example-text">
+                    "Stenter_03 · Temperature · <em>185.5°C @ 14:32:01.004</em> · <em>186.1°C @ 14:32:01.104</em> · <em>184.9°C @ 14:32:01.204</em> ..."
+                  </div>
+                </div>
+              </div>
+
+              <div class="s11-panel green">
+                <div class="s11-panel-num">03</div>
+                <div class="s11-panel-title">
+                  <span class="s11-db-name">AWS S3</span>
+                  Cloud Object Storage
+                </div>
+                <div class="s11-panel-role">Stores large files permanently. Inspection photos, spectral data, lab reports, PDF exports — files that are too large for a database.</div>
+                <div class="s11-panel-vl"></div>
+                <div class="s11-panel-example">
+                  <div class="s11-panel-example-label">Example</div>
+                  <div class="s11-panel-example-text">
+                    "16,384 × 4,096 pixel inspection scan — Batch #441 — Defect: Broken yarn at metre 3,842 — <em>File: 18.4 MB</em>"
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="s11-synergy">
+              <strong>How they work together:</strong> PostgreSQL links batch #441 to its TimescaleDB sensor history and its S3 inspection photos. One query gives you the complete picture — recipe, machine conditions, and defect images for any production batch.
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <span class="sf-left">AutoTaskX — Industrial Textile Intelligence Platform</span>
+          <span class="sf-center">SLIDE 11 / 17 · STORAGE ARCHITECTURE</span>
+          <span class="sf-right">DATA LAYER</span>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 12: DASHBOARD DELIVERY ==================== -->
+      <section class="slide slide-light" data-slide="12" data-category="DASHBOARD DELIVERY">
+
+        <div class="slide-header">
+          <div class="sh-left">
+            <span class="sh-label">DASHBOARD</span>
+            <span class="sh-sep">/</span>
+            <span class="sh-sub">From database to live screen</span>
+          </div>
+          <div class="sh-right">SLIDE 12 / 17</div>
+        </div>
+
+        <div class="slide-content">
+          <div class="s12-layout">
+            <div class="s12-left">
+              <p class="s12-eyebrow">Dashboard Delivery Pipeline</p>
+              <h2 class="s12-title">From Database to Live Screen.<br>Under 25 Milliseconds.</h2>
+
+              <div class="s12-steps">
+                <div class="s12-step-line"></div>
+                <div class="s12-step">
+                  <div class="s12-step-circle">1</div>
+                  <div class="s12-step-body">
+                    <div class="s12-step-title">TimescaleDB stores sensor reading</div>
+                    <div class="s12-step-desc">Every sensor reading written with microsecond timestamp</div>
+                    <span class="s12-step-code">INSERT INTO telemetry (device_id, value, ts)</span>
+                  </div>
+                </div>
+                <div class="s12-step">
+                  <div class="s12-step-circle">2</div>
+                  <div class="s12-step-body">
+                    <div class="s12-step-title">FastAPI Async Engine queries the database</div>
+                    <div class="s12-step-desc">High-concurrency async Python backend queries telemetry &amp; digital twin state</div>
+                  </div>
+                </div>
+                <div class="s12-step">
+                  <div class="s12-step-circle">3</div>
+                  <div class="s12-step-body">
+                    <div class="s12-step-title">FastAPI WebSockets push live twin updates</div>
+                    <div class="s12-step-desc">Native async WebSocket connection streams digital twin state to dashboard in real-time</div>
+                  </div>
+                </div>
+                <div class="s12-step">
+                  <div class="s12-step-circle">4</div>
+                  <div class="s12-step-body">
+                    <div class="s12-step-title">Next.js renders the dashboard</div>
+                    <div class="s12-step-desc">React components update numbers, charts, and alerts automatically</div>
+                  </div>
+                </div>
+                <div class="s12-step">
+                  <div class="s12-step-circle final">5</div>
+                  <div class="s12-step-body">
+                    <div class="s12-step-title">Manager sees the live reading</div>
+                    <div class="s12-step-desc">Complete round-trip from sensor to screen in under 25ms</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="s12-right">
+              <div class="s12-type">
+                <span class="s12-type-label current">Current Data</span>
+                <div class="s12-type-title">Live Sensor Reading — Right Now</div>
+                <div class="s12-type-desc">The number on screen is never more than 100ms old. Managers see what is happening on the factory floor at this exact moment.</div>
+                <div class="s12-big-num">185.5°C</div>
+                <div class="s12-status">
+                  <span class="s12-status-dot"></span>
+                  <span class="s12-status-text">LIVE · UPDATED 0.1s AGO</span>
+                </div>
+              </div>
+
+              <div class="s12-type-divider"></div>
+
+              <div class="s12-type">
+                <span class="s12-type-label historical">Historical Data</span>
+                <div class="s12-type-title">Time-Series Analysis — Past Trends</div>
+                <div class="s12-type-desc">TimescaleDB stores every reading permanently. Managers can review yesterday, last week, or last month's machine performance.</div>
+                <div class="s12-chart">
+                  <div class="s12-chart-bar" style="height:45%"></div>
+                  <div class="s12-chart-bar" style="height:52%"></div>
+                  <div class="s12-chart-bar" style="height:48%"></div>
+                  <div class="s12-chart-bar" style="height:68%"></div>
+                  <div class="s12-chart-bar peak" style="height:88%"></div>
+                  <div class="s12-chart-bar" style="height:72%"></div>
+                  <div class="s12-chart-bar" style="height:65%"></div>
+                </div>
+                <div class="s12-chart-desc">Temperature trend — Stenter Line 03 — Last 7 days</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <span class="sf-left">AutoTaskX — Industrial Textile Intelligence Platform</span>
+          <span class="sf-center">SLIDE 12 / 17 · DASHBOARD DELIVERY</span>
+          <span class="sf-right">FRONTEND</span>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 13: ERP INTEGRATION ==================== -->
+      <section class="slide slide-light alt-bg" data-slide="13" data-category="FEATURE 05 · ERP INTEGRATION">
+
+        <div class="slide-header">
+          <div class="sh-left">
+            <span class="sh-label">FEATURE 05</span>
+            <span class="sh-sep">/</span>
+            <span class="sh-sub">ERP Integration — Factory meets Finance</span>
+          </div>
+          <div class="sh-right">SLIDE 13 / 17</div>
+        </div>
+
+        <div class="slide-content">
+          <div class="s13-layout">
+            <div class="s13-top">
+              <p class="s13-eyebrow">Feature 05 · Enterprise Bridge</p>
+              <h2 class="s13-title">AutoTaskX Talks to Your Business Software.</h2>
+              <p class="s13-desc">Most factory software systems are isolated from business accounting. AutoTaskX bridges the gap — production data flows automatically to ERP systems like SAP, Datatex NOW, and Infor M3.</p>
+            </div>
+
+            <div class="s13-highway">
+              <div class="s13-side">
+                <div class="s13-side-label purple">Enterprise ERP System</div>
+                <div class="s13-side-title">SAP / Datatex NOW / Infor M3</div>
+                <div class="s13-side-list">
+                  <div class="s13-side-item">Work Order Management</div>
+                  <div class="s13-side-item">Bill of Materials (BOM)</div>
+                  <div class="s13-side-item">Customer Order Processing</div>
+                  <div class="s13-side-item">Financial Ledgers</div>
+                  <div class="s13-side-item">Inventory Management</div>
+                </div>
+                <div class="s13-side-desc">The ERP system holds the business logic — what needs to be produced, for which customer, at what cost.</div>
+              </div>
+
+              <div class="s13-channels">
+                <div class="s13-channel">
+                  <div class="s13-channel-dir">→</div>
+                  <div class="s13-channel-title">Work Orders Down</div>
+                  <div class="s13-channel-desc">ERP sends production orders to AutoTaskX. What to make, how much, by when.</div>
+                </div>
+                <div class="s13-channel">
+                  <div class="s13-channel-dir">←</div>
+                  <div class="s13-channel-title">Completed Production Up</div>
+                  <div class="s13-channel-desc">AutoTaskX reports actual output back to ERP. Goods receipt, stock depletion, batch completion.</div>
+                </div>
+              </div>
+
+              <div class="s13-side">
+                <div class="s13-side-label cyan">AutoTaskX Modules</div>
+                <div class="s13-side-title">Shopfloor Execution</div>
+                <div class="s13-side-modules">
+                  <span class="s13-side-module">Color Lab</span>
+                  <span class="s13-side-module">Quality Inspection</span>
+                  <span class="s13-side-module">Machine Monitor</span>
+                  <span class="s13-side-module">Production Tracking</span>
+                </div>
+                <div class="s13-side-desc">AutoTaskX manages the actual production — running machines, checking quality, tracking real output vs. planned targets.</div>
+              </div>
+            </div>
+
+            <div class="s13-comparison">
+              <div class="s13-cmp-col">
+                <div class="s13-cmp-label before">Before Integration</div>
+                <div class="s13-cmp-text">Accountant manually enters production figures from paper reports. 2-day lag between factory output and ERP records. Errors common.</div>
+              </div>
+              <div class="s13-cmp-col">
+                <div class="s13-cmp-label after">With AutoTaskX ERP Bridge</div>
+                <div class="s13-cmp-text">Production completion triggers automatic ERP update. Real-time stock depletion, goods receipt, and financial posting. Zero manual entry.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <span class="sf-left">AutoTaskX — Industrial Textile Intelligence Platform</span>
+          <span class="sf-center">SLIDE 13 / 17 · FEATURE 05 · ERP INTEGRATION</span>
+          <span class="sf-right">ENTERPRISE</span>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 14: COMPLETE ARCHITECTURE ==================== -->
+      <section class="slide slide-light" data-slide="14" data-category="COMPLETE ARCHITECTURE">
+
+        <div class="slide-header">
+          <div class="sh-left">
+            <span class="sh-label">ARCHITECTURE</span>
+            <span class="sh-sep">/</span>
+            <span class="sh-sub">The complete system — four layers, one platform</span>
+          </div>
+          <div class="sh-right">SLIDE 14 / 17</div>
+        </div>
+
+        <div class="slide-content">
+          <div class="s14-layout">
+            <div class="s14-top">
+              <p class="s14-eyebrow">Complete System Architecture</p>
+              <h2 class="s14-title">Four Zones. One Unified Platform.</h2>
+              <p class="s14-desc">AutoTaskX is built in four distinct layers. Each layer has one clear responsibility — from physical machines to enterprise business systems.</p>
+            </div>
+
+            <div class="s14-zones">
+              <div class="s14-zone">
+                <div class="s14-zone-num">ZONE 01</div>
+                <div class="s14-zone-title">Physical Factory</div>
+                <div class="s14-zone-items">
+                  <div class="s14-zone-item">
+                    <div class="s14-zone-item-title">🏭 Stenter Machines</div>
+                    <div class="s14-zone-item-desc">Fabric heat-setting and finishing</div>
+                  </div>
+                  <div class="s14-zone-item">
+                    <div class="s14-zone-item-title">🧪 Dyeing Machines</div>
+                    <div class="s14-zone-item-desc">Chemical color processing</div>
+                  </div>
+                  <div class="s14-zone-item">
+                    <div class="s14-zone-item-title">🧵 Looms</div>
+                    <div class="s14-zone-item-desc">Fabric weaving production</div>
+                  </div>
+                  <div class="s14-zone-item">
+                    <div class="s14-zone-item-title">📷 Inspection Lines</div>
+                    <div class="s14-zone-item-desc">Vision camera stations</div>
+                  </div>
+                  <div class="s14-zone-item">
+                    <div class="s14-zone-item-title">🌡️ 100+ Sensors</div>
+                    <div class="s14-zone-item-desc">Temp · Pressure · Speed · Energy</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="s14-zone">
+                <div class="s14-zone-num">ZONE 02</div>
+                <div class="s14-zone-title">Connection Layer</div>
+                <div class="s14-zone-items">
+                  <div class="s14-zone-item">
+                    <div class="s14-zone-item-title">📟 IoT Gateways</div>
+                    <div class="s14-zone-item-desc">Edge devices aggregate local sensors</div>
+                  </div>
+                  <div class="s14-zone-item">
+                    <div class="s14-zone-item-title">🌐 EMQX Broker</div>
+                    <div class="s14-zone-item-desc">Central MQTT message routing hub</div>
+                  </div>
+                  <div class="s14-zone-item">
+                    <div class="s14-zone-item-title">📡 Protocols</div>
+                    <div class="s14-zone-item-desc">Modbus · OPC-UA · LwM2M · Serial</div>
+                  </div>
+                  <div class="s14-zone-item">
+                    <div class="s14-zone-item-title">🔒 Factory Network</div>
+                    <div class="s14-zone-item-desc">Ethernet / WiFi / 4G backup</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="s14-zone">
+                <div class="s14-zone-num">ZONE 03</div>
+                <div class="s14-zone-title">AutoTaskX Engine &amp; Storage</div>
+                <div class="s14-zone-items">
+                  <div class="s14-zone-item">
+                    <div class="s14-zone-item-title">⚡ FastAPI Backend &amp; Digital Twin</div>
+                    <div class="s14-zone-item-desc">High-concurrency async Python, MQTT subscriber, digital twin state engine</div>
+                  </div>
+                  <div class="s14-zone-item">
+                    <div class="s14-zone-item-title">🤖 AI / ML Models</div>
+                    <div class="s14-zone-item-desc">Defect detection, anomaly prediction</div>
+                  </div>
+                  <div class="s14-zone-item">
+                    <div class="s14-zone-item-title">🔬 Color Engine</div>
+                    <div class="s14-zone-item-desc">Kubelka-Munk spectral math</div>
+                  </div>
+                </div>
+                <div class="s14-zone-storage">
+                  <div class="s14-storage-row"><span class="s14-storage-icon">🗃️</span><span class="s14-storage-name">PostgreSQL</span><span> — Records</span></div>
+                  <div class="s14-storage-row"><span class="s14-storage-icon">⏱️</span><span class="s14-storage-name">TimescaleDB</span><span> — Sensor history</span></div>
+                  <div class="s14-storage-row"><span class="s14-storage-icon">☁️</span><span class="s14-storage-name">AWS S3</span><span> — Images &amp; files</span></div>
+                </div>
+              </div>
+
+              <div class="s14-zone">
+                <div class="s14-zone-num">ZONE 04</div>
+                <div class="s14-zone-title">Delivery &amp; Enterprise</div>
+                <div class="s14-zone-items">
+                  <div class="s14-zone-item">
+                    <div class="s14-zone-item-title">💻 Next.js Dashboard</div>
+                    <div class="s14-zone-item-desc">Live floor HUD for managers</div>
+                  </div>
+                  <div class="s14-zone-item">
+                    <div class="s14-zone-item-title">📱 Mobile App</div>
+                    <div class="s14-zone-item-desc">Floor inspection on Android / iOS</div>
+                  </div>
+                  <div class="s14-zone-item">
+                    <div class="s14-zone-item-title">🔔 Alert System</div>
+                    <div class="s14-zone-item-desc">SMS, email, push notifications</div>
+                  </div>
+                  <div class="s14-zone-item">
+                    <div class="s14-zone-item-title">🔄 ERP Bridge</div>
+                    <div class="s14-zone-item-desc">SAP · Datatex NOW · Infor M3</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <blockquote class="s14-principle">
+              <strong>Design Principle:</strong> Each zone is independently scalable. Adding more machines only affects Zone 1. Upgrading the dashboard only touches Zone 4. The layers are loosely coupled — changes in one zone do not break another.
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <span class="sf-left">AutoTaskX — Industrial Textile Intelligence Platform</span>
+          <span class="sf-center">SLIDE 14 / 17 · COMPLETE ARCHITECTURE</span>
+          <span class="sf-right">SYSTEM DESIGN</span>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 15: BUSINESS VALUE ==================== -->
+      <section class="slide slide-light alt-bg" data-slide="15" data-category="BUSINESS VALUE">
+
+        <div class="slide-header">
+          <div class="sh-left">
+            <span class="sh-label">BUSINESS VALUE</span>
+            <span class="sh-sep">/</span>
+            <span class="sh-sub">What the factory owner actually sees</span>
+          </div>
+          <div class="sh-right">SLIDE 15 / 17</div>
+        </div>
+
+        <div class="slide-content">
+          <div class="s15-layout">
+            <div class="s15-top">
+              <p class="s15-eyebrow">What the Factory Owner Sees</p>
+              <h2 class="s15-title">Real Numbers. Live Results.</h2>
+              <p class="s15-desc">This is a snapshot from a live AutoTaskX deployment at a 26-machine textile facility — Gazipur Textile Mill #04.</p>
+            </div>
+
+            <div class="s15-kpis">
+              <div class="s15-kpi">
+                <div class="s15-kpi-val">26</div>
+                <div class="s15-kpi-label">Connected Machines</div>
+                <div class="s15-kpi-sub">All reporting live telemetry</div>
+              </div>
+              <div class="s15-kpi">
+                <div class="s15-kpi-val">24</div>
+                <div class="s15-kpi-label">Running Right Now</div>
+                <div class="s15-kpi-sub">2 offline · 1 scheduled maintenance</div>
+              </div>
+              <div class="s15-kpi">
+                <div class="s15-kpi-val">2</div>
+                <div class="s15-kpi-label">Offline Machines</div>
+                <div class="s15-kpi-sub">Status known · Not a surprise</div>
+              </div>
+              <div class="s15-kpi">
+                <div class="s15-kpi-val">185.5°C</div>
+                <div class="s15-kpi-label">Stenter Temperature</div>
+                <div class="s15-kpi-sub">Within safe operating range</div>
+              </div>
+              <div class="s15-kpi">
+                <div class="s15-kpi-val">42,500m</div>
+                <div class="s15-kpi-label">Today's Production</div>
+                <div class="s15-kpi-sub">Fabric metres processed</div>
+              </div>
+              <div class="s15-kpi">
+                <div class="s15-kpi-val">99.2%</div>
+                <div class="s15-kpi-label">Inspection Pass Rate</div>
+                <div class="s15-kpi-sub">Vision AI quality confirmation</div>
+              </div>
+              <div class="s15-kpi">
+                <div class="s15-kpi-val">0</div>
+                <div class="s15-kpi-label">Active Critical Alerts</div>
+                <div class="s15-kpi-sub">All machines within thresholds</div>
+              </div>
+              <div class="s15-kpi">
+                <div class="s15-kpi-val">+14%</div>
+                <div class="s15-kpi-label">OEE Improvement</div>
+                <div class="s15-kpi-sub">vs. pre-AutoTaskX baseline</div>
+              </div>
+            </div>
+
+            <div class="s15-bottom">
+              <div class="s15-activity">
+                <div class="s15-activity-title">Today's Events</div>
+                <div class="s15-event"><span class="s15-event-time">08:14</span><span>Stenter 03 temperature threshold alert — resolved in 4 min</span></div>
+                <div class="s15-event"><span class="s15-event-time">10:31</span><span>Batch #441 inspection complete — 99.2% pass rate — report generated</span></div>
+                <div class="s15-event"><span class="s15-event-time">13:05</span><span>ERP work order #WO-2241 auto-confirmed — goods receipt posted</span></div>
+              </div>
+              <div class="s15-benefits">
+                <div class="s15-benefit">
+                  <span class="s15-benefit-title">Waste Reduction</span>
+                  <span class="s15-benefit-desc">Early defect detection stops bad fabric before it reaches the customer</span>
+                </div>
+                <div class="s15-benefit">
+                  <span class="s15-benefit-title">Energy Savings</span>
+                  <span class="s15-benefit-desc">Machine monitoring identifies idle power consumption and scheduling inefficiencies</span>
+                </div>
+                <div class="s15-benefit">
+                  <span class="s15-benefit-title">Labour Reduction</span>
+                  <span class="s15-benefit-desc">Automated reporting eliminates manual data entry across lab, floor, and accounts</span>
+                </div>
+                <div class="s15-benefit">
+                  <span class="s15-benefit-title">Faster Decisions</span>
+                  <span class="s15-benefit-desc">Management acts on live data, not last week's paper report</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <span class="sf-left">AutoTaskX — Industrial Textile Intelligence Platform</span>
+          <span class="sf-center">SLIDE 15 / 17 · BUSINESS VALUE</span>
+          <span class="sf-right">RESULTS</span>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 16: FUTURE ROADMAP ==================== -->
+      <section class="slide slide-light" data-slide="16" data-category="FUTURE ROADMAP">
+
+        <div class="slide-header">
+          <div class="sh-left">
+            <span class="sh-label">ROADMAP</span>
+            <span class="sh-sep">/</span>
+            <span class="sh-sub">Where AutoTaskX is going next</span>
+          </div>
+          <div class="sh-right">SLIDE 16 / 17</div>
+        </div>
+
+        <div class="slide-content">
+          <div class="s16-layout">
+            <div class="s16-top">
+              <p class="s16-eyebrow">Future Development</p>
+              <h2 class="s16-title">The Road Ahead for AutoTaskX.</h2>
+              <p class="s16-desc">AutoTaskX is built on a foundation designed for growth. Each future stage adds intelligence without replacing what already works.</p>
+            </div>
+
+            <div class="s16-stages">
+              <div class="s16-stage">
+                <div class="s16-stage-num">01</div>
+                <div class="s16-stage-name">Connect More</div>
+                <div class="s16-stage-desc">Expand to cover all 26 machines across every department — finishing, warping, sizing, and knitting lines. Standardize IoT gateway deployment across the full factory floor.</div>
+                <div class="s16-stage-goal">Goal: 100% machine visibility</div>
+              </div>
+
+              <div class="s16-stage">
+                <div class="s16-stage-num">02</div>
+                <div class="s16-stage-name">Automated Inspection</div>
+                <div class="s16-stage-desc">Move from manual photo capture to fully automated inline inspection. Vision cameras trigger automatically at every metre of fabric, eliminating the need for human-initiated scans.</div>
+                <div class="s16-stage-goal">Goal: Zero manual inspection steps</div>
+              </div>
+
+              <div class="s16-stage featured">
+                <div class="s16-stage-num">03</div>
+                <div class="s16-stage-name">Historical Analytics</div>
+                <div class="s16-stage-desc">Unlock the value of stored time-series data. Build dashboards showing seasonal production trends, machine aging patterns, energy cost analysis, and shift performance comparisons.</div>
+                <div class="s16-stage-goal">Goal: Data-driven planning</div>
+              </div>
+
+              <div class="s16-stage">
+                <div class="s16-stage-num">04</div>
+                <div class="s16-stage-name">Predictive Maintenance</div>
+                <div class="s16-stage-desc">Use machine learning on historical sensor data to predict when a machine will fail — before it fails. Schedule maintenance during planned downtime, not during production.</div>
+                <div class="s16-stage-goal">Goal: Zero unplanned downtime</div>
+              </div>
+
+              <div class="s16-stage">
+                <div class="s16-stage-num">05</div>
+                <div class="s16-stage-name">Autonomous Adjustments</div>
+                <div class="s16-stage-desc">AutoTaskX automatically adjusts machine parameters when sensor readings drift outside safe ranges — without human intervention. The factory self-corrects in real-time.</div>
+                <div class="s16-stage-goal">Goal: Self-optimizing factory</div>
+              </div>
+            </div>
+
+            <p class="s16-clarification">
+              <strong>Important:</strong> These are development stages, not a fixed timeline. Each stage is designed to work independently. A factory can adopt AutoTaskX at any stage without needing to implement everything at once.
+            </p>
+          </div>
+        </div>
+
+        <div class="slide-footer">
+          <span class="sf-left">AutoTaskX — Industrial Textile Intelligence Platform</span>
+          <span class="sf-center">SLIDE 16 / 17 · FUTURE ROADMAP</span>
+          <span class="sf-right">ROADMAP</span>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 17: CONCLUSION ==================== -->
+      <section class="slide slide-dark" data-slide="17" data-category="CONCLUSION">
+
+        <div class="s17-header">
+          <div class="s17-h-left">
+            <span class="s17-badge">THANK YOU</span>
+            <span class="s17-h-sep">/</span>
+            <span class="s17-h-sub">END OF PRESENTATION · Q&amp;A</span>
+          </div>
+          <div class="s17-h-right">
+            <span class="s17-live"></span>
+            <span>AUTOTASKX — INDUSTRIAL TEXTILE INTELLIGENCE</span>
+          </div>
+        </div>
+
+        <div class="s17-body">
+          <div class="s17-left">
+            <img src="logo-white.svg" alt="AutoTaskX" class="s17-logo">
+            <h2 class="s17-title">Connecting Every Part<br>of Textile Manufacturing.</h2>
+            <div class="s17-accent"></div>
+            <p class="s17-statement">"AutoTaskX is an industrial IoT &amp; digital twin platform built to make textile manufacturing smarter — one sensor, one algorithm, one connection at a time."</p>
+            <div class="s17-pillars">
+              <div class="s17-pillar">
+                <span class="s17-pillar-icon">🧪</span>
+                <div class="s17-pillar-title">Smart Chemistry</div>
+                <div class="s17-pillar-desc">Precise color recipes, automated dye calculations</div>
+              </div>
+              <div class="s17-pillar">
+                <span class="s17-pillar-icon">📷</span>
+                <div class="s17-pillar-title">Visual Inspection</div>
+                <div class="s17-pillar-desc">Camera &amp; mobile flaw detection</div>
+              </div>
+              <div class="s17-pillar">
+                <span class="s17-pillar-icon">⚡</span>
+                <div class="s17-pillar-title">Textile OS &amp; Digital Twin</div>
+                <div class="s17-pillar-desc">Sub-25ms MQTT telemetry &amp; live machine model</div>
+              </div>
+              <div class="s17-pillar">
+                <span class="s17-pillar-icon">🔄</span>
+                <div class="s17-pillar-title">ERP Synchronization</div>
+                <div class="s17-pillar-desc">Two-way enterprise data bridge</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="s17-right">
+            <div class="s17-presenter">
+              <span class="s17-p-badge">PRESENTER &amp; DEVELOPER</span>
+              <h3 class="s17-p-name">Sheikh Shamiul Shakib</h3>
+              <p class="s17-p-title">Software Engineer · BUTEX Alumnus</p>
+              <div class="s17-p-divider"></div>
+              <div class="s17-p-links">
+                <div class="s17-p-link-row">
+                  <span class="s17-p-link-label">Portfolio:</span>
+                  <a href="https://shamiulshakib.me" target="_blank" class="s17-p-link-val">shamiulshakib.me</a>
+                </div>
+                <div class="s17-p-link-row">
+                  <span class="s17-p-link-label">GitHub:</span>
+                  <a href="https://github.com/shakib5560" target="_blank" class="s17-p-link-val">github.com/shakib5560</a>
+                </div>
+                <div class="s17-p-link-row">
+                  <span class="s17-p-link-label">Project:</span>
+                  <a href="https://shamiulshakib.me/projects/autotaskx" target="_blank" class="s17-p-link-val">shamiulshakib.me/projects/autotaskx</a>
+                </div>
+              </div>
+              <div class="s17-p-action">
+                <span class="s17-p-action-dot"></span>
+                <span class="s17-p-action-text">Open for technical questions, architecture deep dive, and interview discussion.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="s17-footer">
+          <span class="s17-footer-left">AutoTaskX — Industrial Textile Intelligence Platform</span>
+          <span class="s17-footer-center">SLIDE 17 / 17 · THANK YOU</span>
+          <span class="s17-footer-right">END OF PRESENTATION</span>
+        </div>
+
+      </section>
+
+    </div><!-- /presentation-stage -->
+  </div><!-- /stage-scaler -->
+
+  <!-- ==================== FIXED NAVIGATION HUD ==================== -->
+  <div id="nav-bar">
+    <button id="btn-prev" class="nav-btn" title="Previous Slide (← / Backspace)">
+      <span>←</span>
+    </button>
+
+    <div class="nav-slide-info">
+      <span id="slide-indicator">01 / 17</span>
+      <span class="nav-sep">·</span>
+      <span id="slide-category-indicator" class="nav-cat">INTRODUCTION</span>
     </div>
 
-  </div> <!-- /app-container -->
+    <button id="btn-next" class="nav-btn" title="Next Slide (→ / Space)">
+      <span>→</span>
+    </button>
 
-  <script src="app.js"></script>
+    <div class="nav-divider"></div>
+
+    <button id="btn-overview" class="nav-btn" title="Slide Overview Grid (O)">
+      <span>⊞</span>
+    </button>
+
+    <button id="btn-notes" class="nav-btn text-btn" title="Presenter Notes Drawer (N)">
+      <span>Notes</span>
+    </button>
+
+    <button id="btn-fullscreen" class="nav-btn" title="Toggle Fullscreen (F)">
+      <span>⛶</span>
+    </button>
+  </div>
+
+  <!-- ==================== PRESENTER NOTES DRAWER ==================== -->
+  <div id="notes-drawer" class="drawer-hidden">
+    <div class="drawer-header">
+      <h4>Presenter Guide · 30-Second Speaking Track</h4>
+      <button id="btn-close-notes" class="drawer-close">✕</button>
+    </div>
+    <div id="notes-content" class="drawer-body">
+      <!-- Injected via JavaScript -->
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE OVERVIEW MODAL ==================== -->
+  <div id="overview-modal" class="modal-hidden">
+    <div class="modal-backdrop" id="overview-backdrop"></div>
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3>Slide Navigation Overview</h3>
+        <span class="modal-tip">Click any slide to jump · Press ESC or O to close</span>
+        <button id="btn-close-overview" class="modal-close">✕</button>
+      </div>
+      <div class="modal-grid" id="overview-grid">
+        <!-- 17 Slide thumbnails populated by JS -->
+      </div>
+    </div>
+  </div>
+
+</div><!-- /app-container -->
+
+<script src="app.js"></script>
 </body>
 </html>
