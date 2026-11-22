@@ -1,23 +1,21 @@
 /**
  * AutoTaskX — Industrial Textile Intelligence Platform
- * Premium Interactive Presentation Engine
+ * Simplified Keynote Slide Deck Presentation Engine (17 Slides)
  */
 
 (function () {
   'use strict';
 
-  // --- State ---
+  // --- Presentation State ---
   let currentSlide = 1;
-  const totalSlides = 22;
+  const totalSlides = 17;
   let isFullscreen = false;
-  let animFrameId = null;
 
   // --- DOM Elements ---
   const stageScaler = document.getElementById('stage-scaler');
   const slides = document.querySelectorAll('.slide');
   const progressBar = document.getElementById('progress-bar');
-  const currentSlideDisplay = document.getElementById('current-slide-num');
-  const totalSlideDisplay = document.getElementById('total-slide-num');
+  const slideIndicator = document.getElementById('slide-indicator');
   const categoryIndicator = document.getElementById('slide-category-indicator');
 
   const btnPrev = document.getElementById('btn-prev');
@@ -28,181 +26,248 @@
 
   const overviewModal = document.getElementById('overview-modal');
   const btnCloseOverview = document.getElementById('btn-close-overview');
+  const overviewBackdrop = document.getElementById('overview-backdrop');
   const overviewGrid = document.getElementById('overview-grid');
 
   const notesDrawer = document.getElementById('notes-drawer');
   const btnCloseNotes = document.getElementById('btn-close-notes');
   const notesContent = document.getElementById('notes-content');
 
-  // --- Presenter Notes Data ---
-  const presenterNotes = {
-    1: `<strong>Title & Executive Position:</strong><br>
-        Introduce AutoTaskX as a unified Industrial Textile Intelligence Platform. Emphasize that it bridges real physical factory machinery with enterprise intelligence, targeting textile hubs like Gazipur and Narayanganj. Mention the sub-25ms latency guarantee.`,
-    
-    2: `<strong>The Industrial Problem:</strong><br>
-        Highlight the core problem: modern textile mills generate terabytes of data, but 94% is lost at analog dials and paper clipboards. Mention the 150-page BUTEX thesis foundation, proving deep domain expertise in textile engineering and dyehouse thermodynamics.`,
-    
-    3: `<strong>Platform Vision:</strong><br>
-        Explain that AutoTaskX does NOT rip and replace existing factory equipment. It deploys a non-invasive edge-to-cloud nervous system connecting color chemistry, 16K optical inspection, shopfloor OEE, and SAP/Datatex ERPs.`,
-    
-    4: `<strong>5 Core Integrated Modules:</strong><br>
-        Walk through the 5 modules: 01 Color Formulation, 02 Visual Quality Inspection, 03 Production Intelligence, 04 Textile OS, and 05 ERP Integration. Highlight how they share an ACID-compliant time-series storage core.`,
-    
-    5: `<strong>Feature 01: Color Formulation Mathematics:</strong><br>
-        Detail the Kubelka-Munk absorption/scattering equation (K/S = (1-R)^2 / 2R). Explain how Non-Negative Least Squares (NNLS) calculates exact dye concentrations. Emphasize the industrial notice: algorithmic recipes are verified with lab dips.`,
-    
-    6: `<strong>Feature 01: Physical Lab IoT Integration:</strong><br>
-        Show how spectrophotometers, auto-dispensers, and precision balances connect over RS-232/Modbus into the IoT Gateway, publishing lightweight JSON telemetry over MQTT topic <code>autotaskx/color/...</code>.`,
-    
-    7: `<strong>Feature 02: Basler Industrial Line-Scan Camera:</strong><br>
-        Highlight the Basler racer 2 L (R2L16384-60cc). Explain why area cameras fail on continuous 40 m/min textile rolls: you need true 16K optical width scanned at 60 kHz. Reference the authentic Vision Lab photo with the overhead aluminum gantry.`,
-    
-    8: `<strong>Feature 02: Dual-Pipeline Architecture:</strong><br>
-        Crucial architecture point: Industrial cameras NEVER send heavy TIFF images through MQTT. Pipeline A uploads raw TIFFs directly to AWS S3 using pre-signed URLs; Pipeline B sends lightweight defect bounding box events over MQTT to EMQX.`,
-    
-    9: `<strong>Feature 02: Sequence & Inspection HUD:</strong><br>
-        Walk through the sequence diagram from line capture to S3 and WebSockets. Point out the live HUD with fabric bounding boxes detecting warp floats and oil stains with 99.4% recall.`,
-    
-    10: `<strong>Feature 03: Production Intelligence OEE:</strong><br>
-        Demonstrate real-time factory monitoring. Review OEE (86.4%), RFT (94.2%), and the live fleet table with Fong's Jet dyeing vessels and Monforts stenters updating at 124ms intervals.`,
-    
-    11: `<strong>Feature 03: Industrial IoT Protocol Taxonomy:</strong><br>
-        Explain protocol normalization. Legacy PLCs speak Modbus and OPC UA; LwM2M/CoAP standardizes IPSO 3303 (Temp) and 3323 (Pressure); the Python gateway publishes clean MQTT v5 messages with TLS 1.3.`,
-    
-    12: `<strong>Feature 03: AI Production Analyst & Anomalies:</strong><br>
-        Show conversational AI in action. The model does not hallucinate—it translates natural English into validated TimescaleDB SQL queries. Point out the Monforts Stenter Chamber 04 +6.2°C thermal overshoot anomaly.`,
-    
-    13: `<strong>Feature 03: Predictive Maintenance & Bottlenecks:</strong><br>
-        Explain vibration FFT analysis for bearing BPFI defect frequencies. Walk through the 8-stage manufacturing flow, identifying Stenter drying as the primary bottleneck causing staging delays.`,
-    
-    14: `<strong>Feature 03: Resource & Multi-Mill Benchmarking:</strong><br>
-        Review specific consumption: 0.42 kWh/kg electricity, 48.5 L/kg water. Highlight multi-mill cluster benchmarking between Gazipur and Narayanganj with strict tenant row-level security.`,
-    
-    15: `<strong>Feature 04: Textile OS Unified Architecture:</strong><br>
-        Textile OS connects all 5 device classes: Environmental, Machine, Textile Equipment, Lab, and Vision. Emphasize device health tracking with MQTT Last Will and Testament (LWT).`,
-    
-    16: `<strong>Feature 04: TimescaleDB Time-Series Engine:</strong><br>
-        Explain why PostgreSQL + TimescaleDB: 1-day chunk partitioning, transparent 7-day columnar compression (92% disk reduction), and continuous aggregates delivering sub-25ms query latencies.`,
-    
-    17: `<strong>Feature 04: Live Industrial Telemetry Console:</strong><br>
-        Point to the active real-time waveform canvas. Highlight continuous closed-loop monitoring of vessel temperature (130.4°C) and pressure (2.84 bar).`,
-    
-    18: `<strong>Feature 05: ERP Integration Strategy:</strong><br>
-        Reiterate the core position: AutoTaskX does not replace existing ERP. It provides certified bi-directional connectors for Datatex NOW, SAP S/4HANA (PP/QM), and Infor M3.`,
-    
-    19: `<strong>Feature 05: Bidirectional Data Flows & Schema Mapping:</strong><br>
-        Explain Flow A (top-down work orders & recipes) versus Flow B (bottom-up real-time chemical consumption & meterage). Walk through the schema translation table and transactional outbox.`,
-    
-    20: `<strong>Feature 05: Interactive Mill Console & Dispatch Stream:</strong><br>
-        Demonstrate the terminal stream with live mill dispatch events (PO received, batch mapped, chemical consumption synced to SAP MM with MBLNR document creation).`,
-    
-    21: `<strong>Complete 7-Layer System Architecture:</strong><br>
-        Summarize the full industrial stack: Physical Floor -> Connectivity -> Edge Computing -> EMQX Broker -> Cloud Application -> TimescaleDB/S3 Storage -> Presentation & Digital Twin.`,
-    
-    22: `<strong>Measurable Outcomes & Technical Discussion:</strong><br>
-        Review quantified impacts: <25ms latency, 0.32 dE00, 99.4% defect recall, 60% faster lab dips, 0% clipboard errors. Invite technical questions on edge hardening, TimescaleDB tuning, and CoaXPress 2.0. Open floor for discussion.`
+  // --- Presenter Notes Data (Natural Conversational English) ---
+  const PRESENTER_NOTES = {
+    1: `<strong>What to say (30-45s):</strong><br>
+        "Good morning. Today I'm presenting AutoTaskX — a software platform designed to connect every part of a textile factory. Right now, textile mills have high-tech dyeing jets, stenters, and laboratories, but they operate as disconnected islands. AutoTaskX brings them all into one intelligent, easy-to-use digital ecosystem."<br><br>
+        <strong>What the visual means:</strong><br>
+        The left side shows our four core pillars (smart chemistry, machine vision, live telemetry, and ERP bridge). The right card shows an active mill HUD from Gazipur running 24 connected machines.<br><br>
+        <strong>Why it matters:</strong> Sets the stage immediately as an industrial software engineer who understands both software architecture and physical factory reality.`,
+
+    2: `<strong>What to say (30-45s):</strong><br>
+        "Let's look at the actual reality inside a modern textile factory. Despite millions of dollars in equipment, four big problems persist: operators still calculate dye recipes with pen and paper; machines operate completely disconnected; quality inspection photos get lost in personal phones; and managers only find out about fabric damage hours after thousands of meters are ruined."<br><br>
+        <strong>Real-world example:</strong><br>
+        If a stenter chamber overheats by just 10°C, 500 meters of cotton can turn yellow before anyone notices on the floor.<br><br>
+        <strong>Why it matters:</strong> Grounds the entire presentation in real operational pain points, not theoretical abstractions.`,
+
+    3: `<strong>What to say (30-45s):</strong><br>
+        "Our answer is AutoTaskX. Rather than replacing physical factory machines, AutoTaskX provides five modular tools that share one central database: Color Formulation for the dye lab; Visual Quality Inspection for flaw detection; Production Intelligence for real-time speed and temperature; Textile OS to connect physical sensors; and ERP Integration to sync with existing business software."<br><br>
+        <strong>What the visual means:</strong><br>
+        Five clean module cards showing what each department uses. Every card has a clear industrial photo showing real equipment.<br><br>
+        <strong>Why it matters:</strong> Shows that AutoTaskX is a comprehensive platform, not just a single one-off script.`,
+
+    4: `<strong>What to say (30-45s):</strong><br>
+        "Here is the complete journey of how AutoTaskX works from the shopfloor to the screen. First, physical machines run. Sensors and cameras capture physical reality. An industrial gateway collects those signals. AutoTaskX backend receives and organizes them. The database saves the history. And finally, the live dashboard displays real-time readings to managers. The entire journey happens in under 25 milliseconds."<br><br>
+        <strong>What the visual means:</strong><br>
+        A 6-step horizontal flow chart that is easy for the interviewer to visualize and remember.<br><br>
+        <strong>Why it matters:</strong> Demonstrates end-to-end full stack architecture from hardware to user interface.`,
+
+    5: `<strong>What to say (30-45s):</strong><br>
+        "Feature 01 is Color Formulation. In textile dyeing, calculating chemical recipes for 100 kg of cotton fabric takes significant trial-and-error. With AutoTaskX, the lab technician enters the fabric type, weight, and target shade. The system calculates exact dye grams per kilogram and total quantities for the dispensary."<br><br>
+        <strong>Real-world example:</strong><br>
+        The right card shows an exact recipe for a 100 kg deep navy knit batch: 1,850g of Reactive Blue and 420g of Reactive Red with 600 liters of water.<br><br>
+        <strong>Important note:</strong> Always clarify to the interviewer that software recipes are computational estimates that require standard lab beaker validation.`,
+
+    6: `<strong>What to say (30-45s):</strong><br>
+        "Feature 02 is Visual Quality Inspection. Fabric defects can be captured from two sources: continuous line-scan cameras like the Basler racer 2L mounted above an inspection frame, or smartphone cameras used by floor operators for spot checks. When an image is captured, the heavy photograph goes straight to AWS S3 Cloud Storage, while defect tags and locations are saved in our database."<br><br>
+        <strong>What the visual means:</strong><br>
+        Shows the contrast between automated 16K line scanning and flexible mobile spot-checking.<br><br>
+        <strong>Why it matters:</strong> Demonstrates clean cloud architecture by keeping heavy images out of transactional databases.`,
+
+    7: `<strong>What to say (30-45s):</strong><br>
+        "Feature 03 is Production Intelligence. How do managers know what is happening right now? Take Stenter Frame #02: it is heat-setting cotton fabric. A temperature probe measures chamber heat every 500 milliseconds. AutoTaskX displays the current 185.5°C reading live. If the temperature exceeds the safe 190°C limit, the system triggers an immediate alert to prevent fabric burning."<br><br>
+        <strong>What the visual means:</strong><br>
+        The right side shows a live executive HUD with 18 of 20 machines active and an 8-hour temperature trend.<br><br>
+        <strong>Why it matters:</strong> Moves factories from reactive firefighting to real-time proactive monitoring.`,
+
+    8: `<strong>What to say (30-45s):</strong><br>
+        "Feature 04 is Textile OS — the physical nervous system of the platform. Different factory machines use different physical wires, serial cables, or network ports. Textile OS uses industrial IoT gateways to read physical signals from temperature probes, pressure sensors, and power meters, converting them all into one unified software format."<br><br>
+        <strong>What the visual means:</strong><br>
+        The left side shows the physical devices we support. The right side shows the 5 simple steps to wire, configure, and connect any sensor.<br><br>
+        <strong>Why it matters:</strong> Proves hands-on engineering knowledge of how software touches physical industrial hardware.`,
+
+    9: `<strong>What to say (30-45s):</strong><br>
+        "Let's trace one single sensor reading step by step. On Stenter #02, a PT100 temperature probe reads 185.5°C. The gateway reads that electrical voltage and creates a small data packet. It sends it over the factory network. AutoTaskX validates it and writes it to TimescaleDB. The dashboard screen immediately shows 185.5°C with a green status. You can click 'Animate Reading Pulse' to see the packet travel."<br><br>
+        <strong>Interactive demo:</strong> Click the button in the top right to watch the packet pulse across all 6 nodes.<br><br>
+        <strong>Why it matters:</strong> Clear, confident explanation of the complete data pipeline in plain English.`,
+
+    10: `<strong>What to say (30-45s):</strong><br>
+        "How do 50 machines talk to AutoTaskX without slowing down? We use MQTT. Think of MQTT as a digital post office: machines drop off small, lightweight telegrams, and the messaging server delivers them instantly. Most importantly, we follow a strict architecture rule: MQTT is only for small sensor numbers (under 1 KB). Large 20 MB fabric photos are uploaded separately via HTTPS directly to cloud storage."<br><br>
+        <strong>Why it matters:</strong> Shows architectural maturity by decoupling high-frequency sensor telemetry from heavy file storage.`,
+
+    11: `<strong>What to say (30-45s):</strong><br>
+        "Where does all this factory information go? We use three specialized storage containers: PostgreSQL for organized business records like recipes and user accounts; TimescaleDB for continuous second-by-second measurements like temperature and pressure; and AWS S3 for large inspection photographs."<br><br>
+        <strong>What the visual means:</strong><br>
+        Three clean containers with everyday examples of what each one stores.<br><br>
+        <strong>Why it matters:</strong> Explains database choices simply without confusing technical jargon.`,
+
+    12: `<strong>What to say (30-45s):</strong><br>
+        "Here is how data reaches the screen. A sensor reading is forwarded via MQTT, saved in TimescaleDB, and WebSockets push the update to the browser instantly without reloading the page. Notice the difference between Current Data (what is happening right now this second) and Historical Data (what happened over the last 8-hour shift)."<br><br>
+        <strong>What the visual means:</strong><br>
+        Contrasts live real-time dials for operators with historical trend lines for plant managers.<br><br>
+        <strong>Why it matters:</strong> Demonstrates understanding of different user personas and real-time frontend engineering.`,
+
+    13: `<strong>What to say (30-45s):</strong><br>
+        "Textile factories already have enterprise software like SAP, Datatex NOW, or Infor. AutoTaskX does not replace them — it connects them to the shopfloor. The ERP sends work orders and customer recipes down to AutoTaskX, and AutoTaskX sends actual meters produced and chemical quantities consumed back up. No more manual paper data entry."<br><br>
+        <strong>Before vs After:</strong><br>
+        Before: Paper logs typed into ERP 2 days later with mistakes. After: Automated inventory sync as soon as fabric leaves the machine.`,
+
+    14: `<strong>What to say (30-45s):</strong><br>
+        "This slide brings everything together in one complete architecture map: Zone 1 is the physical factory with dye labs, cameras, and machines. Zone 2 is the gateway and network connection layer. Zone 3 is the AutoTaskX core with our backend and three specialized databases. Zone 4 is the live web interface and two-way ERP integration."<br><br>
+        <strong>What the visual means:</strong><br>
+        A 4-zone master blueprint summarizing the entire system.<br><br>
+        <strong>Why it matters:</strong> Proves you can architect and explain an end-to-end industrial software solution.`,
+
+    15: `<strong>What to say (30-45s):</strong><br>
+        "What does the factory owner or general manager actually get? Instead of walking across noisy production floors and deciphering paper logs, they see complete reality on one screen: 24 active machines, 99.2% right-first-time quality, zero active temperature alerts, and 42,500 meters completed today. That means faster decisions, lower costs, and zero paperwork delays."<br><br>
+        <strong>Why it matters:</strong> Ties all the technical engineering directly back to concrete business value and ROI.`,
+
+    16: `<strong>What to say (30-45s):</strong><br>
+        "Where can AutoTaskX go next? We have a phased, realistic roadmap: Stage 1 connects more legacy machines; Stage 2 expands automated AI defect classification; Stage 3 introduces deep historical recipe analytics; Stage 4 adds predictive maintenance warnings; and Stage 5 enables closed-loop autonomous machine adjustments."<br><br>
+        <strong>Why it matters:</strong> Shows strategic product vision and honest engineering integrity about current vs future capabilities.`,
+
+    17: `<strong>What to say (30-45s):</strong><br>
+        "To conclude: AutoTaskX transforms disconnected textile factory operations into one unified, intelligent manufacturing platform. My name is Sheikh Shamiul Shakib, software engineer and textile engineering graduate from BUTEX. Thank you for your time, and I am very happy to answer any technical questions."<br><br>
+        <strong>Why it matters:</strong> Professional, crisp, confident finish opening the floor for technical interview questions.`
   };
 
-  // --- Overview Titles ---
-  const slideTitles = [
-    { num: 1, title: "Cover: Industrial Textile Intelligence", cat: "INTRODUCTION" },
-    { num: 2, title: "The Industrial Problem & Factory Silos", cat: "THE CHALLENGE" },
-    { num: 3, title: "The AutoTaskX Vision & Strategy", cat: "VISION" },
-    { num: 4, title: "Five Integrated Modules Ecosystem", cat: "ARCHITECTURE" },
-    { num: 5, title: "Feature 01: Precision Color Formulation", cat: "FEATURE 01" },
-    { num: 6, title: "Feature 01: Lab Hardware IoT & MQTT", cat: "FEATURE 01" },
-    { num: 7, title: "Feature 02: Basler 16K Camera Integration", cat: "FEATURE 02" },
-    { num: 8, title: "Feature 02: Dual-Pipeline S3 & MQTT", cat: "FEATURE 02" },
-    { num: 9, title: "Feature 02: Sequence & Inspection HUD", cat: "FEATURE 02" },
-    { num: 10, title: "Feature 03: Production Intelligence OEE", cat: "FEATURE 03" },
-    { num: 11, title: "Feature 03: Protocol Adapters & MQTT", cat: "FEATURE 03" },
-    { num: 12, title: "Feature 03: AI Analyst & Anomaly Detection", cat: "FEATURE 03" },
-    { num: 13, title: "Feature 03: Predictive Maintenance & Bottlenecks", cat: "FEATURE 03" },
-    { num: 14, title: "Feature 03: Utilities & Multi-Mill Ranking", cat: "FEATURE 03" },
-    { num: 15, title: "Feature 04: Textile OS Unified System", cat: "FEATURE 04" },
-    { num: 16, title: "Feature 04: TimescaleDB Time-Series Engine", cat: "FEATURE 04" },
-    { num: 17, title: "Feature 04: Live Waveform Monitor HUD", cat: "FEATURE 04" },
-    { num: 18, title: "Feature 05: ERP Interoperability Bridge", cat: "FEATURE 05" },
-    { num: 19, title: "Feature 05: Bidirectional Sync & Mapping", cat: "FEATURE 05" },
-    { num: 20, title: "Feature 05: Mill Console & Dispatch Stream", cat: "FEATURE 05" },
-    { num: 21, title: "Complete 7-Layer Master Architecture", cat: "ARCHITECTURE" },
-    { num: 22, title: "Production Impact & Technical Q&A", cat: "CONCLUSION" }
-  ];
+  // --- Dynamic 16:9 Stage Scaler ---
+  function updateStageScale() {
+    if (!stageScaler) return;
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+    const targetWidth = 1920;
+    const targetHeight = 1080;
 
-  // ==========================================================================
-  // VIEWPORT AUTO-SCALING (16:9 1920x1080)
-  // ==========================================================================
-  function handleResize() {
-    const targetW = 1920;
-    const targetH = 1080;
-    const windowW = window.innerWidth;
-    const windowH = window.innerHeight;
+    const scaleX = windowWidth / targetWidth;
+    const scaleY = windowHeight / targetHeight;
+    const scale = Math.min(scaleX, scaleY);
 
-    const scale = Math.min(windowW / targetW, windowH / targetH);
     stageScaler.style.transform = `scale(${scale})`;
   }
 
-  // ==========================================================================
-  // NAVIGATION LOGIC
-  // ==========================================================================
-  function goToSlide(targetIndex) {
-    if (targetIndex < 1) targetIndex = 1;
-    if (targetIndex > totalSlides) targetIndex = totalSlides;
+  // --- Slide Navigation Engine ---
+  function showSlide(index) {
+    if (index < 1) index = 1;
+    if (index > totalSlides) index = totalSlides;
 
-    slides.forEach((slide) => {
-      const idx = parseInt(slide.dataset.slide, 10);
-      if (idx === targetIndex) {
+    currentSlide = index;
+
+    slides.forEach((slide, idx) => {
+      const slideNum = idx + 1;
+      slide.classList.remove('active', 'prev');
+      if (slideNum === currentSlide) {
         slide.classList.add('active');
-        // Update category indicator
-        if (categoryIndicator) {
-          categoryIndicator.textContent = slide.dataset.category || 'AUTOTASKX';
-        }
-      } else {
-        slide.classList.remove('active');
+        const cat = slide.getAttribute('data-category') || 'AUTOTASKX';
+        if (categoryIndicator) categoryIndicator.textContent = cat;
+      } else if (slideNum < currentSlide) {
+        slide.classList.add('prev');
       }
     });
 
-    currentSlide = targetIndex;
-
-    // Update Counter
-    if (currentSlideDisplay) {
-      currentSlideDisplay.textContent = currentSlide.toString().padStart(2, '0');
-    }
-
     // Update Progress Bar
     if (progressBar) {
-      const progressPercent = (currentSlide / totalSlides) * 100;
-      progressBar.style.width = `${progressPercent}%`;
+      const progress = ((currentSlide - 1) / (totalSlides - 1)) * 100;
+      progressBar.style.width = `${progress}%`;
+    }
+
+    // Update Indicator
+    if (slideIndicator) {
+      const formattedCur = String(currentSlide).padStart(2, '0');
+      const formattedTot = String(totalSlides).padStart(2, '0');
+      slideIndicator.textContent = `${formattedCur} / ${formattedTot}`;
     }
 
     // Update Presenter Notes
-    updatePresenterNotes();
+    updateNotesContent();
 
-    // Trigger canvas loop if Slide 17 is active
-    if (currentSlide === 17) {
-      startCanvasTelemetry();
-    } else {
-      stopCanvasTelemetry();
-    }
+    // Update Overview Grid Active State
+    updateOverviewActiveThumb();
   }
 
   function nextSlide() {
     if (currentSlide < totalSlides) {
-      goToSlide(currentSlide + 1);
+      showSlide(currentSlide + 1);
     }
   }
 
   function prevSlide() {
     if (currentSlide > 1) {
-      goToSlide(currentSlide - 1);
+      showSlide(currentSlide - 1);
     }
   }
 
+  // --- Presenter Notes Drawer ---
+  function toggleNotes() {
+    if (!notesDrawer) return;
+    notesDrawer.classList.toggle('drawer-hidden');
+  }
+
+  function updateNotesContent() {
+    if (!notesContent) return;
+    const noteHtml = PRESENTER_NOTES[currentSlide] || '<strong>Slide Notes:</strong><br>No specific notes for this slide.';
+    notesContent.innerHTML = noteHtml;
+  }
+
+  // --- Overview Modal Engine ---
+  function initOverviewGrid() {
+    if (!overviewGrid) return;
+    overviewGrid.innerHTML = '';
+
+    slides.forEach((slide, idx) => {
+      const slideNum = idx + 1;
+      const titleElem = slide.querySelector('.slide-title') || slide.querySelector('.cover-subtitle');
+      const titleText = titleElem ? titleElem.textContent.trim() : `Slide ${slideNum}`;
+      const category = slide.getAttribute('data-category') || 'OVERVIEW';
+
+      const thumb = document.createElement('div');
+      thumb.className = 'thumb-card';
+      thumb.setAttribute('data-target-slide', slideNum);
+
+      thumb.innerHTML = `
+        <span class="thumb-num">SLIDE ${String(slideNum).padStart(2, '0')}</span>
+        <h4 class="thumb-title">${titleText}</h4>
+        <span class="thumb-cat">${category}</span>
+      `;
+
+      thumb.addEventListener('click', () => {
+        showSlide(slideNum);
+        closeOverview();
+      });
+
+      overviewGrid.appendChild(thumb);
+    });
+
+    updateOverviewActiveThumb();
+  }
+
+  function updateOverviewActiveThumb() {
+    const thumbs = document.querySelectorAll('.thumb-card');
+    thumbs.forEach(t => {
+      const target = parseInt(t.getAttribute('data-target-slide'), 10);
+      if (target === currentSlide) {
+        t.classList.add('active-thumb');
+      } else {
+        t.classList.remove('active-thumb');
+      }
+    });
+  }
+
+  function toggleOverview() {
+    if (!overviewModal) return;
+    if (overviewModal.classList.contains('modal-hidden')) {
+      overviewModal.classList.remove('modal-hidden');
+      updateOverviewActiveThumb();
+    } else {
+      closeOverview();
+    }
+  }
+
+  function closeOverview() {
+    if (overviewModal) overviewModal.classList.add('modal-hidden');
+  }
+
+  // --- Fullscreen Toggle ---
   function toggleFullscreen() {
     if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch((err) => {
-        console.warn(`Error attempting to enable fullscreen: ${err.message}`);
-      });
+      document.documentElement.requestFullscreen().catch(err => console.warn(err));
       isFullscreen = true;
     } else {
       if (document.exitFullscreen) {
@@ -212,81 +277,81 @@
     }
   }
 
-  // ==========================================================================
-  // SLIDE OVERVIEW MODAL
-  // ==========================================================================
-  function populateOverview() {
-    overviewGrid.innerHTML = '';
-    slideTitles.forEach((item) => {
-      const card = document.createElement('div');
-      card.className = `overview-card ${item.num === currentSlide ? 'active' : ''}`;
-      card.innerHTML = `
-        <span class="oc-num">SLIDE ${item.num.toString().padStart(2, '0')}</span>
-        <h4 class="oc-title">${item.title}</h4>
-        <span class="oc-cat">${item.cat}</span>
-      `;
-      card.addEventListener('click', () => {
-        goToSlide(item.num);
-        closeOverview();
+  // --- Slide 09 Interactive Pulse Animation ---
+  function initPulseAnimation() {
+    const pulseBtn = document.getElementById('btn-pulse-packet');
+    if (!pulseBtn) return;
+
+    pulseBtn.addEventListener('click', () => {
+      const nodes = [
+        document.getElementById('tn-1'),
+        document.getElementById('tn-2'),
+        document.getElementById('tn-3'),
+        document.getElementById('tn-4'),
+        document.getElementById('tn-5'),
+        document.getElementById('tn-6')
+      ];
+
+      const pulses = [
+        document.getElementById('pulse-1'),
+        document.getElementById('pulse-2'),
+        document.getElementById('pulse-3'),
+        document.getElementById('pulse-4'),
+        document.getElementById('pulse-5')
+      ];
+
+      // Reset
+      nodes.forEach(n => n && n.classList.remove('active-glow'));
+      pulses.forEach(p => p && p.classList.remove('pulsing'));
+
+      // Sequence chain animation
+      nodes.forEach((node, i) => {
+        setTimeout(() => {
+          if (node) node.classList.add('active-glow');
+          if (i > 0 && pulses[i - 1]) pulses[i - 1].classList.add('pulsing');
+
+          setTimeout(() => {
+            if (node) node.classList.remove('active-glow');
+            if (i > 0 && pulses[i - 1]) pulses[i - 1].classList.remove('pulsing');
+          }, 450);
+        }, i * 380);
       });
-      overviewGrid.appendChild(card);
     });
   }
 
-  function openOverview() {
-    populateOverview();
-    overviewModal.classList.remove('modal-hidden');
-  }
-
-  function closeOverview() {
-    overviewModal.classList.add('modal-hidden');
-  }
-
-  // ==========================================================================
-  // PRESENTER NOTES
-  // ==========================================================================
-  function updatePresenterNotes() {
-    if (notesContent) {
-      notesContent.innerHTML = presenterNotes[currentSlide] || 'No specific notes for this slide.';
-    }
-  }
-
-  function toggleNotes() {
-    notesDrawer.classList.toggle('drawer-hidden');
-  }
-
-  // ==========================================================================
-  // KEYBOARD NAVIGATION
-  // ==========================================================================
+  // --- Keyboard Event Listeners ---
   function handleKeyDown(e) {
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    // If overview modal open, Escape closes it
+    if (overviewModal && !overviewModal.classList.contains('modal-hidden')) {
+      if (e.key === 'Escape' || e.key === 'o' || e.key === 'O') {
+        closeOverview();
+        return;
+      }
+    }
 
     switch (e.key) {
       case 'ArrowRight':
-      case 'ArrowDown':
-      case ' ':
+      case ' ': // Spacebar
       case 'PageDown':
-      case 'Enter':
         e.preventDefault();
         nextSlide();
         break;
 
       case 'ArrowLeft':
-      case 'ArrowUp':
-      case 'PageUp':
       case 'Backspace':
+      case 'PageUp':
         e.preventDefault();
         prevSlide();
         break;
 
       case 'Home':
         e.preventDefault();
-        goToSlide(1);
+        showSlide(1);
         break;
 
       case 'End':
         e.preventDefault();
-        goToSlide(totalSlides);
+        showSlide(totalSlides);
         break;
 
       case 'f':
@@ -298,11 +363,7 @@
       case 'o':
       case 'O':
         e.preventDefault();
-        if (overviewModal.classList.contains('modal-hidden')) {
-          openOverview();
-        } else {
-          closeOverview();
-        }
+        toggleOverview();
         break;
 
       case 'n':
@@ -312,256 +373,41 @@
         break;
 
       case 'Escape':
-        closeOverview();
-        notesDrawer.classList.add('drawer-hidden');
+        if (notesDrawer && !notesDrawer.classList.contains('drawer-hidden')) {
+          notesDrawer.classList.add('drawer-hidden');
+        }
+        break;
+
+      default:
         break;
     }
   }
 
-  // ==========================================================================
-  // INTERACTIVE AI QUERY SIMULATOR (SLIDE 12)
-  // ==========================================================================
-  function initAIQuerySimulator() {
-    const queryButtons = document.querySelectorAll('.q-btn');
-    const resultBox = document.getElementById('ai-query-result');
-
-    const queries = {
-      stenter: {
-        title: "Stenter Frame MONFORTS-ST-01 (Chamber 4):",
-        desc: "Experiencing an abnormal +6.2°C thermal overshoot over the last 45 minutes.",
-        metrics: [
-          { k: "Observed", v: "191.2°C" },
-          { k: "Set Target", v: "185.0°C" },
-          { k: "Root Cause", v: "Damper 4 valve actuator sticking at 82% open" }
-        ],
-        rec: "<strong>AI Operational Recommendation:</strong> Throttle Line Speed from 45 m/min to 38 m/min; dispatch shift technician to inspect pneumatic actuator on Chamber 4."
-      },
-      downtime: {
-        title: "Downtime Variance Analysis (Gazipur Mill 01):",
-        desc: "Total unplanned downtime today is 42 minutes vs 118 minutes yesterday (-64% reduction).",
-        metrics: [
-          { k: "Jet Dyeing", v: "12 min (Batch load)" },
-          { k: "Stenter 01", v: "18 min (Filter clean)" },
-          { k: "Weaving Looms", v: "12 min (Yarn break)" }
-        ],
-        rec: "<strong>AI Operational Recommendation:</strong> Preventative lint purge on Stenter filter prior to starting the next French Terry batch #B-4908."
-      },
-      quality: {
-        title: "Right First Time (RFT) Risk Detection:",
-        desc: "Dyeing Batch #B-4905 showing pH drift from 5.12 to 5.84 during fixation phase.",
-        metrics: [
-          { k: "Target pH", v: "5.0 – 5.2" },
-          { k: "Current pH", v: "5.84 (Elevated)" },
-          { k: "Risk Factor", v: "Uneven dye fixation / shade blotchiness" }
-        ],
-        rec: "<strong>AI Operational Recommendation:</strong> Automated acetic acid buffer injection (1.2 Liters) recommended immediately to stabilize liquor bath."
-      }
-    };
-
-    queryButtons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        queryButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const qKey = btn.dataset.q;
-        const data = queries[qKey];
-        if (data && resultBox) {
-          resultBox.innerHTML = `
-            <p class="arb-p"><strong>${data.title}</strong> ${data.desc}</p>
-            <div class="arb-metrics">
-              ${data.metrics.map(m => `<div>${m.k}: <strong>${m.v}</strong></div>`).join('')}
-            </div>
-            <div class="arb-rec">${data.rec}</div>
-          `;
-        }
-      });
-    });
-  }
-
-  // ==========================================================================
-  // INTERACTIVE ERP CONFIG TABS (SLIDE 20)
-  // ==========================================================================
-  function initERPConfigTabs() {
-    const tabs = document.querySelectorAll('.ecp-tab');
-    const endpointInput = document.querySelector('.ecp-form input[type="text"]');
-
-    const erpEndpoints = {
-      'Datatex NOW': 'https://erp-gw.gazipur-mill01.autotaskx.io/datatex/v2',
-      'SAP S/4HANA': 'https://s4hana.enterprise.autotaskx.io/sap/opu/odata/sap/PP_ORDER_SRV',
-      'Infor M3': 'https://infor-m3.cloud.autotaskx.io/m3api-rest/v2/execute',
-      'Generic REST': 'https://api.mill-custom-erp.com/v1/manufacturing'
-    };
-
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-
-        const erpName = tab.textContent.trim();
-        if (endpointInput && erpEndpoints[erpName]) {
-          endpointInput.value = erpEndpoints[erpName];
-        }
-      });
-    });
-  }
-
-  // ==========================================================================
-  // REAL-TIME CANVAS TELEMETRY WAVEFORM (SLIDE 17)
-  // ==========================================================================
-  let canvas, ctx;
-  let dataPointsTemp = [];
-  let dataPointsPress = [];
-  let dataPointsSpeed = [];
-  const maxPoints = 120;
-  let baseTemp = 130.0;
-  let basePress = 2.80;
-  let baseSpeed = 240.0;
-
-  function initCanvas() {
-    canvas = document.getElementById('live-telemetry-canvas');
-    if (!canvas) return;
-    ctx = canvas.getContext('2d');
-
-    // Fill initial data
-    for (let i = 0; i < maxPoints; i++) {
-      dataPointsTemp.push(baseTemp + (Math.random() - 0.5) * 0.8);
-      dataPointsPress.push(basePress + (Math.random() - 0.5) * 0.08);
-      dataPointsSpeed.push(baseSpeed + (Math.random() - 0.5) * 4.0);
-    }
-  }
-
-  function startCanvasTelemetry() {
-    if (!canvas) initCanvas();
-    if (!animFrameId) {
-      drawCanvasFrame();
-    }
-  }
-
-  function stopCanvasTelemetry() {
-    if (animFrameId) {
-      cancelAnimationFrame(animFrameId);
-      animFrameId = null;
-    }
-  }
-
-  let frameCount = 0;
-  function drawCanvasFrame() {
-    if (!canvas || !ctx) return;
-
-    frameCount++;
-    if (frameCount % 6 === 0) { // Update every ~100ms
-      // Add next point with slight noise
-      const nextTemp = baseTemp + Math.sin(Date.now() / 2000) * 0.4 + (Math.random() - 0.5) * 0.3;
-      const nextPress = basePress + Math.cos(Date.now() / 2400) * 0.05 + (Math.random() - 0.5) * 0.03;
-      const nextSpeed = baseSpeed + (Math.random() - 0.5) * 2.0;
-
-      dataPointsTemp.shift();
-      dataPointsTemp.push(nextTemp);
-
-      dataPointsPress.shift();
-      dataPointsPress.push(nextPress);
-
-      dataPointsSpeed.shift();
-      dataPointsSpeed.push(nextSpeed);
-
-      // Update text gauges on Slide 17
-      const valTemp = document.getElementById('val-temp');
-      const valPress = document.getElementById('val-press');
-      if (valTemp) valTemp.textContent = nextTemp.toFixed(2);
-      if (valPress) valPress.textContent = nextPress.toFixed(2);
-    }
-
-    const w = canvas.width;
-    const h = canvas.height;
-
-    // Clear background
-    ctx.fillStyle = '#0B132B';
-    ctx.fillRect(0, 0, w, h);
-
-    // Draw Grid Lines
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
-    ctx.lineWidth = 1;
-    const gridYCount = 6;
-    for (let i = 1; i < gridYCount; i++) {
-      const y = (h / gridYCount) * i;
-      ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(w, y);
-      ctx.stroke();
-    }
-
-    // Function to draw a line graph
-    function drawLine(points, minVal, maxVal, color) {
-      ctx.strokeStyle = color;
-      ctx.lineWidth = 2.5;
-      ctx.beginPath();
-
-      const stepX = w / (points.length - 1);
-      for (let i = 0; i < points.length; i++) {
-        const val = points[i];
-        const normalizedY = (val - minVal) / (maxVal - minVal);
-        const y = h - (normalizedY * (h - 40) + 20);
-        const x = i * stepX;
-
-        if (i === 0) {
-          ctx.moveTo(x, y);
-        } else {
-          ctx.lineTo(x, y);
-        }
-      }
-      ctx.stroke();
-
-      // Draw subtle glow under line
-      ctx.lineTo(w, h);
-      ctx.lineTo(0, h);
-      ctx.closePath();
-      const grad = ctx.createLinearGradient(0, 0, 0, h);
-      grad.addColorStop(0, color.replace(')', ', 0.15)').replace('rgb', 'rgba'));
-      grad.addColorStop(1, 'rgba(11, 19, 43, 0)');
-      ctx.fillStyle = grad;
-      ctx.fill();
-    }
-
-    // Draw 3 lines
-    drawLine(dataPointsTemp, 128.0, 132.0, 'rgb(239, 68, 68)');
-    drawLine(dataPointsPress, 2.60, 3.10, 'rgb(56, 189, 248)');
-    drawLine(dataPointsSpeed, 220.0, 260.0, 'rgb(16, 185, 129)');
-
-    if (currentSlide === 17) {
-      animFrameId = requestAnimationFrame(drawCanvasFrame);
-    }
-  }
-
-  // ==========================================================================
-  // INITIALIZATION
-  // ==========================================================================
+  // --- Initialization ---
   function init() {
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('keydown', handleKeyDown);
+    updateStageScale();
+    window.addEventListener('resize', updateStageScale);
+    window.addEventListener('orientationchange', updateStageScale);
 
-    if (btnPrev) btnPrev.addEventListener('click', prevSlide);
+    document.addEventListener('keydown', handleKeyDown);
+
     if (btnNext) btnNext.addEventListener('click', nextSlide);
-    if (btnFullscreen) btnFullscreen.addEventListener('click', toggleFullscreen);
-    if (btnOverview) btnOverview.addEventListener('click', openOverview);
-    if (btnCloseOverview) btnCloseOverview.addEventListener('click', closeOverview);
+    if (btnPrev) btnPrev.addEventListener('click', prevSlide);
+    if (btnOverview) btnOverview.addEventListener('click', toggleOverview);
     if (btnNotes) btnNotes.addEventListener('click', toggleNotes);
+    if (btnFullscreen) btnFullscreen.addEventListener('click', toggleFullscreen);
+
+    if (btnCloseOverview) btnCloseOverview.addEventListener('click', closeOverview);
+    if (overviewBackdrop) overviewBackdrop.addEventListener('click', closeOverview);
     if (btnCloseNotes) btnCloseNotes.addEventListener('click', () => notesDrawer.classList.add('drawer-hidden'));
 
-    if (overviewModal) {
-      const backdrop = overviewModal.querySelector('.modal-backdrop');
-      if (backdrop) backdrop.addEventListener('click', closeOverview);
-    }
+    initOverviewGrid();
+    initPulseAnimation();
 
-    handleResize();
-    initAIQuerySimulator();
-    initERPConfigTabs();
-    initCanvas();
-    goToSlide(1);
-
-    console.log("AutoTaskX Presentation Platform initialized. Press 'O' for Overview, 'N' for Notes, 'F' for Fullscreen.");
+    // Show initial slide
+    showSlide(1);
   }
 
-  // Run on DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
