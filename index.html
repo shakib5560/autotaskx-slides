@@ -37,56 +37,104 @@
         <!-- Body: left content + right HUD -->
         <div class="slide-01-body">
           <div class="s01-left">
-            <img src="logo-white.svg" alt="AutoTaskX" class="s01-logo">
-            <h1 class="s01-heading">Making Textile Manufacturing<br>Smarter, Connected,<br>and More Efficient.</h1>
-            <div class="s01-accent"></div>
-            <p class="s01-desc">"AutoTaskX is an industrial IoT &amp; digital twin platform that connects textile factory operations, machines via MQTT, laboratory activities, and business systems into one unified ecosystem."</p>
+            <div class="s01-eyebrow">
+              <span class="s01-live-badge"><span class="s01-live"></span>SYSTEM ONLINE</span>
+              <span class="s01-cat-tag">INDUSTRIAL IOT &amp; DIGITAL TWIN PLATFORM</span>
+            </div>
+
+            <div class="s01-logo-wrap">
+              <img src="logo-white.svg" alt="AutoTaskX Logo" class="s01-logo">
+            </div>
+
+            <h1 class="s01-heading">Making Textile Manufacturing<br><span class="s01-gradient-text">Smarter, Connected,</span><br>and More Efficient.</h1>
+
+            <p class="s01-desc">AutoTaskX connects physical textile machinery, lab spectrophotometers, and IoT sensors via MQTT into a unified real-time digital twin — automating recipes, vision inspection, and enterprise synchronization.</p>
+
+            <!-- Tech stack ribbon for technical interviewer credibility -->
+            <div class="s01-tech-ribbon">
+              <span class="s01-tech-label">Architecture Stack:</span>
+              <span class="s01-tech-chip featured">FastAPI (Async)</span>
+              <span class="s01-tech-chip featured">EMQX (MQTT v5)</span>
+              <span class="s01-tech-chip featured">TimescaleDB</span>
+              <span class="s01-tech-chip">PostgreSQL</span>
+              <span class="s01-tech-chip">OpenCV</span>
+              <span class="s01-tech-chip">AWS S3</span>
+              <span class="s01-tech-chip">Next.js</span>
+            </div>
+
             <div class="s01-pillars">
               <div class="s01-pill">
                 <span class="s01-pill-icon">🧪</span>
                 <div class="s01-pill-text">
                   <strong>Smart Chemistry</strong>
-                  <span>Color recipe calculations</span>
+                  <span>Automated dye recipes &amp; ΔE &lt; 1.0 spectral math</span>
                 </div>
               </div>
               <div class="s01-pill">
                 <span class="s01-pill-icon">📷</span>
                 <div class="s01-pill-text">
                   <strong>Machine Vision</strong>
-                  <span>Fabric quality inspection</span>
+                  <span>16K line-scan &amp; mobile AI fabric flaw classification</span>
                 </div>
               </div>
               <div class="s01-pill">
                 <span class="s01-pill-icon">⚡</span>
                 <div class="s01-pill-text">
                   <strong>Textile OS &amp; Digital Twin</strong>
-                  <span>Live MQTT machine telemetry</span>
+                  <span>Sub-25ms MQTT sensor telemetry via FastAPI</span>
                 </div>
               </div>
               <div class="s01-pill">
                 <span class="s01-pill-icon">🔄</span>
                 <div class="s01-pill-text">
                   <strong>ERP Bridge</strong>
-                  <span>Two-way business synchronization</span>
+                  <span>Bidirectional SAP &amp; Datatex production sync</span>
                 </div>
               </div>
             </div>
           </div>
 
+          <!-- Right: Floating Workstation Mockup Frame -->
           <div class="s01-right">
-            <div class="s01-hud">
-              <div class="s01-hud-top">
-                <span class="hud-pulse"></span>
-                <span class="hud-top-label">GAZIPUR TEXTILE MILL #04 · LIVE FLOOR HUD</span>
-                <span class="hud-online">ONLINE</span>
+            <div class="s01-mockup-frame">
+              <!-- Floating Depth Chips -->
+              <div class="s01-floating-chip top-right">
+                <span class="s01-fc-icon">⚡</span>
+                <div>
+                  <div class="s01-fc-title">MQTT TELEMETRY STREAM</div>
+                  <div class="s01-fc-sub">240 msgs/s · EMQX Broker</div>
+                </div>
               </div>
-              <div class="s01-hud-img">
-                <img src="autotaskx_ui_hero.png" alt="AutoTaskX Industrial HUD">
+
+              <div class="s01-floating-chip bottom-left">
+                <span class="s01-fc-icon">🛡️</span>
+                <div>
+                  <div class="s01-fc-title">DIGITAL TWIN STATE</div>
+                  <div class="s01-fc-sub">100% Floor Synchronized</div>
+                </div>
               </div>
-              <div class="s01-hud-stats">
+
+              <div class="s01-mockup-top">
+                <div class="s01-mockup-dots">
+                  <span class="s01-dot-circle red"></span>
+                  <span class="s01-dot-circle yellow"></span>
+                  <span class="s01-dot-circle green"></span>
+                </div>
+                <div class="s01-mockup-url">autotaskx.mill-04.local/live-digital-twin</div>
+                <div class="s01-mockup-status">
+                  <span class="hud-pulse"></span>
+                  <span>LIVE HUD</span>
+                </div>
+              </div>
+
+              <div class="s01-mockup-body">
+                <img src="autotaskx_ui_hero.png" alt="AutoTaskX Industrial HUD" class="s01-mockup-img">
+              </div>
+
+              <div class="s01-mockup-stats">
                 <div>
                   <span class="hs-val">24 / 26</span>
-                  <span class="hs-label">Machines Active</span>
+                  <span class="hs-label">Active Machines</span>
                 </div>
                 <div>
                   <span class="hs-val">185.5°C</span>
@@ -94,7 +142,7 @@
                 </div>
                 <div>
                   <span class="hs-val">&lt; 25ms</span>
-                  <span class="hs-label">Sensor Latency</span>
+                  <span class="hs-label">MQTT Latency</span>
                 </div>
               </div>
             </div>
