@@ -634,7 +634,7 @@
           <div class="sh-left">
             <span class="sh-label">FEATURE 02 · SYSTEM DEPTH</span>
             <span class="sh-sep">/</span>
-            <span class="sh-sub">End-to-End Vision Pipeline, Async S3 &amp; MQTT Sequence</span>
+            <span class="sh-sub">UML Sequence Diagram · CoaXPress, Direct S3 &amp; MQTT Telemetry</span>
           </div>
           <div class="sh-right">SLIDE 07 / 18</div>
         </div>
@@ -644,158 +644,130 @@
             <div class="s07depth-top">
               <p class="s07depth-eyebrow">System Depth · Architectural Sequence</p>
               <h2 class="s07depth-title">From Raw Sensor Lines to Control Panel: Complete Sequence.</h2>
-              <p class="s07depth-desc">How CoaXPress hardware, Python edge buffering, FastAPI async presigning, S3 cloud storage, and EMQX MQTT work together with zero bottlenecks.</p>
+              <p class="s07depth-desc">Standard UML sequence specification showing CoaXPress acquisition, concurrent S3 offloading, and MQTT telemetry.</p>
             </div>
 
             <div class="s07depth-canvas">
-<svg class="s-depth-svg" viewBox="0 0 1760 580" xmlns="http://www.w3.org/2000/svg">
+<svg class="uml-seq-svg" viewBox="0 0 1720 730" xmlns="http://www.w3.org/2000/svg">
 <defs>
-  <marker id="sq-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-    <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#203B59"/>
+  <marker id="uml-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#0F172A"/>
   </marker>
-  <marker id="sq-arrow-dashed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-    <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#647F98"/>
+  <marker id="uml-open-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 1 2 L 8 5 L 1 8" fill="none" stroke="#334155" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
   </marker>
 </defs>
-<rect x="505" y="138" width="750" height="174" rx="6" fill="#EEF3EF" stroke="#64836F" stroke-dasharray="4,4" stroke-width="1.5"/>
-<rect x="505" y="138" width="330" height="20" rx="4" fill="#64836F"/>
-<text x="515" y="152" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="700" fill="#FFFFFF">PARALLEL: ASYNC S3 UPLOAD &amp; MQTT EVENTS</text>
-<line x1="110" y1="84" x2="110" y2="560" stroke="#DFE1DC" stroke-width="1.5" stroke-dasharray="4,4"/>
-<line x1="330" y1="84" x2="330" y2="560" stroke="#DFE1DC" stroke-width="1.5" stroke-dasharray="4,4"/>
-<line x1="550" y1="84" x2="550" y2="560" stroke="#DFE1DC" stroke-width="1.5" stroke-dasharray="4,4"/>
-<line x1="770" y1="84" x2="770" y2="560" stroke="#DFE1DC" stroke-width="1.5" stroke-dasharray="4,4"/>
-<line x1="990" y1="84" x2="990" y2="560" stroke="#DFE1DC" stroke-width="1.5" stroke-dasharray="4,4"/>
-<line x1="1210" y1="84" x2="1210" y2="560" stroke="#DFE1DC" stroke-width="1.5" stroke-dasharray="4,4"/>
-<line x1="1430" y1="84" x2="1430" y2="560" stroke="#DFE1DC" stroke-width="1.5" stroke-dasharray="4,4"/>
-<line x1="1650" y1="84" x2="1650" y2="560" stroke="#DFE1DC" stroke-width="1.5" stroke-dasharray="4,4"/>
-<line x1="116" y1="78" x2="324" y2="78" stroke="#203B59" stroke-width="1.5" marker-end="url(#sq-arrow)"/>
-<circle cx="220.0" cy="72" r="8" fill="#203B59"/>
-<text x="220.0" y="75.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#FFF">1</text>
-<text x="220.0" y="88" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#202321">Raw Image Lines (CoaXPress)</text>
-<line x1="336" y1="102" x2="544" y2="102" stroke="#203B59" stroke-width="1.5" marker-end="url(#sq-arrow)"/>
-<circle cx="440.0" cy="96" r="8" fill="#203B59"/>
-<text x="440.0" y="99.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#FFF">2</text>
-<text x="440.0" y="112" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#202321">Image Data via SDK</text>
-<path d="M 550 122 C 585 112, 585 136, 556 132" fill="none" stroke="#203B59" stroke-width="1.5" marker-end="url(#sq-arrow)"/>
-<circle cx="598" cy="126" r="8" fill="#203B59"/>
-<text x="598" y="129" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#FFF">3</text>
-<text x="612" y="129.5" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#202321">Buffer & Build Full Fabric Image</text>
-<line x1="556" y1="158" x2="764" y2="158" stroke="#203B59" stroke-width="1.5" marker-end="url(#sq-arrow)"/>
-<circle cx="660.0" cy="152" r="8" fill="#203B59"/>
-<text x="660.0" y="155.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#FFF">4</text>
-<text x="660.0" y="168" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#202321">Request Pre-signed S3 URL</text>
-<line x1="764" y1="182" x2="556" y2="182" stroke="#647F98" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#sq-arrow-dashed)"/>
-<circle cx="660.0" cy="176" r="8" fill="#647F98"/>
-<text x="660.0" y="179.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#FFF">5</text>
-<text x="660.0" y="192" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#202321">Return Upload URL</text>
-<line x1="556" y1="206" x2="984" y2="206" stroke="#203B59" stroke-width="1.5" marker-end="url(#sq-arrow)"/>
-<circle cx="770.0" cy="200" r="8" fill="#203B59"/>
-<text x="770.0" y="203.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#FFF">6</text>
-<text x="770.0" y="216" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#202321">Upload Original TIFF Image</text>
-<line x1="984" y1="230" x2="556" y2="230" stroke="#647F98" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#sq-arrow-dashed)"/>
-<circle cx="770.0" cy="224" r="8" fill="#647F98"/>
-<text x="770.0" y="227.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#FFF">7</text>
-<text x="770.0" y="240" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#202321">Upload Success</text>
-<line x1="556" y1="254" x2="1204" y2="254" stroke="#203B59" stroke-width="1.5" marker-end="url(#sq-arrow)"/>
-<circle cx="880.0" cy="248" r="8" fill="#203B59"/>
-<text x="880.0" y="251.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#FFF">8</text>
-<text x="880.0" y="264" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#202321">Camera Status / Scanning Events</text>
-<line x1="556" y1="278" x2="1204" y2="278" stroke="#203B59" stroke-width="1.5" marker-end="url(#sq-arrow)"/>
-<circle cx="880.0" cy="272" r="8" fill="#203B59"/>
-<text x="880.0" y="275.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#FFF">9</text>
-<text x="880.0" y="288" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#202321">Image Captured Metadata</text>
-<line x1="1204" y1="302" x2="776" y2="302" stroke="#203B59" stroke-width="1.5" marker-end="url(#sq-arrow)"/>
-<circle cx="990.0" cy="296" r="8" fill="#203B59"/>
-<text x="990.0" y="299.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#FFF">10</text>
-<text x="990.0" y="312" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#202321">Deliver MQTT Events</text>
-<line x1="776" y1="336" x2="1424" y2="336" stroke="#203B59" stroke-width="1.5" marker-end="url(#sq-arrow)"/>
-<circle cx="1100.0" cy="330" r="8" fill="#203B59"/>
-<text x="1100.0" y="333.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#FFF">11</text>
-<text x="1100.0" y="346" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#202321">Save Image Metadata & S3 Key</text>
-<line x1="1424" y1="360" x2="776" y2="360" stroke="#647F98" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#sq-arrow-dashed)"/>
-<circle cx="1100.0" cy="354" r="8" fill="#647F98"/>
-<text x="1100.0" y="357.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#FFF">12</text>
-<text x="1100.0" y="370" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#202321">Record Saved</text>
-<line x1="776" y1="384" x2="1644" y2="384" stroke="#647F98" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#sq-arrow-dashed)"/>
-<circle cx="1210.0" cy="378" r="8" fill="#647F98"/>
-<text x="1210.0" y="381.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#FFF">13</text>
-<text x="1210.0" y="394" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#202321">WebSocket Notification</text>
-<line x1="1644" y1="408" x2="776" y2="408" stroke="#203B59" stroke-width="1.5" marker-end="url(#sq-arrow)"/>
-<circle cx="1210.0" cy="402" r="8" fill="#203B59"/>
-<text x="1210.0" y="405.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#FFF">14</text>
-<text x="1210.0" y="418" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#202321">Request Image Metadata</text>
-<line x1="776" y1="432" x2="1424" y2="432" stroke="#203B59" stroke-width="1.5" marker-end="url(#sq-arrow)"/>
-<circle cx="1100.0" cy="426" r="8" fill="#203B59"/>
-<text x="1100.0" y="429.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#FFF">15</text>
-<text x="1100.0" y="442" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#202321">Fetch Image Record</text>
-<line x1="1424" y1="456" x2="776" y2="456" stroke="#647F98" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#sq-arrow-dashed)"/>
-<circle cx="1100.0" cy="450" r="8" fill="#647F98"/>
-<text x="1100.0" y="453.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#FFF">16</text>
-<text x="1100.0" y="466" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#202321">Return Image & S3 Key</text>
-<line x1="776" y1="480" x2="1644" y2="480" stroke="#647F98" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#sq-arrow-dashed)"/>
-<circle cx="1210.0" cy="474" r="8" fill="#647F98"/>
-<text x="1210.0" y="477.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#FFF">17</text>
-<text x="1210.0" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#202321">Return Metadata + Presigned GET URL</text>
-<line x1="1644" y1="504" x2="996" y2="504" stroke="#203B59" stroke-width="1.5" marker-end="url(#sq-arrow)"/>
-<circle cx="1320.0" cy="498" r="8" fill="#203B59"/>
-<text x="1320.0" y="501.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#FFF">18</text>
-<text x="1320.0" y="514" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#202321">Load Image using Secure URL</text>
-<line x1="996" y1="528" x2="1644" y2="528" stroke="#647F98" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#sq-arrow-dashed)"/>
-<circle cx="1320.0" cy="522" r="8" fill="#647F98"/>
-<text x="1320.0" y="525.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#FFF">19</text>
-<text x="1320.0" y="538" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#202321">Return Original Image</text>
-<path d="M 1650 548 C 1685 538, 1685 562, 1656 558" fill="none" stroke="#203B59" stroke-width="1.5" marker-end="url(#sq-arrow)"/>
-<circle cx="1698" cy="552" r="8" fill="#203B59"/>
-<text x="1698" y="555" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#FFF">20</text>
-<text x="1712" y="555.5" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#202321">Display in Control Panel</text>
-<rect x="18" y="10" width="184" height="44" rx="4" fill="#FFFFFF" stroke="#203B59" stroke-width="1.8" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
-<text x="110" y="27" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#203B59">Basler Camera</text>
-<text x="110" y="43" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="500" fill="#626966">16K Line Sensor</text>
-<rect x="238" y="10" width="184" height="44" rx="4" fill="#FFFFFF" stroke="#203B59" stroke-width="1.8" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
-<text x="330" y="27" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#203B59">CXP Frame Grabber</text>
-<text x="330" y="43" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="500" fill="#626966">PCIe CXP-12 Interface</text>
-<rect x="458" y="10" width="184" height="44" rx="4" fill="#FFFFFF" stroke="#2E5280" stroke-width="1.8" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
-<text x="550" y="27" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#203B59">Edge PC (Python)</text>
-<text x="550" y="43" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="500" fill="#626966">Buffer & Stitch SDK</text>
-<rect x="678" y="10" width="184" height="44" rx="4" fill="#FFFFFF" stroke="#111C38" stroke-width="1.8" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
-<text x="770" y="27" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#203B59">FastAPI Backend</text>
-<text x="770" y="43" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="500" fill="#626966">Async Core Engine</text>
-<rect x="898" y="10" width="184" height="44" rx="4" fill="#FFFFFF" stroke="#647F98" stroke-width="1.8" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
-<text x="990" y="27" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#203B59">AWS S3 Cloud</text>
-<text x="990" y="43" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="500" fill="#626966">Original TIFF Storage</text>
-<rect x="1118" y="10" width="184" height="44" rx="4" fill="#FFFFFF" stroke="#203B59" stroke-width="1.8" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
-<text x="1210" y="27" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#203B59">MQTT Broker (EMQX)</text>
-<text x="1210" y="43" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="500" fill="#626966">High-Speed Event Hub</text>
-<rect x="1338" y="10" width="184" height="44" rx="4" fill="#FFFFFF" stroke="#64836F" stroke-width="1.8" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
-<text x="1430" y="27" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#203B59">PostgreSQL</text>
-<text x="1430" y="43" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="500" fill="#626966">Image Metadata & Key</text>
-<rect x="1558" y="10" width="184" height="44" rx="4" fill="#FFFFFF" stroke="#111C38" stroke-width="1.8" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
-<text x="1650" y="27" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" fill="#203B59">Next.js Dashboard</text>
-<text x="1650" y="43" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="500" fill="#626966">Control Panel HUD</text>
+<line x1="90" y1="56" x2="90" y2="720" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="5,4"/>
+<line x1="308" y1="56" x2="308" y2="720" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="5,4"/>
+<line x1="526" y1="56" x2="526" y2="720" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="5,4"/>
+<line x1="744" y1="56" x2="744" y2="720" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="5,4"/>
+<line x1="962" y1="56" x2="962" y2="720" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="5,4"/>
+<line x1="1180" y1="56" x2="1180" y2="720" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="5,4"/>
+<line x1="1398" y1="56" x2="1398" y2="720" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="5,4"/>
+<line x1="1616" y1="56" x2="1616" y2="720" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="5,4"/>
+<rect x="486" y="168" width="754" height="236" fill="#FAFAF9" stroke="#475569" stroke-width="1.2" rx="1"/>
+<path d="M 486 168 L 530 168 L 530 182 L 520 190 L 486 190 Z" fill="#F1F5F9" stroke="#475569" stroke-width="1.2"/>
+<text x="504" y="183" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#0F172A">par</text>
+<text x="540" y="183" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600" fill="#475569">[Image Upload to S3]</text>
+<line x1="486" y1="302" x2="1240" y2="302" stroke="#64748B" stroke-width="1" stroke-dasharray="6,4"/>
+<text x="498" y="316" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600" fill="#475569">[MQTT Status &amp; Metadata Emission]</text>
+<rect x="84" y="78" width="12" height="12" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" rx="1"/>
+<rect x="302" y="84" width="12" height="36" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" rx="1"/>
+<rect x="520" y="114" width="12" height="40" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" rx="1"/>
+<rect x="520" y="180" width="12" height="102" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" rx="1"/>
+<rect x="738" y="186" width="12" height="36" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" rx="1"/>
+<rect x="956" y="246" width="12" height="36" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" rx="1"/>
+<rect x="520" y="316" width="12" height="44" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" rx="1"/>
+<rect x="1174" y="322" width="12" height="68" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" rx="1"/>
+<rect x="738" y="382" width="12" height="58" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" rx="1"/>
+<rect x="1392" y="432" width="12" height="36" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" rx="1"/>
+<rect x="1610" y="492" width="12" height="38" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" rx="1"/>
+<rect x="738" y="522" width="12" height="96" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" rx="1"/>
+<rect x="1392" y="552" width="12" height="36" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" rx="1"/>
+<rect x="956" y="642" width="12" height="36" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" rx="1"/>
+<rect x="1610" y="642" width="12" height="70" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.2" rx="1"/>
+<line x1="96" y1="84" x2="302" y2="84" stroke="#0F172A" stroke-width="1.4" marker-end="url(#uml-arrow)"/>
+<text x="199.0" y="79" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#0F172A">1: Raw Image Lines (CoaXPress)</text>
+<line x1="314" y1="114" x2="520" y2="114" stroke="#0F172A" stroke-width="1.4" marker-end="url(#uml-arrow)"/>
+<text x="417.0" y="109" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#0F172A">2: Image Data via SDK</text>
+<path d="M 532 138 C 568 130, 568 158, 534 152" fill="none" stroke="#0F172A" stroke-width="1.3" marker-end="url(#uml-arrow)"/>
+<text x="574" y="147" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#0F172A">3: Buffer & Build Full Fabric Image</text>
+<line x1="532" y1="186" x2="738" y2="186" stroke="#0F172A" stroke-width="1.4" marker-end="url(#uml-arrow)"/>
+<text x="635.0" y="181" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#0F172A">4: Request Pre-signed S3 URL</text>
+<line x1="738" y1="216" x2="532" y2="216" stroke="#334155" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#uml-open-arrow)"/>
+<text x="635.0" y="211" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#334155">5: Return Upload URL</text>
+<line x1="532" y1="246" x2="956" y2="246" stroke="#0F172A" stroke-width="1.4" marker-end="url(#uml-arrow)"/>
+<text x="744.0" y="241" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#0F172A">6: Upload Original TIFF Image</text>
+<line x1="956" y1="276" x2="532" y2="276" stroke="#334155" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#uml-open-arrow)"/>
+<text x="744.0" y="271" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#334155">7: Upload Success (200 OK)</text>
+<line x1="532" y1="322" x2="1174" y2="322" stroke="#0F172A" stroke-width="1.4" marker-end="url(#uml-arrow)"/>
+<text x="853.0" y="317" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#0F172A">8: Camera Status / Scanning Events</text>
+<line x1="532" y1="352" x2="1174" y2="352" stroke="#0F172A" stroke-width="1.4" marker-end="url(#uml-arrow)"/>
+<text x="853.0" y="347" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#0F172A">9: Image Captured Metadata</text>
+<line x1="1174" y1="382" x2="750" y2="382" stroke="#0F172A" stroke-width="1.4" marker-end="url(#uml-arrow)"/>
+<text x="962.0" y="377" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#0F172A">10: Deliver MQTT Events</text>
+<line x1="750" y1="432" x2="1392" y2="432" stroke="#0F172A" stroke-width="1.4" marker-end="url(#uml-arrow)"/>
+<text x="1071.0" y="427" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#0F172A">11: Save Image Metadata & S3 Key</text>
+<line x1="1392" y1="462" x2="750" y2="462" stroke="#334155" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#uml-open-arrow)"/>
+<text x="1071.0" y="457" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#334155">12: Record Saved</text>
+<line x1="750" y1="492" x2="1610" y2="492" stroke="#334155" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#uml-open-arrow)"/>
+<text x="1180.0" y="487" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#334155">13: WebSocket Notification (Live Scan)</text>
+<line x1="1610" y1="522" x2="750" y2="522" stroke="#0F172A" stroke-width="1.4" marker-end="url(#uml-arrow)"/>
+<text x="1180.0" y="517" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#0F172A">14: Request Image Metadata</text>
+<line x1="750" y1="552" x2="1392" y2="552" stroke="#0F172A" stroke-width="1.4" marker-end="url(#uml-arrow)"/>
+<text x="1071.0" y="547" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#0F172A">15: Fetch Image Record</text>
+<line x1="1392" y1="582" x2="750" y2="582" stroke="#334155" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#uml-open-arrow)"/>
+<text x="1071.0" y="577" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#334155">16: Return Image & S3 Key</text>
+<line x1="750" y1="612" x2="1610" y2="612" stroke="#334155" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#uml-open-arrow)"/>
+<text x="1180.0" y="607" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#334155">17: Return Metadata + Presigned GET URL</text>
+<line x1="1610" y1="642" x2="968" y2="642" stroke="#0F172A" stroke-width="1.4" marker-end="url(#uml-arrow)"/>
+<text x="1289.0" y="637" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#0F172A">18: Load Image using Secure URL</text>
+<line x1="968" y1="672" x2="1610" y2="672" stroke="#334155" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#uml-open-arrow)"/>
+<text x="1289.0" y="667" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#334155">19: Return Original Image (Stream)</text>
+<path d="M 1622 696 C 1658 688, 1658 716, 1624 710" fill="none" stroke="#0F172A" stroke-width="1.3" marker-end="url(#uml-arrow)"/>
+<text x="1664" y="705" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#0F172A">20: Display in Control Panel HUD</text>
+<rect x="2" y="10" width="176" height="44" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.4" rx="2"/>
+<text x="90" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#0F172A">Basler Camera</text>
+<text x="90" y="44" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500" fill="#64748B">:CameraSensor</text>
+<rect x="220" y="10" width="176" height="44" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.4" rx="2"/>
+<text x="308" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#0F172A">Frame Grabber</text>
+<text x="308" y="44" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500" fill="#64748B">:CXPGrabber</text>
+<rect x="438" y="10" width="176" height="44" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.4" rx="2"/>
+<text x="526" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#0F172A">Edge PC (Python)</text>
+<text x="526" y="44" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500" fill="#64748B">:EdgeNode</text>
+<rect x="656" y="10" width="176" height="44" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.4" rx="2"/>
+<text x="744" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#0F172A">FastAPI Backend</text>
+<text x="744" y="44" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500" fill="#64748B">:AppServer</text>
+<rect x="874" y="10" width="176" height="44" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.4" rx="2"/>
+<text x="962" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#0F172A">AWS S3 Cloud</text>
+<text x="962" y="44" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500" fill="#64748B">:ObjectStorage</text>
+<rect x="1092" y="10" width="176" height="44" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.4" rx="2"/>
+<text x="1180" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#0F172A">EMQX Broker</text>
+<text x="1180" y="44" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500" fill="#64748B">:MQTTBroker</text>
+<rect x="1310" y="10" width="176" height="44" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.4" rx="2"/>
+<text x="1398" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#0F172A">PostgreSQL</text>
+<text x="1398" y="44" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500" fill="#64748B">:Database</text>
+<rect x="1528" y="10" width="176" height="44" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.4" rx="2"/>
+<text x="1616" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#0F172A">Next.js Dashboard</text>
+<text x="1616" y="44" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500" fill="#64748B">:ClientHUD</text>
 </svg>
             </div>
 
-            <div class="s07depth-takeaways">
-              <div class="s07depth-takeaway">
-                <span class="s07depth-t-icon">🚀</span>
-                <div class="s07depth-t-body">
-                  <strong>Zero-Bottleneck S3 Offload</strong>
-                  <span>20 MB original TIFF scans upload directly from Edge PC to AWS S3 using presigned URLs, bypassing API and MQTT buffers.</span>
-                </div>
+            <div class="s07depth-specs">
+              <div class="s07depth-spec-col">
+                <span class="s07depth-spec-num">SPECIFICATION 01</span>
+                <div class="s07depth-spec-title">Direct S3 Offloading (Bypass Gateway)</div>
+                <div class="s07depth-spec-text">High-throughput 20MB raw TIFF scans stream directly from Edge PC to AWS S3 via pre-signed PUT URLs, eliminating memory bottlenecks on FastAPI and EMQX.</div>
               </div>
-              <div class="s07depth-takeaway">
-                <span class="s07depth-t-icon">⚡</span>
-                <div class="s07depth-t-body">
-                  <strong>Parallel MQTT Telemetry</strong>
-                  <span>Camera status and inspection metadata publish concurrently over EMQX MQTT, keeping the factory digital twin live.</span>
-                </div>
+              <div class="s07depth-spec-col">
+                <span class="s07depth-spec-num">SPECIFICATION 02</span>
+                <div class="s07depth-spec-title">Concurrent MQTT Telemetry (Parallel Frame)</div>
+                <div class="s07depth-spec-text">UML parallel fragment (par) emits camera state and inspection frame metadata concurrently over MQTT, keeping the factory digital twin live in &lt; 25ms.</div>
               </div>
-              <div class="s07depth-takeaway">
-                <span class="s07depth-t-icon">🔒</span>
-                <div class="s07depth-t-body">
-                  <strong>Secure Ephemeral Delivery</strong>
-                  <span>Next.js dashboard receives instant WebSocket alerts, fetching secure time-limited GET URLs from FastAPI to display images.</span>
-                </div>
+              <div class="s07depth-spec-col">
+                <span class="s07depth-spec-num">SPECIFICATION 03</span>
+                <div class="s07depth-spec-title">Ephemeral WebSocket Delivery (Zero Trust)</div>
+                <div class="s07depth-spec-text">Next.js client receives real-time WebSocket notifications, retrieving short-lived pre-signed GET URLs from FastAPI to display images with strict access control.</div>
               </div>
             </div>
           </div>
