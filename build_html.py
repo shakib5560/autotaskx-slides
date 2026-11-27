@@ -17,12 +17,13 @@ def format_speech(text):
         'WebSockets', 'Next.js', 'OpenCV', 'YOLO', 'Modbus', 'Modbus RTU/TCP', 'OPC-UA',
         'RS-485', 'PT100', 'Pre-signed S3 URL', 'Pre-signed URL', 'Pre-signed',
         'Right-First-Time', 'RFT', 'OEE', 'ΔE', 'Delta-E', 'FIFO', 'AsyncIO', 'ASGI', 'WSGI',
-        'SAP', 'ERP', 'Digital Twin &amp; IoT Data Engineer', 'Individual Contribution'
+        'SAP', 'ERP', 'AI Automation', 'Data Pipeline', 'Data Engineering', 'Edge Gateway',
+        'Hypertable', 'Predictive Maintenance', 'Textile OS'
     ]
-    for kw in set(tech_keywords):
-        pattern = re.compile(rf'(?<![\w\-])({re.escape(kw)})(?![\w\-])')
-        text = pattern.sub(r'<span class="tech-inline">\1</span>', text)
-    
+    ordered_kws = sorted(set(tech_keywords), key=len, reverse=True)
+    combined = re.compile(r'(?<![\w\-])(' + '|'.join(re.escape(k) for k in ordered_kws) + r')(?![\w\-])')
+    text = combined.sub(r'<span class="tech-inline">\1</span>', text)
+
     paragraphs = [p.strip() for p in text.split('\n\n') if p.strip()]
     out = ""
     for p in paragraphs:
@@ -914,7 +915,7 @@ html_content = f"""<!DOCTYPE html>
             <div class="brand-text">
                 <h1>AutoTaskX <span>· Interview Engineering Guide</span></h1>
             </div>
-            <span class="badge-role">Backend Software Engineer</span>
+            <span class="badge-role">Digital Twin &amp; Data Engineer</span>
             <span class="badge-live">Live Production 24/7</span>
         </div>
 
@@ -963,22 +964,22 @@ html_content += """            <div class="sidebar-heading">Interview Cheat Shee
                     <span class="pillar-pill">6. Outcomes &amp; Impact</span>
                 </div>
                 <div class="hero-title-group">
-                    <h2 class="hero-title">AutoTaskX — Digital Twin &amp; IoT Data Engineer</h2>
+                    <h2 class="hero-title">AutoTaskX — Digital Twin &amp; Data Engineer Guide</h2>
                     <span class="badge-live">Client Project · Active 24/7</span>
                 </div>
                 <p class="hero-subtitle">
-                    বাংলাদেশের একজন স্বনামধন্য টেক্সটাইল গ্রুপ মালিক এবং পরিচালকের (Managing Director) ফ্যাক্টরির জন্য 
-                    ৪ মাসে গ্রাউন্ড-আপ আর্কিটেক্ট ও ডিপ্লয় করা ইন্ডাস্ট্রিয়াল IoT এবং রিয়েল-টাইম ডিজিটাল টুইন প্ল্যাটফর্ম।
+                    বাংলাদেশের একটি বড় টেক্সটাইল ফ্যাক্টরিতে ৪ মাসে তৈরি ও লাইভ (Live) করা Industrial IoT (ইন্ডাস্ট্রিয়াল আই-ও-টি),
+                    MQTT (এম-কিউ-টি-টি), AI Automation (এ-আই অটোমেশন) এবং Real-time Digital Twin (রিয়েল-টাইম ডিজিটাল টুইন) প্ল্যাটফর্ম।
                 </p>
 
                 <div class="meta-grid">
                     <div class="meta-item">
-                        <span class="meta-label">Role / Profile</span>
-                        <span class="meta-value">Backend Software Engineer</span>
+                        <span class="meta-label">Target Role</span>
+                        <span class="meta-value">Digital Twin &amp; Data Engineer</span>
                     </div>
                     <div class="meta-item">
                         <span class="meta-label">Candidate</span>
-                        <span class="meta-value">Sheikh Shamiul Shakib (Backend Software Engineer · BUBT Alumnus)</span>
+                        <span class="meta-value">Sheikh Shamiul Shakib (BUBT · CSE)</span>
                     </div>
                     <div class="meta-item">
                         <span class="meta-label">Timeline &amp; Status</span>
@@ -986,7 +987,7 @@ html_content += """            <div class="sidebar-heading">Interview Cheat Shee
                     </div>
                     <div class="meta-item">
                         <span class="meta-label">Core Tech Stack</span>
-                        <span class="meta-value">FastAPI · MQTT (EMQX) · TimescaleDB · Next.js · Basler</span>
+                        <span class="meta-value">Digital Twin · EMQX MQTT · FastAPI · TimescaleDB · AI Vision</span>
                     </div>
                 </div>
             </section>
@@ -1061,8 +1062,8 @@ html_content += """
             <!-- Technical Q&A Section -->
             <section class="cheat-sheet-section" id="cheat-sheet">
                 <span class="section-header-badge">Interview Panel Master Cheat Sheet</span>
-                <h2 class="section-main-title">ইন্টারভিউ প্যানেলের জন্য ৪টি ট্রিকি টেকনিক্যাল প্রশ্ন ও প্রোডাকশন-গ্রেড স্মার্ট উত্তর</h2>
-                <p class="section-subtext">Digital Twin &amp; IoT Data Engineer হিসেবে আর্কিটেকচারাল সিদ্ধান্ত ও ফিল্ড চ্যালেঞ্জের পক্ষে সুদৃঢ় যুক্তি।</p>
+                <h2 class="section-main-title">ইন্টারভিউ প্যানেলের জন্য ৬টি গুরুত্বপূর্ণ প্রশ্ন ও প্রোডাকশন-গ্রেড স্মার্ট উত্তর</h2>
+                <p class="section-subtext">Digital Twin &amp; Data Engineer (ডিজিটাল টুইন অ্যান্ড ডাটা ইঞ্জিনিয়ার) ইন্টারভিউয়ের জন্য সহজ ও শক্তিশালী উত্তর।</p>
 """
 
 for cq in cheat_questions:
