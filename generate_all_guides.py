@@ -11,12 +11,14 @@ AUTOTASKX — ENGLISH TECHNICAL PRESENTATION & INTERVIEW MASTER GUIDE
 Target Role: Digital Twin & Data Engineer
 Project: AutoTaskX — Industrial IoT & Real-Time Digital Twin Platform
 Client: A Prominent Player in the Bangladeshi Textile Industry
+Team & Contribution: 3-Developer Core Team (Backend & Frontend) · One of the Main Backend Engineers (~40–50% of total work)
 Workflow: Office Consultation → Industry Visit → Requirements & Blueprint → 4-Month Live Delivery (24/7)
 ================================================================================
 
 [পড়ার এবং প্রেজেন্ট করার সহজ টিপস — How to Deliver Smoothly]
 --------------------------------------------------------------------------------
 • আপনি যেহেতু আগেই নিজের পরিচয় দিয়ে দিয়েছেন, তাই এখানে কোনো Self-Introduction (নিজের পরিচয়) রাখা হয়নি — সরাসরি প্রজেক্ট এবং ক্লায়েন্টের গল্প দিয়ে শুরু করা হয়েছে।
+• প্রজেক্টটি ৩ জন ডেভেলপারের একটি কোর টিমের (Core Developer Team) কাজ — Backend ও Frontend মিলে। আপনি এই কোর টিমের একজন মূল Backend Engineer হিসেবে প্রায় ৪০–৫০% কাজ করেছেন; তাই সব জায়গায় "I built" না বলে "We built / We created" ব্যবহার করা হয়েছে।
 • প্রতিটি স্লাইড সাজানো হয়েছে ক্লায়েন্টের বাস্তব চাহিদা অনুযায়ী: Client Request / Problem → Factory Visit & Solution → Result।
 • কঠিন বা টেকনিক্যাল (Technical) ইংরেজি শব্দগুলোর ঠিক পাশেই ব্র্যাকেটে বাংলা উচ্চারণ দেওয়া আছে, যেন আপনি লেখা দেখে সাবলীলভাবে পড়তে পারেন।
 • বলার সময় "To be honest...", "You know...", "Basically...", "What the client really wanted..." এই International English (ইন্টারন্যাশনাল ইংলিশ) এক্সপ্রেশনগুলো স্বাভাবিকভাবে ব্যবহার করুন।
@@ -35,7 +37,7 @@ SLIDE 01: PROJECT OVERVIEW & CLIENT VISION (প্রজেক্ট পরি�
 To be honest, this project started in a very interesting way. The client had already identified (আইডেন্টিফাইড) major gaps in their operations (অপারেশনস) and actually walked into our company's office. What they really wanted was full automation (অটোমেশন) of their factory system — essentially (এসেনশিয়ালি) converting their entire (এনটায়ার) production (প্রোডাকশন) floor into a live Digital Twin (ডিজিটাল টুইন).
 
 ▶ Discovery & Our Solution:
-Right after that office discussion (ডিসকাশন), our team visited their factory to inspect the physical (ফিজিক্যাল) machinery (মেশিনারি), you know, dyeing (ডাইং) jets, stenters (স্টেন্টার), and lab equipment (ইকুইপমেন্ট). From there, we organized (অর্গানাইজড) the complete requirements (রিকোয়ারমেন্টস) and designed the full software architecture (আর্কিটেকচার) blueprint (ব্লুপ্রিন্ট). Over four months, I built the end-to-end Data Pipeline (ডাটা পাইপলাইন) using MQTT (এম-কিউ-টি-টি) for real-time machine synchronization (সিঙ্ক্রোনাইজেশন), along with AI automation (এ-আই অটোমেশন) for quality inspection (ইন্সপেকশন) and color recipe calculation (ক্যালকুলেশন).
+Right after that office discussion (ডিসকাশন), our team visited their factory to inspect the physical (ফিজিক্যাল) machinery (মেশিনারি), you know, dyeing (ডাইং) jets, stenters (স্টেন্টার), and lab equipment (ইকুইপমেন্ট). From there, we organized (অর্গানাইজড) the complete requirements (রিকোয়ারমেন্টস) and created (ক্রিয়েটেড) the full software architecture (আর্কিটেকচার) blueprint (ব্লুপ্রিন্ট). Over four months, a core team of three developers (ডেভেলপারস) — covering both the backend (ব্যাকএন্ড) and frontend (ফ্রন্টএন্ড) — built the entire (এনটায়ার) system. I was one of the main engineers on the backend system, handling roughly (রাফলি) 40 to 50 percent of the total work — especially (এস্পেশালি) around the MQTT (এম-কিউ-টি-টি) Data Pipeline (ডাটা পাইপলাইন), Digital Twin (ডিজিটাল টুইন) synchronization (সিঙ্ক্রোনাইজেশন), and AI automation (এ-আই অটোমেশন) services (সার্ভিসেস).
 
 ▶ The Result:
 If you look at the right side of the slide, that's our live Digital Twin HUD (এইচ-ইউ-ডি). Every machine's state updates in under 25 milliseconds (মিলিসেকেন্ড), and the platform is running 24/7 in live production (প্রোডাকশন) today."
@@ -155,7 +157,7 @@ SLIDE 07: KEY CHALLENGE & SOLUTION — IMAGE & DATA OFFLOADING (বড় ছবি
 Each raw uncompressed (আনকম্প্রেসড) TIFF (টিফ) image coming off the 16K camera is around 20 megabytes (মেগাবাইট). To be honest, if we pushed 20-megabyte images every second through our FastAPI (ফাস্ট-এ-পি-আই) server or our MQTT Broker (এম-কিউ-টি-টি ব্রোকার), server memory and network bandwidth (ব্যান্ডউইথ) would crash within minutes.
 
 ▶ Our Solution:
-So, following this UML sequence (সিকোয়েন্স) diagram (ডায়াগ্রাম), I designed a parallel (প্যারালাল) offloading (অফলোডিং) pipeline:
+So, following this UML sequence (সিকোয়েন্স) diagram (ডায়াগ্রাম), we designed (ডিজাইনড) a parallel (প্যারালাল) offloading (অফলোডিং) pipeline:
 First, the Edge PC (এজ পি-সি) asks FastAPI (ফাস্ট-এ-পি-আই) for a temporary Pre-signed S3 URL (প্রি-সাইনড এস-থ্রি ইউ-আর-এল).
 Then, the Edge PC completely bypasses (বাইপাসেস) our API server and uploads that heavy 20-megabyte image directly to AWS S3 (এ-ডব্লিউ-এস এস-থ্রি).
 At the exact same moment, in parallel (প্যারালাল), the Edge PC sends only tiny scan metadata (মেটাডাটা) and AI defect alerts over MQTT (এম-কিউ-টি-টি).
@@ -200,7 +202,7 @@ SLIDE 09: TEXTILE OS & DIGITAL TWIN CORE (ভিন্ন ভিন্ন মে
 When we visited the client's industry (ইন্ডাস্ট্রি), we quickly noticed that the machines didn't speak one common language. They had modern German Monforts (মনফোর্টস) stenters, Italian machines, and even 30-year-old controllers (কন্ট্রোলার). Some used Modbus (মডবাস), some used Siemens S7 (সিমেন্স এস-সেভেন), and others used OPC-UA (ও-পি-সি ইউ-এ) or RS-485 (আর-এস ফোর-এইটি-ফাইভ). Still, the client wanted every single machine inside one Digital Twin (ডিজিটাল টুইন).
 
 ▶ Our Solution:
-So I engineered (ইঞ্জিনিয়ার্ড) Textile OS as a universal normalization (নরমালাইজেশন) layer.
+So we engineered (ইঞ্জিনিয়ার্ড) Textile OS as a universal normalization (নরমালাইজেশন) layer.
 Our Edge Gateways (এজ গেটওয়ে) read each machine in its native protocol (প্রোটোকল) — temperature, humidity (হিউমিডিটি), steam pressure, speed, and 3-phase power.
 Right at the edge, we normalize (নরমালাইজ) all those signals into one clean, standard JSON schema (জে-সন স্কিমা).
 That clean stream continuously (কন্টিনিউয়াসলি) updates a live virtual (ভার্চুয়াল) model — a true Digital Twin (ডিজিটাল টুইন) — for every machine in the backend.
@@ -239,7 +241,7 @@ SLIDE 11: WHY MQTT? DATA TRANSPORT DECISION (এম-কিউ-টি-টি ক�
 Imagine 50 machines sending sensor readings every second over standard HTTP (এইচ-টি-টি-পি). HTTP carries heavy headers (হেডার) and constant connection overhead (ওভারহেড). On a noisy factory Wi-Fi (ওয়াই-ফাই) network, that slows things down and drops packets (প্যাকেট).
 
 ▶ Our Solution:
-So I enforced (এনফোর্সড) two strict (স্ট্রিক্ট) rules in our design:
+So we enforced (এনফোর্সড) two strict (স্ট্রিক্ট) rules in our design:
 Rule one: Small sensor telemetry (টেলেমেট্রি) goes through our EMQX MQTT Broker (ই-এম-কিউ-এক্স এম-কিউ-টি-টি ব্রোকার). Since temperature or RPM is only a few bytes, MQTT's tiny 2-byte header and Pub/Sub (পাব/সাব) model stream data reliably (রিলায়েবলি) into our Digital Twin (ডিজিটাল টুইন) without losing readings.
 Rule two: Large 20-megabyte images NEVER touch MQTT. They go directly over HTTPS (এইচ-টি-টি-পি-এস) to AWS S3 (এ-ডব্লিউ-এস এস-থ্রি) so the broker (ব্রোকার) never gets blocked.
 
@@ -278,7 +280,7 @@ SLIDE 13: REAL-TIME DELIVERY PIPELINE (লাইভ আপডেট বনাম
 Floor operators (অপারেটর) need zero-lag live updates — they shouldn't have to refresh (রিফ্রেশ) their screen. Meanwhile, the client's plant directors (ডিরেক্টর) run heavy historical (হিস্টোরিক্যাল) charts across weeks of shift data. If both shared one pathway (পাথওয়ে), a heavy report could freeze the live monitor.
 
 ▶ Our Solution:
-So I split data delivery (ডেলিভারি) into two dedicated (ডেডিকেটেড) lanes:
+So we split data delivery (ডেলিভারি) into two dedicated (ডেডিকেটেড) lanes:
 For live monitoring, FastAPI WebSockets (ফাস্ট-এ-পি-আই ওয়েব-সকেট) push Digital Twin (ডিজিটাল টুইন) state changes straight to the Next.js (নেক্সট-জে-এস) dashboard without polling (পোলিং).
 For historical (হিস্টোরিক্যাল) trends and shift analytics (অ্যানালিটিক্স), we serve cached REST APIs (রেস্ট এ-পি-আই) backed by TimescaleDB aggregates (অ্যাগ্রিগেটস).
 
@@ -365,7 +367,7 @@ SLIDE 18: CONCLUSION & Q&A (সমাপ্তি ও প্রশ্নোত�
 কোনো ব্যক্তিগত পরিচয় রিপিট না করে ক্লায়েন্ট প্রজেক্টের পুরো যাত্রা সংক্ষেপে শেষ করা এবং টেকনিক্যাল প্রশ্নের জন্য আমন্ত্রণ জানানো।
 
 [কীভাবে বলবেন — স্পোকেন স্ক্রিপ্ট]:
-"To wrap up, AutoTaskX (অটো-টাস্ক-এক্স) isn't a classroom concept or a mockup (মক-আপ). It started when a prominent (প্রমিনেন্ট) Bangladeshi textile client came to our office asking for complete automation (অটোমেশন) and a live Digital Twin (ডিজিটাল টুইন). From visiting their industry (ইন্ডাস্ট্রি) and organizing (অর্গানাইজিং) the requirements (রিকোয়ারমেন্টস) to designing (ডিজাইনিং) the software blueprint (ব্লুপ্রিন্ট) and deploying (ডিপ্লয়িং) it in four months — this platform is running 24/7 in live production (প্রোডাকশন) today.
+"To wrap up, AutoTaskX (অটো-টাস্ক-এক্স) isn't a classroom concept or a mockup (মক-আপ). It started when a prominent (প্রমিনেন্ট) Bangladeshi textile client came to our office asking for complete automation (অটোমেশন) and a live Digital Twin (ডিজিটাল টুইন). From visiting their industry (ইন্ডাস্ট্রি) and organizing (অর্গানাইজিং) the requirements (রিকোয়ারমেন্টস) to creating (ক্রিয়েটিং) the software blueprint (ব্লুপ্রিন্ট), our three-developer core team built both the backend (ব্যাকএন্ড) and frontend (ফ্রন্টএন্ড) in four months — and as one of the main backend engineers contributing (কন্ট্রিবিউটিং) roughly (রাফলি) 40 to 50 percent of the overall (ওভারঅল) build, it's great to see the platform running 24/7 in live production (প্রোডাকশন) today.
 
 By combining (কম্বাইনিং) clean Data Engineering, reliable (রিলায়েবল) MQTT (এম-কিউ-টি-টি) streaming, Digital Twin synchronization (সিঙ্ক্রোনাইজেশন), and practical (প্র্যাকটিক্যাল) AI automation (এ-আই অটোমেশন), we turned disconnected machines into one unified (ইউনিফাইড) smart factory.
 
@@ -436,9 +438,9 @@ pillar_map = {
 engineering_knowledge = {
     "01": [
         {"label": "Client Profile", "val": "Prominent Bangladeshi Textile Industry Leader"},
-        {"label": "Discovery Workflow", "val": "Client Office Consultation → Industry Visit → Blueprint"},
-        {"label": "Core Request", "val": "Full Mill Automation & Live Real-time Digital Twin"},
-        {"label": "Production Proof", "val": "4-Month Delivery · Running 24/7 Live (<25ms HUD)"}
+        {"label": "Team & Role", "val": "3-Developer Core Team · Main Backend Engineer (~40–50%)"},
+        {"label": "Discovery Workflow", "val": "Office Consultation → Industry Visit → Blueprint"},
+        {"label": "Production Proof", "val": "4-Month Build · Running 24/7 Live (<25ms HUD)"}
     ],
     "02": [
         {"label": "Client Pain Points", "val": "Manual Pen-Paper Logs & Disconnected Mill Islands"},

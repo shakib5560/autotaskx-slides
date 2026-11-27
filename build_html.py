@@ -977,8 +977,8 @@ html_content += """            <div class="sidebar-heading">Interview Cheat Shee
                         <span class="meta-value">Digital Twin &amp; Data Engineer</span>
                     </div>
                     <div class="meta-item">
-                        <span class="meta-label">Client Engagement</span>
-                        <span class="meta-value">Office Consultation → Industry Visit → Blueprint</span>
+                        <span class="meta-label">Team &amp; Contribution</span>
+                        <span class="meta-value">3-Dev Core Team · Main Backend Engineer (~40–50%)</span>
                     </div>
                     <div class="meta-item">
                         <span class="meta-label">Timeline &amp; Status</span>
