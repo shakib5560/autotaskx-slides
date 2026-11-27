@@ -968,8 +968,7 @@ html_content += """            <div class="sidebar-heading">Interview Cheat Shee
                     <span class="badge-live">Client Project · Active 24/7</span>
                 </div>
                 <p class="hero-subtitle">
-                    বাংলাদেশের একটি বড় টেক্সটাইল ফ্যাক্টরিতে ৪ মাসে তৈরি ও লাইভ (Live) করা Industrial IoT (ইন্ডাস্ট্রিয়াল আই-ও-টি),
-                    MQTT (এম-কিউ-টি-টি), AI Automation (এ-আই অটোমেশন) এবং Real-time Digital Twin (রিয়েল-টাইম ডিজিটাল টুইন) প্ল্যাটফর্ম।
+                    বাংলাদেশের একটি শীর্ষস্থানীয় টেক্সটাইল গ্রুপের প্রোজেক্ট — ক্লায়েন্ট আমাদের অফিসে এসে পূর্ণ অটোমেশন ও Digital Twin (ডিজিটাল টুইন) চান; এরপর ইন্ডাস্ট্রি ভিজিট, রিকোয়ারমেন্টস, সফটওয়্যার ব্লুপ্রিন্ট ও ৪ মাসে ২৪/৭ লাইভ প্রোডাকশন।
                 </p>
 
                 <div class="meta-grid">
@@ -978,8 +977,8 @@ html_content += """            <div class="sidebar-heading">Interview Cheat Shee
                         <span class="meta-value">Digital Twin &amp; Data Engineer</span>
                     </div>
                     <div class="meta-item">
-                        <span class="meta-label">Candidate</span>
-                        <span class="meta-value">Sheikh Shamiul Shakib (BUBT · CSE)</span>
+                        <span class="meta-label">Client Engagement</span>
+                        <span class="meta-value">Office Consultation → Industry Visit → Blueprint</span>
                     </div>
                     <div class="meta-item">
                         <span class="meta-label">Timeline &amp; Status</span>
