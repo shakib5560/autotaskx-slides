@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>AutoTaskX — Industrial Textile Intelligence Platform</title>
+  <meta name="description" content="AutoTaskX technical presentation: Industrial IoT, Digital Twin, MQTT telemetry, spectral color formulation, machine vision quality inspection, and ERP integration.">
+  <meta property="og:title" content="AutoTaskX — Industrial Textile Intelligence Platform">
+  <meta property="og:description" content="18-slide interactive technical presentation covering AutoTaskX architecture, FastAPI &amp; MQTT telemetry, TimescaleDB, AWS S3 inspection pipeline, and ERP bridge.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B132B'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-weight='800' font-size='26' fill='%2338BDF8'%3EAX%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=2.6">
 </head>
 <body>
 
@@ -24,7 +29,7 @@
         <!-- Dark header -->
         <div class="s01-header">
           <div style="display:flex;align-items:center;gap:10px;">
-            <span class="s01-h-badge">SOFTWARE ENGINEER</span>
+            <span class="s01-h-badge">BACKEND SOFTWARE ENGINEER</span>
             <span class="s01-h-sep">/</span>
             <span class="s01-h-sub">TECHNICAL INTERVIEW PRESENTATION</span>
           </div>
@@ -153,7 +158,7 @@
         <div class="s01-footer">
           <div class="s01-footer-left">
             <span class="s01-fname">Sheikh Shamiul Shakib</span>
-            <span class="s01-frole">Software Engineer · BUTEX Alumnus</span>
+            <span class="s01-frole">Backend Software Engineer · BUBT Alumnus</span>
           </div>
           <div class="s01-footer-center">
             <span>SLIDE 01 / 18</span>
@@ -170,9 +175,9 @@
 
         <div class="slide-header">
           <div class="sh-left">
-            <span class="sh-label">THE PROBLEM</span>
+            <span class="sh-label">PROJECT OBJECTIVES</span>
             <span class="sh-sep">/</span>
-            <span class="sh-sub">Why textile factories need AutoTaskX</span>
+            <span class="sh-sub">Industrial Bottlenecks &amp; Operational Blindspots</span>
           </div>
           <div class="sh-right">SLIDE 02 / 18</div>
         </div>
@@ -244,9 +249,9 @@
 
         <div class="slide-header">
           <div class="sh-left">
-            <span class="sh-label">OUR SOLUTION</span>
+            <span class="sh-label">TECHNICAL APPROACH</span>
             <span class="sh-sep">/</span>
-            <span class="sh-sub">Five integrated modules. One industrial ecosystem.</span>
+            <span class="sh-sub">Five Integrated Modules · Unified Cyber-Physical System</span>
           </div>
           <div class="sh-right">SLIDE 03 / 18</div>
         </div>
@@ -254,50 +259,194 @@
         <div class="slide-content">
           <div class="s03-layout">
             <div class="s03-top">
-              <p class="s03-eyebrow">What AutoTaskX Does</p>
-              <h2 class="s03-title">Five Integrated Modules.<br>One Industrial Ecosystem.</h2>
+              <div class="s03-top-left">
+                <p class="s03-eyebrow">Modular Enterprise Architecture</p>
+                <h2 class="s03-title">Five Integrated Modules. One Industrial Ecosystem.</h2>
+                <p class="s03-desc">A unified cyber-physical platform replacing fragmented legacy mill operations with real-time intelligence.</p>
+              </div>
+              <div class="s03-status-pill">
+                <span class="s03-status-dot"></span>
+                <span>5 / 5 ENGINES ACTIVE IN PRODUCTION</span>
+              </div>
             </div>
-            <div class="s03-modules">
-              <div class="s03-row">
-                <span class="s03-num">01</span>
-                <span class="s03-module-name">Color Formulation</span>
-                <div class="s03-dash"></div>
-                <span class="s03-module-desc">Precision spectral matching, automated dye calculations, and chemical dispenser recipe generation. Eliminates manual lab guesswork.</span>
-                <span class="s03-module-tag">Lab Chemistry</span>
-                <img src="module_01_color.jpg" alt="Color Formulation" class="s03-img">
+
+            <div class="s03-grid">
+              <!-- Module 01 -->
+              <div class="s03-card" id="s03-card-1">
+                <div class="s03-card-media">
+                  <img src="module_01_color.jpg" alt="Color Formulation" class="s03-card-img">
+                  <div class="s03-card-media-overlay"></div>
+                  <div class="s03-card-badge-row">
+                    <span class="s03-card-num">01</span>
+                    <span class="s03-card-tier-pill">Lab Chemistry</span>
+                  </div>
+                  <div class="s03-card-icon-fab">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M10 2v7.31L4.14 19.46A2 2 0 0 0 5.86 22h12.28a2 2 0 0 0 1.72-2.54L14 9.31V2"></path>
+                      <path d="M8.5 2h7"></path>
+                      <path d="M7 16h10"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="s03-card-content">
+                  <div>
+                    <h3 class="s03-card-title">Color Formulation</h3>
+                    <div class="s03-card-tech">Kubelka-Munk · Spectro</div>
+                    <p class="s03-card-desc">Precision spectral matching, automated dye recipe calculation, and chemical dispenser recipe generation.</p>
+                  </div>
+                  <div class="s03-card-outcome">
+                    <span class="s03-outcome-dot"></span>
+                    <span>ΔE &lt; 0.8 · 85% First-Pass</span>
+                  </div>
+                </div>
               </div>
-              <div class="s03-row">
-                <span class="s03-num">02</span>
-                <span class="s03-module-name">Visual Quality Inspection</span>
-                <div class="s03-dash"></div>
-                <span class="s03-module-desc">Continuous optical fabric inspection with sub-millimeter flaw classification. Industrial camera and smartphone both supported.</span>
-                <span class="s03-module-tag">Machine Vision</span>
-                <img src="module_02_vision.png" alt="Visual Quality Inspection" class="s03-img">
+
+              <!-- Module 02 -->
+              <div class="s03-card" id="s03-card-2">
+                <div class="s03-card-media">
+                  <img src="module_02_vision.png" alt="Visual Quality Inspection" class="s03-card-img">
+                  <div class="s03-card-media-overlay"></div>
+                  <div class="s03-card-badge-row">
+                    <span class="s03-card-num">02</span>
+                    <span class="s03-card-tier-pill">Machine Vision</span>
+                  </div>
+                  <div class="s03-card-icon-fab">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                  </div>
+                </div>
+                <div class="s03-card-content">
+                  <div>
+                    <h3 class="s03-card-title">Visual Inspection</h3>
+                    <div class="s03-card-tech">YOLOv8 / ResNet · OpenCV</div>
+                    <p class="s03-card-desc">Continuous optical fabric inspection with sub-millimeter flaw classification at 80 m/min line speeds.</p>
+                  </div>
+                  <div class="s03-card-outcome">
+                    <span class="s03-outcome-dot"></span>
+                    <span>80 m/min · &lt;0.5mm Flaws</span>
+                  </div>
+                </div>
               </div>
-              <div class="s03-row">
-                <span class="s03-num">03</span>
-                <span class="s03-module-name">Production Intelligence</span>
-                <div class="s03-dash"></div>
-                <span class="s03-module-desc">Real-time floor monitoring, bottleneck analysis, shift forecasting, and AI-powered production anomaly detection.</span>
-                <span class="s03-module-tag">Factory OS</span>
-                <img src="textile_factory_floor.png" alt="Production Intelligence" class="s03-img">
+
+              <!-- Module 03 -->
+              <div class="s03-card" id="s03-card-3">
+                <div class="s03-card-media">
+                  <img src="textile_factory_floor.png" alt="Production Intelligence" class="s03-card-img">
+                  <div class="s03-card-media-overlay"></div>
+                  <div class="s03-card-badge-row">
+                    <span class="s03-card-num">03</span>
+                    <span class="s03-card-tier-pill">Factory OS</span>
+                  </div>
+                  <div class="s03-card-icon-fab">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                  </div>
+                </div>
+                <div class="s03-card-content">
+                  <div>
+                    <h3 class="s03-card-title">Production Intel</h3>
+                    <div class="s03-card-tech">FastAPI Async · Redis</div>
+                    <p class="s03-card-desc">Real-time floor telemetry across knitting, dyeing &amp; finishing lines. Bottleneck detection and predictive shift forecasting.</p>
+                  </div>
+                  <div class="s03-card-outcome">
+                    <span class="s03-outcome-dot"></span>
+                    <span>32% Downtime Drop · OEE</span>
+                  </div>
+                </div>
               </div>
-              <div class="s03-row">
-                <span class="s03-num">04</span>
-                <span class="s03-module-name">Textile OS &amp; Digital Twin</span>
-                <div class="s03-dash"></div>
-                <span class="s03-module-desc">Centralized industrial IoT layer. MQTT protocol abstraction, real-time machine digital twin state, and time-series hypertables.</span>
-                <span class="s03-module-tag">IoT &amp; Digital Twin</span>
-                <img src="module_04_iot.jpg" alt="Textile OS &amp; Digital Twin" class="s03-img">
+
+              <!-- Module 04 -->
+              <div class="s03-card" id="s03-card-4">
+                <div class="s03-card-media">
+                  <img src="module_04_iot.jpg" alt="Textile OS &amp; Digital Twin" class="s03-card-img">
+                  <div class="s03-card-media-overlay"></div>
+                  <div class="s03-card-badge-row">
+                    <span class="s03-card-num">04</span>
+                    <span class="s03-card-tier-pill">IoT &amp; Digital Twin</span>
+                  </div>
+                  <div class="s03-card-icon-fab">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                      <rect x="9" y="9" width="6" height="6"></rect>
+                      <line x1="9" y1="1" x2="9" y2="4"></line>
+                      <line x1="15" y1="1" x2="15" y2="4"></line>
+                      <line x1="9" y1="20" x2="9" y2="23"></line>
+                      <line x1="15" y1="20" x2="15" y2="23"></line>
+                      <line x1="20" y1="9" x2="23" y2="9"></line>
+                      <line x1="20" y1="14" x2="23" y2="14"></line>
+                      <line x1="1" y1="9" x2="4" y2="9"></line>
+                      <line x1="1" y1="14" x2="4" y2="14"></line>
+                    </svg>
+                  </div>
+                </div>
+                <div class="s03-card-content">
+                  <div>
+                    <h3 class="s03-card-title">Textile OS Core</h3>
+                    <div class="s03-card-tech">EMQX MQTT · TimescaleDB</div>
+                    <p class="s03-card-desc">Centralized IIoT protocol abstraction. In-memory digital twin machine models with live state sync and time-series archiving.</p>
+                  </div>
+                  <div class="s03-card-outcome">
+                    <span class="s03-outcome-dot"></span>
+                    <span>&lt;25ms Sync · 10k eps</span>
+                  </div>
+                </div>
               </div>
-              <div class="s03-row">
-                <span class="s03-num">05</span>
-                <span class="s03-module-name">ERP Integration</span>
-                <div class="s03-dash"></div>
-                <span class="s03-module-desc">Bidirectional industrial data bridge. Connects shopfloor execution to enterprise accounting ledgers and business planning systems.</span>
-                <span class="s03-module-tag">Enterprise Bridge</span>
-                <img src="module_05_erp.jpg" alt="ERP Integration" class="s03-img">
+
+              <!-- Module 05 -->
+              <div class="s03-card" id="s03-card-5">
+                <div class="s03-card-media">
+                  <img src="module_05_erp.jpg" alt="ERP Integration" class="s03-card-img">
+                  <div class="s03-card-media-overlay"></div>
+                  <div class="s03-card-badge-row">
+                    <span class="s03-card-num">05</span>
+                    <span class="s03-card-tier-pill">Enterprise Bridge</span>
+                  </div>
+                  <div class="s03-card-icon-fab">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="s03-card-content">
+                  <div>
+                    <h3 class="s03-card-title">ERP Integration</h3>
+                    <div class="s03-card-tech">RESTful API · Kafka · SAP</div>
+                    <p class="s03-card-desc">Bidirectional industrial data bridge. Directly binds shopfloor execution telemetry to enterprise accounting ledgers and ERP BOMs.</p>
+                  </div>
+                  <div class="s03-card-outcome">
+                    <span class="s03-outcome-dot"></span>
+                    <span>Zero Manual Entry · BOM Sync</span>
+                  </div>
+                </div>
               </div>
+            </div>
+
+            <!-- Bottom Ecosystem Bus -->
+            <div class="s03-ecosystem-bus">
+              <div class="s03-bus-track">
+                <div class="s03-bus-glider"></div>
+              </div>
+              <div class="s03-bus-left">
+                <span class="s03-bus-tag">UNIFIED DATA FABRIC</span>
+                <span class="s03-bus-text">
+                  <strong>Inter-Module Event Mesh:</strong>
+                  <span>Lab Spec</span> <span class="s03-bus-arrow">→</span>
+                  <span>Edge Vision Alert</span> <span class="s03-bus-arrow">→</span>
+                  <span>OEE Shift Analytics</span> <span class="s03-bus-arrow">→</span>
+                  <span>Digital Twin Shadow</span> <span class="s03-bus-arrow">→</span>
+                  <span>ERP Real-Time Ledger</span>
+                </span>
+              </div>
+              <button class="s03-bus-pulse-btn" id="s03-trigger-pulse" title="Simulate cross-module synchronization signal">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <span>Simulate Sync Wave</span>
+              </button>
             </div>
           </div>
         </div>
@@ -314,9 +463,9 @@
 
         <div class="slide-header">
           <div class="sh-left">
-            <span class="sh-label">HOW IT WORKS</span>
+            <span class="sh-label">TECHNICAL APPROACH</span>
             <span class="sh-sep">/</span>
-            <span class="sh-sub">From physical machine to live dashboard</span>
+            <span class="sh-sub">4-Tier IoT Pipeline (Sense → Connect → Process → Deliver)</span>
           </div>
           <div class="sh-right">SLIDE 04 / 18</div>
         </div>
@@ -324,109 +473,163 @@
         <div class="slide-content">
           <div class="s04-layout">
             <div class="s04-top">
-              <p class="s04-eyebrow">The Complete Flow</p>
-              <h2 class="s04-title">From Physical Machine to Live Dashboard.</h2>
-              <p class="s04-desc">Here is exactly how information travels from a factory floor sensor to the manager's screen — in under 25 milliseconds.</p>
-            </div>
-
-            <div class="s04-flow">
-              <div class="s04-node">
-                <div class="s04-circle">
-                  <span class="s04-circle-icon">🏭</span>
-                </div>
-                <div class="s04-node-label">Physical Machines</div>
-                <div class="s04-node-sub">Stenter, loom, dyeing, compactor</div>
+              <div class="s04-top-text">
+                <p class="s04-eyebrow">4-Tier IoT &amp; Telemetry Architecture</p>
+                <h2 class="s04-title">From Physical Machine to Live Dashboard.</h2>
+                <p class="s04-desc">Sub-25ms deterministic telemetry flow from edge PLC registers to operator WebSockets.</p>
               </div>
-
-              <div class="s04-connector">
-                <div class="s04-connector-line">
-                  <div class="s04-dot"></div>
-                  <div class="s04-dot"></div>
-                  <div class="s04-dot"></div>
-                  <span class="s04-connector-arrow">›</span>
-                </div>
-              </div>
-
-              <div class="s04-node">
-                <div class="s04-circle">
-                  <span class="s04-circle-icon">🌡️</span>
-                </div>
-                <div class="s04-node-label">Sensors &amp; Cameras</div>
-                <div class="s04-node-sub">Temp, pressure, speed, vision</div>
-              </div>
-
-              <div class="s04-connector">
-                <div class="s04-connector-line">
-                  <div class="s04-dot"></div>
-                  <div class="s04-dot"></div>
-                  <div class="s04-dot"></div>
-                  <span class="s04-connector-arrow">›</span>
-                </div>
-              </div>
-
-              <div class="s04-node">
-                <div class="s04-circle">
-                  <span class="s04-circle-icon">📟</span>
-                </div>
-                <div class="s04-node-label">Connection System</div>
-                <div class="s04-node-sub">IoT gateway · MQTT protocol</div>
-              </div>
-
-              <div class="s04-connector">
-                <div class="s04-connector-line">
-                  <div class="s04-dot"></div>
-                  <div class="s04-dot"></div>
-                  <div class="s04-dot"></div>
-                  <span class="s04-connector-arrow">›</span>
-                </div>
-              </div>
-
-              <div class="s04-node">
-                <div class="s04-circle">
-                  <span class="s04-circle-icon">⚡</span>
-                </div>
-                <div class="s04-node-label">Digital Twin Engine</div>
-                <div class="s04-node-sub">FastAPI · MQTT stream · State model</div>
-              </div>
-
-              <div class="s04-connector">
-                <div class="s04-connector-line">
-                  <div class="s04-dot"></div>
-                  <div class="s04-dot"></div>
-                  <div class="s04-dot"></div>
-                  <span class="s04-connector-arrow">›</span>
-                </div>
-              </div>
-
-              <div class="s04-node">
-                <div class="s04-circle">
-                  <span class="s04-circle-icon">🗄️</span>
-                </div>
-                <div class="s04-node-label">Database Storage</div>
-                <div class="s04-node-sub">PostgreSQL · TimescaleDB · S3</div>
-              </div>
-
-              <div class="s04-connector">
-                <div class="s04-connector-line">
-                  <div class="s04-dot"></div>
-                  <div class="s04-dot"></div>
-                  <div class="s04-dot"></div>
-                  <span class="s04-connector-arrow">›</span>
-                </div>
-              </div>
-
-              <div class="s04-node">
-                <div class="s04-circle">
-                  <span class="s04-circle-icon">💻</span>
-                </div>
-                <div class="s04-node-label">Live Dashboard</div>
-                <div class="s04-node-sub">Manager's screen · Alerts · Reports</div>
+              <div class="s04-live-indicator">
+                <span class="s04-status-dot"></span>
+                <span class="s04-status-val">LIVE TELEMETRY BUS</span>
+                <span class="s04-status-sep">/</span>
+                <span class="s04-status-lat">&lt;25ms E2E</span>
               </div>
             </div>
 
-            <blockquote class="s04-insight">
-              "A PT100 temperature sensor on the stenter machine reads 185.5°C and publishes over MQTT. Within 25 milliseconds, FastAPI updates the machine's digital twin state and delivers it live to the manager's dashboard."
-            </blockquote>
+            <div class="s04-pipeline-wrapper">
+              <div class="s04-bus-track">
+                <div class="s04-bus-line"></div>
+                <div class="s04-signal-pulse"></div>
+                <div class="s04-signal-pulse pulse-2"></div>
+                <div class="s04-signal-pulse pulse-3"></div>
+              </div>
+
+              <div class="s04-grid">
+                <!-- Station 01 -->
+                <div class="s04-card" id="s04-card-1">
+                  <div class="s04-card-tier">Tier 1 · Physical</div>
+                  <div class="s04-card-header">
+                    <span class="s04-step-badge">01</span>
+                    <span class="s04-lat-tag">0.0ms</span>
+                  </div>
+                  <div class="s04-icon-container">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                  </div>
+                  <h3 class="s04-card-title">Physical Fleet</h3>
+                  <div class="s04-tech-tag">Siemens S7 · Modbus RTU</div>
+                  <p class="s04-card-sub">Monforts Stenter, circular knitting, Fong's high-temp dyeing &amp; finishing compactors.</p>
+                </div>
+
+                <!-- Station 02 -->
+                <div class="s04-card" id="s04-card-2">
+                  <div class="s04-card-tier">Tier 1 · Edge Sense</div>
+                  <div class="s04-card-header">
+                    <span class="s04-step-badge">02</span>
+                    <span class="s04-lat-tag">+2.1ms</span>
+                  </div>
+                  <div class="s04-icon-container">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path>
+                    </svg>
+                  </div>
+                  <h3 class="s04-card-title">Sensors &amp; Vision</h3>
+                  <div class="s04-tech-tag">PT100 RTD · CoaXPress 16K</div>
+                  <p class="s04-card-sub">185.5°C chamber RTD probes, load-cell tension gauges &amp; 80m/min fabric camera lines.</p>
+                </div>
+
+                <!-- Station 03 -->
+                <div class="s04-card" id="s04-card-3">
+                  <div class="s04-card-tier">Tier 2 · Transport</div>
+                  <div class="s04-card-header">
+                    <span class="s04-step-badge">03</span>
+                    <span class="s04-lat-tag">+6.4ms</span>
+                  </div>
+                  <div class="s04-icon-container">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                      <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                      <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                      <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                    </svg>
+                  </div>
+                  <h3 class="s04-card-title">Edge IoT Gateway</h3>
+                  <div class="s04-tech-tag">EMQX MQTT Broker · QoS 1</div>
+                  <p class="s04-card-sub">Moxa IIoT nodes buffer offline flash ring, forward encrypted JSON over TLS port 8883.</p>
+                </div>
+
+                <!-- Station 04 -->
+                <div class="s04-card" id="s04-card-4">
+                  <div class="s04-card-tier">Tier 3 · Core Compute</div>
+                  <div class="s04-card-header">
+                    <span class="s04-step-badge">04</span>
+                    <span class="s04-lat-tag">+7.8ms</span>
+                  </div>
+                  <div class="s04-icon-container">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                  </div>
+                  <h3 class="s04-card-title">Digital Twin Core</h3>
+                  <div class="s04-tech-tag">FastAPI ASGI · AsyncIO</div>
+                  <p class="s04-card-sub">Python async consumer mutates in-memory shadow models, evaluates anomaly thresholds.</p>
+                </div>
+
+                <!-- Station 05 -->
+                <div class="s04-card" id="s04-card-5">
+                  <div class="s04-card-tier">Tier 3 · Persistence</div>
+                  <div class="s04-card-header">
+                    <span class="s04-step-badge">05</span>
+                    <span class="s04-lat-tag">+4.9ms</span>
+                  </div>
+                  <div class="s04-icon-container">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                    </svg>
+                  </div>
+                  <h3 class="s04-card-title">Polyglot Storage</h3>
+                  <div class="s04-tech-tag">TimescaleDB · S3 Blobs</div>
+                  <p class="s04-card-sub">Hypertables ingest 10K rows/sec with chunking; raw defect image patches stream to MinIO.</p>
+                </div>
+
+                <!-- Station 06 -->
+                <div class="s04-card" id="s04-card-6">
+                  <div class="s04-card-tier">Tier 4 · Presentation</div>
+                  <div class="s04-card-header">
+                    <span class="s04-step-badge">06</span>
+                    <span class="s04-lat-tag">&lt;24.2ms</span>
+                  </div>
+                  <div class="s04-icon-container">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                      <line x1="8" y1="21" x2="16" y2="21"></line>
+                      <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                  </div>
+                  <h3 class="s04-card-title">Real-Time HUD</h3>
+                  <div class="s04-tech-tag">Next.js WebSockets · Chart.js</div>
+                  <p class="s04-card-sub">Millisecond floor dashboard pushes sub-second alerts, live OEE charts &amp; mobile alerts.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Telemetry Inspector -->
+            <div class="s04-inspector">
+              <div class="s04-insp-left">
+                <span class="s04-insp-badge">LIVE TRACE</span>
+                <span class="s04-insp-packet">
+                  <strong>Stenter-04 Zone-2</strong>
+                  <span class="s04-arrow">→</span>
+                  <code>temp: 185.5°C</code>
+                  <span class="s04-arrow">→</span>
+                  <code>topic: factory/stenter/zone2/temp</code>
+                  <span class="s04-arrow">→</span>
+                  <code>status: NOMINAL (delta: +0.2°C)</code>
+                  <span class="s04-arrow">→</span>
+                  <code>WS: 42 connected clients</code>
+                </span>
+              </div>
+              <button class="s04-pulse-btn" id="s04-trigger-pulse" title="Simulate real-time telemetry packet transmission across pipeline">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <span>Simulate Packet Pulse</span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -442,9 +645,9 @@
 
         <div class="slide-header">
           <div class="sh-left">
-            <span class="sh-label">FEATURE 01</span>
+            <span class="sh-label">INDIVIDUAL CONTRIBUTION</span>
             <span class="sh-sep">/</span>
-            <span class="sh-sub">Color Formulation — Smart Chemistry</span>
+            <span class="sh-sub">Feature 01: Spectral Chemistry &amp; Kubelka-Munk Engine</span>
           </div>
           <div class="sh-right">SLIDE 05 / 18</div>
         </div>
@@ -518,9 +721,9 @@
 
         <div class="slide-header">
           <div class="sh-left">
-            <span class="sh-label">FEATURE 02</span>
+            <span class="sh-label">INDIVIDUAL CONTRIBUTION</span>
             <span class="sh-sep">/</span>
-            <span class="sh-sub">Visual Quality Inspection — Machine Vision</span>
+            <span class="sh-sub">Feature 02: 16K Machine Vision Quality Inspection</span>
           </div>
           <div class="sh-right">SLIDE 06 / 18</div>
         </div>
@@ -632,9 +835,9 @@
 
         <div class="slide-header">
           <div class="sh-left">
-            <span class="sh-label">FEATURE 02 · SYSTEM DEPTH</span>
+            <span class="sh-label">KEY CHALLENGE &amp; SOLUTION</span>
             <span class="sh-sep">/</span>
-            <span class="sh-sub">UML Sequence Diagram · CoaXPress, Direct S3 &amp; MQTT Telemetry</span>
+            <span class="sh-sub">UML Sequence · 20MB Image Buffering, Direct S3 &amp; MQTT Telemetry</span>
           </div>
           <div class="sh-right">SLIDE 07 / 18</div>
         </div>
@@ -786,9 +989,9 @@
 
         <div class="slide-header">
           <div class="sh-left">
-            <span class="sh-label">FEATURE 03</span>
+            <span class="sh-label">PROBLEM SOLVING</span>
             <span class="sh-sep">/</span>
-            <span class="sh-sub">Production Intelligence — Live Floor Monitoring</span>
+            <span class="sh-sub">Feature 03: Anomaly Trapping &amp; Stenter Thermal Safety</span>
           </div>
           <div class="sh-right">SLIDE 08 / 18</div>
         </div>
@@ -885,9 +1088,9 @@
 
         <div class="slide-header">
           <div class="sh-left">
-            <span class="sh-label">FEATURE 04</span>
+            <span class="sh-label">DIGITAL TWIN ARCHITECTURE</span>
             <span class="sh-sep">/</span>
-            <span class="sh-sub">Textile OS — Industrial IoT Layer</span>
+            <span class="sh-sub">Feature 04: Textile OS &amp; Multi-Protocol Normalization</span>
           </div>
           <div class="sh-right">SLIDE 09 / 18</div>
         </div>
@@ -1004,9 +1207,9 @@
 
         <div class="slide-header">
           <div class="sh-left">
-            <span class="sh-label">FEATURE 04 · DEEP DIVE</span>
+            <span class="sh-label">IOT DATA ENGINEERING</span>
             <span class="sh-sep">/</span>
-            <span class="sh-sub">How one temperature reading reaches the screen</span>
+            <span class="sh-sub">Sensor Trace: PT100 RTD to Live Floor HUD in &lt;25ms</span>
           </div>
           <div class="sh-right">SLIDE 10 / 18</div>
         </div>
@@ -1134,9 +1337,9 @@
 
         <div class="slide-header">
           <div class="sh-left">
-            <span class="sh-label">COMMUNICATION</span>
+            <span class="sh-label">TECHNICAL DECISION</span>
             <span class="sh-sep">/</span>
-            <span class="sh-sub">How machines talk to AutoTaskX</span>
+            <span class="sh-sub">Protocol Design: EMQX MQTT Pub-Sub vs Direct S3 Blobs</span>
           </div>
           <div class="sh-right">SLIDE 11 / 18</div>
         </div>
@@ -1226,9 +1429,9 @@
 
         <div class="slide-header">
           <div class="sh-left">
-            <span class="sh-label">STORAGE</span>
+            <span class="sh-label">STORAGE ARCHITECTURE</span>
             <span class="sh-sep">/</span>
-            <span class="sh-sub">Three databases. One unified data layer.</span>
+            <span class="sh-sub">Polyglot Persistence: TimescaleDB Hypertables + Postgres + S3</span>
           </div>
           <div class="sh-right">SLIDE 12 / 18</div>
         </div>
@@ -1309,9 +1512,9 @@
 
         <div class="slide-header">
           <div class="sh-left">
-            <span class="sh-label">DASHBOARD</span>
+            <span class="sh-label">DATA DELIVERY</span>
             <span class="sh-sep">/</span>
-            <span class="sh-sub">From database to live screen</span>
+            <span class="sh-sub">Dual Transport: Zero-Polling WebSockets + Cached REST APIs</span>
           </div>
           <div class="sh-right">SLIDE 13 / 18</div>
         </div>
@@ -1408,9 +1611,9 @@
 
         <div class="slide-header">
           <div class="sh-left">
-            <span class="sh-label">FEATURE 05</span>
+            <span class="sh-label">ENTERPRISE INTEGRATION</span>
             <span class="sh-sep">/</span>
-            <span class="sh-sub">ERP Integration — Factory meets Finance</span>
+            <span class="sh-sub">Feature 05: Bi-directional ERP Sync (SAP, Odoo, Datatex)</span>
           </div>
           <div class="sh-right">SLIDE 14 / 18</div>
         </div>
@@ -1488,9 +1691,9 @@
 
         <div class="slide-header">
           <div class="sh-left">
-            <span class="sh-label">ARCHITECTURE</span>
+            <span class="sh-label">SYSTEM ARCHITECTURE</span>
             <span class="sh-sep">/</span>
-            <span class="sh-sub">The complete system — four layers, one platform</span>
+            <span class="sh-sub">Complete 4-Tier Enterprise Topology &amp; Scalability</span>
           </div>
           <div class="sh-right">SLIDE 15 / 18</div>
         </div>
@@ -1620,9 +1823,9 @@
 
         <div class="slide-header">
           <div class="sh-left">
-            <span class="sh-label">BUSINESS VALUE</span>
+            <span class="sh-label">OUTCOMES &amp; IMPACT</span>
             <span class="sh-sep">/</span>
-            <span class="sh-sub">What the factory owner actually sees</span>
+            <span class="sh-sub">Production ROI: 24/26 Live Fleet, +14% OEE, 99.2% RFT</span>
           </div>
           <div class="sh-right">SLIDE 16 / 18</div>
         </div>
@@ -1719,9 +1922,9 @@
 
         <div class="slide-header">
           <div class="sh-left">
-            <span class="sh-label">ROADMAP</span>
+            <span class="sh-label">STRATEGIC ROADMAP</span>
             <span class="sh-sep">/</span>
-            <span class="sh-sub">Where AutoTaskX is going next</span>
+            <span class="sh-sub">Future Scalability: Robotic Vision, FFT Vibration &amp; Closed-Loop Control</span>
           </div>
           <div class="sh-right">SLIDE 17 / 18</div>
         </div>
@@ -1833,7 +2036,7 @@
             <div class="s17-presenter">
               <span class="s17-p-badge">PRESENTER &amp; DEVELOPER</span>
               <h3 class="s17-p-name">Sheikh Shamiul Shakib</h3>
-              <p class="s17-p-title">Software Engineer · BUTEX Alumnus</p>
+              <p class="s17-p-title">Backend Software Engineer · BUBT Alumnus</p>
               <div class="s17-p-divider"></div>
               <div class="s17-p-links">
                 <div class="s17-p-link-row">
@@ -1903,6 +2106,7 @@
   <div id="notes-drawer" class="drawer-hidden">
     <div class="drawer-header">
       <h4>Presenter Guide · 30-Second Speaking Track</h4>
+      <a href="guide.html" target="_blank" style="margin-left: auto; margin-right: 12px; font-size: 12px; color: #38BDF8; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">📖 Full Bengali Speech Guide ↗</a>
       <button id="btn-close-notes" class="drawer-close">✕</button>
     </div>
     <div id="notes-content" class="drawer-body">
@@ -1927,6 +2131,536 @@
 
 </div><!-- /app-container -->
 
-<script src="app.js?v=2.2"></script>
+<script>
+/**
+ * AutoTaskX — Industrial Textile Intelligence Platform
+ * Simplified Keynote Slide Deck Presentation Engine (17 Slides)
+ */
+
+(function () {
+  'use strict';
+
+  // --- DOM Elements & Presentation State ---
+  const stageScaler = document.getElementById('stage-scaler');
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length || 18;
+  let currentSlide = 1;
+  let isFullscreen = false;
+
+  const progressBar = document.getElementById('progress-bar');
+  const slideIndicator = document.getElementById('slide-indicator');
+  const categoryIndicator = document.getElementById('slide-category-indicator');
+
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  const btnOverview = document.getElementById('btn-overview');
+  const btnNotes = document.getElementById('btn-notes');
+  const btnFullscreen = document.getElementById('btn-fullscreen');
+
+  const overviewModal = document.getElementById('overview-modal');
+  const btnCloseOverview = document.getElementById('btn-close-overview');
+  const overviewBackdrop = document.getElementById('overview-backdrop');
+  const overviewGrid = document.getElementById('overview-grid');
+
+  const notesDrawer = document.getElementById('notes-drawer');
+  const btnCloseNotes = document.getElementById('btn-close-notes');
+  const notesContent = document.getElementById('notes-content');
+
+  // --- Presenter Notes Data (Natural Conversational English) ---
+  const PRESENTER_NOTES = {
+    1: `<strong>What to say (30-45s):</strong><br>
+        "Good morning. Today I'm presenting AutoTaskX — a software platform designed to connect every part of a textile factory. Right now, textile mills have high-tech dyeing jets, stenters, and laboratories, but they operate as disconnected islands. AutoTaskX brings them all into one intelligent, easy-to-use digital ecosystem."<br><br>
+        <strong>What the visual means:</strong><br>
+        The left side shows our four core pillars (smart chemistry, machine vision, live telemetry, and ERP bridge). The right card shows an active mill HUD from Gazipur running 24 connected machines.<br><br>
+        <strong>Why it matters:</strong> Sets the stage immediately as an industrial software engineer who understands both software architecture and physical factory reality.`,
+
+    2: `<strong>What to say (30-45s):</strong><br>
+        "Let's look at the actual reality inside a modern textile factory. Despite millions of dollars in equipment, four big problems persist: operators still calculate dye recipes with pen and paper; machines operate completely disconnected; quality inspection photos get lost in personal phones; and managers only find out about fabric damage hours after thousands of meters are ruined."<br><br>
+        <strong>Real-world example:</strong><br>
+        If a stenter chamber overheats by just 10°C, 500 meters of cotton can turn yellow before anyone notices on the floor.<br><br>
+        <strong>Why it matters:</strong> Grounds the entire presentation in real operational pain points, not theoretical abstractions.`,
+
+    3: `<strong>What to say (30-45s):</strong><br>
+        "Our answer is AutoTaskX. Rather than replacing physical factory machines, AutoTaskX provides five modular tools that share one central database: Color Formulation for the dye lab; Visual Quality Inspection for flaw detection; Production Intelligence for real-time speed and temperature; Textile OS to connect physical sensors; and ERP Integration to sync with existing business software."<br><br>
+        <strong>What the visual means:</strong><br>
+        Five clean module cards showing what each department uses. Every card has a clear industrial photo showing real equipment.<br><br>
+        <strong>Why it matters:</strong> Shows that AutoTaskX is a comprehensive platform, not just a single one-off script.`,
+
+    4: `<strong>What to say (30-45s):</strong><br>
+        "Here is the complete journey of how AutoTaskX works from the shopfloor to the screen. First, physical machines run. Sensors and cameras capture physical reality. An industrial gateway collects those signals. AutoTaskX backend receives and organizes them. The database saves the history. And finally, the live dashboard displays real-time readings to managers. The entire journey happens in under 25 milliseconds."<br><br>
+        <strong>What the visual means:</strong><br>
+        A 6-step horizontal flow chart that is easy for the interviewer to visualize and remember.<br><br>
+        <strong>Why it matters:</strong> Demonstrates end-to-end full stack architecture from hardware to user interface.`,
+
+    5: `<strong>What to say (30-45s):</strong><br>
+        "Feature 01 is Color Formulation. In textile dyeing, calculating chemical recipes for 100 kg of cotton fabric takes significant trial-and-error. With AutoTaskX, the lab technician enters the fabric type, weight, and target shade. The system calculates exact dye grams per kilogram and total quantities for the dispensary."<br><br>
+        <strong>Real-world example:</strong><br>
+        The right card shows an exact recipe for a 100 kg deep navy knit batch: 1,850g of Reactive Blue and 420g of Reactive Red with 600 liters of water.<br><br>
+        <strong>Important note:</strong> Always clarify to the interviewer that software recipes are computational estimates that require standard lab beaker validation.`,
+
+    6: `<strong>What to say (30-45s):</strong><br>
+        "Feature 02 is Visual Quality Inspection. Fabric defects can be captured from two sources: continuous line-scan cameras like the Basler racer 2L mounted above an inspection frame, or smartphone cameras used by floor operators for spot checks. When an image is captured, the heavy photograph goes straight to AWS S3 Cloud Storage, while defect tags and locations are saved in our database."<br><br>
+        <strong>What the visual means:</strong><br>
+        Shows the contrast between automated 16K line scanning and flexible mobile spot-checking.<br><br>
+        <strong>Why it matters:</strong> Demonstrates clean cloud architecture by keeping heavy images out of transactional databases.`,
+
+    7: `<strong>What to say (30-45s):</strong><br>
+        "Now let's look at the true engineering depth behind Feature 02. This sequence diagram illustrates how we handle high-frequency image acquisition without bottlenecking the system. When the Basler line-scan camera sends raw lines via CoaXPress, our Edge PC buffers them into a full TIFF image. Notice the parallel execution phase: the Edge PC requests a pre-signed S3 URL from FastAPI, and uploads the 20MB TIFF image directly to AWS S3 while concurrently emitting camera telemetry over MQTT. FastAPI never handles heavy image bytes in memory — it only persists metadata in PostgreSQL and notifies the Next.js frontend via WebSockets."<br><br>
+        <strong>Technical highlights:</strong><br>
+        Direct S3 offloading, parallel MQTT event distribution, and secure presigned GET delivery to the browser.<br><br>
+        <strong>Why it matters:</strong> Proves production-grade distributed systems design to senior technical interviewers.`,
+
+    8: `<strong>What to say (30-45s):</strong><br>
+        "Feature 03 is Production Intelligence. How do managers know what is happening right now? Take Stenter Frame #02: it is heat-setting cotton fabric. A temperature probe measures chamber heat every 500 milliseconds. AutoTaskX displays the current 185.5°C reading live. If the temperature exceeds the safe 190°C limit, the system triggers an immediate alert to prevent fabric burning."<br><br>
+        <strong>What the visual means:</strong><br>
+        The right side shows a live executive HUD with 18 of 20 machines active and an 8-hour temperature trend.<br><br>
+        <strong>Why it matters:</strong> Moves factories from reactive firefighting to real-time proactive monitoring.`,
+
+    9: `<strong>What to say (30-45s):</strong><br>
+        "Feature 04 is Textile OS — the physical nervous system of the platform. Different factory machines use different physical wires, serial cables, or network ports. Textile OS uses industrial IoT gateways to read physical signals from temperature probes, pressure sensors, and power meters, converting them all into one unified software format."<br><br>
+        <strong>What the visual means:</strong><br>
+        The left side shows the physical devices we support. The right side shows the 5 simple steps to wire, configure, and connect any sensor.<br><br>
+        <strong>Why it matters:</strong> Proves hands-on engineering knowledge of how software touches physical industrial hardware.`,
+
+    10: `<strong>What to say (30-45s):</strong><br>
+        "Let's trace one single sensor reading step by step. On Stenter #02, a PT100 temperature probe reads 185.5°C. The gateway reads that electrical voltage and creates a small data packet. It sends it over the factory network. AutoTaskX validates it and writes it to TimescaleDB. The dashboard screen immediately shows 185.5°C with a green status. You can click 'Animate Reading Pulse' to see the packet travel."<br><br>
+        <strong>Interactive demo:</strong> Click the button in the top right to watch the packet pulse across all 6 nodes.<br><br>
+        <strong>Why it matters:</strong> Clear, confident explanation of the complete data pipeline in plain English.`,
+
+    11: `<strong>What to say (30-45s):</strong><br>
+        "How do 50 machines talk to AutoTaskX without slowing down? We use MQTT. Think of MQTT as a digital post office: machines drop off small, lightweight telegrams, and the messaging server delivers them instantly. Most importantly, we follow a strict architecture rule: MQTT is only for small sensor numbers (under 1 KB). Large 20 MB fabric photos are uploaded separately via HTTPS directly to cloud storage."<br><br>
+        <strong>Why it matters:</strong> Shows architectural maturity by decoupling high-frequency sensor telemetry from heavy file storage.`,
+
+    12: `<strong>What to say (30-45s):</strong><br>
+        "Where does all this factory information go? We use three specialized storage containers: PostgreSQL for organized business records like recipes and user accounts; TimescaleDB for continuous second-by-second measurements like temperature and pressure; and AWS S3 for large inspection photographs."<br><br>
+        <strong>What the visual means:</strong><br>
+        Three clean containers with everyday examples of what each one stores.<br><br>
+        <strong>Why it matters:</strong> Explains database choices simply without confusing technical jargon.`,
+
+    13: `<strong>What to say (30-45s):</strong><br>
+        "Here is how data reaches the screen. A sensor reading is forwarded via MQTT, saved in TimescaleDB, and WebSockets push the update to the browser instantly without reloading the page. Notice the difference between Current Data (what is happening right now this second) and Historical Data (what happened over the last 8-hour shift)."<br><br>
+        <strong>What the visual means:</strong><br>
+        Contrasts live real-time dials for operators with historical trend lines for plant managers.<br><br>
+        <strong>Why it matters:</strong> Demonstrates understanding of different user personas and real-time frontend engineering.`,
+
+    14: `<strong>What to say (30-45s):</strong><br>
+        "Textile factories already have enterprise software like SAP, Datatex NOW, or Infor. AutoTaskX does not replace them — it connects them to the shopfloor. The ERP sends work orders and customer recipes down to AutoTaskX, and AutoTaskX sends actual meters produced and chemical quantities consumed back up. No more manual paper data entry."<br><br>
+        <strong>Before vs After:</strong><br>
+        Before: Paper logs typed into ERP 2 days later with mistakes. After: Automated inventory sync as soon as fabric leaves the machine.`,
+
+    15: `<strong>What to say (30-45s):</strong><br>
+        "This slide brings everything together in one complete architecture map: Zone 1 is the physical factory with dye labs, cameras, and machines. Zone 2 is the gateway and network connection layer. Zone 3 is the AutoTaskX core with our backend and three specialized databases. Zone 4 is the live web interface and two-way ERP integration."<br><br>
+        <strong>What the visual means:</strong><br>
+        A 4-zone master blueprint summarizing the entire system.<br><br>
+        <strong>Why it matters:</strong> Proves you can architect and explain an end-to-end industrial software solution.`,
+
+    16: `<strong>What to say (30-45s):</strong><br>
+        "What does the factory owner or general manager actually get? Instead of walking across noisy production floors and deciphering paper logs, they see complete reality on one screen: 24 active machines, 99.2% right-first-time quality, zero active temperature alerts, and 42,500 meters completed today. That means faster decisions, lower costs, and zero paperwork delays."<br><br>
+        <strong>Why it matters:</strong> Ties all the technical engineering directly back to concrete business value and ROI.`,
+
+    17: `<strong>What to say (30-45s):</strong><br>
+        "Where can AutoTaskX go next? We have a phased, realistic roadmap: Stage 1 connects more legacy machines; Stage 2 expands automated AI defect classification; Stage 3 introduces deep historical recipe analytics; Stage 4 adds predictive maintenance warnings; and Stage 5 enables closed-loop autonomous machine adjustments."<br><br>
+        <strong>Why it matters:</strong> Shows strategic product vision and honest engineering integrity about current vs future capabilities.`,
+
+    18: `<strong>What to say (30-45s):</strong><br>
+        "To conclude: AutoTaskX transforms disconnected textile factory operations into one unified, intelligent manufacturing platform. My name is Sheikh Shamiul Shakib, Backend Software Engineer and Computer Science graduate from BUBT. Thank you for your time, and I am very happy to answer any technical questions."<br><br>
+        <strong>Why it matters:</strong> Professional, crisp, confident finish opening the floor for technical interview questions.`
+  };
+
+  // --- Dynamic 16:9 Stage Scaler ---
+  function updateStageScale() {
+    if (!stageScaler) return;
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+    const targetWidth = 1920;
+    const targetHeight = 1080;
+
+    const scaleX = windowWidth / targetWidth;
+    const scaleY = windowHeight / targetHeight;
+    const scale = Math.min(scaleX, scaleY);
+
+    stageScaler.style.transform = `scale(${scale})`;
+  }
+
+  // --- URL Hash Helper ---
+  function getSlideFromHash() {
+    const hash = window.location.hash;
+    const match = hash.match(/#?(?:slide-)?(\d+)/i);
+    if (match) {
+      const num = parseInt(match[1], 10);
+      if (num >= 1 && num <= totalSlides) return num;
+    }
+    return 1;
+  }
+
+  // --- Slide Navigation Engine ---
+  function showSlide(index) {
+    if (index < 1) index = 1;
+    if (index > totalSlides) index = totalSlides;
+
+    currentSlide = index;
+
+    slides.forEach((slide, idx) => {
+      const dataSlide = parseInt(slide.getAttribute('data-slide'), 10);
+      const slideNum = !isNaN(dataSlide) ? dataSlide : (idx + 1);
+      slide.classList.remove('active', 'prev');
+      if (slideNum === currentSlide) {
+        slide.classList.add('active');
+        const cat = slide.getAttribute('data-category') || 'AUTOTASKX';
+        if (categoryIndicator) categoryIndicator.textContent = cat;
+      } else if (slideNum < currentSlide) {
+        slide.classList.add('prev');
+      }
+    });
+
+    // Update Progress Bar
+    if (progressBar) {
+      const progress = totalSlides > 1 ? ((currentSlide - 1) / (totalSlides - 1)) * 100 : 100;
+      progressBar.style.width = `${progress}%`;
+    }
+
+    // Update Indicator
+    if (slideIndicator) {
+      const formattedCur = String(currentSlide).padStart(2, '0');
+      const formattedTot = String(totalSlides).padStart(2, '0');
+      slideIndicator.textContent = `${formattedCur} / ${formattedTot}`;
+    }
+
+    // Update URL hash without polluting browser history
+    try {
+      if (window.location.hash !== `#slide-${currentSlide}`) {
+        history.replaceState(null, '', `#slide-${currentSlide}`);
+      }
+    } catch (e) {}
+
+    // Update Presenter Notes
+    updateNotesContent();
+
+    // Update Overview Grid Active State
+    updateOverviewActiveThumb();
+  }
+
+  function nextSlide() {
+    if (currentSlide < totalSlides) {
+      showSlide(currentSlide + 1);
+    }
+  }
+
+  function prevSlide() {
+    if (currentSlide > 1) {
+      showSlide(currentSlide - 1);
+    }
+  }
+
+  // --- Presenter Notes Drawer ---
+  function toggleNotes() {
+    if (!notesDrawer) return;
+    notesDrawer.classList.toggle('drawer-hidden');
+  }
+
+  function updateNotesContent() {
+    if (!notesContent) return;
+    const noteHtml = PRESENTER_NOTES[currentSlide] || '<strong>Slide Notes:</strong><br>No specific notes for this slide.';
+    notesContent.innerHTML = noteHtml;
+  }
+
+  // --- Overview Modal Engine ---
+  function initOverviewGrid() {
+    if (!overviewGrid) return;
+    overviewGrid.innerHTML = '';
+
+    slides.forEach((slide, idx) => {
+      const dataSlide = parseInt(slide.getAttribute('data-slide'), 10);
+      const slideNum = !isNaN(dataSlide) ? dataSlide : (idx + 1);
+      const titleElem = slide.querySelector('h1, h2, h3, [class*="-title"], [class*="-heading"]') || slide.querySelector('.cover-subtitle');
+      const titleText = titleElem ? titleElem.textContent.replace(/\s+/g, ' ').trim() : `Slide ${slideNum}`;
+      const category = slide.getAttribute('data-category') || 'OVERVIEW';
+
+      const thumb = document.createElement('div');
+      thumb.className = 'thumb-card';
+      thumb.setAttribute('data-target-slide', slideNum);
+
+      thumb.innerHTML = `
+        <span class="thumb-num">SLIDE ${String(slideNum).padStart(2, '0')}</span>
+        <h4 class="thumb-title">${titleText}</h4>
+        <span class="thumb-cat">${category}</span>
+      `;
+
+      thumb.addEventListener('click', () => {
+        showSlide(slideNum);
+        closeOverview();
+      });
+
+      overviewGrid.appendChild(thumb);
+    });
+
+    updateOverviewActiveThumb();
+  }
+
+  function updateOverviewActiveThumb() {
+    const thumbs = document.querySelectorAll('.thumb-card');
+    thumbs.forEach(t => {
+      const target = parseInt(t.getAttribute('data-target-slide'), 10);
+      if (target === currentSlide) {
+        t.classList.add('active-thumb');
+      } else {
+        t.classList.remove('active-thumb');
+      }
+    });
+  }
+
+  function toggleOverview() {
+    if (!overviewModal) return;
+    if (overviewModal.classList.contains('modal-hidden')) {
+      overviewModal.classList.remove('modal-hidden');
+      updateOverviewActiveThumb();
+    } else {
+      closeOverview();
+    }
+  }
+
+  function closeOverview() {
+    if (overviewModal) overviewModal.classList.add('modal-hidden');
+  }
+
+  // --- Fullscreen Toggle ---
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(err => console.warn(err));
+      isFullscreen = true;
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+        isFullscreen = false;
+      }
+    }
+  }
+
+  // --- Slide 09 Interactive Pulse Animation ---
+  function initPulseAnimation() {
+    const pulseBtn = document.getElementById('btn-pulse-packet');
+    if (!pulseBtn) return;
+
+    pulseBtn.addEventListener('click', () => {
+      const nodes = [
+        document.getElementById('tn-1'),
+        document.getElementById('tn-2'),
+        document.getElementById('tn-3'),
+        document.getElementById('tn-4'),
+        document.getElementById('tn-5'),
+        document.getElementById('tn-6')
+      ];
+
+      const pulses = [
+        document.getElementById('pulse-1'),
+        document.getElementById('pulse-2'),
+        document.getElementById('pulse-3'),
+        document.getElementById('pulse-4'),
+        document.getElementById('pulse-5')
+      ];
+
+      // Reset
+      nodes.forEach(n => n && n.classList.remove('active-glow'));
+      pulses.forEach(p => p && p.classList.remove('pulsing'));
+
+      // Sequence chain animation
+      nodes.forEach((node, i) => {
+        setTimeout(() => {
+          if (node) node.classList.add('active-glow');
+          if (i > 0 && pulses[i - 1]) pulses[i - 1].classList.add('pulsing');
+
+          setTimeout(() => {
+            if (node) node.classList.remove('active-glow');
+            if (i > 0 && pulses[i - 1]) pulses[i - 1].classList.remove('pulsing');
+          }, 450);
+        }, i * 380);
+      });
+    });
+  }
+
+  // --- Slide 03 Interactive Ecosystem Pulse ---
+  function initSlide3Animation() {
+    const triggerBtn = document.getElementById('s03-trigger-pulse');
+    const cards = [
+      document.getElementById('s03-card-1'),
+      document.getElementById('s03-card-2'),
+      document.getElementById('s03-card-3'),
+      document.getElementById('s03-card-4'),
+      document.getElementById('s03-card-5')
+    ];
+
+    function runWave() {
+      cards.forEach(c => c && c.classList.remove('pulse-active'));
+      cards.forEach((card, idx) => {
+        setTimeout(() => {
+          if (card) {
+            card.classList.add('pulse-active');
+            setTimeout(() => {
+              card.classList.remove('pulse-active');
+            }, 650);
+          }
+        }, idx * 160);
+      });
+    }
+
+    if (triggerBtn) {
+      triggerBtn.addEventListener('click', runWave);
+    }
+
+    cards.forEach(card => {
+      if (card) {
+        card.addEventListener('click', () => {
+          card.classList.add('pulse-active');
+          setTimeout(() => card.classList.remove('pulse-active'), 800);
+        });
+      }
+    });
+  }
+
+  // --- Slide 04 Interactive Packet Pulse ---
+  function initSlide4Animation() {
+    const triggerBtn = document.getElementById('s04-trigger-pulse');
+    if (!triggerBtn) return;
+
+    triggerBtn.addEventListener('click', () => {
+      const cards = [
+        document.getElementById('s04-card-1'),
+        document.getElementById('s04-card-2'),
+        document.getElementById('s04-card-3'),
+        document.getElementById('s04-card-4'),
+        document.getElementById('s04-card-5'),
+        document.getElementById('s04-card-6')
+      ];
+
+      cards.forEach(c => c && c.classList.remove('pulse-glow'));
+
+      cards.forEach((card, idx) => {
+        setTimeout(() => {
+          if (card) {
+            card.classList.add('pulse-glow');
+            setTimeout(() => {
+              card.classList.remove('pulse-glow');
+            }, 600);
+          }
+        }, idx * 180);
+      });
+    });
+  }
+
+  // --- Keyboard Event Listeners ---
+  function handleKeyDown(e) {
+    // If overview modal open, Escape closes it
+    if (overviewModal && !overviewModal.classList.contains('modal-hidden')) {
+      if (e.key === 'Escape' || e.key === 'o' || e.key === 'O') {
+        closeOverview();
+        return;
+      }
+    }
+
+    switch (e.key) {
+      case 'ArrowRight':
+      case ' ': // Spacebar
+      case 'PageDown':
+        e.preventDefault();
+        nextSlide();
+        break;
+
+      case 'ArrowLeft':
+      case 'Backspace':
+      case 'PageUp':
+        e.preventDefault();
+        prevSlide();
+        break;
+
+      case 'Home':
+        e.preventDefault();
+        showSlide(1);
+        break;
+
+      case 'End':
+        e.preventDefault();
+        showSlide(totalSlides);
+        break;
+
+      case 'f':
+      case 'F':
+        e.preventDefault();
+        toggleFullscreen();
+        break;
+
+      case 'o':
+      case 'O':
+        e.preventDefault();
+        toggleOverview();
+        break;
+
+      case 'n':
+      case 'N':
+        e.preventDefault();
+        toggleNotes();
+        break;
+
+      case 'g':
+      case 'G':
+        e.preventDefault();
+        window.open('guide.html', '_blank');
+        break;
+
+      case 'Escape':
+        if (notesDrawer && !notesDrawer.classList.contains('drawer-hidden')) {
+          notesDrawer.classList.add('drawer-hidden');
+        }
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  // --- Initialization ---
+  function init() {
+    updateStageScale();
+    window.addEventListener('resize', updateStageScale);
+    window.addEventListener('orientationchange', updateStageScale);
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    if (btnNext) btnNext.addEventListener('click', nextSlide);
+    if (btnPrev) btnPrev.addEventListener('click', prevSlide);
+    if (btnOverview) btnOverview.addEventListener('click', toggleOverview);
+    if (btnNotes) btnNotes.addEventListener('click', toggleNotes);
+    if (btnFullscreen) btnFullscreen.addEventListener('click', toggleFullscreen);
+
+    if (btnCloseOverview) btnCloseOverview.addEventListener('click', closeOverview);
+    if (overviewBackdrop) overviewBackdrop.addEventListener('click', closeOverview);
+    if (btnCloseNotes) btnCloseNotes.addEventListener('click', () => notesDrawer.classList.add('drawer-hidden'));
+
+    initOverviewGrid();
+    initPulseAnimation();
+    initSlide3Animation();
+    initSlide4Animation();
+
+    // Show initial slide based on URL hash (default slide 1)
+    const initialSlide = getSlideFromHash();
+    showSlide(initialSlide);
+
+    // Support browser back/forward and hash links
+    window.addEventListener('hashchange', () => {
+      const target = getSlideFromHash();
+      if (target !== currentSlide) {
+        showSlide(target);
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
+
+</script>
 </body>
 </html>

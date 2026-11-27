@@ -129,7 +129,7 @@
         <strong>Why it matters:</strong> Shows strategic product vision and honest engineering integrity about current vs future capabilities.`,
 
     18: `<strong>What to say (30-45s):</strong><br>
-        "To conclude: AutoTaskX transforms disconnected textile factory operations into one unified, intelligent manufacturing platform. My name is Sheikh Shamiul Shakib, software engineer and textile engineering graduate from BUTEX. Thank you for your time, and I am very happy to answer any technical questions."<br><br>
+        "To conclude: AutoTaskX transforms disconnected textile factory operations into one unified, intelligent manufacturing platform. My name is Sheikh Shamiul Shakib, Backend Software Engineer and Computer Science graduate from BUBT. Thank you for your time, and I am very happy to answer any technical questions."<br><br>
         <strong>Why it matters:</strong> Professional, crisp, confident finish opening the floor for technical interview questions.`
   };
 
@@ -167,7 +167,8 @@
     currentSlide = index;
 
     slides.forEach((slide, idx) => {
-      const slideNum = idx + 1;
+      const dataSlide = parseInt(slide.getAttribute('data-slide'), 10);
+      const slideNum = !isNaN(dataSlide) ? dataSlide : (idx + 1);
       slide.classList.remove('active', 'prev');
       if (slideNum === currentSlide) {
         slide.classList.add('active');
@@ -235,7 +236,8 @@
     overviewGrid.innerHTML = '';
 
     slides.forEach((slide, idx) => {
-      const slideNum = idx + 1;
+      const dataSlide = parseInt(slide.getAttribute('data-slide'), 10);
+      const slideNum = !isNaN(dataSlide) ? dataSlide : (idx + 1);
       const titleElem = slide.querySelector('h1, h2, h3, [class*="-title"], [class*="-heading"]') || slide.querySelector('.cover-subtitle');
       const titleText = titleElem ? titleElem.textContent.replace(/\s+/g, ' ').trim() : `Slide ${slideNum}`;
       const category = slide.getAttribute('data-category') || 'OVERVIEW';
@@ -342,6 +344,75 @@
     });
   }
 
+  // --- Slide 03 Interactive Ecosystem Pulse ---
+  function initSlide3Animation() {
+    const triggerBtn = document.getElementById('s03-trigger-pulse');
+    const cards = [
+      document.getElementById('s03-card-1'),
+      document.getElementById('s03-card-2'),
+      document.getElementById('s03-card-3'),
+      document.getElementById('s03-card-4'),
+      document.getElementById('s03-card-5')
+    ];
+
+    function runWave() {
+      cards.forEach(c => c && c.classList.remove('pulse-active'));
+      cards.forEach((card, idx) => {
+        setTimeout(() => {
+          if (card) {
+            card.classList.add('pulse-active');
+            setTimeout(() => {
+              card.classList.remove('pulse-active');
+            }, 650);
+          }
+        }, idx * 160);
+      });
+    }
+
+    if (triggerBtn) {
+      triggerBtn.addEventListener('click', runWave);
+    }
+
+    cards.forEach(card => {
+      if (card) {
+        card.addEventListener('click', () => {
+          card.classList.add('pulse-active');
+          setTimeout(() => card.classList.remove('pulse-active'), 800);
+        });
+      }
+    });
+  }
+
+  // --- Slide 04 Interactive Packet Pulse ---
+  function initSlide4Animation() {
+    const triggerBtn = document.getElementById('s04-trigger-pulse');
+    if (!triggerBtn) return;
+
+    triggerBtn.addEventListener('click', () => {
+      const cards = [
+        document.getElementById('s04-card-1'),
+        document.getElementById('s04-card-2'),
+        document.getElementById('s04-card-3'),
+        document.getElementById('s04-card-4'),
+        document.getElementById('s04-card-5'),
+        document.getElementById('s04-card-6')
+      ];
+
+      cards.forEach(c => c && c.classList.remove('pulse-glow'));
+
+      cards.forEach((card, idx) => {
+        setTimeout(() => {
+          if (card) {
+            card.classList.add('pulse-glow');
+            setTimeout(() => {
+              card.classList.remove('pulse-glow');
+            }, 600);
+          }
+        }, idx * 180);
+      });
+    });
+  }
+
   // --- Keyboard Event Listeners ---
   function handleKeyDown(e) {
     // If overview modal open, Escape closes it
@@ -395,6 +466,12 @@
         toggleNotes();
         break;
 
+      case 'g':
+      case 'G':
+        e.preventDefault();
+        window.open('guide.html', '_blank');
+        break;
+
       case 'Escape':
         if (notesDrawer && !notesDrawer.classList.contains('drawer-hidden')) {
           notesDrawer.classList.add('drawer-hidden');
@@ -426,6 +503,8 @@
 
     initOverviewGrid();
     initPulseAnimation();
+    initSlide3Animation();
+    initSlide4Animation();
 
     // Show initial slide based on URL hash (default slide 1)
     const initialSlide = getSlideFromHash();

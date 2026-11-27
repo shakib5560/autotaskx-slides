@@ -1,0 +1,7 @@
+__pycache__/
+*.py
+*.pyc
+guide_data.json
+AutoTaskX_Presentation_Guide_Bangla.txt
+.DS_Store
+.vercel
