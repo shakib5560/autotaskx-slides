@@ -35,7 +35,7 @@ html_content = f"""<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoTaskX — Backend Software Engineer Presentation Guide</title>
+    <title>AutoTaskX — Digital Twin &amp; Data Engineer English Presentation Guide</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B132B'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-weight='800' font-size='26' fill='%2338BDF8'%3EAX%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,8 +63,8 @@ html_content = f"""<!DOCTYPE html>
             --accent-purple-bg: #F5F3FF;
             --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
             --card-hover: 0 8px 24px rgba(0, 0, 0, 0.06);
-            --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-bn: 'Hind Siliguri', 'Inter', sans-serif;
+            --font-ui: 'Inter', 'Hind Siliguri', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-bn: 'Inter', 'Hind Siliguri', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
             --base-font-size: 16px;
         }}
@@ -1032,7 +1032,7 @@ for s in slides:
                     <div class="speech-header">
                         <div class="speech-label">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
-                            কীভাবে ব্যাখ্যা করবেন (Spoken Monologue)
+                            English Spoken Script (With Bangla Pronunciation)
                         </div>
                     </div>
                     <div class="speech-box" id="speech-text-{s['num']}">
@@ -1062,8 +1062,8 @@ html_content += """
             <!-- Technical Q&A Section -->
             <section class="cheat-sheet-section" id="cheat-sheet">
                 <span class="section-header-badge">Interview Panel Master Cheat Sheet</span>
-                <h2 class="section-main-title">ইন্টারভিউ প্যানেলের জন্য ৬টি গুরুত্বপূর্ণ প্রশ্ন ও প্রোডাকশন-গ্রেড স্মার্ট উত্তর</h2>
-                <p class="section-subtext">Digital Twin &amp; Data Engineer (ডিজিটাল টুইন অ্যান্ড ডাটা ইঞ্জিনিয়ার) ইন্টারভিউয়ের জন্য সহজ ও শক্তিশালী উত্তর।</p>
+                <h2 class="section-main-title">6 Key Technical Questions &amp; Fluent English Answers</h2>
+                <p class="section-subtext">Easy-to-read international English answers for Digital Twin &amp; Data Engineer interviews (with Bangla pronunciation for tricky words).</p>
 """
 
 for cq in cheat_questions:
