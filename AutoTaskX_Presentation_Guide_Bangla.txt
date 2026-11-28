@@ -159,26 +159,29 @@ FastAPI just saves the image link in PostgreSQL (পোস্ট-গ্রে-�
 Our backend handles zero heavy files, so even at full factory speed, the server stays fast and never crashes."
 
 --------------------------------------------------------------------------------
-SLIDE 08: PRODUCTION INTELLIGENCE & AI ANOMALY ALERT (লাইভ মেশিন মনিটরিং ও দুর্ঘটনা রোধ)
-[পিলার: Real-time Digital Twin & Safety Automation]
+SLIDE 08: PRODUCTION INTELLIGENCE & OVERHEAT SOLUTION (লাইভ মনিটরিং ও দুর্ঘটনা রোধ)
+[পিলার: How We Solve It & What Actually Happened]
 ================================================================================
 স্লাইডের উদ্দেশ্য:
-লাইভ মনিটরিং ও অটোমেটেড অ্যালার্ট কীভাবে কাপড় পুড়ে যাওয়া থেকে বাঁচায় তা বাস্তব উদাহরণ দিয়ে বলা।
+প্রথমে আমরা কীভাবে প্রবলেমটা সলভ করি তা সহজ ধাপে দেখানো, আর তারপর ফ্যাক্টরিতে বাস্তবে কী ঘটেছিল তা খুব সহজ ইংরেজিতে বলা।
 
 [কীভাবে বলবেন — স্পোকেন স্ক্রিপ্ট]:
-"Feature three is Production Intelligence (ইন্টেলিজেন্স) — and this solves a scary problem the client had on the floor.
+"Feature three is Production Intelligence (ইন্টেলিজেন্স) — basically (বেসিক্যালি), seeing every machine live so we can stop problems early.
 
-▶ The Real Floor Problem:
-Imagine a Stenter (স্টেন্টার) machine heating cotton fabric. Its safe limit is 185 degrees Celsius (সেলসিয়াস). If the heat suddenly jumps to 192 degrees, the fabric can start burning or turning yellow in minutes. Before AutoTaskX, operators (অপারেটর) only noticed after hundreds of meters were ruined.
+▶ How We Solve the Problem:
+Let me show you step by step how we solve machine issues (ইস্যুস) on the floor:
+First, every machine sensor (সেন্সর) sends live heat and speed numbers every second through MQTT (এম-কিউ-টি-টি) to our Digital Twin (ডিজিটাল টুইন).
+Second, our backend (ব্যাকএন্ড) checks every number against a safe limit on its own.
+Third, if any machine gets too hot, the dashboard (ড্যাশবোর্ড) turns red right away and sends an SMS to the shift supervisor (সুপারভাইজার) within 3 seconds.
+And fourth, the supervisor opens the chart, sees when the heat started rising, and fixes the machine right there.
 
-▶ Our Solution:
-Because temperature (টেম্পারেচার) streams through MQTT (এম-কিউ-টি-টি) into our Digital Twin (ডিজিটাল টুইন) every second, the moment it crosses 185 and hits 192:
-First, our alert logic turns the machine red on the dashboard (ড্যাশবোর্ড).
-Second, an automatic SMS hits the shift supervisor's (সুপারভাইজার্স) phone within 3 seconds.
-Third, the supervisor opens the history chart, sees right when the heat started rising, and fixes it before damage happens.
+▶ What Actually Happened (Real Case):
+Now, let me tell you what actually (অ্যাকচুয়ালি) happened on the client's floor:
+On Stenter (স্টেন্টার) Line 03, they were running cotton fabric where the safe heat limit is 185 degrees Celsius (সেলসিয়াস). Suddenly, the heat jumped up to 192 degrees.
+Before our system, nobody noticed a jump like that until hundreds of meters of cloth got burnt or turned yellow.
 
 ▶ The Result:
-That quick warning saves whole fabric batches (ব্যাচেস) from burning and cuts down surprise machine stops."
+But this time, AutoTaskX (অটো-টাস্ক-এক্স) caught the 192-degree spike and sent the alert in under 3 seconds. The supervisor lowered the heat right away, and the whole fabric batch (ব্যাচ) was saved with zero waste."
 
 --------------------------------------------------------------------------------
 SLIDE 09: TEXTILE OS & DIGITAL TWIN CORE (ভিন্ন ভিন্ন মেশিনকে এক ডিজিটাল টুইনে আনা)

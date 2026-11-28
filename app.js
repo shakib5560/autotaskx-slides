@@ -77,10 +77,10 @@
         <strong>Why it matters:</strong> Proves production-grade distributed systems design to senior technical interviewers.`,
 
     8: `<strong>What to say (30-45s):</strong><br>
-        "Feature 03 is Production Intelligence. How do managers know what is happening right now? Take Stenter Frame #02: it is heat-setting cotton fabric. A temperature probe measures chamber heat every 500 milliseconds. AutoTaskX displays the current 185.5°C reading live. If the temperature exceeds the safe 190°C limit, the system triggers an immediate alert to prevent fabric burning."<br><br>
+        "Feature 03 is Production Intelligence. First, here is how we solve machine problems: every machine sends live heat and speed over MQTT to our Digital Twin, our backend checks safe limits, and if heat gets too high, it turns red and sends an SMS in 3 seconds. Now here is what actually happened: on Stenter Line 03, the safe limit was 185°C, and the heat suddenly jumped to 192°C. Before AutoTaskX, hundreds of meters would burn. With our 3-second alert, the supervisor lowered the heat right away and saved the whole batch."<br><br>
         <strong>What the visual means:</strong><br>
-        The right side shows a live executive HUD with 18 of 20 machines active and an 8-hour temperature trend.<br><br>
-        <strong>Why it matters:</strong> Moves factories from reactive firefighting to real-time proactive monitoring.`,
+        Left side shows our 4-step solution and the real Stenter Line 03 incident; right side shows live machine heat and status.<br><br>
+        <strong>Why it matters:</strong> Clear problem-solving story showing exact backend protection in real production.`,
 
     9: `<strong>What to say (30-45s):</strong><br>
         "Feature 04 is Textile OS — the physical nervous system of the platform. Different factory machines use different physical wires, serial cables, or network ports. Textile OS uses industrial IoT gateways to read physical signals from temperature probes, pressure sensors, and power meters, converting them all into one unified software format."<br><br>

@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=2.7">
+  <link rel="stylesheet" href="styles.css?v=2.8">
 </head>
 <body>
 
@@ -991,7 +991,7 @@
           <div class="sh-left">
             <span class="sh-label">PROBLEM SOLVING</span>
             <span class="sh-sep">/</span>
-            <span class="sh-sub">Feature 03: Anomaly Trapping &amp; Stenter Thermal Safety</span>
+            <span class="sh-sub">Feature 03: Live Machine Monitoring &amp; Overheat Safety</span>
           </div>
           <div class="sh-right">SLIDE 08 / 18</div>
         </div>
@@ -999,39 +999,53 @@
         <div class="slide-content">
           <div class="s07-layout">
             <div class="s07-left">
-              <p class="s07-eyebrow">Feature 03 · Factory Intelligence</p>
-              <h2 class="s07-title">See Every Machine.<br>Know Every Problem.</h2>
-              <p class="s07-desc">AutoTaskX reads live data from every PLC, speed encoder, and energy meter on the factory floor. It detects bottlenecks before they stop production.</p>
+              <p class="s07-eyebrow">Feature 03 · Production Intelligence</p>
+              <h2 class="s07-title">See Every Machine.<br>Stop Problems Early.</h2>
+              <p class="s07-desc">AutoTaskX watches live heat, speed, and power from every machine. It catches problems fast, before any fabric gets ruined.</p>
 
-              <div class="s07-scenario-label">Real Scenario — Stenter Machine Overheating</div>
-              <div class="s07-steps">
-                <div class="s07-step">
+              <div class="s07-scenario-label">1. How We Solve the Problem (Step by Step)</div>
+              <div class="s07-solve-grid">
+                <div class="s07-solve-card">
                   <span class="s07-step-num">1</span>
                   <div class="s07-step-text">
-                    <div class="s07-step-title">Temperature sensor reads 192°C</div>
-                    <div class="s07-step-desc">Above the 185°C safe operating limit for this fabric type.</div>
+                    <div class="s07-step-title">Sensors Send Live Data</div>
+                    <div class="s07-step-desc">Every machine sends heat and speed every second over MQTT.</div>
                   </div>
                 </div>
-                <div class="s07-step">
+                <div class="s07-solve-card">
                   <span class="s07-step-num">2</span>
                   <div class="s07-step-text">
-                    <div class="s07-step-title">AutoTaskX raises an instant alert</div>
-                    <div class="s07-step-desc">Dashboard highlights the machine in red. SMS notification sent to shift supervisor within 3 seconds.</div>
+                    <div class="s07-step-title">Backend Checks Safe Limits</div>
+                    <div class="s07-step-desc">Our system checks each reading against the safe fabric limit.</div>
                   </div>
                 </div>
-                <div class="s07-step">
+                <div class="s07-solve-card">
                   <span class="s07-step-num">3</span>
                   <div class="s07-step-text">
-                    <div class="s07-step-title">Supervisor investigates and adjusts</div>
-                    <div class="s07-step-desc">Checks the AutoTaskX temperature history chart to identify when the drift began.</div>
+                    <div class="s07-step-title">Red Alert &amp; SMS in 3 Seconds</div>
+                    <div class="s07-step-desc">If heat goes too high, the screen turns red and sends an SMS.</div>
                   </div>
                 </div>
-                <div class="s07-step">
+                <div class="s07-solve-card">
                   <span class="s07-step-num">4</span>
                   <div class="s07-step-text">
-                    <div class="s07-step-title">Production continues without fabric waste</div>
-                    <div class="s07-step-desc">Early warning prevented the entire batch from being overheated and rejected.</div>
+                    <div class="s07-step-title">Team Fixes It Right Away</div>
+                    <div class="s07-step-desc">The supervisor checks the chart, lowers the heat, and saves the batch.</div>
                   </div>
+                </div>
+              </div>
+
+              <div class="s07-scenario-label">2. What Actually Happened (Real Client Case — Stenter Line 03)</div>
+              <div class="s07-incident-box">
+                <div>
+                  <span class="s07-inc-tag problem">Actual Problem</span>
+                  <div class="s07-inc-title">Heat Jumped to 192°C (Limit: 185°C)</div>
+                  <div class="s07-inc-desc">Cotton fabric was running on Stenter Line 03 when heat spiked. Without live alerts, hundreds of meters burn or turn yellow before anyone sees it.</div>
+                </div>
+                <div>
+                  <span class="s07-inc-tag saved">Saved by AutoTaskX</span>
+                  <div class="s07-inc-title">Caught in 3s · Zero Fabric Waste</div>
+                  <div class="s07-inc-desc">Our alert hit the supervisor's phone in under 3 seconds. They saw when the heat started rising, fixed the valve early, and saved the whole batch.</div>
                 </div>
               </div>
             </div>
@@ -2215,10 +2229,10 @@
         <strong>Why it matters:</strong> Proves production-grade distributed systems design to senior technical interviewers.`,
 
     8: `<strong>What to say (30-45s):</strong><br>
-        "Feature 03 is Production Intelligence. How do managers know what is happening right now? Take Stenter Frame #02: it is heat-setting cotton fabric. A temperature probe measures chamber heat every 500 milliseconds. AutoTaskX displays the current 185.5°C reading live. If the temperature exceeds the safe 190°C limit, the system triggers an immediate alert to prevent fabric burning."<br><br>
+        "Feature 03 is Production Intelligence. First, here is how we solve machine problems: every machine sends live heat and speed over MQTT to our Digital Twin, our backend checks safe limits, and if heat gets too high, it turns red and sends an SMS in 3 seconds. Now here is what actually happened: on Stenter Line 03, the safe limit was 185°C, and the heat suddenly jumped to 192°C. Before AutoTaskX, hundreds of meters would burn. With our 3-second alert, the supervisor lowered the heat right away and saved the whole batch."<br><br>
         <strong>What the visual means:</strong><br>
-        The right side shows a live executive HUD with 18 of 20 machines active and an 8-hour temperature trend.<br><br>
-        <strong>Why it matters:</strong> Moves factories from reactive firefighting to real-time proactive monitoring.`,
+        Left side shows our 4-step solution and the real Stenter Line 03 incident; right side shows live machine heat and status.<br><br>
+        <strong>Why it matters:</strong> Clear problem-solving story showing exact backend protection in real production.`,
 
     9: `<strong>What to say (30-45s):</strong><br>
         "Feature 04 is Textile OS — the physical nervous system of the platform. Different factory machines use different physical wires, serial cables, or network ports. Textile OS uses industrial IoT gateways to read physical signals from temperature probes, pressure sensors, and power meters, converting them all into one unified software format."<br><br>
