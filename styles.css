@@ -2145,6 +2145,23 @@ html, body {
 }
 
 @media (max-width: 460px) {
+  #nav-bar {
+    padding: 3px 6px;
+    gap: 2px;
+  }
+  #nav-bar .nav-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+  #nav-bar .nav-btn.text-btn {
+    padding: 0 7px;
+    height: 28px;
+    font-size: 10.5px;
+  }
+  #slide-indicator {
+    font-size: 11px;
+  }
   .modal-grid {
     grid-template-columns: 1fr;
   }

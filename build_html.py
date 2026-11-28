@@ -146,7 +146,7 @@ html_content = f"""<!DOCTYPE html>
         }}
 
         html {{
-            font-size: var(--base-font-size);
+            font-size: 16px;
             scroll-behavior: smooth;
         }}
 
@@ -173,12 +173,12 @@ html_content = f"""<!DOCTYPE html>
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
-            padding: 0.7rem 1.25rem;
+            padding: 0.65rem 1.25rem;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            gap: 0.65rem 1rem;
+            gap: 0.6rem 1rem;
         }}
 
         .header-top-row {{
@@ -186,7 +186,8 @@ html_content = f"""<!DOCTYPE html>
             align-items: center;
             justify-content: space-between;
             gap: 0.75rem;
-            width: 100%;
+            flex: 1 1 auto;
+            min-width: 0;
         }}
 
         .brand-area {{
@@ -537,6 +538,23 @@ html_content = f"""<!DOCTYPE html>
             color: var(--accent-blue);
         }}
 
+        .mobile-drawer-deck {{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 0.9rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-family: var(--font-ui);
+            font-size: 0.88rem;
+            font-weight: 700;
+            background: #0B132B;
+            color: #FFFFFF;
+            margin-bottom: 0.4rem;
+            min-height: 44px;
+        }}
+
         .mobile-drawer-titles {{
             display: flex;
             flex-direction: column;
@@ -850,7 +868,7 @@ html_content = f"""<!DOCTYPE html>
             border: 1px solid var(--border);
             border-radius: 10px;
             padding: 1.4rem 1.55rem;
-            font-size: 1.08rem;
+            font-size: calc(var(--base-font-size) * 1.06);
             line-height: 1.92;
             color: var(--text-main);
             position: relative;
@@ -1046,7 +1064,7 @@ html_content = f"""<!DOCTYPE html>
         }}
 
         .qa-ans {{
-            font-size: 1.04rem;
+            font-size: calc(var(--base-font-size) * 1.03);
             line-height: 1.88;
             color: var(--text-main);
             background: var(--bg-body);
@@ -1119,12 +1137,29 @@ html_content = f"""<!DOCTYPE html>
         }}
 
         /* Responsive Breakpoints */
+        @media (max-width: 1200px) {{
+            .brand-text h1 span,
+            .badge-role,
+            .badge-live {{
+                display: none;
+            }}
+            .search-box input {{
+                width: 170px;
+            }}
+            .search-box input:focus {{
+                width: 200px;
+            }}
+        }}
+
         @media (max-width: 1024px) {{
             .sidebar {{
                 display: none;
             }}
             .mobile-only {{
                 display: inline-flex;
+            }}
+            .btn-ctrl .btn-label-desktop {{
+                display: none;
             }}
             .content-area {{
                 padding: 1.25rem 1.25rem 6rem 1.25rem;
@@ -1197,24 +1232,29 @@ html_content = f"""<!DOCTYPE html>
 
         @media (max-width: 768px) {{
             .site-header {{
-                padding: 0.55rem 0.75rem;
-                gap: 0.5rem;
+                padding: 8px 10px;
+                gap: 7px;
             }}
-            .brand-text h1 span,
-            .badge-role,
-            .badge-live {{
-                display: none;
+            .brand-area {{
+                display: none !important;
+            }}
+            .header-top-row {{
+                width: 100%;
             }}
             .header-controls {{
-                gap: 0.35rem;
+                width: 100%;
+                justify-content: space-between;
+                flex-wrap: nowrap;
+                gap: 4px;
+            }}
+            .btn-deck {{
+                display: none;
             }}
             .btn-ctrl {{
-                padding: 0.38rem 0.55rem;
-                font-size: 0.76rem;
+                padding: 5px 7px;
+                font-size: 12px;
                 min-height: 36px;
-            }}
-            .btn-ctrl .btn-label-desktop {{
-                display: none;
+                border-radius: 7px;
             }}
             .search-box {{
                 order: 3;
@@ -1223,7 +1263,7 @@ html_content = f"""<!DOCTYPE html>
             .search-box input,
             .search-box input:focus {{
                 width: 100%;
-                font-size: 0.92rem;
+                font-size: 14px;
             }}
             .content-area {{
                 padding: 0.85rem 0.7rem 5.75rem 0.7rem;
@@ -1268,7 +1308,7 @@ html_content = f"""<!DOCTYPE html>
                 font-size: 0.82rem;
             }}
             .speech-box {{
-                font-size: 1.06rem;
+                font-size: calc(var(--base-font-size) * 1.03);
                 line-height: 1.92;
                 padding: 1rem 0.95rem;
             }}
@@ -1290,7 +1330,7 @@ html_content = f"""<!DOCTYPE html>
             }}
             .qa-ans {{
                 padding: 0.95rem;
-                font-size: 1.03rem;
+                font-size: var(--base-font-size);
                 line-height: 1.88;
             }}
         }}
@@ -1330,7 +1370,7 @@ html_content = f"""<!DOCTYPE html>
             </div>
 
             <div class="header-controls">
-                <button class="btn-ctrl mobile-only" id="openDrawerBtn" title="Jump to Slide">📑 <span class="btn-label-desktop">Slides</span></button>
+                <button class="btn-ctrl mobile-only" id="openDrawerBtn" title="Jump to Slide">☰ Menu</button>
                 <button class="btn-ctrl" id="focusToggle" title="Read one slide at a time">🎯 Focus</button>
                 <button class="btn-ctrl active-state" id="pronToggle" title="Show/Hide Bengali Pronunciation">উচ্চারণ</button>
                 <button class="btn-ctrl" id="fontDec" title="Decrease Font Size">A-</button>
@@ -1519,6 +1559,7 @@ html_content += """
             <button class="btn-ctrl" id="closeDrawerBtn" type="button">✕ Close</button>
         </div>
         <div class="mobile-drawer-list" id="mobileDrawerList">
+            <a href="index.html" target="_blank" class="mobile-drawer-deck">🖥️ Open 18-Slide Presentation Deck ↗</a>
 """
 
 for idx, s in enumerate(slides):
