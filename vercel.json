@@ -7,6 +7,14 @@
     {
       "source": "/guide",
       "destination": "/guide.html"
+    },
+    {
+      "source": "/guide/bd",
+      "destination": "/guide-bd.html"
+    },
+    {
+      "source": "/guide/bd/",
+      "destination": "/guide-bd.html"
     }
   ]
 }

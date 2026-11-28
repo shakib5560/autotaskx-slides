@@ -2,6 +2,7 @@ __pycache__/
 *.py
 *.pyc
 guide_data.json
+guide_data_bd.json
 AutoTaskX_Presentation_Guide_Bangla.txt
 .DS_Store
 .vercel

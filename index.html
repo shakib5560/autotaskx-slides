@@ -2124,7 +2124,10 @@
   <div id="notes-drawer" class="drawer-hidden">
     <div class="drawer-header">
       <h4>Presenter Guide · 30-Second Speaking Track</h4>
-      <a href="guide.html" target="_blank" style="margin-left: auto; margin-right: 12px; font-size: 12px; color: #38BDF8; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">📖 Full Speaker Guide ↗</a>
+      <div style="margin-left: auto; margin-right: 12px; display: inline-flex; align-items: center; gap: 10px;">
+        <a href="/guide" data-local-href="guide.html" target="_blank" style="font-size: 12px; color: #38BDF8; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">📖 EN Guide ↗</a>
+        <a href="/guide/bd" data-local-href="guide-bd.html" target="_blank" style="font-size: 12px; color: #34D399; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">🇧🇩 বাংলা গাইড ↗</a>
+      </div>
       <button id="btn-close-notes" class="drawer-close">✕</button>
     </div>
     <div id="notes-content" class="drawer-body">
@@ -2692,6 +2695,20 @@
           else prevSlide();
         }
       }, { passive: true });
+    }
+
+    // Fallback for local file:// or static HTTP server without Vercel clean rewrites
+    const rewriteLocalLinks = () => {
+      document.querySelectorAll('a[data-local-href]').forEach(a => {
+        a.setAttribute('href', a.getAttribute('data-local-href'));
+      });
+    };
+    if (window.location.protocol === 'file:') {
+      rewriteLocalLinks();
+    } else if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      fetch('/guide/bd', { method: 'HEAD' }).then(res => {
+        if (!res.ok) rewriteLocalLinks();
+      }).catch(() => {});
     }
   }
 

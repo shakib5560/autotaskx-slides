@@ -541,6 +541,20 @@
         }
       }, { passive: true });
     }
+
+    // Fallback for local file:// or static HTTP server without Vercel clean rewrites
+    const rewriteLocalLinks = () => {
+      document.querySelectorAll('a[data-local-href]').forEach(a => {
+        a.setAttribute('href', a.getAttribute('data-local-href'));
+      });
+    };
+    if (window.location.protocol === 'file:') {
+      rewriteLocalLinks();
+    } else if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      fetch('/guide/bd', { method: 'HEAD' }).then(res => {
+        if (!res.ok) rewriteLocalLinks();
+      }).catch(() => {});
+    }
   }
 
   if (document.readyState === 'loading') {

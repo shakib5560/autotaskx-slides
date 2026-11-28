@@ -1,0 +1,3461 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>AutoTaskX — ডিজিটাল টুইন ও ডাটা ইঞ্জিনিয়ার বাংলা প্রেজেন্টেশন গাইড</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B132B'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-weight='800' font-size='26' fill='%2338BDF8'%3EAX%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #F6F7F5;
+            --bg-card: #FFFFFF;
+            --bg-sidebar: #FFFFFF;
+            --bg-header: rgba(255, 255, 255, 0.96);
+            --border: #E2E5DF;
+            --border-light: #EDF0EB;
+            --text-main: #141816;
+            --text-secondary: #3F4742;
+            --text-muted: #6E7872;
+            --pron-text: #64748B;
+            --navy-primary: #0B132B;
+            --navy-surface: #1C2541;
+            --accent-blue: #2563EB;
+            --accent-blue-bg: #EFF6FF;
+            --accent-green: #059669;
+            --accent-green-bg: #ECFDF5;
+            --accent-amber: #D97706;
+            --accent-amber-bg: #FFFBEB;
+            --accent-red: #DC2626;
+            --accent-red-bg: #FEF2F2;
+            --accent-purple: #7C3AED;
+            --accent-purple-bg: #F5F3FF;
+            --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --card-hover: 0 8px 24px rgba(0, 0, 0, 0.06);
+            --font-ui: 'Inter', 'Hind Siliguri', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-bn: 'Inter', 'Hind Siliguri', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --base-font-size: 16px;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #080C14;
+            --bg-card: #0F1626;
+            --bg-sidebar: #0B1220;
+            --bg-header: rgba(11, 18, 32, 0.96);
+            --border: #1F2A3F;
+            --border-light: #162032;
+            --text-main: #F1F5F9;
+            --text-secondary: #CBD5E1;
+            --text-muted: #94A3B8;
+            --pron-text: #94A3B8;
+            --navy-primary: #38BDF8;
+            --navy-surface: #1E293B;
+            --accent-blue: #60A5FA;
+            --accent-blue-bg: #172554;
+            --accent-green: #34D399;
+            --accent-green-bg: #064E3B;
+            --accent-amber: #FBBF24;
+            --accent-amber-bg: #451A03;
+            --accent-red: #F87171;
+            --accent-red-bg: #450A0A;
+            --accent-purple: #A78BFA;
+            --accent-purple-bg: #2E1065;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+            --card-hover: 0 8px 28px rgba(0, 0, 0, 0.45);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: var(--font-ui);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        body.drawer-open {
+            overflow: hidden;
+        }
+
+        /* Header Bar */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--bg-header);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.65rem 1.25rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.6rem 1rem;
+        }
+
+        .header-top-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+
+        .brand-area {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            min-width: 0;
+        }
+
+        .brand-logo {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+            background: #0B132B;
+            color: #38BDF8;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-ui);
+            font-weight: 800;
+            font-size: 0.92rem;
+            letter-spacing: -0.5px;
+            box-shadow: 0 2px 6px rgba(11, 19, 43, 0.3);
+        }
+
+        .brand-text h1 {
+            font-family: var(--font-ui);
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            white-space: nowrap;
+        }
+
+        .badge-role {
+            background: var(--accent-purple-bg);
+            color: var(--accent-purple);
+            font-size: 0.72rem;
+            font-family: var(--font-ui);
+            font-weight: 700;
+            padding: 0.2rem 0.55rem;
+            border-radius: 6px;
+            border: 1px solid rgba(124, 58, 237, 0.25);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .badge-live {
+            background: var(--accent-green-bg);
+            color: var(--accent-green);
+            font-size: 0.7rem;
+            font-family: var(--font-ui);
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            border: 1px solid rgba(5, 150, 105, 0.25);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .badge-live::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.85); }
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            font-family: var(--font-ui);
+            font-size: 0.88rem;
+            padding: 0.48rem 2rem 0.48rem 2.1rem;
+            border-radius: 8px;
+            width: 220px;
+            min-height: 36px;
+            transition: all 0.2s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            width: 260px;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 0.7rem;
+            width: 15px;
+            height: 15px;
+            fill: none;
+            stroke: var(--text-muted);
+            stroke-width: 2;
+            pointer-events: none;
+        }
+
+        .search-clear {
+            position: absolute;
+            right: 0.45rem;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 0.2rem 0.35rem;
+            display: none;
+        }
+
+        .search-clear.visible {
+            display: inline-flex;
+        }
+
+        .btn-ctrl {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-family: var(--font-ui);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.4rem 0.65rem;
+            min-height: 36px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.32rem;
+            transition: all 0.15s ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn-ctrl:hover {
+            background: var(--border-light);
+            color: var(--text-main);
+            border-color: var(--text-muted);
+        }
+
+        .btn-ctrl.active-state {
+            background: var(--accent-blue-bg);
+            color: var(--accent-blue);
+            border-color: var(--accent-blue);
+        }
+
+        .btn-lang {
+            background: var(--accent-green-bg);
+            color: var(--accent-green);
+            border-color: rgba(5, 150, 105, 0.35);
+            font-weight: 700;
+        }
+
+        .btn-lang:hover {
+            background: var(--accent-green);
+            color: #FFFFFF;
+            border-color: var(--accent-green);
+        }
+
+        .btn-deck {
+            background: #0B132B;
+            color: #FFFFFF;
+            border-color: #0B132B;
+        }
+
+        .btn-deck:hover {
+            background: #1C2541;
+            color: #FFFFFF;
+        }
+
+        .mobile-only {
+            display: none;
+        }
+
+        /* App Layout */
+        .app-container {
+            display: flex;
+            max-width: 1540px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 310px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 58px;
+            height: calc(100vh - 58px);
+            overflow-y: auto;
+            padding: 1.25rem 1rem 3rem 1.25rem;
+            border-right: 1px solid var(--border);
+            background: var(--bg-sidebar);
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .sidebar-heading {
+            font-family: var(--font-ui);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin: 0.85rem 0.5rem 0.4rem 0.5rem;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 0.55rem 0.75rem;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-family: var(--font-ui);
+            font-size: 0.82rem;
+            font-weight: 500;
+            transition: all 0.15s ease;
+            line-height: 1.35;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: var(--border-light);
+            color: var(--text-main);
+        }
+
+        .nav-item.active {
+            background: var(--accent-blue-bg);
+            color: var(--accent-blue);
+            font-weight: 600;
+            border-left-color: var(--accent-blue);
+        }
+
+        .nav-num {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 700;
+            background: var(--border-light);
+            padding: 0.15rem 0.35rem;
+            border-radius: 4px;
+            color: var(--text-muted);
+            min-width: 26px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .nav-item.active .nav-num {
+            background: var(--accent-blue);
+            color: #FFFFFF;
+        }
+
+        /* Mobile Slide Jump Drawer */
+        .drawer-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(8, 12, 20, 0.58);
+            backdrop-filter: blur(4px);
+            z-index: 250;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .drawer-backdrop.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mobile-drawer {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            max-height: 82vh;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            border-radius: 18px 18px 0 0;
+            box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.25);
+            z-index: 260;
+            transform: translateY(105%);
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+
+        .mobile-drawer.open {
+            transform: translateY(0);
+        }
+
+        .mobile-drawer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.15rem 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mobile-drawer-header h3 {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .mobile-drawer-list {
+            overflow-y: auto;
+            padding: 0.65rem 0.85rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .mobile-drawer-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.72rem 0.85rem;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-main);
+            background: var(--bg-body);
+            border: 1px solid var(--border-light);
+            min-height: 46px;
+        }
+
+        .mobile-drawer-item.active {
+            background: var(--accent-blue-bg);
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .mobile-drawer-deck {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 0.9rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-family: var(--font-ui);
+            font-size: 0.88rem;
+            font-weight: 700;
+            background: #0B132B;
+            color: #FFFFFF;
+            margin-bottom: 0.35rem;
+            min-height: 44px;
+        }
+
+        .mobile-drawer-lang {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.7rem 0.9rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-family: var(--font-ui);
+            font-size: 0.86rem;
+            font-weight: 700;
+            background: var(--accent-green-bg);
+            color: var(--accent-green);
+            border: 1px solid rgba(5, 150, 105, 0.3);
+            margin-bottom: 0.45rem;
+            min-height: 42px;
+        }
+
+        .mobile-drawer-titles {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .mobile-drawer-en {
+            font-size: 0.88rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .mobile-drawer-bn {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+
+        /* Main Content Container */
+        .content-area {
+            flex: 1;
+            min-width: 0;
+            padding: 2rem 2.25rem 6rem 2.25rem;
+            max-width: 960px;
+        }
+
+        /* Project Metadata Hero Card */
+        .project-hero {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.6rem 1.85rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #7C3AED, #2563EB, #059669);
+        }
+
+        .hero-top-strip {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .interview-pillars-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            flex-wrap: wrap;
+        }
+
+        .pillar-pill {
+            font-family: var(--font-ui);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.22rem 0.55rem;
+            border-radius: 6px;
+            background: var(--border-light);
+            color: var(--text-secondary);
+        }
+
+        .lang-switch-bar {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: var(--bg-body);
+            border: 1px solid var(--border);
+            padding: 0.22rem;
+            border-radius: 9px;
+        }
+
+        .lang-pill {
+            font-family: var(--font-ui);
+            font-size: 0.74rem;
+            font-weight: 700;
+            padding: 0.24rem 0.62rem;
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .lang-pill:hover {
+            color: var(--text-main);
+            background: var(--border-light);
+        }
+
+        .lang-pill.active {
+            background: var(--accent-blue);
+            color: #FFFFFF;
+        }
+
+        .hero-title-group {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-title {
+            font-family: var(--font-ui);
+            font-size: 1.48rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+        }
+
+        .hero-subtitle {
+            font-size: 0.98rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.15rem;
+            line-height: 1.65;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+            gap: 0.9rem;
+            padding-top: 1.1rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .meta-label {
+            font-family: var(--font-ui);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+        }
+
+        .meta-value {
+            font-family: var(--font-ui);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* Slide Cards */
+        .slide-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: box-shadow 0.2s ease, border-color 0.2s ease;
+            position: relative;
+            scroll-margin-top: 84px;
+        }
+
+        .slide-card:hover {
+            box-shadow: var(--card-hover);
+            border-color: #CBD5E1;
+        }
+
+        .slide-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .slide-badge-title {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            min-width: 0;
+        }
+
+        .slide-top-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .slide-num-pill {
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            background: #0B132B;
+            color: #FFFFFF;
+            padding: 0.24rem 0.6rem;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        [data-theme="dark"] .slide-num-pill {
+            background: #1E293B;
+            color: #38BDF8;
+            border: 1px solid #334155;
+        }
+
+        .slide-pillar-tag {
+            font-family: var(--font-ui);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.2rem 0.55rem;
+            border-radius: 6px;
+            background: var(--accent-purple-bg);
+            color: var(--accent-purple);
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .slide-title-en {
+            font-family: var(--font-ui);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.3px;
+            line-height: 1.35;
+        }
+
+        .slide-title-bn {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .slide-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .btn-copy {
+            background: var(--bg-body);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-family: var(--font-ui);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.45rem 0.7rem;
+            min-height: 36px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: all 0.15s ease;
+        }
+
+        .btn-copy:hover {
+            background: var(--border);
+            color: var(--text-main);
+        }
+
+        .btn-deck-link {
+            background: var(--accent-blue-bg);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            color: var(--accent-blue);
+            font-family: var(--font-ui);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.45rem 0.7rem;
+            min-height: 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: all 0.15s ease;
+        }
+
+        .btn-deck-link:hover {
+            background: var(--accent-blue);
+            color: #FFFFFF;
+        }
+
+        /* Objective Box */
+        .objective-box {
+            background: var(--bg-body);
+            border-left: 3px solid var(--accent-blue);
+            padding: 0.85rem 1.05rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1.25rem;
+            font-size: 0.94rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        .objective-label {
+            font-family: var(--font-ui);
+            font-weight: 700;
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            color: var(--accent-blue);
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* Speech Presentation Box */
+        .speech-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .speech-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.65rem;
+        }
+
+        .speech-label {
+            font-family: var(--font-ui);
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .speech-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.4rem 1.55rem;
+            font-size: calc(var(--base-font-size) * 1.06);
+            line-height: 1.92;
+            color: var(--text-main);
+            position: relative;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .speech-box p {
+            margin-bottom: 1rem;
+        }
+
+        .speech-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Visual Problem -> Solution -> Result Cue Blocks */
+        .cue-block {
+            margin: 1.1rem 0;
+            padding: 0.85rem 1rem;
+            border-radius: 10px;
+            border-left: 3.5px solid var(--accent-blue);
+            background: var(--bg-body);
+        }
+
+        .cue-block.cue-problem {
+            border-left-color: var(--accent-red);
+            background: var(--accent-red-bg);
+        }
+
+        .cue-block.cue-solution {
+            border-left-color: var(--accent-blue);
+            background: var(--accent-blue-bg);
+        }
+
+        .cue-block.cue-result {
+            border-left-color: var(--accent-green);
+            background: var(--accent-green-bg);
+        }
+
+        .cue-heading {
+            font-weight: 700;
+            font-size: 0.94rem;
+            margin-bottom: 0.35rem;
+            color: var(--text-main);
+        }
+
+        /* Soft inline Bengali pronunciation cue */
+        .bn-pron {
+            font-family: 'Hind Siliguri', var(--font-ui);
+            font-size: 0.86em;
+            font-weight: 500;
+            color: var(--pron-text);
+            padding: 0 0.12rem;
+        }
+
+        body.hide-pron .bn-pron {
+            display: none;
+        }
+
+        .tech-inline {
+            font-family: var(--font-mono);
+            font-size: 0.88em;
+            font-weight: 600;
+            background: var(--border-light);
+            color: var(--navy-primary);
+            padding: 0.08rem 0.36rem;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        [data-theme="dark"] .tech-inline {
+            background: #1E293B;
+            color: #38BDF8;
+            border-color: #334155;
+        }
+
+        /* Engineering Knowledge Depth Section */
+        .engineering-depth {
+            border-top: 1px dashed var(--border);
+            padding-top: 1.15rem;
+            margin-top: 1.15rem;
+        }
+
+        .engineering-label {
+            font-family: var(--font-ui);
+            font-size: 0.74rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+            gap: 0.7rem;
+        }
+
+        .tech-card {
+            background: var(--bg-body);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 0.75rem 0.95rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .tech-card-label {
+            font-family: var(--font-ui);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tech-card-val {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-main);
+            word-break: break-word;
+        }
+
+        /* Technical Cheat Sheet Section */
+        .cheat-sheet-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border);
+            scroll-margin-top: 84px;
+        }
+
+        .section-header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--accent-amber-bg);
+            color: var(--accent-amber);
+            font-family: var(--font-ui);
+            font-size: 0.74rem;
+            font-weight: 700;
+            padding: 0.28rem 0.75rem;
+            border-radius: 9999px;
+            margin-bottom: 0.7rem;
+            border: 1px solid rgba(217, 119, 6, 0.25);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-main-title {
+            font-family: var(--font-ui);
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.4px;
+            color: var(--text-main);
+            margin-bottom: 0.45rem;
+        }
+
+        .section-subtext {
+            font-size: 0.96rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .qa-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 1.25rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .qa-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 0.85rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .qa-q {
+            font-family: var(--font-ui);
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.48;
+        }
+
+        .qa-ans {
+            font-size: calc(var(--base-font-size) * 1.03);
+            line-height: 1.88;
+            color: var(--text-main);
+            background: var(--bg-body);
+            border-radius: 8px;
+            padding: 1.15rem 1.3rem;
+            border-left: 3px solid var(--accent-green);
+        }
+
+        /* Single-Slide Focus Mode */
+        body.focus-mode .project-hero {
+            display: none;
+        }
+
+        body.focus-mode .slide-card,
+        body.focus-mode .cheat-sheet-section {
+            display: none;
+        }
+
+        body.focus-mode .slide-card.focus-active,
+        body.focus-mode .cheat-sheet-section.focus-active {
+            display: block;
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+        }
+
+        /* Sticky Mobile Bottom Reading Bar */
+        .mobile-bottom-nav {
+            display: none;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #0B132B;
+            color: #FFFFFF;
+            font-family: var(--font-ui);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.72rem 1.15rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #7C3AED, #2563EB, #059669);
+            width: 0%;
+            z-index: 101;
+            transition: width 0.1s ease;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1200px) {
+            .brand-text h1 span,
+            .badge-role,
+            .badge-live {
+                display: none;
+            }
+            .search-box input {
+                width: 170px;
+            }
+            .search-box input:focus {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar {
+                display: none;
+            }
+            .mobile-only {
+                display: inline-flex;
+            }
+            .btn-ctrl .btn-label-desktop {
+                display: none;
+            }
+            .content-area {
+                padding: 1.25rem 1.25rem 6rem 1.25rem;
+                max-width: 100%;
+            }
+            .mobile-bottom-nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0.5rem;
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 150;
+                background: var(--bg-header);
+                backdrop-filter: blur(14px);
+                -webkit-backdrop-filter: blur(14px);
+                border-top: 1px solid var(--border);
+                padding: 0.55rem 0.85rem calc(0.55rem + env(safe-area-inset-bottom));
+                box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.08);
+            }
+            .mnav-btn {
+                background: var(--bg-card);
+                border: 1px solid var(--border);
+                color: var(--text-main);
+                font-family: var(--font-ui);
+                font-size: 0.86rem;
+                font-weight: 700;
+                padding: 0.55rem 0.9rem;
+                min-height: 42px;
+                border-radius: 10px;
+                cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.35rem;
+            }
+            .mnav-btn:disabled {
+                opacity: 0.4;
+                cursor: default;
+            }
+            .mnav-jump {
+                flex: 1;
+                background: var(--accent-blue-bg);
+                border: 1px solid rgba(37, 99, 235, 0.25);
+                color: var(--accent-blue);
+                font-family: var(--font-mono);
+                font-size: 0.84rem;
+                font-weight: 700;
+                min-height: 42px;
+                border-radius: 10px;
+                cursor: pointer;
+                padding: 0.45rem 0.75rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .toast {
+                bottom: 76px;
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%) translateY(10px);
+                white-space: nowrap;
+            }
+            .toast.show {
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .site-header {
+                padding: 8px 10px;
+                gap: 7px;
+            }
+            .brand-area {
+                display: none !important;
+            }
+            .header-top-row {
+                width: 100%;
+            }
+            .header-controls {
+                width: 100%;
+                justify-content: space-between;
+                flex-wrap: nowrap;
+                gap: 4px;
+            }
+            .btn-deck {
+                display: none;
+            }
+            .btn-ctrl {
+                padding: 5px 6px;
+                font-size: 11.5px;
+                min-height: 36px;
+                border-radius: 7px;
+            }
+            .search-box {
+                order: 3;
+                width: 100%;
+            }
+            .search-box input,
+            .search-box input:focus {
+                width: 100%;
+                font-size: 14px;
+            }
+            .content-area {
+                padding: 0.85rem 0.7rem 5.75rem 0.7rem;
+            }
+            .project-hero {
+                padding: 1.1rem 0.95rem;
+                margin-bottom: 1rem;
+                border-radius: 12px;
+            }
+            .hero-title {
+                font-size: 1.2rem;
+            }
+            .hero-subtitle {
+                font-size: 0.92rem;
+            }
+            .slide-card {
+                padding: 1.1rem 0.95rem;
+                margin-bottom: 1.15rem;
+                border-radius: 12px;
+                scroll-margin-top: 118px;
+            }
+            .cheat-sheet-section {
+                scroll-margin-top: 118px;
+            }
+            .slide-header {
+                flex-direction: column;
+                gap: 0.7rem;
+                margin-bottom: 0.95rem;
+                padding-bottom: 0.85rem;
+            }
+            .slide-title-en {
+                font-size: 1.12rem;
+            }
+            .slide-actions {
+                width: 100%;
+            }
+            .slide-actions .btn-copy,
+            .slide-actions .btn-deck-link {
+                flex: 1;
+                justify-content: center;
+                min-height: 40px;
+                font-size: 0.82rem;
+            }
+            .speech-box {
+                font-size: calc(var(--base-font-size) * 1.03);
+                line-height: 1.92;
+                padding: 1rem 0.95rem;
+            }
+            .cue-block {
+                padding: 0.78rem 0.85rem;
+                margin: 0.9rem 0;
+            }
+            .qa-card {
+                padding: 1.1rem 0.95rem;
+            }
+            .qa-header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.65rem;
+            }
+            .qa-header .btn-copy {
+                align-self: flex-start;
+                min-height: 38px;
+            }
+            .qa-ans {
+                padding: 0.95rem;
+                font-size: var(--base-font-size);
+                line-height: 1.88;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .btn-ctrl {
+                padding: 4px 5px;
+                font-size: 11px;
+                gap: 2px;
+            }
+            .btn-lang .btn-lang-flag,
+            .btn-menu-label {
+                display: none;
+            }
+        }
+
+        /* Print Optimization */
+        @media print {
+            .site-header, .sidebar, .slide-actions, .btn-ctrl, .scroll-progress, .mobile-bottom-nav, .mobile-drawer, .drawer-backdrop, .lang-switch-bar {
+                display: none !important;
+            }
+            .content-area {
+                padding: 0;
+                max-width: 100%;
+            }
+            .slide-card {
+                page-break-inside: avoid;
+                border: 1px solid #ccc;
+                box-shadow: none;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scroll-progress" id="progressBar"></div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-top-row">
+            <div class="brand-area">
+                <div class="brand-logo">AX</div>
+                <div class="brand-text">
+                    <h1>AutoTaskX <span>· বাংলা প্রেজেন্টেশন গাইড</span></h1>
+                </div>
+                <span class="badge-role">Digital Twin &amp; Data Engineer</span>
+                <span class="badge-live">Live 24/7</span>
+            </div>
+
+            <div class="header-controls">
+                <button class="btn-ctrl mobile-only" id="openDrawerBtn" title="স্লাইডে যান">☰ <span class="btn-menu-label">মেনু</span></button>
+                <button class="btn-ctrl" id="focusToggle" title="একবারে একটি স্লাইড পড়ুন">🎯 ফোকাস</button>
+                <button class="btn-ctrl active-state" id="pronToggle" title="টেকনিক্যাল শব্দের বাংলা উচ্চারণ দেখান/লুকান">উচ্চারণ</button>
+                <button class="btn-ctrl" id="fontDec" title="Decrease Font Size">A-</button>
+                <button class="btn-ctrl" id="fontInc" title="Increase Font Size">A+</button>
+                <button class="btn-ctrl" id="themeToggle" title="Toggle Dark/Light Mode">🌙</button>
+                <a href="/guide" data-local-href="guide.html" class="btn-ctrl btn-lang" title="Switch to English Presentation Guide (/guide)"><span class="btn-lang-flag">🌐</span> <span>EN</span></a>
+                <a href="/index.html" data-local-href="index.html" target="_blank" class="btn-ctrl btn-deck">🖥️ <span class="btn-label-desktop">স্লাইড ডেক</span></a>
+            </div>
+        </div>
+
+        <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="search" id="searchInput" placeholder="স্লাইড, MQTT, Digital Twin বা প্রশ্ন খুঁজুন...">
+            <button type="button" class="search-clear" id="searchClear" aria-label="Clear search">✕</button>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <!-- Desktop Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-heading">স্লাইডসমূহ (০১ – ১৮)</div>
+            <a href="#slide-01" class="nav-item" data-slide="01">
+                <span class="nav-num">01</span>
+                <span>প্রজেক্ট পরিচিতি ও ক্লায়েন্টের ভিশন</span>
+            </a>
+            <a href="#slide-02" class="nav-item" data-slide="02">
+                <span class="nav-num">02</span>
+                <span>ক্লায়েন্টের সমস্যা ও ফ্যাক্টরি ভিজিটের অভিজ্ঞতা</span>
+            </a>
+            <a href="#slide-03" class="nav-item" data-slide="03">
+                <span class="nav-num">03</span>
+                <span>সফটওয়্যার ব্লুপ্রিন্ট ও পাঁচটি মডিউল</span>
+            </a>
+            <a href="#slide-04" class="nav-item" data-slide="04">
+                <span class="nav-num">04</span>
+                <span>সেন্সর থেকে ড্যাশবোর্ডে ডেটা যাত্রা</span>
+            </a>
+            <a href="#slide-05" class="nav-item" data-slide="05">
+                <span class="nav-num">05</span>
+                <span>স্মার্ট কালার ফর্মুলেশন</span>
+            </a>
+            <a href="#slide-06" class="nav-item" data-slide="06">
+                <span class="nav-num">06</span>
+                <span>এ-আই ভিত্তিক কাপড়ের মান পরীক্ষা</span>
+            </a>
+            <a href="#slide-07" class="nav-item" data-slide="07">
+                <span class="nav-num">07</span>
+                <span>বড় ছবি বনাম সার্ভার স্পিড</span>
+            </a>
+            <a href="#slide-08" class="nav-item" data-slide="08">
+                <span class="nav-num">08</span>
+                <span>লাইভ মনিটরিং ও দুর্ঘটনা রোধ</span>
+            </a>
+            <a href="#slide-09" class="nav-item" data-slide="09">
+                <span class="nav-num">09</span>
+                <span>ভিন্ন ভিন্ন মেশিনকে এক ডিজিটাল টুইনে আনা</span>
+            </a>
+            <a href="#slide-10" class="nav-item" data-slide="10">
+                <span class="nav-num">10</span>
+                <span>একটি সেন্সর রিডিংয়ের ২৫ মিলিসেকেন্ডের যাত্রা</span>
+            </a>
+            <a href="#slide-11" class="nav-item" data-slide="11">
+                <span class="nav-num">11</span>
+                <span>এম-কিউ-টি-টি কেন ব্যবহার করলাম?</span>
+            </a>
+            <a href="#slide-12" class="nav-item" data-slide="12">
+                <span class="nav-num">12</span>
+                <span>তিনটি বিশেষায়িত ডেটাবেজ কেন?</span>
+            </a>
+            <a href="#slide-13" class="nav-item" data-slide="13">
+                <span class="nav-num">13</span>
+                <span>লাইভ আপডেট বনাম হিস্টোরিক্যাল রিপোর্ট</span>
+            </a>
+            <a href="#slide-14" class="nav-item" data-slide="14">
+                <span class="nav-num">14</span>
+                <span>ফ্যাক্টরি থেকে অফিসের ই-আর-পি অটোমেশন</span>
+            </a>
+            <a href="#slide-15" class="nav-item" data-slide="15">
+                <span class="nav-num">15</span>
+                <span>পুরো সিস্টেমের ৪-জোন ব্লুপ্রিন্ট</span>
+            </a>
+            <a href="#slide-16" class="nav-item" data-slide="16">
+                <span class="nav-num">16</span>
+                <span>গাজীপুর মিলে বাস্তব ফলাফল ও আরওআই</span>
+            </a>
+            <a href="#slide-17" class="nav-item" data-slide="17">
+                <span class="nav-num">17</span>
+                <span>এ-আই অটোমেশন ও ভবিষ্যৎ পরিকল্পনা</span>
+            </a>
+            <a href="#slide-18" class="nav-item" data-slide="18">
+                <span class="nav-num">18</span>
+                <span>সমাপ্তি ও প্রশ্নোত্তর পর্ব</span>
+            </a>
+            <div class="sidebar-heading">ইন্টারভিউ চিট শিট</div>
+            <a href="#cheat-sheet" class="nav-item" data-slide="cheat">
+                <span class="nav-num">⚡</span>
+                <span>৬টি মূল প্রশ্ন ও উত্তর</span>
+            </a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content-area" id="contentArea">
+            <!-- Executive Project Context Card -->
+            <section class="project-hero">
+                <div class="hero-top-strip">
+                    <div class="interview-pillars-bar">
+                        <span class="pillar-pill">১. ক্লায়েন্ট রিকোয়েস্ট</span>
+                    <span class="pillar-pill">২. ফ্যাক্টরি ভিজিট</span>
+                    <span class="pillar-pill">৩. সফটওয়্যার ব্লুপ্রিন্ট</span>
+                    <span class="pillar-pill">৪. ৩-জনের কোর টিম</span>
+                    <span class="pillar-pill">৫. ৪০–৫০% ব্যাকএন্ড</span>
+                    <span class="pillar-pill">৬. লাইভ ROI</span>
+                    </div>
+                    <div class="lang-switch-bar" aria-label="Guide Language Switcher">
+                        <a href="/guide" data-local-href="guide.html" class="lang-pill">🇬🇧 English Guide (/guide)</a>
+                        <span class="lang-pill active">🇧🇩 বাংলা গাইড</span>
+                    </div>
+                </div>
+                <div class="hero-title-group">
+                    <h2 class="hero-title">AutoTaskX — ডিজিটাল টুইন ও ডাটা ইঞ্জিনিয়ার বাংলা গাইড</h2>
+                    <span class="badge-live">২৪/৭ লাইভ</span>
+                </div>
+                <p class="hero-subtitle">
+                    বাংলাদেশের একটি শীর্ষস্থানীয় টেক্সটাইল গ্রুপের প্রজেক্ট — ক্লায়েন্ট আমাদের অফিসে এসে পূর্ণ অটোমেশন ও Digital Twin চান; এরপর ফ্যাক্টরি ভিজিট, রিকোয়ারমেন্টস, সফটওয়্যার ব্লুপ্রিন্ট এবং ৩-জনের কোর টিমে ৪ মাসে ২৪/৭ লাইভ প্রোডাকশন।
+                </p>
+
+                <div class="meta-grid">
+                    <div class="meta-item">
+                        <span class="meta-label">টার্গেট রোল</span>
+                        <span class="meta-value">Digital Twin &amp; Data Engineer</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">টিম ও অবদান</span>
+                        <span class="meta-value">৩-জনের কোর টিম · মূল ব্যাকএন্ড ইঞ্জিনিয়ার (~৪০–৫০%)</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">সময়কাল ও স্ট্যাটাস</span>
+                        <span class="meta-value">৪ মাস · ১০০% লাইভ প্রোডাকশন ২৪/৭</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">মূল টেক স্ট্যাক</span>
+                        <span class="meta-value">Digital Twin · EMQX MQTT · FastAPI · TimescaleDB · AI Vision</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide by Slide Cards -->
+
+            <article class="slide-card focus-active" id="slide-01" data-index="0" data-label="স্লাইড 01 / 18" data-search=" PROJECT OVERVIEW &amp; CLIENT VISION প্রজেক্ট পরিচিতি ও ক্লায়েন্টের ভিশন ১. ক্লায়েন্ট ভিশন ও ওভারভিউ আগে থেকেই নিজের পরিচয় দেওয়া থাকায় সরাসরি ক্লায়েন্ট প্রজেক্ট দিয়ে শুরু করা — ক্লায়েন্ট অফিসে এসে কী চেয়েছিলেন, ফ্যাক্টরি ভিজিটের পর আমরা কী ব্লুপ্রিন্ট বানাই এবং ৩ জনের কোর টিমে আপনার ৪০–৫০% ব্যাকএন্ড অবদান সহজ ও সাবলীল বাংলায় তুলে ধরা। চলুন সরাসরি প্রজেক্টে চলে যাই — আমাদের প্ল্যাটফর্মের নাম AutoTaskX। সহজ কথায় বললে, এটি বাংলাদেশের টেক্সটাইল ইন্ডাস্ট্রির একটি বড় ও শীর্ষস্থানীয় কোম্পানির জন্য তৈরি রিয়েল-টাইম Industrial IoT এবং Digital Twin প্ল্যাটফর্ম।
+
+▶ কীভাবে শুরু হয়েছি">
+                <div class="slide-header">
+                    <div class="slide-badge-title">
+                        <div class="slide-top-row">
+                            <span class="slide-num-pill">SLIDE 01</span>
+                            <span class="slide-pillar-tag">১. ক্লায়েন্ট ভিশন ও ওভারভিউ</span>
+                        </div>
+                        <h3 class="slide-title-en">প্রজেক্ট পরিচিতি ও ক্লায়েন্টের ভিশন</h3>
+                        <div class="slide-title-bn">PROJECT OVERVIEW &amp; CLIENT VISION</div>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="btn-copy" onclick="copySpeech('speech-text-01', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            কপি করুন
+                        </button>
+                        <a href="/index.html#slide-1" data-local-href="index.html#slide-1" target="_blank" class="btn-deck-link">
+                            স্লাইড দেখুন ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="objective-box">
+                    <div class="objective-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                        স্লাইডের মূল লক্ষ্য (Slide Objective)
+                    </div>
+                    আগে থেকেই নিজের পরিচয় দেওয়া থাকায় সরাসরি ক্লায়েন্ট প্রজেক্ট দিয়ে শুরু করা — ক্লায়েন্ট অফিসে এসে কী চেয়েছিলেন, ফ্যাক্টরি ভিজিটের পর আমরা কী ব্লুপ্রিন্ট বানাই এবং ৩ জনের কোর টিমে আপনার ৪০–৫০% ব্যাকএন্ড অবদান সহজ ও সাবলীল বাংলায় তুলে ধরা।
+                </div>
+
+                <div class="speech-section">
+                    <div class="speech-header">
+                        <div class="speech-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                            বাংলা স্পোকেন স্ক্রিপ্ট (সহজ ও সাবলীল)
+                        </div>
+                    </div>
+                    <div class="speech-box" id="speech-text-01">
+                        <p>চলুন সরাসরি প্রজেক্টে চলে যাই — আমাদের প্ল্যাটফর্মের নাম AutoTaskX। সহজ কথায় বললে, এটি বাংলাদেশের টেক্সটাইল ইন্ডাস্ট্রির একটি বড় ও শীর্ষস্থানীয় কোম্পানির জন্য তৈরি রিয়েল-টাইম Industrial IoT এবং <span class="tech-inline">Digital Twin</span> প্ল্যাটফর্ম।</p>
+<div class="cue-block cue-info"><div class="cue-heading">▶ কীভাবে শুরু হয়েছিল <span class="bn-pron">(ক্লায়েন্টের রিকোয়েস্ট)</span>:</div>
+<p>সত্যি বলতে, এই প্রজেক্টের শুরুটা ছিল বেশ ইন্টারেস্টিং। ক্লায়েন্ট নিজেরাই বুঝতে পেরেছিলেন যে তাদের ফ্যাক্টরিতে বড় কিছু গ্যাপ আছে, তাই তারা সরাসরি আমাদের অফিসে আসেন। তারা পুরো ফ্যাক্টরিতে পূর্ণ অটোমেশন চেয়েছিলেন — যেন পুরো ফ্যাক্টরি ফ্লোরটাকে একটি লাইভ <span class="tech-inline">Digital Twin</span>-এ রূপান্তর করা যায়।</p>
+</div>
+<div class="cue-block cue-solution"><div class="cue-heading">▶ ফ্যাক্টরি ভিজিট ও টিমের কাজ:</div>
+<p>ওই মিটিংয়ের পরপরই আমরা তাদের ফ্যাক্টরি ভিজিট করি এবং বাস্তবের মেশিনগুলো — যেমন dyeing jets, stenters এবং color lab ঘুরে দেখি। সেখান থেকে সব রিকোয়ারমেন্টস তালিকা করে আমরা একটি পরিষ্কার সফটওয়্যার ব্লুপ্রিন্ট তৈরি করি। টানা চার মাসে আমাদের তিনজন ডেভেলপারের কোর টিম মিলে পুরো ব্যাকএন্ড এবং ফ্রন্টএন্ড তৈরি করে। মূল ব্যাকএন্ড ইঞ্জিনিয়ারদের একজন হিসেবে মোট কাজের প্রায় ৪০ থেকে ৫০ শতাংশ আমি নিজে করেছি — বিশেষ করে <span class="tech-inline">MQTT</span> <span class="tech-inline">Data Pipeline</span>, <span class="tech-inline">Digital Twin</span> লাইভ আপডেট এবং <span class="tech-inline">AI Automation</span>-এর কাজগুলো। আর একজন ব্যাকএন্ড ও IoT অনুরাগী হিসেবে বাস্তব ফ্যাক্টরির হার্ডওয়্যারের সাথে কাজ করাটা আমার জন্য দারুণ অভিজ্ঞতা ছিল।</p>
+</div>
+<div class="cue-block cue-result"><div class="cue-heading">▶ ফলাফল:</div>
+<p>স্লাইডের ডান পাশে আপনারা আমাদের লাইভ <span class="tech-inline">Digital Twin</span> স্ক্রিন দেখতে পাচ্ছেন। প্রতিটি মেশিনের ডেটা ২৫ মিলিসেকেন্ডেরও কম সময়ে আপডেট হয় এবং সিস্টেমটি আজও ২৪/৭ লাইভ প্রোডাকশনে চলছে।</p>
+</div>
+                    </div>
+                </div>
+
+                <div class="engineering-depth">
+                    <div class="engineering-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        টেকনিক্যাল কুইক রেফারেন্স
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <span class="tech-card-label">ক্লায়েন্ট প্রোফাইল</span>
+                            <span class="tech-card-val">বাংলাদেশের শীর্ষস্থানীয় টেক্সটাইল ইন্ডাস্ট্রি লিডার</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">টিম ও ভূমিকা</span>
+                            <span class="tech-card-val">৩-জনের কোর টিম · মূল ব্যাকএন্ড ইঞ্জিনিয়ার (~৪০–৫০%)</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">কাজের ধাপ</span>
+                            <span class="tech-card-val">অফিস মিটিং → ফ্যাক্টরি ভিজিট → সফটওয়্যার ব্লুপ্রিন্ট</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">প্রোডাকশন প্রমাণ</span>
+                            <span class="tech-card-val">৪ মাসে তৈরি · ২৪/৭ লাইভ প্রোডাকশন (&lt;25ms HUD)</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="slide-card" id="slide-02" data-index="1" data-label="স্লাইড 02 / 18" data-search=" CLIENT PAIN POINTS &amp; MILL REALITY ক্লায়েন্টের সমস্যা ও ফ্যাক্টরি ভিজিটের অভিজ্ঞতা ১. ক্লায়েন্টের সমস্যা ও ভিজিট ক্লায়েন্ট অফিসে এসে কী কী সমস্যার কথা বলেছিলেন এবং ফ্যাক্টরি ভিজিটে গিয়ে আমরা কী কী বটলনেক দেখেছি তা সহজ গল্পের মতো বলা। ক্লায়েন্ট যখন প্রথম আমাদের অফিসে আসেন, তখন তারা প্রতিদিনের কাজ ধীর করে দেওয়া বাস্তব সমস্যাগুলোর কথা আমাদের জানান। এরপর ফ্যাক্টরি ভিজিটে গিয়ে আমরা ফ্লোরে এই ৪টি বড় বটলনেক সরাসরি দেখতে পাই:
+
+প্রথমত, অতিরিক্ত ম্যানুয়াল কাজ। ল্যাবের স্টাফরা হ">
+                <div class="slide-header">
+                    <div class="slide-badge-title">
+                        <div class="slide-top-row">
+                            <span class="slide-num-pill">SLIDE 02</span>
+                            <span class="slide-pillar-tag">১. ক্লায়েন্টের সমস্যা ও ভিজিট</span>
+                        </div>
+                        <h3 class="slide-title-en">ক্লায়েন্টের সমস্যা ও ফ্যাক্টরি ভিজিটের অভিজ্ঞতা</h3>
+                        <div class="slide-title-bn">CLIENT PAIN POINTS &amp; MILL REALITY</div>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="btn-copy" onclick="copySpeech('speech-text-02', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            কপি করুন
+                        </button>
+                        <a href="/index.html#slide-2" data-local-href="index.html#slide-2" target="_blank" class="btn-deck-link">
+                            স্লাইড দেখুন ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="objective-box">
+                    <div class="objective-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                        স্লাইডের মূল লক্ষ্য (Slide Objective)
+                    </div>
+                    ক্লায়েন্ট অফিসে এসে কী কী সমস্যার কথা বলেছিলেন এবং ফ্যাক্টরি ভিজিটে গিয়ে আমরা কী কী বটলনেক দেখেছি তা সহজ গল্পের মতো বলা।
+                </div>
+
+                <div class="speech-section">
+                    <div class="speech-header">
+                        <div class="speech-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                            বাংলা স্পোকেন স্ক্রিপ্ট (সহজ ও সাবলীল)
+                        </div>
+                    </div>
+                    <div class="speech-box" id="speech-text-02">
+                        <p>ক্লায়েন্ট যখন প্রথম আমাদের অফিসে আসেন, তখন তারা প্রতিদিনের কাজ ধীর করে দেওয়া বাস্তব সমস্যাগুলোর কথা আমাদের জানান। এরপর ফ্যাক্টরি ভিজিটে গিয়ে আমরা ফ্লোরে এই ৪টি বড় বটলনেক সরাসরি দেখতে পাই:</p>
+<p>প্রথমত, অতিরিক্ত ম্যানুয়াল কাজ। ল্যাবের স্টাফরা হাতে-কলমে রঙের হিসাব করতেন, আর সুপারভাইজাররা কাগজের খাতায় মেশিনের রিডিং লিখে রাখতেন। এতে অনেক সময় নষ্ট হতো এবং মানুষের ভুল হওয়ার ঝুঁকি থাকত।</p>
+<p>দ্বিতীয়ত, মেশিনগুলোর মধ্যে কোনো সংযোগ ছিল না। প্রতিটি মেশিন আলাদা দ্বীপের মতো কাজ করত। একটি মেশিন অতিরিক্ত গরম হয়ে গেলেও অন্য কেউ তা সাথে সাথে জানতে পারত না।</p>
+<p>তৃতীয়ত, ম্যানেজমেন্টের হাতে কোনো লাইভ ডেটা ছিল না। ক্লায়েন্ট চাইতেন লাইভ আপডেট দেখতে, কিন্তু তখন তারা কেবল শিফট শেষে অথবা সপ্তাহে একবার রিপোর্ট পেতেন।</p>
+<p>আর চতুর্থত, দেরিতে ব্যবস্থা নেওয়ায় বড় আর্থিক ক্ষতি হতো। কেউ রঙের অমিল বা কাপড় পুড়ে যাওয়া ধরতে ধরতেই পুরো ১০,০০০ মিটারের একটি ব্যাচ নষ্ট হয়ে যেত।</p>
+<div class="cue-block cue-solution"><div class="cue-heading">▶ ক্লায়েন্ট যা চেয়েছিলেন:</div>
+<p>তাই ক্লায়েন্ট আমাদের পরিষ্কারভাবে বলেন — এই আন্দাজ-নির্ভর কাজ বন্ধ করে পুরো ফ্যাক্টরির জন্য একটি লাইভ ও অটোমেটেড <span class="tech-inline">Digital Twin</span> তৈরি করে দিতে।</p>
+</div>
+                    </div>
+                </div>
+
+                <div class="engineering-depth">
+                    <div class="engineering-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        টেকনিক্যাল কুইক রেফারেন্স
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <span class="tech-card-label">ক্লায়েন্টের সমস্যা</span>
+                            <span class="tech-card-val">খাতা-কলমের ম্যানুয়াল লগ ও বিচ্ছিন্ন মেশিন</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">ফ্যাক্টরি ভিজিট অডিট</span>
+                            <span class="tech-card-val">পুরোনো মেশিনারি ও শিফট-শেষের ব্লাইন্ডস্পট শনাক্ত</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">ব্যবসায়িক ঝুঁকি</span>
+                            <span class="tech-card-val">একবারে ১০,০০০ মিটার পর্যন্ত কাপড়ের ব্যাচ বাতিল</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">মূল লক্ষ্য</span>
+                            <span class="tech-card-val">অটোমেটেড ডেটা-ড্রিভেন Digital Twin ভিজিবিলিটি</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="slide-card" id="slide-03" data-index="2" data-label="স্লাইড 03 / 18" data-search=" ARCHITECTURE BLUEPRINT &amp; 5 MODULES সফটওয়্যার ব্লুপ্রিন্ট ও পাঁচটি মডিউল ২. আর্কিটেকচার ব্লুপ্রিন্ট সফটওয়্যার ব্লুপ্রিন্টে থাকা ৫টি মডিউল সহজ ও সাবলীল ভাষায় ইন্টারভিউয়ারকে দেখানো। ফ্যাক্টরি ভিজিটের পর আমরা এমন একটি পরিষ্কার সফটওয়্যার ব্লুপ্রিন্ট তৈরি করি, যাতে ক্লায়েন্টকে নতুন কোনো মেশিন কিনতে না হয়। বরং একটি শেয়ার্ড Data Pipeline-এর ওপর ভিত্তি করে আমরা AutoTaskX-কে পাঁচটি কানেক্টেড মডিউলে সাজাই। চলুন স্লাইডে মডিউলগ">
+                <div class="slide-header">
+                    <div class="slide-badge-title">
+                        <div class="slide-top-row">
+                            <span class="slide-num-pill">SLIDE 03</span>
+                            <span class="slide-pillar-tag">২. আর্কিটেকচার ব্লুপ্রিন্ট</span>
+                        </div>
+                        <h3 class="slide-title-en">সফটওয়্যার ব্লুপ্রিন্ট ও পাঁচটি মডিউল</h3>
+                        <div class="slide-title-bn">ARCHITECTURE BLUEPRINT &amp; 5 MODULES</div>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="btn-copy" onclick="copySpeech('speech-text-03', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            কপি করুন
+                        </button>
+                        <a href="/index.html#slide-3" data-local-href="index.html#slide-3" target="_blank" class="btn-deck-link">
+                            স্লাইড দেখুন ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="objective-box">
+                    <div class="objective-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                        স্লাইডের মূল লক্ষ্য (Slide Objective)
+                    </div>
+                    সফটওয়্যার ব্লুপ্রিন্টে থাকা ৫টি মডিউল সহজ ও সাবলীল ভাষায় ইন্টারভিউয়ারকে দেখানো।
+                </div>
+
+                <div class="speech-section">
+                    <div class="speech-header">
+                        <div class="speech-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                            বাংলা স্পোকেন স্ক্রিপ্ট (সহজ ও সাবলীল)
+                        </div>
+                    </div>
+                    <div class="speech-box" id="speech-text-03">
+                        <p>ফ্যাক্টরি ভিজিটের পর আমরা এমন একটি পরিষ্কার সফটওয়্যার ব্লুপ্রিন্ট তৈরি করি, যাতে ক্লায়েন্টকে নতুন কোনো মেশিন কিনতে না হয়। বরং একটি শেয়ার্ড <span class="tech-inline">Data Pipeline</span>-এর ওপর ভিত্তি করে আমরা AutoTaskX-কে পাঁচটি কানেক্টেড মডিউলে সাজাই। চলুন স্লাইডে মডিউলগুলো দেখে নিই:</p>
+<p>এক নম্বর হলো Color Formulation — যা ল্যাবের ম্যানুয়াল ট্রায়াল-অ্যান্ড-এরর বাদ দিয়ে দ্রুত নির্ভুল ম্যাথের মাধ্যমে রঙের রেসিপি দেয়।<br>দুই নম্বর হলো Visual Quality Inspection — যেখানে ক্যামেরা এবং <span class="tech-inline">AI Automation</span> ব্যবহার করে সাথে সাথে কাপড়ের ডিফেক্ট ধরা হয়।<br>তিন নম্বর হলো Production Intelligence — যা মেশিনের রানটাইম, এফিশিয়েন্সি এবং হঠাৎ তাপমাত্রা বেড়ে যাওয়া নজরদারি করে।<br>চার নম্বর হলো <span class="tech-inline">Textile OS</span> &amp; <span class="tech-inline">Digital Twin</span> — যা বাস্তব সেন্সর ও <span class="tech-inline">PLC</span>-র সাথে যুক্ত হয়ে প্রতিটি মেশিনের একটি লাইভ ডিজিটাল কপি বজায় রাখে।<br>আর পাঁচ নম্বর হলো <span class="tech-inline">ERP</span> Integration — যা ফ্যাক্টরির উৎপাদনের হিসাব সরাসরি <span class="tech-inline">SAP</span> বা <span class="tech-inline">Datatex</span>-এ পাঠিয়ে দেয়।</p>
+<p>এতে প্রতিটি টিম নিজের কাজের জন্য সহজ একটি ড্যাশবোর্ড পায়, আর পেছনে পাঁচটি মডিউলই একসাথে সিঙ্ক হয়ে কাজ করে।</p>
+                    </div>
+                </div>
+
+                <div class="engineering-depth">
+                    <div class="engineering-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        টেকনিক্যাল কুইক রেফারেন্স
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <span class="tech-card-label">সমাধান ব্লুপ্রিন্ট</span>
+                            <span class="tech-card-val">একটি শেয়ার্ড Data Pipeline-এ ৫টি মডিউলার ইঞ্জিন</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">মেশিন বদল নয়</span>
+                            <span class="tech-card-val">বিদ্যমান Dyeing, Stenter ও ল্যাব মেশিনেই যুক্ত</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">ইন্টিগ্রেশন মডেল</span>
+                            <span class="tech-card-val">EMQX Broker-এর মাধ্যমে ইভেন্ট-ড্রিভেন MQTT Pub/Sub</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">AI অটোমেশন</span>
+                            <span class="tech-card-val">স্বয়ংক্রিয় ডাই ম্যাথ, ডিফেক্ট ডিটেকশন ও অ্যালার্ট</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="slide-card" id="slide-04" data-index="3" data-label="স্লাইড 04 / 18" data-search=" END-TO-END DATA PIPELINE সেন্সর থেকে ড্যাশবোর্ডে ডেটা যাত্রা ২. ডেটা পাইপলাইন ও MQTT একজন Data Engineer হিসেবে ৪ ধাপের ডেটা ফ্লো (Sense → Connect → Process → Deliver) খুব সহজ করে বোঝানো। স্লাইডের এই চারটি ধাপের দিকে তাকালে দেখবেন, এটাই আমাদের মূল Data Pipeline — অর্থাৎ Digital Twin-এর হৃদপিণ্ড। চলুন একসাথে ধাপগুলো দেখি:
+
+ধাপ এক হলো Sense। ক্লায়েন্টের মেশিনে লাগানো সেন্সর এবং হাই-স্পিড ক্যামেরা তাপমাত্রা, গতি এবং কাপড়ের ছবি">
+                <div class="slide-header">
+                    <div class="slide-badge-title">
+                        <div class="slide-top-row">
+                            <span class="slide-num-pill">SLIDE 04</span>
+                            <span class="slide-pillar-tag">২. ডেটা পাইপলাইন ও MQTT</span>
+                        </div>
+                        <h3 class="slide-title-en">সেন্সর থেকে ড্যাশবোর্ডে ডেটা যাত্রা</h3>
+                        <div class="slide-title-bn">END-TO-END DATA PIPELINE</div>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="btn-copy" onclick="copySpeech('speech-text-04', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            কপি করুন
+                        </button>
+                        <a href="/index.html#slide-4" data-local-href="index.html#slide-4" target="_blank" class="btn-deck-link">
+                            স্লাইড দেখুন ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="objective-box">
+                    <div class="objective-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                        স্লাইডের মূল লক্ষ্য (Slide Objective)
+                    </div>
+                    একজন Data Engineer হিসেবে ৪ ধাপের ডেটা ফ্লো (Sense → Connect → Process → Deliver) খুব সহজ করে বোঝানো।
+                </div>
+
+                <div class="speech-section">
+                    <div class="speech-header">
+                        <div class="speech-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                            বাংলা স্পোকেন স্ক্রিপ্ট (সহজ ও সাবলীল)
+                        </div>
+                    </div>
+                    <div class="speech-box" id="speech-text-04">
+                        <p>স্লাইডের এই চারটি ধাপের দিকে তাকালে দেখবেন, এটাই আমাদের মূল <span class="tech-inline">Data Pipeline</span> — অর্থাৎ <span class="tech-inline">Digital Twin</span>-এর হৃদপিণ্ড। চলুন একসাথে ধাপগুলো দেখি:</p>
+<p>ধাপ এক হলো Sense। ক্লায়েন্টের মেশিনে লাগানো সেন্সর এবং হাই-স্পিড ক্যামেরা তাপমাত্রা, গতি এবং কাপড়ের ছবি সংগ্রহ করে।</p>
+<p>ধাপ দুই হলো Connect। আমাদের <span class="tech-inline">Edge Gateway</span> সেই কাঁচা সিগন্যালকে পরিষ্কার <span class="tech-inline">JSON</span> ফরম্যাটে রূপান্তর করে <span class="tech-inline">MQTT</span>-র মাধ্যমে <span class="tech-inline">EMQX</span> Broker-এ পাঠায়।</p>
+<p>ধাপ তিন হলো Process। আমাদের <span class="tech-inline">FastAPI</span> ব্যাকএন্ড সেই <span class="tech-inline">MQTT</span> স্ট্রিম গ্রহণ করে, ডেটা যাচাই করে, <span class="tech-inline">Digital Twin</span> স্টেট আপডেট করে এবং ইতিহাস হিসেবে <span class="tech-inline">TimescaleDB</span>-তে সেভ করে।</p>
+<p>ধাপ চার হলো Deliver। <span class="tech-inline">WebSockets</span>-এর মাধ্যমে লাইভ আপডেট সরাসরি আমাদের <span class="tech-inline">Next.js</span> স্ক্রিনে চলে আসে।</p>
+<p>সত্যি বলতে, ফ্লোরে একটি মেশিনের তাপমাত্রা পরিবর্তন হওয়া থেকে শুরু করে ক্লায়েন্টের স্ক্রিনে দেখা যাওয়া পর্যন্ত পুরো যাত্রাটি ২৫ মিলিসেকেন্ডেরও কম সময়ে সম্পন্ন হয়।</p>
+                    </div>
+                </div>
+
+                <div class="engineering-depth">
+                    <div class="engineering-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        টেকনিক্যাল কুইক রেফারেন্স
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <span class="tech-card-label">ধাপ ১ (Sense)</span>
+                            <span class="tech-card-val">PT100 RTD সেন্সর ও Basler CoaXPress 16K ক্যামেরা</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">ধাপ ২ (Connect)</span>
+                            <span class="tech-card-val">Edge Gateway -&gt; Normalized JSON -&gt; EMQX MQTT Broker</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">ধাপ ৩ (Process)</span>
+                            <span class="tech-card-val">FastAPI Async Engine -&gt; Digital Twin + TimescaleDB</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">ধাপ ৪ (Deliver)</span>
+                            <span class="tech-card-val">WebSocket-এ Next.js UI-তে লাইভ পুশ (&lt;25ms E2E)</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="slide-card" id="slide-05" data-index="4" data-label="স্লাইড 05 / 18" data-search=" FEATURE 01 — COLOR FORMULATION স্মার্ট কালার ফর্মুলেশন ৩. ল্যাব অটোমেশন ক্লায়েন্টের ডাইং ল্যাবের রঙ মেলানোর সমস্যা কীভাবে ম্যাথ ও অটোমেশন দিয়ে সমাধান হলো তা বলা। চলুন এক নম্বর ফিচার দেখি — Color Formulation।
+
+▶ ক্লায়েন্টের সমস্যা:
+আমরা যখন ক্লায়েন্টের ডাই ল্যাব ভিজিট করি, তখন দেখি প্রথম চেষ্টাতেই বায়ারের রঙের স্যাম্পল মেলানোটা ছিল সবচেয়ে বড় বটলনেক। ল্যাবের কেমিস্টদের হাতে মিশিয়ে টেস্ট ব্যাচ বানাতে">
+                <div class="slide-header">
+                    <div class="slide-badge-title">
+                        <div class="slide-top-row">
+                            <span class="slide-num-pill">SLIDE 05</span>
+                            <span class="slide-pillar-tag">৩. ল্যাব অটোমেশন</span>
+                        </div>
+                        <h3 class="slide-title-en">স্মার্ট কালার ফর্মুলেশন</h3>
+                        <div class="slide-title-bn">FEATURE 01 — COLOR FORMULATION</div>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="btn-copy" onclick="copySpeech('speech-text-05', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            কপি করুন
+                        </button>
+                        <a href="/index.html#slide-5" data-local-href="index.html#slide-5" target="_blank" class="btn-deck-link">
+                            স্লাইড দেখুন ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="objective-box">
+                    <div class="objective-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                        স্লাইডের মূল লক্ষ্য (Slide Objective)
+                    </div>
+                    ক্লায়েন্টের ডাইং ল্যাবের রঙ মেলানোর সমস্যা কীভাবে ম্যাথ ও অটোমেশন দিয়ে সমাধান হলো তা বলা।
+                </div>
+
+                <div class="speech-section">
+                    <div class="speech-header">
+                        <div class="speech-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                            বাংলা স্পোকেন স্ক্রিপ্ট (সহজ ও সাবলীল)
+                        </div>
+                    </div>
+                    <div class="speech-box" id="speech-text-05">
+                        <p>চলুন এক নম্বর ফিচার দেখি — Color Formulation।</p>
+<div class="cue-block cue-problem"><div class="cue-heading">▶ ক্লায়েন্টের সমস্যা:</div>
+<p>আমরা যখন ক্লায়েন্টের ডাই ল্যাব ভিজিট করি, তখন দেখি প্রথম চেষ্টাতেই বায়ারের রঙের স্যাম্পল মেলানোটা ছিল সবচেয়ে বড় বটলনেক। ল্যাবের কেমিস্টদের হাতে মিশিয়ে টেস্ট ব্যাচ বানাতে ৫ থেকে ৬ ঘণ্টা সময় লাগত, এবং প্রচুর রঙ ও পানি নষ্ট হতো। ক্লায়েন্ট এই ধাপটি অটোমেট করতে চেয়েছিলেন।</p>
+</div>
+<div class="cue-block cue-solution"><div class="cue-heading">▶ আমাদের সমাধান:</div>
+<p>তাই আমরা <span class="tech-inline">Kubelka-Munk</span> <span class="bn-pron">(কুবেলকা-মাঙ্ক)</span> কালার ম্যাথ ব্যবহার করে একটি স্মার্ট রেসিপি ইঞ্জিন তৈরি করি। প্রথমে একটি রঙ মাপার যন্ত্র — <span class="tech-inline">Spectrophotometer</span> <span class="bn-pron">(স্পেকট্রোফোটোমিটার)</span> — টার্গেট কাপড়টি স্ক্যান করে। এরপর আমাদের ইঞ্জিন প্রতি ১০০ কেজি কাপড়ের জন্য ঠিক কত গ্রাম ডাই লাগবে তা হিসাব করে সরাসরি auto-dispenser-এ পাঠিয়ে দেয়। আর নিরাপত্তার জন্য ল্যাবে বড় ব্যাচ ডাইংয়ের আগে ছোট একটি beaker <span class="bn-pron">(বিকার)</span> চেক করা হয়।</p>
+</div>
+<div class="cue-block cue-result"><div class="cue-heading">▶ ফলাফল:</div>
+<p>রঙের পার্থক্য — যাকে <span class="tech-inline">Delta-E</span> <span class="bn-pron">(ডেল্টা-ই)</span> বলে — ১.০-এর নিচে থাকে, যা মানুষের চোখে একদম নিখুঁত ম্যাচ, এবং প্রথম চেষ্টাতেই ল্যাবে সঠিক রঙ পাওয়ার হার ৮৫ শতাংশ ছাড়িয়ে গেছে।</p>
+</div>
+                    </div>
+                </div>
+
+                <div class="engineering-depth">
+                    <div class="engineering-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        টেকনিক্যাল কুইক রেফারেন্স
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <span class="tech-card-label">ল্যাবের প্রয়োজন</span>
+                            <span class="tech-card-val">৫–৬ ঘণ্টার ম্যানুয়াল ডাই ট্রায়াল-অ্যান্ড-এরর কমানো</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">সমাধান ইঞ্জিন</span>
+                            <span class="tech-card-val">Kubelka-Munk স্পেকট্রাল ম্যাথ + অটো রেসিপি</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">রঙের সূক্ষ্মতা</span>
+                            <span class="tech-card-val">CIE ΔE &lt; 1.0 (৮৫%+ প্রথম চেষ্টায় ম্যাচ, ল্যাব ভ্যালিডেটেড)</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">ডিস্পেন্সারি সিঙ্ক</span>
+                            <span class="tech-card-val">প্রতি ১০০ কেজির নিখুঁত গ্রাম হিসাব Auto-Dispenser-এ</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="slide-card" id="slide-06" data-index="5" data-label="স্লাইড 06 / 18" data-search=" FEATURE 02 — AI VISION INSPECTION এ-আই ভিত্তিক কাপড়ের মান পরীক্ষা ৩. AI ভিশন অটোমেশন ক্লায়েন্টের ফ্লোরে কাপড়ের ডিফেক্ট ধরতে AI Automation কীভাবে কাজ করে তা সহজ ও সাবলীলভাবে বলা। এবার দুই নম্বর ফিচার দেখুন — AI Automation ব্যবহার করে Visual Quality Inspection।
+
+▶ ক্লায়েন্ট যা চেয়েছিলেন:
+চিন্তা করে দেখুন — যখন মেশিনের ভেতর দিয়ে মিনিটে ৮০ থেকে ১২০ মিটার গতিতে কাপড় ছোটে, তখন মানুষের চোখ দিয়ে আধা মিলিমিটারেরও ছোট সুতা ">
+                <div class="slide-header">
+                    <div class="slide-badge-title">
+                        <div class="slide-top-row">
+                            <span class="slide-num-pill">SLIDE 06</span>
+                            <span class="slide-pillar-tag">৩. AI ভিশন অটোমেশন</span>
+                        </div>
+                        <h3 class="slide-title-en">এ-আই ভিত্তিক কাপড়ের মান পরীক্ষা</h3>
+                        <div class="slide-title-bn">FEATURE 02 — AI VISION INSPECTION</div>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="btn-copy" onclick="copySpeech('speech-text-06', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            কপি করুন
+                        </button>
+                        <a href="/index.html#slide-6" data-local-href="index.html#slide-6" target="_blank" class="btn-deck-link">
+                            স্লাইড দেখুন ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="objective-box">
+                    <div class="objective-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                        স্লাইডের মূল লক্ষ্য (Slide Objective)
+                    </div>
+                    ক্লায়েন্টের ফ্লোরে কাপড়ের ডিফেক্ট ধরতে <span class="tech-inline">AI Automation</span> কীভাবে কাজ করে তা সহজ ও সাবলীলভাবে বলা।
+                </div>
+
+                <div class="speech-section">
+                    <div class="speech-header">
+                        <div class="speech-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                            বাংলা স্পোকেন স্ক্রিপ্ট (সহজ ও সাবলীল)
+                        </div>
+                    </div>
+                    <div class="speech-box" id="speech-text-06">
+                        <p>এবার দুই নম্বর ফিচার দেখুন — <span class="tech-inline">AI Automation</span> ব্যবহার করে Visual Quality Inspection।</p>
+<div class="cue-block cue-solution"><div class="cue-heading">▶ ক্লায়েন্ট যা চেয়েছিলেন:</div>
+<p>চিন্তা করে দেখুন — যখন মেশিনের ভেতর দিয়ে মিনিটে ৮০ থেকে ১২০ মিটার গতিতে কাপড় ছোটে, তখন মানুষের চোখ দিয়ে আধা মিলিমিটারেরও ছোট সুতা কাটা বা তেলের দাগ ধরা অসম্ভব। তাছাড়া কর্মীরা ব্যক্তিগত ফোনে ছবি তুলে রাখতেন এবং সেগুলো হারিয়ে যেত। ক্লায়েন্ট চেয়েছিলেন প্রতিটি মিটার কাপড় অটোমেটিক ও ডিজিটালভাবে চেক করার ব্যবস্থা।</p>
+</div>
+<div class="cue-block cue-solution"><div class="cue-heading">▶ আমাদের সমাধান:</div>
+<p>তাই আমরা একটি AI ভিশন মডেলের সাথে দুটি ক্যামেরা সোর্স যুক্ত করি:<br>প্রথমত, কাপড়ের লাইনের ঠিক ওপরে বসানো দ্রুতগতির <span class="tech-inline">Basler</span> <span class="bn-pron">(বাসলার)</span> 16K line-scan camera।<br>এবং দ্বিতীয়ত, ফ্লোরের চেকারদের দ্রুত স্পট-চেকের ছবি তোলার জন্য একটি মোবাইল অ্যাপ।</p>
+</div>
+<p>ছবিগুলো আসার সাথে সাথে <span class="tech-inline">OpenCV</span> কাপড়ের স্ট্রিপটি প্রস্তুত করে, আর আমাদের <span class="tech-inline">YOLO</span> AI মডেল ০.৫ মিলিমিটারের চেয়ে ছোট যেকোনো ত্রুটির চারপাশে বক্স এঁকে দেয় এবং কী ধরনের ডিফেক্ট তা ট্যাগ করে।</p>
+<div class="cue-block cue-result"><div class="cue-heading">▶ ফলাফল:</div>
+<p>এখন প্রতিটি মিটার কাপড় স্বয়ংক্রিয়ভাবে পরীক্ষা হয় এবং পরিষ্কার একটি ডিজিটাল রিপোর্ট তৈরি হয় — কোনো অনুমানের সুযোগ নেই।</p>
+</div>
+                    </div>
+                </div>
+
+                <div class="engineering-depth">
+                    <div class="engineering-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        টেকনিক্যাল কুইক রেফারেন্স
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <span class="tech-card-label">কোয়ালিটি চাহিদা</span>
+                            <span class="tech-card-val">৮০–১২০ মি./মিনিট গতিতে &lt;0.5mm ত্রুটি স্বয়ংক্রিয় ধরা</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">হার্ডওয়্যার ইনপুট</span>
+                            <span class="tech-card-val">Basler racer 2L (16K Line-Scan) + ফ্লোর মোবাইল অ্যাপ</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">AI অটোমেশন</span>
+                            <span class="tech-card-val">OpenCV ইমেজ স্টিচিং + YOLO ডিফেক্ট ক্লাসিফিকেশন</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">অডিট ট্রেইল</span>
+                            <span class="tech-card-val">তাৎক্ষণিক বাউন্ডিং বক্স ও অটো রোল ডিফেক্ট রিপোর্ট</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="slide-card" id="slide-07" data-index="6" data-label="স্লাইড 07 / 18" data-search=" KEY CHALLENGE &amp; SOLUTION — IMAGE &amp; DATA OFFLOADING বড় ছবি বনাম সার্ভার স্পিড ৪. চ্যালেঞ্জ ও ডেটা অফলোড ২০ মেগাবাইটের ভারী ছবি আর ছোট সেন্সর ডেটা আলাদা রেখে আমরা কীভাবে সার্ভার ক্র্যাশ থেকে বাঁচিয়েছি তা সুন্দরভাবে বলা। সত্যি বলতে, এই স্লাইডটি আমার প্রজেক্টের সবচেয়ে প্রিয় টেকনিক্যাল গল্প — কারণ এখানে আমরা বাস্তব সিস্টেমের বড় একটি বটলনেক সমাধান করেছি।
+
+▶ সমস্যা:
+সংখ্যাগুলো দেখুন: 16K ক্যামেরা থেকে আসা প্রতিটি র TIFF (টিফ) ছবির সাইজ প্রায় ২০ মেগাবাইট। প্রতি ">
+                <div class="slide-header">
+                    <div class="slide-badge-title">
+                        <div class="slide-top-row">
+                            <span class="slide-num-pill">SLIDE 07</span>
+                            <span class="slide-pillar-tag">৪. চ্যালেঞ্জ ও ডেটা অফলোড</span>
+                        </div>
+                        <h3 class="slide-title-en">বড় ছবি বনাম সার্ভার স্পিড</h3>
+                        <div class="slide-title-bn">KEY CHALLENGE &amp; SOLUTION — IMAGE &amp; DATA OFFLOADING</div>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="btn-copy" onclick="copySpeech('speech-text-07', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            কপি করুন
+                        </button>
+                        <a href="/index.html#slide-7" data-local-href="index.html#slide-7" target="_blank" class="btn-deck-link">
+                            স্লাইড দেখুন ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="objective-box">
+                    <div class="objective-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                        স্লাইডের মূল লক্ষ্য (Slide Objective)
+                    </div>
+                    ২০ মেগাবাইটের ভারী ছবি আর ছোট সেন্সর ডেটা আলাদা রেখে আমরা কীভাবে সার্ভার ক্র্যাশ থেকে বাঁচিয়েছি তা সুন্দরভাবে বলা।
+                </div>
+
+                <div class="speech-section">
+                    <div class="speech-header">
+                        <div class="speech-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                            বাংলা স্পোকেন স্ক্রিপ্ট (সহজ ও সাবলীল)
+                        </div>
+                    </div>
+                    <div class="speech-box" id="speech-text-07">
+                        <p>সত্যি বলতে, এই স্লাইডটি আমার প্রজেক্টের সবচেয়ে প্রিয় টেকনিক্যাল গল্প — কারণ এখানে আমরা বাস্তব সিস্টেমের বড় একটি বটলনেক সমাধান করেছি।</p>
+<div class="cue-block cue-problem"><div class="cue-heading">▶ সমস্যা:</div>
+<p>সংখ্যাগুলো দেখুন: 16K ক্যামেরা থেকে আসা প্রতিটি র TIFF <span class="bn-pron">(টিফ)</span> ছবির সাইজ প্রায় ২০ মেগাবাইট। প্রতি সেকেন্ডে যদি ২০ মেগাবাইটের ছবি আমরা <span class="tech-inline">FastAPI</span> ব্যাকএন্ড বা <span class="tech-inline">MQTT</span> Broker-এর ভেতর দিয়ে পাঠাতাম, তাহলে কয়েক মিনিটের মধ্যেই সার্ভারের মেমোরি ও নেটওয়ার্ক ক্র্যাশ করত।</p>
+</div>
+<div class="cue-block cue-solution"><div class="cue-heading">▶ আমাদের সমাধান:</div>
+<p>স্ক্রিনের এই সিকোয়েন্স ডায়াগ্রামটি অনুসরণ করলে দেখবেন আমরা কী কৌশল ব্যবহার করেছি:<br>প্রথমে <span class="tech-inline">Edge PC</span> আমাদের <span class="tech-inline">FastAPI</span> থেকে একটি অস্থায়ী <span class="tech-inline">Pre-signed S3 URL</span> <span class="bn-pron">(প্রি-সাইনড এস-থ্রি ইউ-আর-এল)</span> চায়।<br>এরপর <span class="tech-inline">Edge PC</span> আমাদের ব্যাকএন্ডকে পুরোপুরি বাইপাস করে ২০ মেগাবাইটের ভারী ছবিটি সরাসরি <span class="tech-inline">AWS S3</span>-তে আপলোড করে দেয়।<br>ঠিক একই সময়ে <span class="tech-inline">Edge PC</span> শুধুমাত্র ছোট্ট একটি অ্যালার্ট মেসেজ <span class="tech-inline">MQTT</span>-র মাধ্যমে পাঠায়।<br><span class="tech-inline">FastAPI</span> কেবল ছবির লিংকটি <span class="tech-inline">PostgreSQL</span>-এ সেভ করে এবং <span class="tech-inline">WebSockets</span> দিয়ে <span class="tech-inline">Next.js</span> ড্যাশবোর্ডে জানিয়ে দেয়।</p>
+</div>
+<div class="cue-block cue-result"><div class="cue-heading">▶ ফলাফল:</div>
+<p>আমাদের ব্যাকএন্ডে কোনো ভারী ফাইল লোড পড়ে না, তাই ফ্যাক্টরি সর্বোচ্চ গতিতে চললেও সার্ভার ফাস্ট থাকে এবং কখনো ক্র্যাশ করে না।</p>
+</div>
+                    </div>
+                </div>
+
+                <div class="engineering-depth">
+                    <div class="engineering-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        টেকনিক্যাল কুইক রেফারেন্স
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <span class="tech-card-label">মূল চ্যালেঞ্জ</span>
+                            <span class="tech-card-val">২০MB র TIFF ছবিতে API / MQTT ক্র্যাশের ঝুঁকি</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">ব্লুপ্রিন্ট সমাধান</span>
+                            <span class="tech-card-val">Edge PC থেকে প্যারালাল Pre-signed AWS S3 ডিরেক্ট আপলোড</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">MQTT পৃথকীকরণ</span>
+                            <span class="tech-card-val">MQTT-তে কেবল হালকা মেটাডাটা ও ডিফেক্ট অ্যালার্ট</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">স্থায়িত্ব ফলাফল</span>
+                            <span class="tech-card-val">সর্বোচ্চ লাইন স্পিডেও API মেমোরিতে ০% বটলনেক</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="slide-card" id="slide-08" data-index="7" data-label="স্লাইড 08 / 18" data-search=" PRODUCTION INTELLIGENCE &amp; OVERHEAT SOLUTION লাইভ মনিটরিং ও দুর্ঘটনা রোধ ৪. AI অ্যানোমালি ও সেফটি প্রথমে আমরা কীভাবে প্রবলেমটা সলভ করি তা সহজ ধাপে দেখানো, আর তারপর ফ্যাক্টরিতে বাস্তবে কী ঘটেছিল তা খুব সহজ ও স্পষ্টভাবে বলা। তিন নম্বর ফিচার হলো Production Intelligence — সহজ কথায়, প্রতিটি মেশিন লাইভ দেখে সমস্যা শুরুতেই থামিয়ে দেওয়া।
+
+▶ কীভাবে আমরা সমস্যার সমাধান করি:
+ধাপে ধাপে দেখুন আমরা ফ্লোরে মেশিনের সমস্যাগুলো কীভাবে সমাধান করি:
+প্রথমত, প্রতিটি মেশিনের সেন্সর">
+                <div class="slide-header">
+                    <div class="slide-badge-title">
+                        <div class="slide-top-row">
+                            <span class="slide-num-pill">SLIDE 08</span>
+                            <span class="slide-pillar-tag">৪. AI অ্যানোমালি ও সেফটি</span>
+                        </div>
+                        <h3 class="slide-title-en">লাইভ মনিটরিং ও দুর্ঘটনা রোধ</h3>
+                        <div class="slide-title-bn">PRODUCTION INTELLIGENCE &amp; OVERHEAT SOLUTION</div>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="btn-copy" onclick="copySpeech('speech-text-08', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            কপি করুন
+                        </button>
+                        <a href="/index.html#slide-8" data-local-href="index.html#slide-8" target="_blank" class="btn-deck-link">
+                            স্লাইড দেখুন ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="objective-box">
+                    <div class="objective-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                        স্লাইডের মূল লক্ষ্য (Slide Objective)
+                    </div>
+                    প্রথমে আমরা কীভাবে প্রবলেমটা সলভ করি তা সহজ ধাপে দেখানো, আর তারপর ফ্যাক্টরিতে বাস্তবে কী ঘটেছিল তা খুব সহজ ও স্পষ্টভাবে বলা।
+                </div>
+
+                <div class="speech-section">
+                    <div class="speech-header">
+                        <div class="speech-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                            বাংলা স্পোকেন স্ক্রিপ্ট (সহজ ও সাবলীল)
+                        </div>
+                    </div>
+                    <div class="speech-box" id="speech-text-08">
+                        <p>তিন নম্বর ফিচার হলো Production Intelligence — সহজ কথায়, প্রতিটি মেশিন লাইভ দেখে সমস্যা শুরুতেই থামিয়ে দেওয়া।</p>
+<div class="cue-block cue-solution"><div class="cue-heading">▶ কীভাবে আমরা সমস্যার সমাধান করি:</div>
+<p>ধাপে ধাপে দেখুন আমরা ফ্লোরে মেশিনের সমস্যাগুলো কীভাবে সমাধান করি:<br>প্রথমত, প্রতিটি মেশিনের সেন্সর প্রতি সেকেন্ডে <span class="tech-inline">MQTT</span>-র মাধ্যমে লাইভ তাপমাত্রা ও গতির হিসাব আমাদের <span class="tech-inline">Digital Twin</span>-এ পাঠায়।<br>দ্বিতীয়ত, আমাদের ব্যাকএন্ড স্বয়ংক্রিয়ভাবে প্রতিটি সংখ্যা নিরাপদ সীমার সাথে মিলিয়ে দেখে।<br>তৃতীয়ত, কোনো মেশিন অতিরিক্ত গরম হলে ড্যাশবোর্ড সাথে সাথে লাল হয়ে যায় এবং ৩ সেকেন্ডের মধ্যে শিফট সুপারভাইজারের কাছে SMS অ্যালার্ট পাঠায়।<br>আর চতুর্থত, সুপারভাইজার চার্ট খুলে দেখেন ঠিক কখন তাপমাত্রা বাড়তে শুরু করেছিল এবং সাথে সাথে সেখানেই মেশিন ঠিক করে নেন।</p>
+</div>
+<div class="cue-block cue-problem"><div class="cue-heading">▶ বাস্তবে ফ্লোরে কী ঘটেছিল (Real Case):</div>
+<p>এবার বলি ক্লায়েন্টের ফ্লোরে বাস্তবে কী হয়েছিল:<br>Stenter <span class="bn-pron">(স্টেন্টার)</span> লাইন ০৩-এ কটন কাপড় চলছিল, যেখানে নিরাপদ তাপমাত্রার সীমা ছিল ১৮৫ ডিগ্রি সেলসিয়াস। হঠাৎ করে তাপমাত্রা বেড়ে ১৯২ ডিগ্রিতে উঠে যায়।<br>আমাদের সিস্টেম আসার আগে, শত শত মিটার কাপড় পুড়ে বা হলুদ হয়ে যাওয়ার আগে কেউ বিষয়টা টের পেত না।</p>
+</div>
+<div class="cue-block cue-result"><div class="cue-heading">▶ ফলাফল:</div>
+<p>কিন্তু এবার AutoTaskX ১৯২ ডিগ্রির সেই স্পাইকটি ধরে ফেলে এবং ৩ সেকেন্ডেরও কম সময়ে অ্যালার্ট পাঠিয়ে দেয়। সুপারভাইজার সাথে সাথে তাপমাত্রা কমিয়ে দেন, ফলে পুরো কাপড়ের ব্যাচটি কোনো অপচয় ছাড়াই বেঁচে যায়।</p>
+</div>
+                    </div>
+                </div>
+
+                <div class="engineering-depth">
+                    <div class="engineering-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        টেকনিক্যাল কুইক রেফারেন্স
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <span class="tech-card-label">বাস্তব ঘটনা</span>
+                            <span class="tech-card-val">Stenter চেম্বারের তাপমাত্রা ১৯২°C (সীমা ১৮৫°C)</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">AI ও Twin অ্যাকশন</span>
+                            <span class="tech-card-val">তাৎক্ষণিক লাল ড্যাশবোর্ড অ্যালার্ট + ৩ সেকেন্ডে SMS</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">রুট ডায়াগনোসিস</span>
+                            <span class="tech-card-val">হিস্ট্রি চার্টে তাপমাত্রা বাড়ার সঠিক সময় শনাক্ত</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">ব্যবসায়িক মূল্য</span>
+                            <span class="tech-card-val">কাপড় পোড়া রোধ ও অনাকাঙ্ক্ষিত ডাউনটাইম হ্রাস</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="slide-card" id="slide-09" data-index="8" data-label="স্লাইড 09 / 18" data-search=" TEXTILE OS &amp; DIGITAL TWIN CORE ভিন্ন ভিন্ন মেশিনকে এক ডিজিটাল টুইনে আনা ২. Digital Twin কোর ফ্যাক্টরি ভিজিটে দেখা পুরোনো ও নতুন সব মেশিনকে কীভাবে একটি ইউনিফাইড Digital Twin-এ আনা হয়েছে তা সহজভাবে বলা। এই স্লাইডটি আমাদের Digital Twin ইঞ্জিনের মূল কেন্দ্রবিন্দু দেখাচ্ছে — আমরা এর নাম দিয়েছি Textile OS।
+
+▶ ফ্যাক্টরি ভিজিটে যা দেখেছি:
+ক্লায়েন্টের ফ্যাক্টরি ভিজিট করার সময় আমরা সাথে সাথেই খেয়াল করি যে মেশিনগুলো একই ভাষায় কথা বলে না। তাদের কাছ">
+                <div class="slide-header">
+                    <div class="slide-badge-title">
+                        <div class="slide-top-row">
+                            <span class="slide-num-pill">SLIDE 09</span>
+                            <span class="slide-pillar-tag">২. Digital Twin কোর</span>
+                        </div>
+                        <h3 class="slide-title-en">ভিন্ন ভিন্ন মেশিনকে এক ডিজিটাল টুইনে আনা</h3>
+                        <div class="slide-title-bn">TEXTILE OS &amp; DIGITAL TWIN CORE</div>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="btn-copy" onclick="copySpeech('speech-text-09', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            কপি করুন
+                        </button>
+                        <a href="/index.html#slide-9" data-local-href="index.html#slide-9" target="_blank" class="btn-deck-link">
+                            স্লাইড দেখুন ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="objective-box">
+                    <div class="objective-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                        স্লাইডের মূল লক্ষ্য (Slide Objective)
+                    </div>
+                    ফ্যাক্টরি ভিজিটে দেখা পুরোনো ও নতুন সব মেশিনকে কীভাবে একটি ইউনিফাইড <span class="tech-inline">Digital Twin</span>-এ আনা হয়েছে তা সহজভাবে বলা।
+                </div>
+
+                <div class="speech-section">
+                    <div class="speech-header">
+                        <div class="speech-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                            বাংলা স্পোকেন স্ক্রিপ্ট (সহজ ও সাবলীল)
+                        </div>
+                    </div>
+                    <div class="speech-box" id="speech-text-09">
+                        <p>এই স্লাইডটি আমাদের <span class="tech-inline">Digital Twin</span> ইঞ্জিনের মূল কেন্দ্রবিন্দু দেখাচ্ছে — আমরা এর নাম দিয়েছি <span class="tech-inline">Textile OS</span>।</p>
+<div class="cue-block cue-problem"><div class="cue-heading">▶ ফ্যাক্টরি ভিজিটে যা দেখেছি:</div>
+<p>ক্লায়েন্টের ফ্যাক্টরি ভিজিট করার সময় আমরা সাথে সাথেই খেয়াল করি যে মেশিনগুলো একই ভাষায় কথা বলে না। তাদের কাছে আধুনিক জার্মান Stenter, ইতালিয়ান মেশিন, এমনকি ৩০ বছরের পুরোনো কন্ট্রোলারও ছিল। কেউ <span class="tech-inline">Modbus</span>-এ কথা বলে, কেউ <span class="tech-inline">Siemens S7</span> ব্যবহার করে, আবার কেউ <span class="tech-inline">OPC-UA</span> বা <span class="tech-inline">RS-485</span> ব্যবহার করে। তবুও ক্লায়েন্ট চেয়েছিলেন প্রতিটি মেশিন যেন একটি <span class="tech-inline">Digital Twin</span>-এর ভেতরে আসে।</p>
+</div>
+<div class="cue-block cue-solution"><div class="cue-heading">▶ আমাদের সমাধান:</div>
+<p>তাই আমরা <span class="tech-inline">Textile OS</span>-কে একটি স্মার্ট ট্রান্সলেটর লেয়ার হিসেবে তৈরি করি।<br>আমাদের <span class="tech-inline">Edge Gateways</span> প্রতিটি মেশিন থেকে তার নিজস্ব ভাষাতেই ডেটা পড়ে নেয় — যেমন তাপমাত্রা, আর্দ্রতা, স্টিম প্রেসার, গতি এবং বিদ্যুৎ খরচ।<br>এজ লেভেল থেকেই আমরা ওই সব ভিন্ন ভিন্ন সিগন্যালকে একটি পরিষ্কার, স্ট্যান্ডার্ড <span class="tech-inline">JSON</span> ফরম্যাটে রূপান্তর করি।<br>সেই পরিষ্কার ডেটা স্ট্রিম আমাদের ব্যাকএন্ডে প্রতিটি মেশিনের একটি লাইভ ভার্চুয়াল টুইন আপডেট রাখে।</p>
+</div>
+<div class="cue-block cue-result"><div class="cue-heading">▶ ফলাফল:</div>
+<p>মেশিন একদম নতুন হোক বা ৩০ বছরের পুরোনো, AutoTaskX-এর ভেতরে প্রতিটি মেশিন একটি পরিষ্কার <span class="tech-inline">Digital Twin</span> নোড হিসেবে কাজ করে।</p>
+</div>
+                    </div>
+                </div>
+
+                <div class="engineering-depth">
+                    <div class="engineering-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        টেকনিক্যাল কুইক রেফারেন্স
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <span class="tech-card-label">ভিজিট ফাইন্ডিং</span>
+                            <span class="tech-card-val">মিশ্র ফ্লিট: আধুনিক ইউরোপীয় Stenter + ৩০ বছরের পুরোনো PLC</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">সাপোর্টেড প্রোটোকল</span>
+                            <span class="tech-card-val">Modbus RTU/TCP, Siemens S7, OPC-UA, RS-485 Serial</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">Digital Twin লেয়ার</span>
+                            <span class="tech-card-val">Textile OS এজে স্ট্যান্ডার্ড JSON স্কিমায় রূপান্তর</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">ভার্চুয়াল সিঙ্ক</span>
+                            <span class="tech-card-val">প্রতিটি মেশিন একটি অভিন্ন Digital Twin নোড</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="slide-card" id="slide-10" data-index="9" data-label="স্লাইড 10 / 18" data-search=" IOT DATA TRACE UNDER 25MS একটি সেন্সর রিডিংয়ের ২৫ মিলিসেকেন্ডের যাত্রা ২. ডেটা ট্রেস (&lt;25ms) ইন্টারভিউয়ারকে স্লাইডের বাটনে ক্লিক করে &lt;25ms লাইভ ডেটা ফ্লো দেখানো। ক্লায়েন্ট সত্যিকারের রিয়েল-টাইম আপডেট চেয়েছিলেন, তাই ব্যাকএন্ডে বিলম্ব — অর্থাৎ latency (লেইটেন্সি) — একদম কম রাখা আমাদের জন্য খুব গুরুত্বপূর্ণ ছিল। চলুন Slide 10-এ একটি মাত্র তাপমাত্রার রিডিংয়ের যাত্রা অনুসরণ করি:
+
+প্রথমে Stenter মেশিনের ">
+                <div class="slide-header">
+                    <div class="slide-badge-title">
+                        <div class="slide-top-row">
+                            <span class="slide-num-pill">SLIDE 10</span>
+                            <span class="slide-pillar-tag">২. ডেটা ট্রেস (&lt;25ms)</span>
+                        </div>
+                        <h3 class="slide-title-en">একটি সেন্সর রিডিংয়ের ২৫ মিলিসেকেন্ডের যাত্রা</h3>
+                        <div class="slide-title-bn">IOT DATA TRACE UNDER 25MS</div>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="btn-copy" onclick="copySpeech('speech-text-10', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            কপি করুন
+                        </button>
+                        <a href="/index.html#slide-10" data-local-href="index.html#slide-10" target="_blank" class="btn-deck-link">
+                            স্লাইড দেখুন ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="objective-box">
+                    <div class="objective-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                        স্লাইডের মূল লক্ষ্য (Slide Objective)
+                    </div>
+                    ইন্টারভিউয়ারকে স্লাইডের বাটনে ক্লিক করে &lt;25ms লাইভ ডেটা ফ্লো দেখানো।
+                </div>
+
+                <div class="speech-section">
+                    <div class="speech-header">
+                        <div class="speech-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                            বাংলা স্পোকেন স্ক্রিপ্ট (সহজ ও সাবলীল)
+                        </div>
+                    </div>
+                    <div class="speech-box" id="speech-text-10">
+                        <p>ক্লায়েন্ট সত্যিকারের রিয়েল-টাইম আপডেট চেয়েছিলেন, তাই ব্যাকএন্ডে বিলম্ব — অর্থাৎ latency <span class="bn-pron">(লেইটেন্সি)</span> — একদম কম রাখা আমাদের জন্য খুব গুরুত্বপূর্ণ ছিল। চলুন Slide 10-এ একটি মাত্র তাপমাত্রার রিডিংয়ের যাত্রা অনুসরণ করি:</p>
+<p>প্রথমে Stenter মেশিনের ভেতরে একটি <span class="tech-inline">PT100</span> <span class="bn-pron">(পি-টি হান্ড্রেড)</span> সেন্সর প্রতি ১০০ মিলিসেকেন্ডে ১৮৫.৫ ডিগ্রি রিডিং নেয়।<br>এরপর IoT Gateway সেই সিগন্যালকে ছোট একটি <span class="tech-inline">MQTT</span> প্যাকেটে রূপান্তর করে।<br>প্যাকেটটি ফ্যাক্টরি নেটওয়ার্ক হয়ে আমাদের <span class="tech-inline">FastAPI</span> ব্যাকএন্ডে পৌঁছায়।<br>AutoTaskX নিরাপদ সীমা চেক করে, <span class="tech-inline">Digital Twin</span> আপডেট করে, <span class="tech-inline">TimescaleDB</span>-তে সেভ করে এবং লাইভ স্ক্রিনে পাঠিয়ে দেয়।</p>
+<p>আসুন স্লাইডের ওপর &#x27;Animate Data Flow&#x27; বাটনে ক্লিক করে দেখি — আপনারা নিজের চোখেই দেখতে পাবেন ছয়টি ধাপই ২৫ মিলিসেকেন্ডের কম সময়ে শেষ হচ্ছে!</p>
+                    </div>
+                </div>
+
+                <div class="engineering-depth">
+                    <div class="engineering-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        টেকনিক্যাল কুইক রেফারেন্স
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <span class="tech-card-label">সেন্সর ট্রেস</span>
+                            <span class="tech-card-val">PT100 RTD (185.5°C @ 100ms) -&gt; Gateway -&gt; MQTT -&gt; UI</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">প্যাকেট ওভারহেড</span>
+                            <span class="tech-card-val">অত্যন্ত হালকা ২-বাইট MQTT হেডার (QoS 1)</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">পাইপলাইন লেইটেন্সি</span>
+                            <span class="tech-card-val">হার্ডওয়্যার থেকে লাইভ স্ক্রিনে &lt;25ms এন্ড-টু-এন্ড</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">ইন্টারেক্টিভ ডেমো</span>
+                            <span class="tech-card-val">Slide 10-এ &#x27;Animate Data Flow&#x27; ক্লিক করে লাইভ দেখুন</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="slide-card" id="slide-11" data-index="10" data-label="স্লাইড 11 / 18" data-search=" WHY MQTT? DATA TRANSPORT DECISION এম-কিউ-টি-টি কেন ব্যবহার করলাম? ৫. MQTT প্রোটোকল সিদ্ধান্ত কেন আমরা HTTP-র বদলে MQTT বেছে নিলাম এবং বড় ছবির জন্য কেন সরাসরি S3 ব্যবহার করলাম তা সহজভাবে বলা। আপনাদের মনে প্রশ্ন আসতে পারে — সেন্সর ডেটার জন্য আমরা সাধারণ HTTP REST API-র বদলে কেন MQTT ব্যবহার করলাম?
+
+▶ সমস্যা:
+ভাবুন তো, ৫০টি মেশিন প্রতি সেকেন্ডে সাধারণ HTTP দিয়ে রিডিং পাঠাচ্ছে। HTTP-তে বড় হেডার থাকে এবং প্রতিবার নতুন কানেকশন খুলতে ">
+                <div class="slide-header">
+                    <div class="slide-badge-title">
+                        <div class="slide-top-row">
+                            <span class="slide-num-pill">SLIDE 11</span>
+                            <span class="slide-pillar-tag">৫. MQTT প্রোটোকল সিদ্ধান্ত</span>
+                        </div>
+                        <h3 class="slide-title-en">এম-কিউ-টি-টি কেন ব্যবহার করলাম?</h3>
+                        <div class="slide-title-bn">WHY MQTT? DATA TRANSPORT DECISION</div>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="btn-copy" onclick="copySpeech('speech-text-11', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            কপি করুন
+                        </button>
+                        <a href="/index.html#slide-11" data-local-href="index.html#slide-11" target="_blank" class="btn-deck-link">
+                            স্লাইড দেখুন ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="objective-box">
+                    <div class="objective-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                        স্লাইডের মূল লক্ষ্য (Slide Objective)
+                    </div>
+                    কেন আমরা HTTP-র বদলে <span class="tech-inline">MQTT</span> বেছে নিলাম এবং বড় ছবির জন্য কেন সরাসরি <span class="tech-inline">S3</span> ব্যবহার করলাম তা সহজভাবে বলা।
+                </div>
+
+                <div class="speech-section">
+                    <div class="speech-header">
+                        <div class="speech-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                            বাংলা স্পোকেন স্ক্রিপ্ট (সহজ ও সাবলীল)
+                        </div>
+                    </div>
+                    <div class="speech-box" id="speech-text-11">
+                        <p>আপনাদের মনে প্রশ্ন আসতে পারে — সেন্সর ডেটার জন্য আমরা সাধারণ HTTP REST API-র বদলে কেন <span class="tech-inline">MQTT</span> ব্যবহার করলাম?</p>
+<div class="cue-block cue-problem"><div class="cue-heading">▶ সমস্যা:</div>
+<p>ভাবুন তো, ৫০টি মেশিন প্রতি সেকেন্ডে সাধারণ HTTP দিয়ে রিডিং পাঠাচ্ছে। HTTP-তে বড় হেডার থাকে এবং প্রতিবার নতুন কানেকশন খুলতে হয়। ফ্যাক্টরির দুর্বল Wi-Fi-তে এতে বিশাল বটলনেক তৈরি হয় এবং ডেটা ড্রপ করে।</p>
+</div>
+<div class="cue-block cue-solution"><div class="cue-heading">▶ আমাদের সমাধান:</div>
+<p>তাই আমরা সিস্টেমে দুটি সহজ নিয়ম সেট করি:<br>নিয়ম এক: ছোট সেন্সর রিডিংগুলো যাবে আমাদের <span class="tech-inline">EMQX</span> <span class="tech-inline">MQTT</span> Broker-এর মাধ্যমে। তাপমাত্রা বা গতির ডেটা মাত্র কয়েক বাইটের হয়, আর <span class="tech-inline">MQTT</span> Pub/Sub <span class="bn-pron">(পাব/সাব)</span> চ্যানেলে খুব হালকা ২-বাইটের হেডার ব্যবহার করে — ফলে আমাদের <span class="tech-inline">Digital Twin</span> একটি রিডিংও মিস করে না।<br>নিয়ম দুই: ২০ মেগাবাইটের ভারী ছবি কখনোই <span class="tech-inline">MQTT</span>-তে যাবে না। সেগুলো সরাসরি HTTPS দিয়ে <span class="tech-inline">AWS S3</span>-তে যাবে, যাতে ব্রোকার একদম ফ্রি ও হালকা থাকে।</p>
+</div>
+<div class="cue-block cue-result"><div class="cue-heading">▶ ফলাফল:</div>
+<p>পুরো ফ্যাক্টরি ফ্লোর জুড়ে আমরা দ্রুত ও নির্ভরযোগ্য কমিউনিকেশন পাই।</p>
+</div>
+                    </div>
+                </div>
+
+                <div class="engineering-depth">
+                    <div class="engineering-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        টেকনিক্যাল কুইক রেফারেন্স
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <span class="tech-card-label">প্রোটোকল বিভাজন</span>
+                            <span class="tech-card-val">ছোট সেন্সর ডেটায় MQTT বনাম ছবির জন্য HTTPS S3</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">কেন EMQX MQTT</span>
+                            <span class="tech-card-val">সবসময় খোলা কানেকশন, কম ব্যান্ডউইথ ও জিরো-ড্রপ QoS</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">কেন ডিরেক্ট S3</span>
+                            <span class="tech-card-val">২০MB ভিশন ফাইল MQTT ব্রোকারের মেমোরির বাইরে রাখে</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">Digital Twin ফিড</span>
+                            <span class="tech-card-val">হাই-ফ্রিকোয়েন্সি Pub/Sub স্ট্রিমে টুইন লাইভ আপডেট</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="slide-card" id="slide-12" data-index="11" data-label="স্লাইড 12 / 18" data-search=" STORAGE ARCHITECTURE তিনটি বিশেষায়িত ডেটাবেজ কেন? ৫. পলিগ্লট ডেটা স্টোরেজ ৩টি আলাদা ডেটাবেজ কেন ব্যবহার করা হয়েছে তা খুব সহজ যুক্তিতে বোঝানো। একজন Data Engineer হিসেবে সব ধরনের ডেটা একটিমাত্র ডেটাবেজে রাখলে সিস্টেম দ্রুত স্লো হয়ে যায়। তাই আমরা প্রতিটি কাজের ধরন অনুযায়ী তিনটি আলাদা স্টোরেজ বেছে নিয়েছি:
+
+প্রথমত, ব্যবসার রেকর্ডের জন্য PostgreSQL — যেমন বায়ার অর্ডার, ইউজার অ্যাকাউন্ট">
+                <div class="slide-header">
+                    <div class="slide-badge-title">
+                        <div class="slide-top-row">
+                            <span class="slide-num-pill">SLIDE 12</span>
+                            <span class="slide-pillar-tag">৫. পলিগ্লট ডেটা স্টোরেজ</span>
+                        </div>
+                        <h3 class="slide-title-en">তিনটি বিশেষায়িত ডেটাবেজ কেন?</h3>
+                        <div class="slide-title-bn">STORAGE ARCHITECTURE</div>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="btn-copy" onclick="copySpeech('speech-text-12', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            কপি করুন
+                        </button>
+                        <a href="/index.html#slide-12" data-local-href="index.html#slide-12" target="_blank" class="btn-deck-link">
+                            স্লাইড দেখুন ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="objective-box">
+                    <div class="objective-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                        স্লাইডের মূল লক্ষ্য (Slide Objective)
+                    </div>
+                    ৩টি আলাদা ডেটাবেজ কেন ব্যবহার করা হয়েছে তা খুব সহজ যুক্তিতে বোঝানো।
+                </div>
+
+                <div class="speech-section">
+                    <div class="speech-header">
+                        <div class="speech-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                            বাংলা স্পোকেন স্ক্রিপ্ট (সহজ ও সাবলীল)
+                        </div>
+                    </div>
+                    <div class="speech-box" id="speech-text-12">
+                        <p>একজন Data Engineer হিসেবে সব ধরনের ডেটা একটিমাত্র ডেটাবেজে রাখলে সিস্টেম দ্রুত স্লো হয়ে যায়। তাই আমরা প্রতিটি কাজের ধরন অনুযায়ী তিনটি আলাদা স্টোরেজ বেছে নিয়েছি:</p>
+<p>প্রথমত, ব্যবসার রেকর্ডের জন্য <span class="tech-inline">PostgreSQL</span> — যেমন বায়ার অর্ডার, ইউজার অ্যাকাউন্ট, মেশিন প্রোফাইল এবং ডাই রেসিপি, যেখানে ডেটার নির্ভুলতা সবচেয়ে জরুরি।</p>
+<p>দ্বিতীয়ত, সময়ভিত্তিক সেন্সর ডেটার জন্য <span class="tech-inline">TimescaleDB</span>। যেহেতু আমরা লাখ লাখ সেন্সর রো সেভ করি, সাধারণ টেবিল সময়ের সাথে সাথে খুব ধীর হয়ে যায়। <span class="tech-inline">TimescaleDB</span> চলে <span class="tech-inline">PostgreSQL</span>-এর ভেতরেই — এটি <span class="tech-inline">Hypertables</span> <span class="bn-pron">(হাইপার-টেবলস)</span> ব্যবহার করে নিজে থেকেই সময় অনুযায়ী ডেটা ভাগ করে এবং স্টোরেজ স্পেস ৯৫ শতাংশ পর্যন্ত কমিয়ে দেয়!</p>
+<p>আর তৃতীয়ত, ভারী ফাইলের জন্য <span class="tech-inline">AWS S3</span> — যেমন কাপড় স্ক্যানের ছবি ও PDF রিপোর্ট।</p>
+<p>ফলে কোনো ম্যানেজার যখন ব্যাচের হিস্ট্রি চেক করেন, তিনটি স্টোরেজই পাশাপাশি দারুণ দ্রুতগতিতে কাজ করে।</p>
+                    </div>
+                </div>
+
+                <div class="engineering-depth">
+                    <div class="engineering-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        টেকনিক্যাল কুইক রেফারেন্স
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <span class="tech-card-label">স্টোরেজ কৌশল</span>
+                            <span class="tech-card-val">কাজের ধরন অনুযায়ী তিনটি বিশেষায়িত ডেটাবেজ</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">PostgreSQL</span>
+                            <span class="tech-card-val">অর্ডার, ইউজার, ডাই রেসিপি ও ব্যাচের ACID রেকর্ড</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">TimescaleDB</span>
+                            <span class="tech-card-val">Hypertables অটো-চাংকিং ও ৯৫% স্টোরেজ কম্প্রেশন</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">AWS S3</span>
+                            <span class="tech-card-val">২০MB TIFF কাপড় স্ক্যান ও জেনারেটেড PDF রিপোর্ট</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="slide-card" id="slide-13" data-index="12" data-label="স্লাইড 13 / 18" data-search=" REAL-TIME DELIVERY PIPELINE লাইভ আপডেট বনাম হিস্টোরিক্যাল রিপোর্ট ২. রিয়েল-টাইম ডেটা সার্ভিং অপারেটরের লাইভ স্ক্রিন আর ডিরেক্টরের হিস্টোরিক্যাল রিপোর্ট আলাদা চ্যানেলে রাখার কারণ সহজভাবে বলা। ডেটা সেভ করা কাজের অর্ধেক — বিভিন্ন মানুষের কাছে তা পরিষ্কারভাবে পৌঁছে দেওয়াটাও ঠিক ততটাই গুরুত্বপূর্ণ।
+
+▶ সমস্যা:
+ফ্লোরের কর্মীদের পেজ রিফ্রেশ না করেই তাৎক্ষণিক লাইভ আপডেট দরকার। অন্যদিকে, ক্লায়েন্টের ডিরেক্টররা কয়েক সপ্তাহের শিফট ডেটা নি">
+                <div class="slide-header">
+                    <div class="slide-badge-title">
+                        <div class="slide-top-row">
+                            <span class="slide-num-pill">SLIDE 13</span>
+                            <span class="slide-pillar-tag">২. রিয়েল-টাইম ডেটা সার্ভিং</span>
+                        </div>
+                        <h3 class="slide-title-en">লাইভ আপডেট বনাম হিস্টোরিক্যাল রিপোর্ট</h3>
+                        <div class="slide-title-bn">REAL-TIME DELIVERY PIPELINE</div>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="btn-copy" onclick="copySpeech('speech-text-13', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            কপি করুন
+                        </button>
+                        <a href="/index.html#slide-13" data-local-href="index.html#slide-13" target="_blank" class="btn-deck-link">
+                            স্লাইড দেখুন ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="objective-box">
+                    <div class="objective-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                        স্লাইডের মূল লক্ষ্য (Slide Objective)
+                    </div>
+                    অপারেটরের লাইভ স্ক্রিন আর ডিরেক্টরের হিস্টোরিক্যাল রিপোর্ট আলাদা চ্যানেলে রাখার কারণ সহজভাবে বলা।
+                </div>
+
+                <div class="speech-section">
+                    <div class="speech-header">
+                        <div class="speech-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                            বাংলা স্পোকেন স্ক্রিপ্ট (সহজ ও সাবলীল)
+                        </div>
+                    </div>
+                    <div class="speech-box" id="speech-text-13">
+                        <p>ডেটা সেভ করা কাজের অর্ধেক — বিভিন্ন মানুষের কাছে তা পরিষ্কারভাবে পৌঁছে দেওয়াটাও ঠিক ততটাই গুরুত্বপূর্ণ।</p>
+<div class="cue-block cue-problem"><div class="cue-heading">▶ সমস্যা:</div>
+<p>ফ্লোরের কর্মীদের পেজ রিফ্রেশ না করেই তাৎক্ষণিক লাইভ আপডেট দরকার। অন্যদিকে, ক্লায়েন্টের ডিরেক্টররা কয়েক সপ্তাহের শিফট ডেটা নিয়ে ভারী চার্ট লোড করেন। দুটোই একই চ্যানেলে চললে বড় একটি রিপোর্ট লাইভ স্ক্রিনকে ফ্রিজ করে দিতে পারত।</p>
+</div>
+<div class="cue-block cue-solution"><div class="cue-heading">▶ আমাদের সমাধান:</div>
+<p>তাই আমরা ডেলিভারি রাস্তাটিকে দুটি আলাদা লেনে ভাগ করে দিই:<br>ফ্লোরের লাইভ স্ক্রিনের জন্য <span class="tech-inline">FastAPI</span> <span class="tech-inline">WebSockets</span> কোনো অপেক্ষা ছাড়াই <span class="tech-inline">Digital Twin</span>-এর পরিবর্তন সরাসরি <span class="tech-inline">Next.js</span> ড্যাশবোর্ডে পুশ করে।<br>আর অতীতের ট্রেন্ড ও শিফট রিপোর্টের জন্য আমরা <span class="tech-inline">TimescaleDB</span>-র সামারি থেকে ক্যাশ করা REST API ব্যবহার করি।</p>
+</div>
+<div class="cue-block cue-result"><div class="cue-heading">▶ ফলাফল:</div>
+<p>কোনো ডিরেক্টর যখন ৩০ দিনের এনার্জি রিপোর্ট লোড করেন, তখনও ফ্লোরের লাইভ মেশিন স্ক্রিন একদম সুপার ফাস্ট থাকে।</p>
+</div>
+                    </div>
+                </div>
+
+                <div class="engineering-depth">
+                    <div class="engineering-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        টেকনিক্যাল কুইক রেফারেন্স
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <span class="tech-card-label">ডুয়াল চ্যানেল</span>
+                            <span class="tech-card-val">WebSockets (লাইভ ফ্লোর) + Cached REST API (রিপোর্ট)</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">ফ্লোর অপারেটর</span>
+                            <span class="tech-card-val">জিরো-পোলিং লাইভ Digital Twin স্ক্রিন (&lt;25ms)</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">ম্যানেজমেন্ট</span>
+                            <span class="tech-card-val">৩০ দিনের ভারী ট্রেন্ড ও শিফট এনার্জি অ্যানালিটিক্স</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">পারফরম্যান্স</span>
+                            <span class="tech-card-val">ভারী রিপোর্ট কখনো রিয়েল-টাইম মনিটরিং আটকায় না</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="slide-card" id="slide-14" data-index="13" data-label="স্লাইড 14 / 18" data-search=" FEATURE 05 — ERP INTEGRATION ফ্যাক্টরি থেকে অফিসের ই-আর-পি অটোমেশন ৩. এন্টারপ্রাইজ ERP ব্রিজ ক্লায়েন্টের অফিসের ERP সফটওয়্যারের সাথে ফ্যাক্টরি ফ্লোর কীভাবে অটোমেটিক যুক্ত হলো তা বলা। পাঁচ নম্বর ফিচারটি এমন একটি গ্যাপ পূরণ করে যা ক্লায়েন্ট আমাদের প্রথম অফিস মিটিংয়েই সরাসরি চেয়েছিলেন — ফ্যাক্টরি ফ্লোরকে তাদের হেড-অফিসের ERP সফটওয়্যারের সাথে যুক্ত করা।
+
+▶ সমস্যা:
+অধিকাংশ বড় টেক্সটাইল গ্রুপের মতোই ক্লায়েন্ট আগে থেকেই SAP">
+                <div class="slide-header">
+                    <div class="slide-badge-title">
+                        <div class="slide-top-row">
+                            <span class="slide-num-pill">SLIDE 14</span>
+                            <span class="slide-pillar-tag">৩. এন্টারপ্রাইজ ERP ব্রিজ</span>
+                        </div>
+                        <h3 class="slide-title-en">ফ্যাক্টরি থেকে অফিসের ই-আর-পি অটোমেশন</h3>
+                        <div class="slide-title-bn">FEATURE 05 — ERP INTEGRATION</div>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="btn-copy" onclick="copySpeech('speech-text-14', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            কপি করুন
+                        </button>
+                        <a href="/index.html#slide-14" data-local-href="index.html#slide-14" target="_blank" class="btn-deck-link">
+                            স্লাইড দেখুন ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="objective-box">
+                    <div class="objective-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                        স্লাইডের মূল লক্ষ্য (Slide Objective)
+                    </div>
+                    ক্লায়েন্টের অফিসের <span class="tech-inline">ERP</span> সফটওয়্যারের সাথে ফ্যাক্টরি ফ্লোর কীভাবে অটোমেটিক যুক্ত হলো তা বলা।
+                </div>
+
+                <div class="speech-section">
+                    <div class="speech-header">
+                        <div class="speech-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                            বাংলা স্পোকেন স্ক্রিপ্ট (সহজ ও সাবলীল)
+                        </div>
+                    </div>
+                    <div class="speech-box" id="speech-text-14">
+                        <p>পাঁচ নম্বর ফিচারটি এমন একটি গ্যাপ পূরণ করে যা ক্লায়েন্ট আমাদের প্রথম অফিস মিটিংয়েই সরাসরি চেয়েছিলেন — ফ্যাক্টরি ফ্লোরকে তাদের হেড-অফিসের <span class="tech-inline">ERP</span> সফটওয়্যারের সাথে যুক্ত করা।</p>
+<div class="cue-block cue-problem"><div class="cue-heading">▶ সমস্যা:</div>
+<p>অধিকাংশ বড় টেক্সটাইল গ্রুপের মতোই ক্লায়েন্ট আগে থেকেই <span class="tech-inline">SAP</span>, <span class="tech-inline">Datatex NOW</span>, বা <span class="tech-inline">Infor M3</span>-এর মতো <span class="tech-inline">ERP</span> ব্যবহার করতেন। AutoTaskX-এর আগে স্টাফরা কাগজে উৎপাদনের হিসাব লিখতেন, আর কেউ এক-দুই দিন পর সেটা <span class="tech-inline">ERP</span>-তে টাইপ করতেন — যেখানে প্রায়ই ভুল হতো।</p>
+</div>
+<div class="cue-block cue-solution"><div class="cue-heading">▶ আমাদের সমাধান:</div>
+<p>তাই আমরা একটি টু-ওয়ে <span class="tech-inline">ERP</span> ব্রিজ তৈরি করি:<br>ওয়ার্ক অর্ডারগুলো <span class="tech-inline">ERP</span> থেকে সরাসরি ডিজিটাল জব হিসেবে AutoTaskX-এ চলে আসে।<br>আর ডাইং বা ইন্সপেকশন ব্যাচ শেষ হওয়ার সাথে সাথে প্রকৃত কত মিটার কাপড় তৈরি হলো এবং ঠিক কতটুকু কেমিক্যাল খরচ হলো তা অটোমেটিক <span class="tech-inline">ERP</span>-র স্টক রেকর্ডে সিঙ্ক হয়ে যায়।</p>
+</div>
+<div class="cue-block cue-result"><div class="cue-heading">▶ ফলাফল:</div>
+<p>দুই দিনের কোনো দেরি নেই, ম্যানুয়াল টাইপিংয়ের ভুল নেই, এবং ক্লায়েন্টের জন্য ১০০ শতাংশ স্বচ্ছ স্টক ট্র্যাকিং নিশ্চিত হয়েছে।</p>
+</div>
+                    </div>
+                </div>
+
+                <div class="engineering-depth">
+                    <div class="engineering-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        টেকনিক্যাল কুইক রেফারেন্স
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <span class="tech-card-label">ERP চাহিদা</span>
+                            <span class="tech-card-val">SAP / Datatex-এ ২৪–৪৮ ঘণ্টার ম্যানুয়াল দেরি দূর করা</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">ওয়ার্ক অর্ডার ডাউন</span>
+                            <span class="tech-card-val">ERP অর্ডার স্বয়ংক্রিয়ভাবে ডিজিটাল শপফ্লোর জব হয়</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">আউটপুট সিঙ্ক আপ</span>
+                            <span class="tech-card-val">আসল মিটার ও কেমিক্যাল খরচ ERP স্টকে অটো-আপডেট</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">অডিট ইমপ্যাক্ট</span>
+                            <span class="tech-card-val">১০০% পেপারলেস ও নির্ভুল স্টক ট্র্যাকিং</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="slide-card" id="slide-15" data-index="14" data-label="স্লাইড 15 / 18" data-search=" COMPLETE 4-ZONE ARCHITECTURE পুরো সিস্টেমের ৪-জোন ব্লুপ্রিন্ট ২. ৪-জোন স্কেলেবল ব্লুপ্রিন্ট ৪টি জোনে পুরো আর্কিটেকচার ব্লুপ্রিন্ট এক নজরে দেখানো এবং এটি কত সহজে স্কেল করা যায় তা বলা। এই স্লাইডে তাকালে দেখবেন, চারটি স্পষ্ট জোনে আমাদের পুরো আর্কিটেকচার ব্লুপ্রিন্ট সাজানো আছে:
+
+জোন এক হলো Physical Factory — স্টেন্টার, ডাইং মেশিন, লুম, ক্যামেরা এবং ১০০টিরও বেশি সেন্সর।
+জোন দুই হলো Connection Layer — Edge Gateways যা Modbus ">
+                <div class="slide-header">
+                    <div class="slide-badge-title">
+                        <div class="slide-top-row">
+                            <span class="slide-num-pill">SLIDE 15</span>
+                            <span class="slide-pillar-tag">২. ৪-জোন স্কেলেবল ব্লুপ্রিন্ট</span>
+                        </div>
+                        <h3 class="slide-title-en">পুরো সিস্টেমের ৪-জোন ব্লুপ্রিন্ট</h3>
+                        <div class="slide-title-bn">COMPLETE 4-ZONE ARCHITECTURE</div>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="btn-copy" onclick="copySpeech('speech-text-15', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            কপি করুন
+                        </button>
+                        <a href="/index.html#slide-15" data-local-href="index.html#slide-15" target="_blank" class="btn-deck-link">
+                            স্লাইড দেখুন ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="objective-box">
+                    <div class="objective-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                        স্লাইডের মূল লক্ষ্য (Slide Objective)
+                    </div>
+                    ৪টি জোনে পুরো আর্কিটেকচার ব্লুপ্রিন্ট এক নজরে দেখানো এবং এটি কত সহজে স্কেল করা যায় তা বলা।
+                </div>
+
+                <div class="speech-section">
+                    <div class="speech-header">
+                        <div class="speech-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                            বাংলা স্পোকেন স্ক্রিপ্ট (সহজ ও সাবলীল)
+                        </div>
+                    </div>
+                    <div class="speech-box" id="speech-text-15">
+                        <p>এই স্লাইডে তাকালে দেখবেন, চারটি স্পষ্ট জোনে আমাদের পুরো আর্কিটেকচার ব্লুপ্রিন্ট সাজানো আছে:</p>
+<p>জোন এক হলো Physical Factory — স্টেন্টার, ডাইং মেশিন, লুম, ক্যামেরা এবং ১০০টিরও বেশি সেন্সর।<br>জোন দুই হলো Connection Layer — <span class="tech-inline">Edge Gateways</span> যা <span class="tech-inline">Modbus</span> বা <span class="tech-inline">OPC-UA</span> পড়ে আমাদের <span class="tech-inline">EMQX</span> <span class="tech-inline">MQTT</span> Broker-এ পাঠায়।<br>জোন তিন হলো Core &amp; Storage Layer — আমাদের <span class="tech-inline">FastAPI</span> ব্যাকএন্ড, AI ভিশন মডেল, <span class="tech-inline">Digital Twin</span> স্টেট এবং তিনটি ডেটাবেজ: <span class="tech-inline">PostgreSQL</span>, <span class="tech-inline">TimescaleDB</span> ও <span class="tech-inline">AWS S3</span>।<br>জোন চার হলো Delivery &amp; Business Apps — <span class="tech-inline">Next.js</span> ড্যাশবোর্ড, মোবাইল অ্যাপ, SMS অ্যালার্ট এবং <span class="tech-inline">ERP</span> ব্রিজ।</p>
+<p>আর ক্লায়েন্ট চেয়েছিলেন যেন ভবিষ্যতে তারা সহজে ফ্যাক্টরি বড় করতে পারেন। যেহেতু প্রতিটি লেয়ার পরিষ্কারভাবে আলাদা করা, কালকে যদি তারা আরেকটি বিল্ডিংয়ে ৫০টি নতুন মেশিন যোগ করেন, আমাদের শুধু জোন এক ও দুই-এ গেটওয়ে যোগ করতে হবে — মূল কোডে কোনো পরিবর্তনেরই প্রয়োজন হবে না।</p>
+                    </div>
+                </div>
+
+                <div class="engineering-depth">
+                    <div class="engineering-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        টেকনিক্যাল কুইক রেফারেন্স
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <span class="tech-card-label">জোন ১ ও জোন ২</span>
+                            <span class="tech-card-val">১০০+ ফ্লোর সেন্সর -&gt; Edge Gateways -&gt; EMQX MQTT</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">জোন ৩ (কোর)</span>
+                            <span class="tech-card-val">FastAPI, AI মডেল, Digital Twin ও ৩টি ডেটাবেজ</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">জোন ৪ (অ্যাপস)</span>
+                            <span class="tech-card-val">Next.js ড্যাশবোর্ড, মোবাইল QA, SMS ও ERP কানেক্টর</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">ক্লায়েন্ট সম্প্রসারণ</span>
+                            <span class="tech-card-val">মূল কোড না বদলেই ৫০+ নতুন মেশিন যোগ করার সুবিধা</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="slide-card" id="slide-16" data-index="15" data-label="স্লাইড 16 / 18" data-search=" MEASURABLE BUSINESS OUTCOMES গাজীপুর মিলে বাস্তব ফলাফল ও আরওআই ৬. ক্লায়েন্ট ROI ও ইমপ্যাক্ট গাজীপুর টেক্সটাইল মিলে পাওয়া বাস্তব ও সন্তোষজনক ফলাফলগুলো তুলে ধরা। দিনের শেষে ভালো ইঞ্জিনিয়ারিংয়ের সার্থকতা হলো বাস্তব ব্যবসায়িক সাফল্য এনে দেওয়া। এই স্লাইডে আপনারা ক্লায়েন্টের গাজীপুর টেক্সটাইল মিল নম্বর ৪-এর লাইভ সংখ্যাগুলো দেখতে পাচ্ছেন:
+
+সংযুক্ত ২৬টি মেশিনের মধ্যে ২৪টি এখন বিরামহীনভাবে চলছে, আর ২টি">
+                <div class="slide-header">
+                    <div class="slide-badge-title">
+                        <div class="slide-top-row">
+                            <span class="slide-num-pill">SLIDE 16</span>
+                            <span class="slide-pillar-tag">৬. ক্লায়েন্ট ROI ও ইমপ্যাক্ট</span>
+                        </div>
+                        <h3 class="slide-title-en">গাজীপুর মিলে বাস্তব ফলাফল ও আরওআই</h3>
+                        <div class="slide-title-bn">MEASURABLE BUSINESS OUTCOMES</div>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="btn-copy" onclick="copySpeech('speech-text-16', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            কপি করুন
+                        </button>
+                        <a href="/index.html#slide-16" data-local-href="index.html#slide-16" target="_blank" class="btn-deck-link">
+                            স্লাইড দেখুন ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="objective-box">
+                    <div class="objective-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                        স্লাইডের মূল লক্ষ্য (Slide Objective)
+                    </div>
+                    গাজীপুর টেক্সটাইল মিলে পাওয়া বাস্তব ও সন্তোষজনক ফলাফলগুলো তুলে ধরা।
+                </div>
+
+                <div class="speech-section">
+                    <div class="speech-header">
+                        <div class="speech-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                            বাংলা স্পোকেন স্ক্রিপ্ট (সহজ ও সাবলীল)
+                        </div>
+                    </div>
+                    <div class="speech-box" id="speech-text-16">
+                        <p>দিনের শেষে ভালো ইঞ্জিনিয়ারিংয়ের সার্থকতা হলো বাস্তব ব্যবসায়িক সাফল্য এনে দেওয়া। এই স্লাইডে আপনারা ক্লায়েন্টের গাজীপুর টেক্সটাইল মিল নম্বর ৪-এর লাইভ সংখ্যাগুলো দেখতে পাচ্ছেন:</p>
+<p>সংযুক্ত ২৬টি মেশিনের মধ্যে ২৪টি এখন বিরামহীনভাবে চলছে, আর ২টি পূর্ব-পরিকল্পিত মেইনটেন্যান্সের জন্য অফলাইনে আছে — অর্থাৎ এখন আর কিছুই আড়ালে থাকে না।<br>স্টেন্টারের তাপমাত্রা ১৮৫.৫ ডিগ্রিতে স্থির আছে এবং কোনো ক্রিটিক্যাল অ্যালার্ট নেই।<br>এক দিনে আমরা রিয়েল-টাইমে ৪২,৫০০ মিটার কাপড় ট্র্যাক করেছি।<br>AI ভিশন ইন্সপেকশনের মাধ্যমে <span class="tech-inline">Right-First-Time</span> <span class="bn-pron">(রাইট-ফার্স্ট-টাইম)</span> কোয়ালিটি পাস রেট ৯৯.২ শতাংশে পৌঁছেছে।<br>আর সামগ্রিক মেশিন দক্ষতা — যাকে <span class="tech-inline">OEE</span> <span class="bn-pron">(ও-ই-ই)</span> বলা হয় — মাত্র চার মাসেই ১৪ শতাংশ বেড়েছে।</p>
+<p>এখন ক্লায়েন্ট বিশ্বের যেকোনো প্রান্ত থেকে শুধু একটি ট্যাবলেট খুলেই দেখতে পারেন তাদের পুরো ফ্যাক্টরি কেমন চলছে।</p>
+                    </div>
+                </div>
+
+                <div class="engineering-depth">
+                    <div class="engineering-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        টেকনিক্যাল কুইক রেফারেন্স
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <span class="tech-card-label">ক্লায়েন্ট ডিপ্লয়মেন্ট</span>
+                            <span class="tech-card-val">গাজীপুর টেক্সটাইল মিল #০৪ — ২৬টি সংযুক্ত মেশিন</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">ফ্লিট স্ট্যাটাস</span>
+                            <span class="tech-card-val">২৪টি লাইভ চালু · ২টি পরিকল্পিত মেইনটেন্যান্স · ০ অ্যালার্ট</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">দৈনিক থ্রুপুট</span>
+                            <span class="tech-card-val">৪২,৫০০মি. লাইভ ট্র্যাকড · ৯৯.২% ভিশন পাস রেট (RFT)</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">ক্লায়েন্ট ROI</span>
+                            <span class="tech-card-val">মাত্র ৪ মাসে +১৪% OEE দক্ষতা বৃদ্ধি</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="slide-card" id="slide-17" data-index="16" data-label="স্লাইড 17 / 18" data-search=" AI AUTOMATION &amp; FUTURE ROADMAP এ-আই অটোমেশন ও ভবিষ্যৎ পরিকল্পনা ২. AI ও অটোনোমাস রোডম্যাপ ভবিষ্যতের AI Automation ও Predictive Maintenance পরিকল্পনা সহজ ও স্মার্টভাবে তুলে ধরা। প্রথম চার মাসের ফলাফল এত ভালো হওয়ায় আমরা ক্লায়েন্টের সাথে আরও স্মার্ট AI Automation যুক্ত করার জন্য পাঁচ ধাপের একটি ভবিষ্যৎ রোডম্যাপ তৈরি করেছি:
+
+ধাপ এক হলো Connect More — ফ্যাক্টরির বাকি মেশিনগুলোকেও একই Digital Twin-এ যুক্ত করা, যাতে ক্ল">
+                <div class="slide-header">
+                    <div class="slide-badge-title">
+                        <div class="slide-top-row">
+                            <span class="slide-num-pill">SLIDE 17</span>
+                            <span class="slide-pillar-tag">২. AI ও অটোনোমাস রোডম্যাপ</span>
+                        </div>
+                        <h3 class="slide-title-en">এ-আই অটোমেশন ও ভবিষ্যৎ পরিকল্পনা</h3>
+                        <div class="slide-title-bn">AI AUTOMATION &amp; FUTURE ROADMAP</div>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="btn-copy" onclick="copySpeech('speech-text-17', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            কপি করুন
+                        </button>
+                        <a href="/index.html#slide-17" data-local-href="index.html#slide-17" target="_blank" class="btn-deck-link">
+                            স্লাইড দেখুন ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="objective-box">
+                    <div class="objective-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                        স্লাইডের মূল লক্ষ্য (Slide Objective)
+                    </div>
+                    ভবিষ্যতের <span class="tech-inline">AI Automation</span> ও <span class="tech-inline">Predictive Maintenance</span> পরিকল্পনা সহজ ও স্মার্টভাবে তুলে ধরা।
+                </div>
+
+                <div class="speech-section">
+                    <div class="speech-header">
+                        <div class="speech-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                            বাংলা স্পোকেন স্ক্রিপ্ট (সহজ ও সাবলীল)
+                        </div>
+                    </div>
+                    <div class="speech-box" id="speech-text-17">
+                        <p>প্রথম চার মাসের ফলাফল এত ভালো হওয়ায় আমরা ক্লায়েন্টের সাথে আরও স্মার্ট <span class="tech-inline">AI Automation</span> যুক্ত করার জন্য পাঁচ ধাপের একটি ভবিষ্যৎ রোডম্যাপ তৈরি করেছি:</p>
+<p>ধাপ এক হলো Connect More — ফ্যাক্টরির বাকি মেশিনগুলোকেও একই <span class="tech-inline">Digital Twin</span>-এ যুক্ত করা, যাতে ক্লায়েন্ট ১০০ শতাংশ লাইভ কভারেজ পান।<br>ধাপ দুই হলো Full Auto Inspection — যেখানে ক্যামেরা নিজে থেকেই প্রতিটি মিটার কাপড় চেক করবে, কর্মীদের আর ম্যানুয়ালি ছবি তুলতে হবে না।<br>ধাপ তিন হলো Smart Past Data — কয়েক মাসের <span class="tech-inline">TimescaleDB</span> ডেটা ব্যবহার করে শীত ও গ্রীষ্মকালে রঙ কীভাবে আচরণ করে তা আগে থেকেই অনুমান করা।<br>ধাপ চার হলো <span class="tech-inline">Predictive Maintenance</span> <span class="bn-pron">(প্রিডিক্টিভ মেইনটেন্যান্স)</span> — মোটরের কম্পন ও বাড়তি তাপমাত্রা পর্যবেক্ষণ করে কোনো মেশিন নষ্ট হওয়ার আগেই AI টিমকে সতর্ক করবে।<br>এবং ধাপ পাঁচ হলো <span class="tech-inline">Closed-Loop Control</span> <span class="bn-pron">(ক্লোজড-লুপ কন্ট্রোল)</span> — যেখানে <span class="tech-inline">Digital Twin</span> নিজেই নিরাপদে সরাসরি মেশিনের <span class="tech-inline">PLC</span>-তে ছোটখাটো গতি বা তাপমাত্রার অ্যাডজাস্টমেন্ট পাঠিয়ে দেবে।</p>
+                    </div>
+                </div>
+
+                <div class="engineering-depth">
+                    <div class="engineering-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        টেকনিক্যাল কুইক রেফারেন্স
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <span class="tech-card-label">ধাপ ১ ও ২</span>
+                            <span class="tech-card-val">১০০% মিল কভারেজ + অটোমেটেড ইনলাইন ট্রিগার</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">ধাপ ৩ (অ্যানালিটিক্স)</span>
+                            <span class="tech-card-val">মৌসুমী রঙের আচরণে TimescaleDB হিস্টোরিক্যাল AI</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">ধাপ ৪ (AI PdM)</span>
+                            <span class="tech-card-val">ভাইব্রেশন ও বিয়ারিং তাপে Predictive Maintenance</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">ধাপ ৫ (স্বয়ংক্রিয়)</span>
+                            <span class="tech-card-val">PLC গতি ও তাপ নিয়ন্ত্রণে Closed-Loop Digital Twin</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="slide-card" id="slide-18" data-index="17" data-label="স্লাইড 18 / 18" data-search=" CONCLUSION &amp; Q&amp;A সমাপ্তি ও প্রশ্নোত্তর পর্ব ৬. সমাপ্তি ও প্রশ্নোত্তর আত্মবিশ্বাসের সাথে প্রজেক্টের মূল কথা শেষ করে ইন্টারভিউয়ারকে প্রশ্নের জন্য আমন্ত্রণ জানানো। সবশেষে এটাই বলব, AutoTaskX কেবল কোনো ডেমো বা থিওরি নয়। এর শুরু হয়েছিল যখন বাংলাদেশের একটি শীর্ষস্থানীয় টেক্সটাইল ক্লায়েন্ট পূর্ণ অটোমেশন ও লাইভ Digital Twin চেয়ে আমাদের অফিসে আসেন। ফ্যাক্টরি ভিজিট করে রিকোয়ারমেন্টস সংগ্রহ এবং সফটওয়্যার ব্ল">
+                <div class="slide-header">
+                    <div class="slide-badge-title">
+                        <div class="slide-top-row">
+                            <span class="slide-num-pill">SLIDE 18</span>
+                            <span class="slide-pillar-tag">৬. সমাপ্তি ও প্রশ্নোত্তর</span>
+                        </div>
+                        <h3 class="slide-title-en">সমাপ্তি ও প্রশ্নোত্তর পর্ব</h3>
+                        <div class="slide-title-bn">CONCLUSION &amp; Q&amp;A</div>
+                    </div>
+                    <div class="slide-actions">
+                        <button class="btn-copy" onclick="copySpeech('speech-text-18', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            কপি করুন
+                        </button>
+                        <a href="/index.html#slide-18" data-local-href="index.html#slide-18" target="_blank" class="btn-deck-link">
+                            স্লাইড দেখুন ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="objective-box">
+                    <div class="objective-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                        স্লাইডের মূল লক্ষ্য (Slide Objective)
+                    </div>
+                    আত্মবিশ্বাসের সাথে প্রজেক্টের মূল কথা শেষ করে ইন্টারভিউয়ারকে প্রশ্নের জন্য আমন্ত্রণ জানানো।
+                </div>
+
+                <div class="speech-section">
+                    <div class="speech-header">
+                        <div class="speech-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                            বাংলা স্পোকেন স্ক্রিপ্ট (সহজ ও সাবলীল)
+                        </div>
+                    </div>
+                    <div class="speech-box" id="speech-text-18">
+                        <p>সবশেষে এটাই বলব, AutoTaskX কেবল কোনো ডেমো বা থিওরি নয়। এর শুরু হয়েছিল যখন বাংলাদেশের একটি শীর্ষস্থানীয় টেক্সটাইল ক্লায়েন্ট পূর্ণ অটোমেশন ও লাইভ <span class="tech-inline">Digital Twin</span> চেয়ে আমাদের অফিসে আসেন। ফ্যাক্টরি ভিজিট করে রিকোয়ারমেন্টস সংগ্রহ এবং সফটওয়্যার ব্লুপ্রিন্ট তৈরির পর আমাদের তিনজন ডেভেলপারের কোর টিম মাত্র চার মাসে এর ব্যাকএন্ড ও ফ্রন্টএন্ড দাঁড় করায় — আর মূল ব্যাকএন্ড ইঞ্জিনিয়ারদের একজন হিসেবে প্রায় ৪০ থেকে ৫০ শতাংশ কাজ করার পর সিস্টেমটিকে বাস্তব ফ্যাক্টরিতে ২৪/৭ চলতে দেখা সত্যিই দারুণ অনুভূতি।</p>
+<p>পরিষ্কার <span class="tech-inline">Data Engineering</span>, দ্রুতগতির <span class="tech-inline">MQTT</span> স্ট্রিমিং, লাইভ <span class="tech-inline">Digital Twin</span> আপডেট এবং বাস্তবসম্মত <span class="tech-inline">AI Automation</span>-এর সমন্বয়ে আমরা বিচ্ছিন্ন মেশিনগুলোকে একটি সংযুক্ত স্মার্ট মিলে পরিণত করেছি।</p>
+<p>মনোযোগ দিয়ে শোনার জন্য আপনাদের অসংখ্য ধন্যবাদ! আমাদের ব্যাকএন্ড আর্কিটেকচার, <span class="tech-inline">Digital Twin</span> সেটআপ, <span class="tech-inline">MQTT</span> ফ্লো বা AI পাইপলাইন নিয়ে আপনাদের যেকোনো প্রশ্নের উত্তর দিতে পারলে আমি খুব খুশি হবো — দয়া করে যেকোনো প্রশ্ন করতে পারেন।</p>
+                    </div>
+                </div>
+
+                <div class="engineering-depth">
+                    <div class="engineering-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        টেকনিক্যাল কুইক রেফারেন্স
+                    </div>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <span class="tech-card-label">প্রজেক্টের যাত্রা</span>
+                            <span class="tech-card-val">অফিস মিটিং → ফ্যাক্টরি ভিজিট → ব্লুপ্রিন্ট → ২৪/৭ লাইভ</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">টিম অবদান</span>
+                            <span class="tech-card-val">৩-জনের কোর টিম · মূল ব্যাকএন্ড (~৪০–৫০%)</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">মূল ভিত্তি</span>
+                            <span class="tech-card-val">Digital Twin · EMQX MQTT · Data Pipeline · AI Vision</span>
+                        </div>
+                        <div class="tech-card">
+                            <span class="tech-card-label">প্রশ্নোত্তর প্রস্তুতি</span>
+                            <span class="tech-card-val">আর্কিটেকচার, পাইপলাইন ও ডেটা ডিপ ডাইভের জন্য প্রস্তুত</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Technical Q&A Section -->
+            <section class="cheat-sheet-section" id="cheat-sheet" data-index="18" data-label="৬টি মূল প্রশ্নোত্তর">
+                <span class="section-header-badge">ইন্টারভিউ প্যানেল মাস্টার চিট শিট</span>
+                <h2 class="section-main-title">৬টি গুরুত্বপূর্ণ টেকনিক্যাল প্রশ্ন ও সাবলীল বাংলা উত্তর</h2>
+                <p class="section-subtext">Digital Twin ও Data Engineer ইন্টারভিউয়ের জন্য সহজ ও আত্মবিশ্বাসী বাংলা উত্তর (মূল টেকনিক্যাল টার্ম ইংরেজিতে হাইলাইট করা)।</p>
+                <div class="qa-card">
+                    <div class="qa-header">
+                        <div class="qa-q">প্রশ্ন ১: &ldquo;ফিজিক্যাল মেশিনের সাথে <span class="tech-inline">Digital Twin</span>-কে সবসময় কীভাবে সিঙ্ক রাখেন?&rdquo;</div>
+                        <button class="btn-copy" onclick="copySpeech('qa-ans-১', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            উত্তর কপি
+                        </button>
+                    </div>
+                    <div class="qa-ans" id="qa-ans-১">
+                        <strong>উত্তর:</strong><br>
+                        &ldquo;প্রতিটি মেশিনে একটি <span class="tech-inline">Edge Gateway</span> থাকে যা প্রতি ১০০ মিলিসেকেন্ডে সেন্সর রিডিং পড়ে। এটি রিডিংগুলোকে পরিষ্কার <span class="tech-inline">JSON</span> ফরম্যাটে রূপান্তর করে <span class="tech-inline">MQTT</span>-র মাধ্যমে আমাদের <span class="tech-inline">EMQX</span> Broker-এ পাঠায়। আমাদের <span class="tech-inline">FastAPI</span> ব্যাকএন্ড সাথে সাথে সেটি রিসিভ করে, মেমোরিতে থাকা <span class="tech-inline">Digital Twin</span> আপডেট করে, ইতিহাস হিসেবে <span class="tech-inline">TimescaleDB</span>-তে সেভ করে এবং <span class="tech-inline">WebSockets</span>-এর মাধ্যমে ড্যাশবোর্ডে লাইভ আপডেট পুশ করে — পুরো কাজটাই ২৫ মিলিসেকেন্ডের কম সময়ে সম্পন্ন হয়।&rdquo;
+                    </div>
+                </div>
+                <div class="qa-card">
+                    <div class="qa-header">
+                        <div class="qa-q">প্রশ্ন ২: &ldquo;সেন্সর ডেটার জন্য সাধারণ HTTP API-র বদলে <span class="tech-inline">MQTT</span> কেন বেছে নিলেন?&rdquo;</div>
+                        <button class="btn-copy" onclick="copySpeech('qa-ans-২', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            উত্তর কপি
+                        </button>
+                    </div>
+                    <div class="qa-ans" id="qa-ans-২">
+                        <strong>উত্তর:</strong><br>
+                        &ldquo;সাধারণ ওয়েব পেজের জন্য HTTP ভালো, কিন্তু যখন সেন্সর প্রতি সেকেন্ডে ডেটা পাঠায়, তখন HTTP-র বড় হেডার সিস্টেমকে ভারী ও ধীর করে দেয় — বিশেষ করে ফ্যাক্টরির Wi-Fi-তে এটি বড় বটলনেক তৈরি করে। অন্যদিকে, <span class="tech-inline">MQTT</span> একটি সার্বক্ষণিক খোলা কানেকশনের ওপর মাত্র ২-বাইটের ছোট হেডার ব্যবহার করে। তাছাড়া QoS Level 1 থাকায় ফ্যাক্টরির Wi-Fi এক মুহূর্তের জন্য দুর্বল হলেও মেশিনের গুরুত্বপূর্ণ রিডিং হারিয়ে যায় না।&rdquo;
+                    </div>
+                </div>
+                <div class="qa-card">
+                    <div class="qa-header">
+                        <div class="qa-q">প্রশ্ন ৩: &ldquo;<span class="tech-inline">TimescaleDB</span> কেন ব্যবহার করলেন? শুধু <span class="tech-inline">PostgreSQL</span> বা MongoDB নয় কেন?&rdquo;</div>
+                        <button class="btn-copy" onclick="copySpeech('qa-ans-৩', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            উত্তর কপি
+                        </button>
+                    </div>
+                    <div class="qa-ans" id="qa-ans-৩">
+                        <strong>উত্তর:</strong><br>
+                        &ldquo;আসলে ক্লায়েন্টের জন্য আমাদের দুই ধরনের সুবিধাই দরকার ছিল। অর্ডার আর ডাই রেসিপির জন্য পরিষ্কার রিলেশনাল টেবিল লাগে, যেখানে <span class="tech-inline">PostgreSQL</span> আমাদের নিখুঁত ACID নিশ্চয়তা দেয়। কিন্তু সাধারণ টেবিলে লাখ লাখ সেন্সর রো জমলে সময়ের সাথে সার্চ খুব স্লো হয়ে যায়। যেহেতু <span class="tech-inline">TimescaleDB</span> চলে <span class="tech-inline">PostgreSQL</span>-এর ভেতরেই এবং সময়ভিত্তিক <span class="tech-inline">Hypertables</span> <span class="bn-pron">(হাইপার-টেবলস)</span> ব্যবহার করে, এটি নিজে থেকেই সময় অনুযায়ী ডেটা ভাগ করে এবং ৯৫ শতাংশ পর্যন্ত ডিস্ক স্পেস বাঁচায় — সবই একই ডেটাবেজ সিস্টেমের ভেতর।&rdquo;
+                    </div>
+                </div>
+                <div class="qa-card">
+                    <div class="qa-header">
+                        <div class="qa-q">প্রশ্ন ৪: &ldquo;২০ মেগাবাইটের ইন্সপেকশন ছবি আপলোডের সময় ফ্যাক্টরির ইন্টারনেট চলে গেলে কী হয়?&rdquo;</div>
+                        <button class="btn-copy" onclick="copySpeech('qa-ans-৪', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            উত্তর কপি
+                        </button>
+                    </div>
+                    <div class="qa-ans" id="qa-ans-৪">
+                        <strong>উত্তর:</strong><br>
+                        &ldquo;ফ্যাক্টরি ভিজিটের সময়ই আমরা এই বাস্তব সমস্যার কথা দেখেছিলাম, তাই এজ লেভেলেই এর সমাধান রেখেছি। <span class="tech-inline">Edge PC</span>-তে আমরা একটি লোকাল <span class="tech-inline">FIFO</span> disk queue <span class="bn-pron">(ফিফো ডিস্ক কিউ)</span> তৈরি করেছি। প্রতিটি ছবি প্রথমে লোকাল ডিস্কে সেভ হয়, এবং <span class="tech-inline">AWS S3</span> সফল আপলোডের কনফার্মেশন না দেওয়া পর্যন্ত আমরা সেটি ডিলিট করি না। ইন্টারনেট ফিরে এলেই অপেক্ষায় থাকা ছবিগুলো ঠিক ক্রম অনুযায়ী আপলোড হয়ে যায় — একটি ফ্রেমও হারায় না।&rdquo;
+                    </div>
+                </div>
+                <div class="qa-card">
+                    <div class="qa-header">
+                        <div class="qa-q">প্রশ্ন ৫: &ldquo;ব্যাকএন্ডের জন্য Django-র বদলে <span class="tech-inline">FastAPI</span> কেন বেছে নিলেন?&rdquo;</div>
+                        <button class="btn-copy" onclick="copySpeech('qa-ans-৫', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            উত্তর কপি
+                        </button>
+                    </div>
+                    <div class="qa-ans" id="qa-ans-৫">
+                        <strong>উত্তর:</strong><br>
+                        &ldquo;আমাদের একসাথে শত শত লাইভ IoT স্ট্রিম এবং <span class="tech-inline">WebSocket</span> ড্যাশবোর্ড চালাতে হচ্ছিল। Django মূলত সাধারণ একের পর এক ওয়েব রিকোয়েস্টের জন্য তৈরি, তাই বিরামহীন স্ট্রিমিংয়ের ক্ষেত্রে কিছুটা ভারী হয়ে যায়। অন্যদিকে, <span class="tech-inline">FastAPI</span>-তে বিল্ট-ইন <span class="tech-inline">AsyncIO</span> সাপোর্ট থাকায় এটি অনেক কম CPU ও মেমোরি খরচ করে একসাথে অসংখ্য লাইভ <span class="tech-inline">MQTT</span> ও <span class="tech-inline">WebSocket</span> কানেকশন সহজেই সামলাতে পারে।&rdquo;
+                    </div>
+                </div>
+                <div class="qa-card">
+                    <div class="qa-header">
+                        <div class="qa-q">প্রশ্ন ৬: &ldquo;এখানে <span class="tech-inline">AI Automation</span> শুধু নামমাত্র না হয়ে বাস্তবে কীভাবে সাহায্য করছে?&rdquo;</div>
+                        <button class="btn-copy" onclick="copySpeech('qa-ans-৬', this)">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            উত্তর কপি
+                        </button>
+                    </div>
+                    <div class="qa-ans" id="qa-ans-৬">
+                        <strong>উত্তর:</strong><br>
+                        &ldquo;সত্যি বলতে, ক্লায়েন্ট শুধু দেখানোর জন্য AI চাননি — তারা বাস্তব ব্যবসায়িক ফলাফল চেয়েছিলেন। তাই আমরা তিনটি বাস্তবসম্মত জায়গায় AI ব্যবহার করেছি: প্রথমত, <span class="tech-inline">OpenCV</span> ও <span class="tech-inline">YOLO</span> দিয়ে মিনিটে ১২০ মিটার গতিতে ০.৫ মিলিমিটারের চেয়ে ছোট কাপড়ের ত্রুটি ধরা; দ্বিতীয়ত, স্মার্ট হিট অ্যালার্ট যা ১৯২ ডিগ্রিতে কাপড় পুড়ে যাওয়া আটকে দিয়েছে; এবং তৃতীয়ত, <span class="tech-inline">TimescaleDB</span>-তে পরিষ্কার হিস্টোরিক্যাল ডেটা জমিয়ে রাখা যাতে <span class="tech-inline">Predictive Maintenance</span>-এর মাধ্যমে মোটরের ভাইব্রেশন সমস্যা আগেই ধরা যায়।&rdquo;
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Mobile Bottom Sticky Navigation Bar -->
+    <nav class="mobile-bottom-nav" aria-label="Mobile Slide Navigation">
+        <button class="mnav-btn" id="mobilePrev" type="button">← আগেরটি</button>
+        <button class="mnav-jump" id="mobileJump" type="button">স্লাইড 01 / 18 ▾</button>
+        <button class="mnav-btn" id="mobileNext" type="button">পরেরটি →</button>
+    </nav>
+
+    <!-- Mobile Slide Jump Drawer -->
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+        <div class="mobile-drawer-header">
+            <h3>স্লাইড বা প্রশ্নোত্তরে যান</h3>
+            <button class="btn-ctrl" id="closeDrawerBtn" type="button">✕ বন্ধ</button>
+        </div>
+        <div class="mobile-drawer-list" id="mobileDrawerList">
+            <a href="/index.html" data-local-href="index.html" target="_blank" class="mobile-drawer-deck">🖥️ ১৮-স্লাইডের প্রেজেন্টেশন ডেক দেখুন ↗</a>
+            <a href="/guide" data-local-href="guide.html" class="mobile-drawer-lang">🌐 Switch to English Guide (/guide) →</a>
+            <a href="#slide-01" class="mobile-drawer-item active" data-index="0">
+                <span class="nav-num">01</span>
+                <div class="mobile-drawer-titles">
+                    <span class="mobile-drawer-en">প্রজেক্ট পরিচিতি ও ক্লায়েন্টের ভিশন</span>
+                    <span class="mobile-drawer-bn">PROJECT OVERVIEW &amp; CLIENT VISION</span>
+                </div>
+            </a>
+            <a href="#slide-02" class="mobile-drawer-item" data-index="1">
+                <span class="nav-num">02</span>
+                <div class="mobile-drawer-titles">
+                    <span class="mobile-drawer-en">ক্লায়েন্টের সমস্যা ও ফ্যাক্টরি ভিজিটের অভিজ্ঞতা</span>
+                    <span class="mobile-drawer-bn">CLIENT PAIN POINTS &amp; MILL REALITY</span>
+                </div>
+            </a>
+            <a href="#slide-03" class="mobile-drawer-item" data-index="2">
+                <span class="nav-num">03</span>
+                <div class="mobile-drawer-titles">
+                    <span class="mobile-drawer-en">সফটওয়্যার ব্লুপ্রিন্ট ও পাঁচটি মডিউল</span>
+                    <span class="mobile-drawer-bn">ARCHITECTURE BLUEPRINT &amp; 5 MODULES</span>
+                </div>
+            </a>
+            <a href="#slide-04" class="mobile-drawer-item" data-index="3">
+                <span class="nav-num">04</span>
+                <div class="mobile-drawer-titles">
+                    <span class="mobile-drawer-en">সেন্সর থেকে ড্যাশবোর্ডে ডেটা যাত্রা</span>
+                    <span class="mobile-drawer-bn">END-TO-END DATA PIPELINE</span>
+                </div>
+            </a>
+            <a href="#slide-05" class="mobile-drawer-item" data-index="4">
+                <span class="nav-num">05</span>
+                <div class="mobile-drawer-titles">
+                    <span class="mobile-drawer-en">স্মার্ট কালার ফর্মুলেশন</span>
+                    <span class="mobile-drawer-bn">FEATURE 01 — COLOR FORMULATION</span>
+                </div>
+            </a>
+            <a href="#slide-06" class="mobile-drawer-item" data-index="5">
+                <span class="nav-num">06</span>
+                <div class="mobile-drawer-titles">
+                    <span class="mobile-drawer-en">এ-আই ভিত্তিক কাপড়ের মান পরীক্ষা</span>
+                    <span class="mobile-drawer-bn">FEATURE 02 — AI VISION INSPECTION</span>
+                </div>
+            </a>
+            <a href="#slide-07" class="mobile-drawer-item" data-index="6">
+                <span class="nav-num">07</span>
+                <div class="mobile-drawer-titles">
+                    <span class="mobile-drawer-en">বড় ছবি বনাম সার্ভার স্পিড</span>
+                    <span class="mobile-drawer-bn">KEY CHALLENGE &amp; SOLUTION — IMAGE &amp; DATA OFFLOADING</span>
+                </div>
+            </a>
+            <a href="#slide-08" class="mobile-drawer-item" data-index="7">
+                <span class="nav-num">08</span>
+                <div class="mobile-drawer-titles">
+                    <span class="mobile-drawer-en">লাইভ মনিটরিং ও দুর্ঘটনা রোধ</span>
+                    <span class="mobile-drawer-bn">PRODUCTION INTELLIGENCE &amp; OVERHEAT SOLUTION</span>
+                </div>
+            </a>
+            <a href="#slide-09" class="mobile-drawer-item" data-index="8">
+                <span class="nav-num">09</span>
+                <div class="mobile-drawer-titles">
+                    <span class="mobile-drawer-en">ভিন্ন ভিন্ন মেশিনকে এক ডিজিটাল টুইনে আনা</span>
+                    <span class="mobile-drawer-bn">TEXTILE OS &amp; DIGITAL TWIN CORE</span>
+                </div>
+            </a>
+            <a href="#slide-10" class="mobile-drawer-item" data-index="9">
+                <span class="nav-num">10</span>
+                <div class="mobile-drawer-titles">
+                    <span class="mobile-drawer-en">একটি সেন্সর রিডিংয়ের ২৫ মিলিসেকেন্ডের যাত্রা</span>
+                    <span class="mobile-drawer-bn">IOT DATA TRACE UNDER 25MS</span>
+                </div>
+            </a>
+            <a href="#slide-11" class="mobile-drawer-item" data-index="10">
+                <span class="nav-num">11</span>
+                <div class="mobile-drawer-titles">
+                    <span class="mobile-drawer-en">এম-কিউ-টি-টি কেন ব্যবহার করলাম?</span>
+                    <span class="mobile-drawer-bn">WHY MQTT? DATA TRANSPORT DECISION</span>
+                </div>
+            </a>
+            <a href="#slide-12" class="mobile-drawer-item" data-index="11">
+                <span class="nav-num">12</span>
+                <div class="mobile-drawer-titles">
+                    <span class="mobile-drawer-en">তিনটি বিশেষায়িত ডেটাবেজ কেন?</span>
+                    <span class="mobile-drawer-bn">STORAGE ARCHITECTURE</span>
+                </div>
+            </a>
+            <a href="#slide-13" class="mobile-drawer-item" data-index="12">
+                <span class="nav-num">13</span>
+                <div class="mobile-drawer-titles">
+                    <span class="mobile-drawer-en">লাইভ আপডেট বনাম হিস্টোরিক্যাল রিপোর্ট</span>
+                    <span class="mobile-drawer-bn">REAL-TIME DELIVERY PIPELINE</span>
+                </div>
+            </a>
+            <a href="#slide-14" class="mobile-drawer-item" data-index="13">
+                <span class="nav-num">14</span>
+                <div class="mobile-drawer-titles">
+                    <span class="mobile-drawer-en">ফ্যাক্টরি থেকে অফিসের ই-আর-পি অটোমেশন</span>
+                    <span class="mobile-drawer-bn">FEATURE 05 — ERP INTEGRATION</span>
+                </div>
+            </a>
+            <a href="#slide-15" class="mobile-drawer-item" data-index="14">
+                <span class="nav-num">15</span>
+                <div class="mobile-drawer-titles">
+                    <span class="mobile-drawer-en">পুরো সিস্টেমের ৪-জোন ব্লুপ্রিন্ট</span>
+                    <span class="mobile-drawer-bn">COMPLETE 4-ZONE ARCHITECTURE</span>
+                </div>
+            </a>
+            <a href="#slide-16" class="mobile-drawer-item" data-index="15">
+                <span class="nav-num">16</span>
+                <div class="mobile-drawer-titles">
+                    <span class="mobile-drawer-en">গাজীপুর মিলে বাস্তব ফলাফল ও আরওআই</span>
+                    <span class="mobile-drawer-bn">MEASURABLE BUSINESS OUTCOMES</span>
+                </div>
+            </a>
+            <a href="#slide-17" class="mobile-drawer-item" data-index="16">
+                <span class="nav-num">17</span>
+                <div class="mobile-drawer-titles">
+                    <span class="mobile-drawer-en">এ-আই অটোমেশন ও ভবিষ্যৎ পরিকল্পনা</span>
+                    <span class="mobile-drawer-bn">AI AUTOMATION &amp; FUTURE ROADMAP</span>
+                </div>
+            </a>
+            <a href="#slide-18" class="mobile-drawer-item" data-index="17">
+                <span class="nav-num">18</span>
+                <div class="mobile-drawer-titles">
+                    <span class="mobile-drawer-en">সমাপ্তি ও প্রশ্নোত্তর পর্ব</span>
+                    <span class="mobile-drawer-bn">CONCLUSION &amp; Q&amp;A</span>
+                </div>
+            </a>
+            <a href="#cheat-sheet" class="mobile-drawer-item" data-index="18">
+                <span class="nav-num">⚡</span>
+                <div class="mobile-drawer-titles">
+                    <span class="mobile-drawer-en">৬টি ইন্টারভিউ প্রশ্নোত্তর (Cheat Sheet)</span>
+                    <span class="mobile-drawer-bn">Master Cheat Sheet (6 Q&amp;As)</span>
+                </div>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Toast Component -->
+    <div class="toast" id="toastBox">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span id="toastMsg">ক্লিপবোর্ডে কপি হয়েছে!</span>
+    </div>
+
+    <script>
+        const I18N = {"copiedToast": "ক্লিপবোর্ডে কপি হয়েছে!", "copiedBtn": "✓ কপি হয়েছে!", "focusAll": "📜 সব স্লাইড", "focusOne": "🎯 ফোকাস", "fontPrefix": "ফন্ট: "};
+
+        // Resolve clean Vercel routes (/guide, /guide/bd) safely when opened locally via file:// or simple static server
+        (function normalizeLocalLinks() {
+            const rewriteLocal = () => {
+                document.querySelectorAll('a[data-local-href]').forEach(a => {
+                    a.setAttribute('href', a.getAttribute('data-local-href'));
+                });
+            };
+            if (window.location.protocol === 'file:') {
+                rewriteLocal();
+            } else if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                fetch('/guide/bd', { method: 'HEAD' }).then(res => {
+                    if (!res.ok) rewriteLocal();
+                }).catch(() => {});
+            }
+        })();
+
+        function fallbackCopyText(text) {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand('copy'); } catch (e) {}
+            document.body.removeChild(ta);
+        }
+
+        function copySpeech(elementId, btn) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            const text = el.innerText;
+            const done = () => {
+                showToast(I18N.copiedToast);
+                const originalText = btn.innerHTML;
+                btn.innerHTML = I18N.copiedBtn;
+                btn.style.color = '#059669';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.color = '';
+                }, 1800);
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(done).catch(() => { fallbackCopyText(text); done(); });
+            } else {
+                fallbackCopyText(text);
+                done();
+            }
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toastBox');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.innerText = msg;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2200);
+        }
+
+        // Search across slides & Q&A
+        const searchInput = document.getElementById('searchInput');
+        const searchClear = document.getElementById('searchClear');
+        const slideCards = Array.from(document.querySelectorAll('.slide-card'));
+        const cheatSection = document.getElementById('cheat-sheet');
+        const allSections = [...slideCards, cheatSection].filter(Boolean);
+
+        function applySearch() {
+            const q = searchInput.value.toLowerCase().trim();
+            searchClear.classList.toggle('visible', q.length > 0);
+            if (q && document.body.classList.contains('focus-mode')) {
+                setFocusMode(false);
+            }
+            slideCards.forEach(card => {
+                const searchData = (card.getAttribute('data-search') || '').toLowerCase();
+                const textContent = card.innerText.toLowerCase();
+                card.style.display = (!q || searchData.includes(q) || textContent.includes(q)) ? '' : 'none';
+            });
+            if (cheatSection) {
+                const qaText = cheatSection.innerText.toLowerCase();
+                cheatSection.style.display = (!q || qaText.includes(q)) ? '' : 'none';
+            }
+        }
+
+        searchInput.addEventListener('input', applySearch);
+        searchClear.addEventListener('click', () => {
+            searchInput.value = '';
+            applySearch();
+            searchInput.focus();
+        });
+
+        // Scroll progress bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        }, { passive: true });
+
+        // Active section tracking & navigation
+        let currentIndex = 0;
+        const mobilePrev = document.getElementById('mobilePrev');
+        const mobileNext = document.getElementById('mobileNext');
+        const mobileJump = document.getElementById('mobileJump');
+
+        function updateActiveUI(index) {
+            if (index < 0) index = 0;
+            if (index >= allSections.length) index = allSections.length - 1;
+            currentIndex = index;
+
+            const activeSection = allSections[index];
+            const activeId = activeSection ? activeSection.getAttribute('id') : '';
+            const label = activeSection ? activeSection.getAttribute('data-label') : '';
+
+            if (mobileJump && label) {
+                mobileJump.innerText = label + ' ▾';
+            }
+            if (mobilePrev) mobilePrev.disabled = (index === 0);
+            if (mobileNext) mobileNext.disabled = (index === allSections.length - 1);
+
+            document.querySelectorAll('.sidebar .nav-item').forEach(item => {
+                if (item.getAttribute('href') === '#' + activeId) {
+                    item.classList.add('active');
+                    item.scrollIntoView({ block: 'nearest' });
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+
+            document.querySelectorAll('.mobile-drawer-item').forEach(item => {
+                const itemIdx = parseInt(item.getAttribute('data-index'), 10);
+                item.classList.toggle('active', itemIdx === index);
+            });
+
+            allSections.forEach((sec, idx) => {
+                sec.classList.toggle('focus-active', idx === index);
+            });
+        }
+
+        function goToSection(index) {
+            if (index < 0) index = 0;
+            if (index >= allSections.length) index = allSections.length - 1;
+            updateActiveUI(index);
+            const target = allSections[index];
+            if (!target) return;
+            if (document.body.classList.contains('focus-mode')) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            if (document.body.classList.contains('focus-mode')) return;
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const idx = parseInt(entry.target.getAttribute('data-index'), 10);
+                    if (!isNaN(idx)) updateActiveUI(idx);
+                }
+            });
+        }, { threshold: 0.25, rootMargin: '-80px 0px -40% 0px' });
+
+        allSections.forEach(section => observer.observe(section));
+
+        if (mobilePrev) mobilePrev.addEventListener('click', () => goToSection(currentIndex - 1));
+        if (mobileNext) mobileNext.addEventListener('click', () => goToSection(currentIndex + 1));
+
+        // Mobile Slide Drawer
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const drawerBackdrop = document.getElementById('drawerBackdrop');
+        const openDrawerBtn = document.getElementById('openDrawerBtn');
+        const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+
+        function openDrawer() {
+            mobileDrawer.classList.add('open');
+            drawerBackdrop.classList.add('open');
+            mobileDrawer.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('drawer-open');
+        }
+
+        function closeDrawer() {
+            mobileDrawer.classList.remove('open');
+            drawerBackdrop.classList.remove('open');
+            mobileDrawer.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('drawer-open');
+        }
+
+        if (openDrawerBtn) openDrawerBtn.addEventListener('click', openDrawer);
+        if (mobileJump) mobileJump.addEventListener('click', openDrawer);
+        if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
+        if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
+
+        document.querySelectorAll('.mobile-drawer-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const idx = parseInt(item.getAttribute('data-index'), 10);
+                closeDrawer();
+                setTimeout(() => goToSection(idx), 60);
+            });
+        });
+
+        // Single-Slide Focus Mode (with touch swipe!)
+        const focusBtn = document.getElementById('focusToggle');
+        function setFocusMode(enabled) {
+            document.body.classList.toggle('focus-mode', enabled);
+            if (focusBtn) {
+                focusBtn.classList.toggle('active-state', enabled);
+                focusBtn.innerHTML = enabled ? I18N.focusAll : I18N.focusOne;
+            }
+            try { localStorage.setItem('ax_guide_focus', enabled ? '1' : '0'); } catch (e) {}
+            if (enabled) {
+                searchInput.value = '';
+                applySearch();
+                updateActiveUI(currentIndex);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        if (focusBtn) {
+            focusBtn.addEventListener('click', () => {
+                setFocusMode(!document.body.classList.contains('focus-mode'));
+            });
+        }
+
+        // Touch swipe in Focus Mode
+        let touchStartX = 0;
+        let touchStartY = 0;
+        const contentArea = document.getElementById('contentArea');
+        if (contentArea) {
+            contentArea.addEventListener('touchstart', (e) => {
+                if (e.changedTouches && e.changedTouches.length === 1) {
+                    touchStartX = e.changedTouches[0].clientX;
+                    touchStartY = e.changedTouches[0].clientY;
+                }
+            }, { passive: true });
+            contentArea.addEventListener('touchend', (e) => {
+                if (!document.body.classList.contains('focus-mode')) return;
+                if (!e.changedTouches || e.changedTouches.length !== 1) return;
+                const dx = e.changedTouches[0].clientX - touchStartX;
+                const dy = e.changedTouches[0].clientY - touchStartY;
+                if (Math.abs(dx) > 65 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+                    if (dx < 0) goToSection(currentIndex + 1);
+                    else goToSection(currentIndex - 1);
+                }
+            }, { passive: true });
+        }
+
+        // Pronunciation Toggle
+        const pronBtn = document.getElementById('pronToggle');
+        function setPronVisible(visible) {
+            document.body.classList.toggle('hide-pron', !visible);
+            if (pronBtn) pronBtn.classList.toggle('active-state', visible);
+            try { localStorage.setItem('ax_guide_pron', visible ? 'on' : 'off'); } catch (e) {}
+        }
+        if (localStorage.getItem('ax_guide_pron') === 'off') setPronVisible(false);
+        if (pronBtn) {
+            pronBtn.addEventListener('click', () => {
+                setPronVisible(document.body.classList.contains('hide-pron'));
+            });
+        }
+
+        // Dark/Light Theme Toggle (persisted)
+        const themeBtn = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('ax_guide_theme') || 'light';
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeBtn.innerText = '☀️';
+        }
+
+        themeBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                document.documentElement.removeAttribute('data-theme');
+                themeBtn.innerText = '🌙';
+                localStorage.setItem('ax_guide_theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeBtn.innerText = '☀️';
+                localStorage.setItem('ax_guide_theme', 'dark');
+            }
+        });
+
+        // Font Size Controls (persisted, comfy range 13px - 24px)
+        const defaultFont = window.innerWidth <= 768 ? 17 : 16;
+        let currentFontSize = parseInt(localStorage.getItem('ax_guide_fontsize') || '', 10) || defaultFont;
+        document.documentElement.style.setProperty('--base-font-size', currentFontSize + 'px');
+
+        document.getElementById('fontInc').addEventListener('click', () => {
+            if (currentFontSize < 24) {
+                currentFontSize += 1;
+                document.documentElement.style.setProperty('--base-font-size', currentFontSize + 'px');
+                try { localStorage.setItem('ax_guide_fontsize', String(currentFontSize)); } catch (e) {}
+                showToast(I18N.fontPrefix + currentFontSize + 'px');
+            }
+        });
+
+        document.getElementById('fontDec').addEventListener('click', () => {
+            if (currentFontSize > 13) {
+                currentFontSize -= 1;
+                document.documentElement.style.setProperty('--base-font-size', currentFontSize + 'px');
+                try { localStorage.setItem('ax_guide_fontsize', String(currentFontSize)); } catch (e) {}
+                showToast(I18N.fontPrefix + currentFontSize + 'px');
+            }
+        });
+
+        // Keyboard navigation (desktop)
+        window.addEventListener('keydown', (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            if (e.key === 'j' || e.key === 'ArrowDown' || (document.body.classList.contains('focus-mode') && e.key === 'ArrowRight')) {
+                e.preventDefault();
+                goToSection(currentIndex + 1);
+            } else if (e.key === 'k' || e.key === 'ArrowUp' || (document.body.classList.contains('focus-mode') && e.key === 'ArrowLeft')) {
+                e.preventDefault();
+                goToSection(currentIndex - 1);
+            } else if (e.key === 'Escape') {
+                closeDrawer();
+            }
+        });
+
+        updateActiveUI(0);
+    </script>
+</body>
+</html>

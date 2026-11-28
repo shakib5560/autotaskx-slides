@@ -292,6 +292,19 @@
             border-color: var(--accent-blue);
         }
 
+        .btn-lang {
+            background: var(--accent-green-bg);
+            color: var(--accent-green);
+            border-color: rgba(5, 150, 105, 0.35);
+            font-weight: 700;
+        }
+
+        .btn-lang:hover {
+            background: var(--accent-green);
+            color: #FFFFFF;
+            border-color: var(--accent-green);
+        }
+
         .btn-deck {
             background: #0B132B;
             color: #FFFFFF;
@@ -480,8 +493,26 @@
             font-weight: 700;
             background: #0B132B;
             color: #FFFFFF;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.35rem;
             min-height: 44px;
+        }
+
+        .mobile-drawer-lang {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.7rem 0.9rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-family: var(--font-ui);
+            font-size: 0.86rem;
+            font-weight: 700;
+            background: var(--accent-green-bg);
+            color: var(--accent-green);
+            border: 1px solid rgba(5, 150, 105, 0.3);
+            margin-bottom: 0.45rem;
+            min-height: 42px;
         }
 
         .mobile-drawer-titles {
@@ -532,12 +563,20 @@
             background: linear-gradient(90deg, #7C3AED, #2563EB, #059669);
         }
 
+        .hero-top-strip {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            margin-bottom: 0.9rem;
+        }
+
         .interview-pillars-bar {
             display: flex;
             align-items: center;
             gap: 0.45rem;
             flex-wrap: wrap;
-            margin-bottom: 0.9rem;
         }
 
         .pillar-pill {
@@ -548,6 +587,38 @@
             border-radius: 6px;
             background: var(--border-light);
             color: var(--text-secondary);
+        }
+
+        .lang-switch-bar {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: var(--bg-body);
+            border: 1px solid var(--border);
+            padding: 0.22rem;
+            border-radius: 9px;
+        }
+
+        .lang-pill {
+            font-family: var(--font-ui);
+            font-size: 0.74rem;
+            font-weight: 700;
+            padding: 0.24rem 0.62rem;
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .lang-pill:hover {
+            color: var(--text-main);
+            background: var(--border-light);
+        }
+
+        .lang-pill.active {
+            background: var(--accent-blue);
+            color: #FFFFFF;
         }
 
         .hero-title-group {
@@ -1180,8 +1251,8 @@
                 display: none;
             }
             .btn-ctrl {
-                padding: 5px 7px;
-                font-size: 12px;
+                padding: 5px 6px;
+                font-size: 11.5px;
                 min-height: 36px;
                 border-radius: 7px;
             }
@@ -1264,9 +1335,21 @@
             }
         }
 
+        @media (max-width: 420px) {
+            .btn-ctrl {
+                padding: 4px 5px;
+                font-size: 11px;
+                gap: 2px;
+            }
+            .btn-lang .btn-lang-flag,
+            .btn-menu-label {
+                display: none;
+            }
+        }
+
         /* Print Optimization */
         @media print {
-            .site-header, .sidebar, .slide-actions, .btn-ctrl, .scroll-progress, .mobile-bottom-nav, .mobile-drawer, .drawer-backdrop {
+            .site-header, .sidebar, .slide-actions, .btn-ctrl, .scroll-progress, .mobile-bottom-nav, .mobile-drawer, .drawer-backdrop, .lang-switch-bar {
                 display: none !important;
             }
             .content-area {
@@ -1299,19 +1382,20 @@
             </div>
 
             <div class="header-controls">
-                <button class="btn-ctrl mobile-only" id="openDrawerBtn" title="Jump to Slide">☰ Menu</button>
+                <button class="btn-ctrl mobile-only" id="openDrawerBtn" title="Jump to Slide">☰ <span class="btn-menu-label">Menu</span></button>
                 <button class="btn-ctrl" id="focusToggle" title="Read one slide at a time">🎯 Focus</button>
                 <button class="btn-ctrl active-state" id="pronToggle" title="Show/Hide Bengali Pronunciation">উচ্চারণ</button>
                 <button class="btn-ctrl" id="fontDec" title="Decrease Font Size">A-</button>
                 <button class="btn-ctrl" id="fontInc" title="Increase Font Size">A+</button>
                 <button class="btn-ctrl" id="themeToggle" title="Toggle Dark/Light Mode">🌙</button>
-                <a href="index.html" target="_blank" class="btn-ctrl btn-deck">🖥️ <span class="btn-label-desktop">Slides Deck</span></a>
+                <a href="/guide/bd" data-local-href="guide-bd.html" class="btn-ctrl btn-lang" title="Switch to Bangla Presentation Guide (/guide/bd)"><span class="btn-lang-flag">🇧🇩</span> <span>বাংলা</span></a>
+                <a href="/index.html" data-local-href="index.html" target="_blank" class="btn-ctrl btn-deck">🖥️ <span class="btn-label-desktop">Slides Deck</span></a>
             </div>
         </div>
 
         <div class="search-box">
             <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <input type="search" id="searchInput" placeholder="Search slides, MQTT, Digital Twin, Q&A...">
+            <input type="search" id="searchInput" placeholder="Search slides, MQTT, Digital Twin, Q&amp;A...">
             <button type="button" class="search-clear" id="searchClear" aria-label="Clear search">✕</button>
         </div>
     </header>
@@ -1322,15 +1406,15 @@
             <div class="sidebar-heading">Slides (01 – 18)</div>
             <a href="#slide-01" class="nav-item" data-slide="01">
                 <span class="nav-num">01</span>
-                <span>PROJECT OVERVIEW &amp; CLIENT VISI</span>
+                <span>PROJECT OVERVIEW &amp; CLIENT VISION</span>
             </a>
             <a href="#slide-02" class="nav-item" data-slide="02">
                 <span class="nav-num">02</span>
-                <span>CLIENT PAIN POINTS &amp; MILL REAL</span>
+                <span>CLIENT PAIN POINTS &amp; MILL REALITY</span>
             </a>
             <a href="#slide-03" class="nav-item" data-slide="03">
                 <span class="nav-num">03</span>
-                <span>ARCHITECTURE BLUEPRINT &amp; 5 MOD</span>
+                <span>ARCHITECTURE BLUEPRINT &amp; 5 MODULES</span>
             </a>
             <a href="#slide-04" class="nav-item" data-slide="04">
                 <span class="nav-num">04</span>
@@ -1342,15 +1426,15 @@
             </a>
             <a href="#slide-06" class="nav-item" data-slide="06">
                 <span class="nav-num">06</span>
-                <span>FEATURE 02 — AI VISION INSPECT</span>
+                <span>FEATURE 02 — AI VISION INSPECTION</span>
             </a>
             <a href="#slide-07" class="nav-item" data-slide="07">
                 <span class="nav-num">07</span>
-                <span>KEY CHALLENGE &amp; SOLUTION — IMA</span>
+                <span>KEY CHALLENGE &amp; SOLUTION — IMAGE &amp; DATA OFFLOADING</span>
             </a>
             <a href="#slide-08" class="nav-item" data-slide="08">
                 <span class="nav-num">08</span>
-                <span>PRODUCTION INTELLIGENCE &amp; OVER</span>
+                <span>PRODUCTION INTELLIGENCE &amp; OVERHEAT SOLUTION</span>
             </a>
             <a href="#slide-09" class="nav-item" data-slide="09">
                 <span class="nav-num">09</span>
@@ -1362,7 +1446,7 @@
             </a>
             <a href="#slide-11" class="nav-item" data-slide="11">
                 <span class="nav-num">11</span>
-                <span>WHY MQTT? DATA TRANSPORT DECIS</span>
+                <span>WHY MQTT? DATA TRANSPORT DECISION</span>
             </a>
             <a href="#slide-12" class="nav-item" data-slide="12">
                 <span class="nav-num">12</span>
@@ -1403,13 +1487,19 @@
         <main class="content-area" id="contentArea">
             <!-- Executive Project Context Card -->
             <section class="project-hero">
-                <div class="interview-pillars-bar">
-                    <span class="pillar-pill">1. Client Request</span>
+                <div class="hero-top-strip">
+                    <div class="interview-pillars-bar">
+                        <span class="pillar-pill">1. Client Request</span>
                     <span class="pillar-pill">2. Industry Visit</span>
                     <span class="pillar-pill">3. Blueprint</span>
                     <span class="pillar-pill">4. 3-Dev Core Team</span>
                     <span class="pillar-pill">5. 40–50% Backend</span>
                     <span class="pillar-pill">6. Live ROI</span>
+                    </div>
+                    <div class="lang-switch-bar" aria-label="Guide Language Switcher">
+                        <span class="lang-pill active">🇬🇧 English Guide</span>
+                        <a href="/guide/bd" data-local-href="guide-bd.html" class="lang-pill">🇧🇩 বাংলা ভার্সন (/guide/bd)</a>
+                    </div>
                 </div>
                 <div class="hero-title-group">
                     <h2 class="hero-title">AutoTaskX — Digital Twin &amp; Data Engineer Guide</h2>
@@ -1441,7 +1531,7 @@
 
             <!-- Slide by Slide Cards -->
 
-            <article class="slide-card focus-active" id="slide-01" data-index="0" data-label="Slide 01 / 18" data-search="PROJECT OVERVIEW &amp; CLIENT VISION (প্রজেক্ট পরিচিতি ও ক্লায়েন্টের ভিশন) 1. Client Vision &amp; Overview নিজের পরিচয় বাদ দিয়ে সরাসরি ক্লায়েন্ট প্রজেক্ট দিয়ে শুরু করা — ক্লায়েন্ট অফিসে এসে কী চেয়েছিলেন, ফ্যাক্টরি ভিজিটের পর আমরা কী ব্লুপ্রিন্ট বানাই এবং ৩ জনের টিমে আপনার ৪০-৫০% অবদান সহজ ও ফ্লুয়েন্ট ইংরেজিতে বলা। &quot;Alright, let&#x27;s jump right into the project — AutoTaskX (অটো-টাস্ক-এক্স). Basically (বেসিক্যালি), it&#x27;s a real-time Industrial IoT (আই-ও-টি) and Digital Twin (ডিজিটাল টুইন) platform built for one of the big, prominent (প্রমিনেন্ট) names in t">
+            <article class="slide-card focus-active" id="slide-01" data-index="0" data-label="Slide 01 / 18" data-search="PROJECT OVERVIEW &amp; CLIENT VISION (প্রজেক্ট পরিচিতি ও ক্লায়েন্টের ভিশন) PROJECT OVERVIEW &amp; CLIENT VISION প্রজেক্ট পরিচিতি ও ক্লায়েন্টের ভিশন 1. Client Vision &amp; Overview নিজের পরিচয় বাদ দিয়ে সরাসরি ক্লায়েন্ট প্রজেক্ট দিয়ে শুরু করা — ক্লায়েন্ট অফিসে এসে কী চেয়েছিলেন, ফ্যাক্টরি ভিজিটের পর আমরা কী ব্লুপ্রিন্ট বানাই এবং ৩ জনের টিমে আপনার ৪০-৫০% অবদান সহজ ও ফ্লুয়েন্ট ইংরেজিতে বলা। &quot;Alright, let&#x27;s jump right into the project — AutoTaskX (অটো-টাস্ক-এক্স). Basically (বেসিক্যালি), it&#x27;s a real-time Industrial IoT (আই-ও-টি) and Digital Twin (ডিজিটাল টুইন) platform built for one of the big, prominent (প্রমিনেন্ট) names in t">
                 <div class="slide-header">
                     <div class="slide-badge-title">
                         <div class="slide-top-row">
@@ -1456,7 +1546,7 @@
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             Copy Speech
                         </button>
-                        <a href="index.html#slide-1" target="_blank" class="btn-deck-link">
+                        <a href="/index.html#slide-1" data-local-href="index.html#slide-1" target="_blank" class="btn-deck-link">
                             View Slide ↗
                         </a>
                     </div>
@@ -1488,7 +1578,6 @@
 <div class="cue-block cue-result"><div class="cue-heading">▶ The Result:</div>
 <p>If you look at the right side of the slide right here, that&#x27;s our live <span class="tech-inline">Digital Twin</span> screen. Every machine updates in under 25 milliseconds <span class="bn-pron">(মিলিসেকেন্ড)</span>, and it&#x27;s running 24/7 in live production <span class="bn-pron">(প্রোডাকশন)</span> today.&quot;</p>
 </div>
-<p>--------------------------------------------------------------------------------</p>
                     </div>
                 </div>
 
@@ -1518,7 +1607,7 @@
                 </div>
             </article>
 
-            <article class="slide-card" id="slide-02" data-index="1" data-label="Slide 02 / 18" data-search="CLIENT PAIN POINTS &amp; MILL REALITY (ক্লায়েন্টের সমস্যা ও ফ্যাক্টরি ভিজিটের অভিজ্ঞতা) 1. Client Pain Points &amp; Visit ক্লায়েন্ট অফিসে এসে কী কী সমস্যার কথা বলেছিলেন এবং ইন্ডাস্ট্রি ভিজিটে গিয়ে আমরা কী কী বটলনেক দেখেছি তা সহজ গল্পের মতো বলা। &quot;When the client first met us at our office, they shared the everyday problems slowing down their mill. Then during our factory visit, we saw these four big bottlenecks (বটলনেক) right on the floor:
+            <article class="slide-card" id="slide-02" data-index="1" data-label="Slide 02 / 18" data-search="CLIENT PAIN POINTS &amp; MILL REALITY (ক্লায়েন্টের সমস্যা ও ফ্যাক্টরি ভিজিটের অভিজ্ঞতা) CLIENT PAIN POINTS &amp; MILL REALITY ক্লায়েন্টের সমস্যা ও ফ্যাক্টরি ভিজিটের অভিজ্ঞতা 1. Client Pain Points &amp; Visit ক্লায়েন্ট অফিসে এসে কী কী সমস্যার কথা বলেছিলেন এবং ইন্ডাস্ট্রি ভিজিটে গিয়ে আমরা কী কী বটলনেক দেখেছি তা সহজ গল্পের মতো বলা। &quot;When the client first met us at our office, they shared the everyday problems slowing down their mill. Then during our factory visit, we saw these four big bottlenecks (বটলনেক) right on the floor:
 
 First, too much manual (ম্যানুয়াল) work.">
                 <div class="slide-header">
@@ -1535,7 +1624,7 @@ First, too much manual (ম্যানুয়াল) work.">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             Copy Speech
                         </button>
-                        <a href="index.html#slide-2" target="_blank" class="btn-deck-link">
+                        <a href="/index.html#slide-2" data-local-href="index.html#slide-2" target="_blank" class="btn-deck-link">
                             View Slide ↗
                         </a>
                     </div>
@@ -1565,7 +1654,6 @@ First, too much manual (ম্যানুয়াল) work.">
 <div class="cue-block cue-result"><div class="cue-heading">▶ What the Client Asked For:</div>
 <p>So the client told us clearly: cut out the guesswork <span class="bn-pron">(গেস-ওয়ার্ক)</span> and give them one live, automated <span class="bn-pron">(অটোমেটেড)</span> <span class="tech-inline">Digital Twin</span> <span class="bn-pron">(ডিজিটাল টুইন)</span> for the whole factory.&quot;</p>
 </div>
-<p>--------------------------------------------------------------------------------</p>
                     </div>
                 </div>
 
@@ -1595,7 +1683,7 @@ First, too much manual (ম্যানুয়াল) work.">
                 </div>
             </article>
 
-            <article class="slide-card" id="slide-03" data-index="2" data-label="Slide 03 / 18" data-search="ARCHITECTURE BLUEPRINT &amp; 5 MODULES (সফটওয়্যার ব্লুপ্রিন্ট ও পাঁচটি মডিউল) 2. Architecture Blueprint সফটওয়্যার ব্লুপ্রিন্টে থাকা ৫টি মডিউল সহজ ও সাবলীল ভাষায় ইন্টারভিউয়ারকে দেখানো। &quot;After our factory visit, we put together a clean software blueprint (ব্লুপ্রিন্ট) so the client wouldn&#x27;t have to buy new machines. Instead, we built AutoTaskX (অটো-টাস্ক-এক্স) around five connected modules (মডিউল) on top of one shared data">
+            <article class="slide-card" id="slide-03" data-index="2" data-label="Slide 03 / 18" data-search="ARCHITECTURE BLUEPRINT &amp; 5 MODULES (সফটওয়্যার ব্লুপ্রিন্ট ও পাঁচটি মডিউল) ARCHITECTURE BLUEPRINT &amp; 5 MODULES সফটওয়্যার ব্লুপ্রিন্ট ও পাঁচটি মডিউল 2. Architecture Blueprint সফটওয়্যার ব্লুপ্রিন্টে থাকা ৫টি মডিউল সহজ ও সাবলীল ভাষায় ইন্টারভিউয়ারকে দেখানো। &quot;After our factory visit, we put together a clean software blueprint (ব্লুপ্রিন্ট) so the client wouldn&#x27;t have to buy new machines. Instead, we built AutoTaskX (অটো-টাস্ক-এক্স) around five connected modules (মডিউল) on top of one shared data">
                 <div class="slide-header">
                     <div class="slide-badge-title">
                         <div class="slide-top-row">
@@ -1610,7 +1698,7 @@ First, too much manual (ম্যানুয়াল) work.">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             Copy Speech
                         </button>
-                        <a href="index.html#slide-3" target="_blank" class="btn-deck-link">
+                        <a href="/index.html#slide-3" data-local-href="index.html#slide-3" target="_blank" class="btn-deck-link">
                             View Slide ↗
                         </a>
                     </div>
@@ -1633,9 +1721,8 @@ First, too much manual (ম্যানুয়াল) work.">
                     </div>
                     <div class="speech-box" id="speech-text-03">
                         <p>&quot;After our factory visit, we put together a clean software blueprint <span class="bn-pron">(ব্লুপ্রিন্ট)</span> so the client wouldn&#x27;t have to buy new machines. Instead, we built AutoTaskX <span class="bn-pron">(অটো-টাস্ক-এক্স)</span> around five connected modules <span class="bn-pron">(মডিউল)</span> on top of one shared data pipeline <span class="bn-pron">(পাইপলাইন)</span>. Let me point them out on the slide:</p>
-<p>One is Color Formulation <span class="bn-pron">(কালার ফর্মুলেশন)</span> — which replaces manual lab trial-and-error with fast math.<br>Two is Visual Quality Inspection <span class="bn-pron">(ইন্সপেকশন)</span> — using cameras and AI automation <span class="bn-pron">(এ-আই অটোমেশন)</span> to spot fabric flaws right away.<br>Three is Production Intelligence <span class="bn-pron">(ইন্টেলিজেন্স)</span> — watching machine runtime, efficiency <span class="bn-pron">(এফিশিয়েন্সি)</span>, and heat spikes.<br>Four is <span class="tech-inline">Textile OS</span> &amp; <span class="tech-inline">Digital Twin</span> <span class="bn-pron">(টেক্সটাইল ও-এস অ্যান্ড ডিজিটাল টুইন)</span> — which connects real sensors <span class="bn-pron">(সেন্সর)</span> and PLCs <span class="bn-pron">(পি-এল-সি)</span> to keep a live digital copy of every machine.<br>And five is <span class="tech-inline">ERP</span> Integration <span class="bn-pron">(ই-আর-পি ইন্টিগ্রেশন)</span> — sending factory output straight into <span class="tech-inline">SAP</span> <span class="bn-pron">(এস-এ-পি)</span> or <span class="tech-inline">Datatex</span> <span class="bn-pron">(ডাটাটেক্স)</span>.</p>
+<p>One is Color Formulation <span class="bn-pron">(কালার ফর্মুলেশন)</span> — which replaces manual lab trial-and-error with fast math.<br>Two is Visual Quality Inspection <span class="bn-pron">(ইন্সপেকশন)</span> — using cameras and AI automation <span class="bn-pron">(এ-আই অটোমেশন)</span> to spot fabric flaws right away.<br>Three is Production Intelligence <span class="bn-pron">(ইন্টেলিজেন্স)</span> — watching machine runtime, efficiency <span class="bn-pron">(এফিশিয়েন্সি)</span>, and heat spikes.<br>Four is <span class="tech-inline">Textile OS</span> &amp; <span class="tech-inline">Digital Twin</span> <span class="bn-pron">(টেক্সটাইল ও-এস অ্যান্ড ডিজিটাল টুইন)</span> — which connects real sensors <span class="bn-pron">(সেন্সর)</span> and <span class="tech-inline">PLCs</span> <span class="bn-pron">(পি-এল-সি)</span> to keep a live digital copy of every machine.<br>And five is <span class="tech-inline">ERP</span> Integration <span class="bn-pron">(ই-আর-পি ইন্টিগ্রেশন)</span> — sending factory output straight into <span class="tech-inline">SAP</span> <span class="bn-pron">(এস-এ-পি)</span> or <span class="tech-inline">Datatex</span> <span class="bn-pron">(ডাটাটেক্স)</span>.</p>
 <p>You know, each team gets its own simple dashboard <span class="bn-pron">(ড্যাশবোর্ড)</span>, while all five modules stay in sync behind the scenes.&quot;</p>
-<p>--------------------------------------------------------------------------------</p>
                     </div>
                 </div>
 
@@ -1665,7 +1752,7 @@ First, too much manual (ম্যানুয়াল) work.">
                 </div>
             </article>
 
-            <article class="slide-card" id="slide-04" data-index="3" data-label="Slide 04 / 18" data-search="END-TO-END DATA PIPELINE (সেন্সর থেকে ড্যাশবোর্ডে ডাটা যাত্রা) 2. Data Pipeline &amp; MQTT একজন Data Engineer হিসেবে ৪ ধাপের ডাটা ফ্লো (Sense → Connect → Process → Deliver) খুব সহজ করে বোঝানো। &quot;Now, if you look at these four steps on the slide, this is our core Data Pipeline (ডাটা পাইপলাইন) — the heart of the Digital Twin (ডিজিটাল টুইন). Let&#x27;s walk through it together:
+            <article class="slide-card" id="slide-04" data-index="3" data-label="Slide 04 / 18" data-search="END-TO-END DATA PIPELINE (সেন্সর থেকে ড্যাশবোর্ডে ডাটা যাত্রা) END-TO-END DATA PIPELINE সেন্সর থেকে ড্যাশবোর্ডে ডাটা যাত্রা 2. Data Pipeline &amp; MQTT একজন Data Engineer হিসেবে ৪ ধাপের ডাটা ফ্লো (Sense → Connect → Process → Deliver) খুব সহজ করে বোঝানো। &quot;Now, if you look at these four steps on the slide, this is our core Data Pipeline (ডাটা পাইপলাইন) — the heart of the Digital Twin (ডিজিটাল টুইন). Let&#x27;s walk through it together:
 
 Step one is Sense (সেন্স). Sensors (সেন্সর) and high-speed c">
                 <div class="slide-header">
@@ -1682,7 +1769,7 @@ Step one is Sense (সেন্স). Sensors (সেন্সর) and high-speed
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             Copy Speech
                         </button>
-                        <a href="index.html#slide-4" target="_blank" class="btn-deck-link">
+                        <a href="/index.html#slide-4" data-local-href="index.html#slide-4" target="_blank" class="btn-deck-link">
                             View Slide ↗
                         </a>
                     </div>
@@ -1706,11 +1793,10 @@ Step one is Sense (সেন্স). Sensors (সেন্সর) and high-speed
                     <div class="speech-box" id="speech-text-04">
                         <p>&quot;Now, if you look at these four steps on the slide, this is our core <span class="tech-inline">Data Pipeline</span> <span class="bn-pron">(ডাটা পাইপলাইন)</span> — the heart of the <span class="tech-inline">Digital Twin</span> <span class="bn-pron">(ডিজিটাল টুইন)</span>. Let&#x27;s walk through it together:</p>
 <p>Step one is Sense <span class="bn-pron">(সেন্স)</span>. Sensors <span class="bn-pron">(সেন্সর)</span> and high-speed cameras on the client&#x27;s machines capture temperature <span class="bn-pron">(টেম্পারেচার)</span>, speed, and fabric images.</p>
-<p>Step two is Connect <span class="bn-pron">(কানেক্ট)</span>. Our <span class="tech-inline">Edge Gateway</span> <span class="bn-pron">(এজ গেটওয়ে)</span> converts <span class="bn-pron">(কনভার্টস)</span> that raw signal into clean JSON <span class="bn-pron">(জে-সন)</span> and sends it over <span class="tech-inline">MQTT</span> <span class="bn-pron">(এম-কিউ-টি-টি)</span> to our <span class="tech-inline">EMQX</span> Broker <span class="bn-pron">(ই-এম-কিউ-এক্স ব্রোকার)</span>.</p>
+<p>Step two is Connect <span class="bn-pron">(কানেক্ট)</span>. Our <span class="tech-inline">Edge Gateway</span> <span class="bn-pron">(এজ গেটওয়ে)</span> converts <span class="bn-pron">(কনভার্টস)</span> that raw signal into clean <span class="tech-inline">JSON</span> <span class="bn-pron">(জে-সন)</span> and sends it over <span class="tech-inline">MQTT</span> <span class="bn-pron">(এম-কিউ-টি-টি)</span> to our <span class="tech-inline">EMQX</span> Broker <span class="bn-pron">(ই-এম-কিউ-এক্স ব্রোকার)</span>.</p>
 <p>Step three is Process <span class="bn-pron">(প্রসেস)</span>. Our <span class="tech-inline">FastAPI</span> <span class="bn-pron">(ফাস্ট-এ-পি-আই)</span> backend picks up the <span class="tech-inline">MQTT</span> stream, checks the data, updates the <span class="tech-inline">Digital Twin</span> state, and saves the history in <span class="tech-inline">TimescaleDB</span> <span class="bn-pron">(টাইম-স্কেল-ডি-বি)</span>.</p>
 <p>Step four is Deliver <span class="bn-pron">(ডেলিভার)</span>. <span class="tech-inline">WebSockets</span> <span class="bn-pron">(ওয়েব-সকেট)</span> push the live update straight to our <span class="tech-inline">Next.js</span> <span class="bn-pron">(নেক্সট-জে-এস)</span> screen.</p>
 <p>To be honest, from a machine changing heat on the floor to the client seeing it on screen — the whole trip takes less than 25 milliseconds <span class="bn-pron">(মিলিসেকেন্ড)</span>.&quot;</p>
-<p>--------------------------------------------------------------------------------</p>
                     </div>
                 </div>
 
@@ -1740,7 +1826,7 @@ Step one is Sense (সেন্স). Sensors (সেন্সর) and high-speed
                 </div>
             </article>
 
-            <article class="slide-card" id="slide-05" data-index="4" data-label="Slide 05 / 18" data-search="FEATURE 01 — COLOR FORMULATION (স্মার্ট কালার ফর্মুলেশন) 3. Client Lab Automation ক্লায়েন্টের ডাইং ল্যাবের রঙ মেলানোর সমস্যা কীভাবে ম্যাথ ও অটোমেশন দিয়ে সলভ হলো তা বলা। &quot;Let&#x27;s look at Feature one — Color Formulation (কালার ফর্মুলেশন).
+            <article class="slide-card" id="slide-05" data-index="4" data-label="Slide 05 / 18" data-search="FEATURE 01 — COLOR FORMULATION (স্মার্ট কালার ফর্মুলেশন) FEATURE 01 — COLOR FORMULATION স্মার্ট কালার ফর্মুলেশন 3. Client Lab Automation ক্লায়েন্টের ডাইং ল্যাবের রঙ মেলানোর সমস্যা কীভাবে ম্যাথ ও অটোমেশন দিয়ে সলভ হলো তা বলা। &quot;Let&#x27;s look at Feature one — Color Formulation (কালার ফর্মুলেশন).
 
 ▶ What the Client Faced:
 When we visited the client&#x27;s dye lab, matching (ম্যাচিং) a buyer&#x27;s color sample on the first try was a big bottleneck (বটলনেক). Lab chemists (কেমিস্">
@@ -1758,7 +1844,7 @@ When we visited the client&#x27;s dye lab, matching (ম্যাচিং) a bu
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             Copy Speech
                         </button>
-                        <a href="index.html#slide-5" target="_blank" class="btn-deck-link">
+                        <a href="/index.html#slide-5" data-local-href="index.html#slide-5" target="_blank" class="btn-deck-link">
                             View Slide ↗
                         </a>
                     </div>
@@ -1785,12 +1871,11 @@ When we visited the client&#x27;s dye lab, matching (ম্যাচিং) a bu
 <p>When we visited the client&#x27;s dye lab, matching <span class="bn-pron">(ম্যাচিং)</span> a buyer&#x27;s color sample on the first try was a big bottleneck <span class="bn-pron">(বটলনেক)</span>. Lab chemists <span class="bn-pron">(কেমিস্ট)</span> spent 5 to 6 hours mixing test batches <span class="bn-pron">(ব্যাচেস)</span> by hand, wasting a lot of dyes and water. The client really wanted to automate <span class="bn-pron">(অটোমেট)</span> this step.</p>
 </div>
 <div class="cue-block cue-solution"><div class="cue-heading">▶ Our Solution:</div>
-<p>So we built a smart recipe engine using <span class="tech-inline">Kubelka-Munk</span> <span class="bn-pron">(কুবেলকা-মাঙ্ক)</span> color math. First, a color scanner — a Spectrophotometer <span class="bn-pron">(স্পেকট্রো-ফোটোমিটার)</span> — reads the target fabric. Then our engine calculates <span class="bn-pron">(ক্যালকুলেটস)</span> the exact grams of dye needed per 100 kg and sends it to the auto-dispenser <span class="bn-pron">(অটো-ডিস্পেন্সার)</span>. For safety, the lab still does a quick beaker <span class="bn-pron">(বিকার)</span> check before bulk dyeing <span class="bn-pron">(ডাইং)</span>.</p>
+<p>So we built a smart recipe engine using <span class="tech-inline">Kubelka-Munk</span> <span class="bn-pron">(কুবেলকা-মাঙ্ক)</span> color math. First, a color scanner — a <span class="tech-inline">Spectrophotometer</span> <span class="bn-pron">(স্পেকট্রো-ফোটোমিটার)</span> — reads the target fabric. Then our engine calculates <span class="bn-pron">(ক্যালকুলেটস)</span> the exact grams of dye needed per 100 kg and sends it to the auto-dispenser <span class="bn-pron">(অটো-ডিস্পেন্সার)</span>. For safety, the lab still does a quick beaker <span class="bn-pron">(বিকার)</span> check before bulk dyeing <span class="bn-pron">(ডাইং)</span>.</p>
 </div>
 <div class="cue-block cue-result"><div class="cue-heading">▶ The Result:</div>
 <p>Color difference — called <span class="tech-inline">Delta-E</span> <span class="bn-pron">(ডেল্টা-ই)</span> — stays under 1.0, which looks like a dead-on match to the human eye, and first-try lab success went past 85 percent.&quot;</p>
 </div>
-<p>--------------------------------------------------------------------------------</p>
                     </div>
                 </div>
 
@@ -1820,7 +1905,7 @@ When we visited the client&#x27;s dye lab, matching (ম্যাচিং) a bu
                 </div>
             </article>
 
-            <article class="slide-card" id="slide-06" data-index="5" data-label="Slide 06 / 18" data-search="FEATURE 02 — AI VISION INSPECTION (এ-আই ভিত্তিক কাপড়ের মান পরীক্ষা) 3. AI Vision Automation ক্লায়েন্টের ফ্লোরে কাপড়ের ডিফেক্ট ধরতে AI Automation কীভাবে কাজ করে তা সহজ ও সাবলীলভাবে বলা। &quot;Now look at Feature two — Visual Quality Inspection (ইন্সপেকশন) using AI automation (এ-আই অটোমেশন).
+            <article class="slide-card" id="slide-06" data-index="5" data-label="Slide 06 / 18" data-search="FEATURE 02 — AI VISION INSPECTION (এ-আই ভিত্তিক কাপড়ের মান পরীক্ষা) FEATURE 02 — AI VISION INSPECTION এ-আই ভিত্তিক কাপড়ের মান পরীক্ষা 3. AI Vision Automation ক্লায়েন্টের ফ্লোরে কাপড়ের ডিফেক্ট ধরতে AI Automation কীভাবে কাজ করে তা সহজ ও সাবলীলভাবে বলা। &quot;Now look at Feature two — Visual Quality Inspection (ইন্সপেকশন) using AI automation (এ-আই অটোমেশন).
 
 ▶ What the Client Wanted:
 Think about it — when fabric flies through a machine at 80 to 120 meters per minute, human eyes simply can&#x27;t cat">
@@ -1838,7 +1923,7 @@ Think about it — when fabric flies through a machine at 80 to 120 meters per m
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             Copy Speech
                         </button>
-                        <a href="index.html#slide-6" target="_blank" class="btn-deck-link">
+                        <a href="/index.html#slide-6" data-local-href="index.html#slide-6" target="_blank" class="btn-deck-link">
                             View Slide ↗
                         </a>
                     </div>
@@ -1871,7 +1956,6 @@ Think about it — when fabric flies through a machine at 80 to 120 meters per m
 <div class="cue-block cue-result"><div class="cue-heading">▶ The Result:</div>
 <p>Now every meter gets checked on its own with a clean digital report — no more guesswork <span class="bn-pron">(গেস-ওয়ার্ক)</span>.&quot;</p>
 </div>
-<p>--------------------------------------------------------------------------------</p>
                     </div>
                 </div>
 
@@ -1901,7 +1985,7 @@ Think about it — when fabric flies through a machine at 80 to 120 meters per m
                 </div>
             </article>
 
-            <article class="slide-card" id="slide-07" data-index="6" data-label="Slide 07 / 18" data-search="KEY CHALLENGE &amp; SOLUTION — IMAGE &amp; DATA OFFLOADING (বড় ছবি বনাম সার্ভার স্পিড) 4. Challenge &amp; Data Offload ২০ মেগাবাইটের ভারী ছবি আর ছোট সেন্সর ডাটা আলাদা রেখে আমরা কীভাবে সার্ভার ক্র্যাশ থেকে বাঁচিয়েছি তা সুন্দরভাবে বলা। &quot;This slide is actually my favorite technical story from the project, because it shows how we solved a real system bottleneck (বটলনেক).
+            <article class="slide-card" id="slide-07" data-index="6" data-label="Slide 07 / 18" data-search="KEY CHALLENGE &amp; SOLUTION — IMAGE &amp; DATA OFFLOADING (বড় ছবি বনাম সার্ভার স্পিড) KEY CHALLENGE &amp; SOLUTION — IMAGE &amp; DATA OFFLOADING বড় ছবি বনাম সার্ভার স্পিড 4. Challenge &amp; Data Offload ২০ মেগাবাইটের ভারী ছবি আর ছোট সেন্সর ডাটা আলাদা রেখে আমরা কীভাবে সার্ভার ক্র্যাশ থেকে বাঁচিয়েছি তা সুন্দরভাবে বলা। &quot;This slide is actually my favorite technical story from the project, because it shows how we solved a real system bottleneck (বটলনেক).
 
 ▶ The Problem:
 Look at the numbers: each raw TIFF (টিফ) image from the 16K camera is about 20 megabytes">
@@ -1919,7 +2003,7 @@ Look at the numbers: each raw TIFF (টিফ) image from the 16K camera is abou
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             Copy Speech
                         </button>
-                        <a href="index.html#slide-7" target="_blank" class="btn-deck-link">
+                        <a href="/index.html#slide-7" data-local-href="index.html#slide-7" target="_blank" class="btn-deck-link">
                             View Slide ↗
                         </a>
                     </div>
@@ -1946,12 +2030,11 @@ Look at the numbers: each raw TIFF (টিফ) image from the 16K camera is abou
 <p>Look at the numbers: each raw TIFF <span class="bn-pron">(টিফ)</span> image from the 16K camera is about 20 megabytes <span class="bn-pron">(মেগাবাইট)</span>. To be honest, if we pushed 20-megabyte images every second through our <span class="tech-inline">FastAPI</span> <span class="bn-pron">(ফাস্ট-এ-পি-আই)</span> backend or <span class="tech-inline">MQTT</span> Broker <span class="bn-pron">(এম-কিউ-টি-টি ব্রোকার)</span>, our server memory and network would crash in minutes.</p>
 </div>
 <div class="cue-block cue-solution"><div class="cue-heading">▶ Our Solution:</div>
-<p>So if you follow this sequence diagram <span class="bn-pron">(ডায়াগ্রাম)</span> on the screen, here is the trick we used:<br>First, the Edge PC <span class="bn-pron">(এজ পি-সি)</span> asks <span class="tech-inline">FastAPI</span> for a temporary <span class="tech-inline">Pre-signed S3 URL</span> <span class="bn-pron">(প্রি-সাইনড এস-থ্রি ইউ-আর-এল)</span>.<br>Then, the Edge PC skips our backend completely and uploads that heavy 20-megabyte photo straight to <span class="tech-inline">AWS S3</span> <span class="bn-pron">(এ-ডব্লিউ-এস এস-থ্রি)</span>.<br>At the exact same time, the Edge PC sends only a tiny alert message over <span class="tech-inline">MQTT</span> <span class="bn-pron">(এম-কিউ-টি-টি)</span>.<br><span class="tech-inline">FastAPI</span> just saves the image link in <span class="tech-inline">PostgreSQL</span> <span class="bn-pron">(পোস্ট-গ্রে-এস-কিউ-এল)</span> and pings the <span class="tech-inline">Next.js</span> <span class="bn-pron">(নেক্সট-জে-এস)</span> dashboard via <span class="tech-inline">WebSockets</span> <span class="bn-pron">(ওয়েব-সকেট)</span>.</p>
+<p>So if you follow this sequence diagram <span class="bn-pron">(ডায়াগ্রাম)</span> on the screen, here is the trick we used:<br>First, the <span class="tech-inline">Edge PC</span> <span class="bn-pron">(এজ পি-সি)</span> asks <span class="tech-inline">FastAPI</span> for a temporary <span class="tech-inline">Pre-signed S3 URL</span> <span class="bn-pron">(প্রি-সাইনড এস-থ্রি ইউ-আর-এল)</span>.<br>Then, the <span class="tech-inline">Edge PC</span> skips our backend completely and uploads that heavy 20-megabyte photo straight to <span class="tech-inline">AWS S3</span> <span class="bn-pron">(এ-ডব্লিউ-এস এস-থ্রি)</span>.<br>At the exact same time, the <span class="tech-inline">Edge PC</span> sends only a tiny alert message over <span class="tech-inline">MQTT</span> <span class="bn-pron">(এম-কিউ-টি-টি)</span>.<br><span class="tech-inline">FastAPI</span> just saves the image link in <span class="tech-inline">PostgreSQL</span> <span class="bn-pron">(পোস্ট-গ্রে-এস-কিউ-এল)</span> and pings the <span class="tech-inline">Next.js</span> <span class="bn-pron">(নেক্সট-জে-এস)</span> dashboard via <span class="tech-inline">WebSockets</span> <span class="bn-pron">(ওয়েব-সকেট)</span>.</p>
 </div>
 <div class="cue-block cue-result"><div class="cue-heading">▶ The Result:</div>
 <p>Our backend handles zero heavy files, so even at full factory speed, the server stays fast and never crashes.&quot;</p>
 </div>
-<p>--------------------------------------------------------------------------------</p>
                     </div>
                 </div>
 
@@ -1981,7 +2064,7 @@ Look at the numbers: each raw TIFF (টিফ) image from the 16K camera is abou
                 </div>
             </article>
 
-            <article class="slide-card" id="slide-08" data-index="7" data-label="Slide 08 / 18" data-search="PRODUCTION INTELLIGENCE &amp; OVERHEAT SOLUTION (লাইভ মনিটরিং ও দুর্ঘটনা রোধ) 4. AI Anomaly &amp; Safety প্রথমে আমরা কীভাবে প্রবলেমটা সলভ করি তা সহজ ধাপে দেখানো, আর তারপর ফ্যাক্টরিতে বাস্তবে কী ঘটেছিল তা খুব সহজ ইংরেজিতে বলা। &quot;Feature three is Production Intelligence (ইন্টেলিজেন্স) — basically (বেসিক্যালি), seeing every machine live so we can stop problems early.
+            <article class="slide-card" id="slide-08" data-index="7" data-label="Slide 08 / 18" data-search="PRODUCTION INTELLIGENCE &amp; OVERHEAT SOLUTION (লাইভ মনিটরিং ও দুর্ঘটনা রোধ) PRODUCTION INTELLIGENCE &amp; OVERHEAT SOLUTION লাইভ মনিটরিং ও দুর্ঘটনা রোধ 4. AI Anomaly &amp; Safety প্রথমে আমরা কীভাবে প্রবলেমটা সলভ করি তা সহজ ধাপে দেখানো, আর তারপর ফ্যাক্টরিতে বাস্তবে কী ঘটেছিল তা খুব সহজ ইংরেজিতে বলা। &quot;Feature three is Production Intelligence (ইন্টেলিজেন্স) — basically (বেসিক্যালি), seeing every machine live so we can stop problems early.
 
 ▶ How We Solve the Problem:
 Let me show you step by step how we solve machine issues (ইস্যুস) on th">
@@ -1999,7 +2082,7 @@ Let me show you step by step how we solve machine issues (ইস্যুস) on
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             Copy Speech
                         </button>
-                        <a href="index.html#slide-8" target="_blank" class="btn-deck-link">
+                        <a href="/index.html#slide-8" data-local-href="index.html#slide-8" target="_blank" class="btn-deck-link">
                             View Slide ↗
                         </a>
                     </div>
@@ -2022,7 +2105,7 @@ Let me show you step by step how we solve machine issues (ইস্যুস) on
                     </div>
                     <div class="speech-box" id="speech-text-08">
                         <p>&quot;Feature three is Production Intelligence <span class="bn-pron">(ইন্টেলিজেন্স)</span> — basically <span class="bn-pron">(বেসিক্যালি)</span>, seeing every machine live so we can stop problems early.</p>
-<div class="cue-block cue-problem"><div class="cue-heading">▶ How We Solve the Problem:</div>
+<div class="cue-block cue-solution"><div class="cue-heading">▶ How We Solve the Problem:</div>
 <p>Let me show you step by step how we solve machine issues <span class="bn-pron">(ইস্যুস)</span> on the floor:<br>First, every machine sensor <span class="bn-pron">(সেন্সর)</span> sends live heat and speed numbers every second through <span class="tech-inline">MQTT</span> <span class="bn-pron">(এম-কিউ-টি-টি)</span> to our <span class="tech-inline">Digital Twin</span> <span class="bn-pron">(ডিজিটাল টুইন)</span>.<br>Second, our backend <span class="bn-pron">(ব্যাকএন্ড)</span> checks every number against a safe limit on its own.<br>Third, if any machine gets too hot, the dashboard <span class="bn-pron">(ড্যাশবোর্ড)</span> turns red right away and sends an SMS to the shift supervisor <span class="bn-pron">(সুপারভাইজার)</span> within 3 seconds.<br>And fourth, the supervisor opens the chart, sees when the heat started rising, and fixes the machine right there.</p>
 </div>
 <div class="cue-block cue-info"><div class="cue-heading">▶ What Actually Happened (Real Case):</div>
@@ -2031,7 +2114,6 @@ Let me show you step by step how we solve machine issues (ইস্যুস) on
 <div class="cue-block cue-result"><div class="cue-heading">▶ The Result:</div>
 <p>But this time, AutoTaskX <span class="bn-pron">(অটো-টাস্ক-এক্স)</span> caught the 192-degree spike and sent the alert in under 3 seconds. The supervisor lowered the heat right away, and the whole fabric batch <span class="bn-pron">(ব্যাচ)</span> was saved with zero waste.&quot;</p>
 </div>
-<p>--------------------------------------------------------------------------------</p>
                     </div>
                 </div>
 
@@ -2061,7 +2143,7 @@ Let me show you step by step how we solve machine issues (ইস্যুস) on
                 </div>
             </article>
 
-            <article class="slide-card" id="slide-09" data-index="8" data-label="Slide 09 / 18" data-search="TEXTILE OS &amp; DIGITAL TWIN CORE (ভিন্ন ভিন্ন মেশিনকে এক ডিজিটাল টুইনে আনা) 2. Digital Twin Core ইন্ডাস্ট্রি ভিজিটে দেখা পুরোনো ও নতুন সব মেশিনকে কীভাবে একটি ইউনিফাইড Digital Twin-এ আনা হয়েছে তা সহজভাবে বলা। &quot;This slide shows the heart of our Digital Twin (ডিজিটাল টুইন) engine — we call it Textile OS (টেক্সটাইল ও-এস).
+            <article class="slide-card" id="slide-09" data-index="8" data-label="Slide 09 / 18" data-search="TEXTILE OS &amp; DIGITAL TWIN CORE (ভিন্ন ভিন্ন মেশিনকে এক ডিজিটাল টুইনে আনা) TEXTILE OS &amp; DIGITAL TWIN CORE ভিন্ন ভিন্ন মেশিনকে এক ডিজিটাল টুইনে আনা 2. Digital Twin Core ইন্ডাস্ট্রি ভিজিটে দেখা পুরোনো ও নতুন সব মেশিনকে কীভাবে একটি ইউনিফাইড Digital Twin-এ আনা হয়েছে তা সহজভাবে বলা। &quot;This slide shows the heart of our Digital Twin (ডিজিটাল টুইন) engine — we call it Textile OS (টেক্সটাইল ও-এস).
 
 ▶ What We Saw on the Mill Visit:
 When we visited the client&#x27;s factory, we noticed right away that the machines didn&#x27;t speak the">
@@ -2079,7 +2161,7 @@ When we visited the client&#x27;s factory, we noticed right away that the machin
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             Copy Speech
                         </button>
-                        <a href="index.html#slide-9" target="_blank" class="btn-deck-link">
+                        <a href="/index.html#slide-9" data-local-href="index.html#slide-9" target="_blank" class="btn-deck-link">
                             View Slide ↗
                         </a>
                     </div>
@@ -2090,7 +2172,7 @@ When we visited the client&#x27;s factory, we noticed right away that the machin
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
                         স্লাইডের মূল লক্ষ্য (Slide Objective)
                     </div>
-                    ইন্ডাস্ট্রি ভিজিটে দেখা পুরোনো ও নতুন সব মেশিনকে কীভাবে একটি ইউনিফাইড Digital Twin-এ আনা হয়েছে তা সহজভাবে বলা।
+                    ইন্ডাস্ট্রি ভিজিটে দেখা পুরোনো ও নতুন সব মেশিনকে কীভাবে একটি ইউনিফাইড <span class="tech-inline">Digital Twin</span>-এ আনা হয়েছে তা সহজভাবে বলা।
                 </div>
 
                 <div class="speech-section">
@@ -2103,15 +2185,14 @@ When we visited the client&#x27;s factory, we noticed right away that the machin
                     <div class="speech-box" id="speech-text-09">
                         <p>&quot;This slide shows the heart of our <span class="tech-inline">Digital Twin</span> <span class="bn-pron">(ডিজিটাল টুইন)</span> engine — we call it <span class="tech-inline">Textile OS</span> <span class="bn-pron">(টেক্সটাইল ও-এস)</span>.</p>
 <div class="cue-block cue-info"><div class="cue-heading">▶ What We Saw on the Mill Visit:</div>
-<p>When we visited the client&#x27;s factory, we noticed right away that the machines didn&#x27;t speak the same language. They had modern <span class="bn-pron">(মডার্ন)</span> German stenters <span class="bn-pron">(স্টেন্টার)</span>, Italian machines, and even 30-year-old controllers <span class="bn-pron">(কন্ট্রোলার)</span>. Some talked over <span class="tech-inline">Modbus</span> <span class="bn-pron">(মডবাস)</span>, some used Siemens S7 <span class="bn-pron">(সিমেন্স এস-সেভেন)</span>, and others used <span class="tech-inline">OPC-UA</span> <span class="bn-pron">(ও-পি-সি ইউ-এ)</span> or <span class="tech-inline">RS-485</span> <span class="bn-pron">(আর-এস ফোর-এইটি-ফাইভ)</span>. Still, the client wanted every single machine in one <span class="tech-inline">Digital Twin</span>.</p>
+<p>When we visited the client&#x27;s factory, we noticed right away that the machines didn&#x27;t speak the same language. They had modern <span class="bn-pron">(মডার্ন)</span> German stenters <span class="bn-pron">(স্টেন্টার)</span>, Italian machines, and even 30-year-old controllers <span class="bn-pron">(কন্ট্রোলার)</span>. Some talked over <span class="tech-inline">Modbus</span> <span class="bn-pron">(মডবাস)</span>, some used <span class="tech-inline">Siemens S7</span> <span class="bn-pron">(সিমেন্স এস-সেভেন)</span>, and others used <span class="tech-inline">OPC-UA</span> <span class="bn-pron">(ও-পি-সি ইউ-এ)</span> or <span class="tech-inline">RS-485</span> <span class="bn-pron">(আর-এস ফোর-এইটি-ফাইভ)</span>. Still, the client wanted every single machine in one <span class="tech-inline">Digital Twin</span>.</p>
 </div>
 <div class="cue-block cue-solution"><div class="cue-heading">▶ Our Solution:</div>
-<p>So we built <span class="tech-inline">Textile OS</span> as a smart translator layer.<br>Our Edge Gateways <span class="bn-pron">(এজ গেটওয়ে)</span> read each machine in its own native language — heat, humidity <span class="bn-pron">(হিউমিডিটি)</span>, steam pressure, speed, and power usage.<br>At the edge, we convert all those different signals into one clean, standard JSON <span class="bn-pron">(জে-সন)</span> format.<br>That clean stream updates a live virtual <span class="bn-pron">(ভার্চুয়াল)</span> twin for every machine in our backend.</p>
+<p>So we built <span class="tech-inline">Textile OS</span> as a smart translator layer.<br>Our <span class="tech-inline">Edge Gateways</span> <span class="bn-pron">(এজ গেটওয়ে)</span> read each machine in its own native language — heat, humidity <span class="bn-pron">(হিউমিডিটি)</span>, steam pressure, speed, and power usage.<br>At the edge, we convert all those different signals into one clean, standard <span class="tech-inline">JSON</span> <span class="bn-pron">(জে-সন)</span> format.<br>That clean stream updates a live virtual <span class="bn-pron">(ভার্চুয়াল)</span> twin for every machine in our backend.</p>
 </div>
 <div class="cue-block cue-result"><div class="cue-heading">▶ The Result:</div>
 <p>Whether a machine is brand new or 30 years old, inside AutoTaskX every machine works as one clean <span class="tech-inline">Digital Twin</span> node.&quot;</p>
 </div>
-<p>--------------------------------------------------------------------------------</p>
                     </div>
                 </div>
 
@@ -2141,7 +2222,7 @@ When we visited the client&#x27;s factory, we noticed right away that the machin
                 </div>
             </article>
 
-            <article class="slide-card" id="slide-10" data-index="9" data-label="Slide 10 / 18" data-search="IOT DATA TRACE UNDER 25MS (একটি সেন্সর রিডিংয়ের ২৫ মিলিসেকেন্ডের যাত্রা) 2. Data Trace (&lt;25ms) ইন্টারভিউয়ারকে স্লাইডের বাটনে ক্লিক করে &lt;25ms লাইভ ডাটা ফ্লো দেখানো। &quot;You know, the client wanted true real-time updates, so keeping delay ultra-low — what we call latency (লেইটেন্সি) — was huge for us on the backend. Let&#x27;s trace just one temperature reading right here on Slide 10:
+            <article class="slide-card" id="slide-10" data-index="9" data-label="Slide 10 / 18" data-search="IOT DATA TRACE UNDER 25MS (একটি সেন্সর রিডিংয়ের ২৫ মিলিসেকেন্ডের যাত্রা) IOT DATA TRACE UNDER 25MS একটি সেন্সর রিডিংয়ের ২৫ মিলিসেকেন্ডের যাত্রা 2. Data Trace (&lt;25ms) ইন্টারভিউয়ারকে স্লাইডের বাটনে ক্লিক করে &lt;25ms লাইভ ডাটা ফ্লো দেখানো। &quot;You know, the client wanted true real-time updates, so keeping delay ultra-low — what we call latency (লেইটেন্সি) — was huge for us on the backend. Let&#x27;s trace just one temperature reading right here on Slide 10:
 
 First, inside the Stenter">
                 <div class="slide-header">
@@ -2158,7 +2239,7 @@ First, inside the Stenter">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             Copy Speech
                         </button>
-                        <a href="index.html#slide-10" target="_blank" class="btn-deck-link">
+                        <a href="/index.html#slide-10" data-local-href="index.html#slide-10" target="_blank" class="btn-deck-link">
                             View Slide ↗
                         </a>
                     </div>
@@ -2183,7 +2264,6 @@ First, inside the Stenter">
                         <p>&quot;You know, the client wanted true real-time updates, so keeping delay ultra-low — what we call latency <span class="bn-pron">(লেইটেন্সি)</span> — was huge for us on the backend. Let&#x27;s trace just one temperature reading right here on Slide 10:</p>
 <p>First, inside the Stenter machine, a <span class="tech-inline">PT100</span> <span class="bn-pron">(পি-টি হান্ড্রেড)</span> sensor reads 185.5 degrees every 100 milliseconds <span class="bn-pron">(মিলিসেকেন্ড)</span>.<br>Next, the IoT Gateway <span class="bn-pron">(গেটওয়ে)</span> turns that signal into a tiny <span class="tech-inline">MQTT</span> <span class="bn-pron">(এম-কিউ-টি-টি)</span> packet.<br>It travels over the factory network to our <span class="tech-inline">FastAPI</span> <span class="bn-pron">(ফাস্ট-এ-পি-আই)</span> backend.<br>AutoTaskX checks the safety limit, updates the <span class="tech-inline">Digital Twin</span>, saves it to <span class="tech-inline">TimescaleDB</span> <span class="bn-pron">(টাইম-স্কেল-ডি-বি)</span>, and pushes it to the live screen.</p>
 <p>In fact, let&#x27;s click &#x27;Animate Data Flow&#x27; right here on the slide — you can actually <span class="bn-pron">(অ্যাকচুয়ালি)</span> watch all six steps finish in under 25 milliseconds <span class="bn-pron">(মিলিসেকেন্ড)</span>!&quot;</p>
-<p>--------------------------------------------------------------------------------</p>
                     </div>
                 </div>
 
@@ -2213,7 +2293,7 @@ First, inside the Stenter">
                 </div>
             </article>
 
-            <article class="slide-card" id="slide-11" data-index="10" data-label="Slide 11 / 18" data-search="WHY MQTT? DATA TRANSPORT DECISION (এম-কিউ-টি-টি কেন ব্যবহার করলাম?) 5. MQTT Protocol Decision কেন আমরা HTTP-র বদলে MQTT বেছে নিলাম এবং বড় ছবির জন্য কেন সরাসরি S3 ব্যবহার করলাম তা সহজভাবে বলা। &quot;Now, you might be wondering — why did we use MQTT (এম-কিউ-টি-টি) instead of normal HTTP REST APIs (রেস্ট এ-পি-আই) for sensor data?
+            <article class="slide-card" id="slide-11" data-index="10" data-label="Slide 11 / 18" data-search="WHY MQTT? DATA TRANSPORT DECISION (এম-কিউ-টি-টি কেন ব্যবহার করলাম?) WHY MQTT? DATA TRANSPORT DECISION এম-কিউ-টি-টি কেন ব্যবহার করলাম? 5. MQTT Protocol Decision কেন আমরা HTTP-র বদলে MQTT বেছে নিলাম এবং বড় ছবির জন্য কেন সরাসরি S3 ব্যবহার করলাম তা সহজভাবে বলা। &quot;Now, you might be wondering — why did we use MQTT (এম-কিউ-টি-টি) instead of normal HTTP REST APIs (রেস্ট এ-পি-আই) for sensor data?
 
 ▶ The Problem:
 Imagine 50 machines sending readings every second over normal HTTP. HTTP has big headers (হে">
@@ -2231,7 +2311,7 @@ Imagine 50 machines sending readings every second over normal HTTP. HTTP has big
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             Copy Speech
                         </button>
-                        <a href="index.html#slide-11" target="_blank" class="btn-deck-link">
+                        <a href="/index.html#slide-11" data-local-href="index.html#slide-11" target="_blank" class="btn-deck-link">
                             View Slide ↗
                         </a>
                     </div>
@@ -2263,7 +2343,6 @@ Imagine 50 machines sending readings every second over normal HTTP. HTTP has big
 <div class="cue-block cue-result"><div class="cue-heading">▶ The Result:</div>
 <p>We get fast, rock-solid communication across the whole factory floor.&quot;</p>
 </div>
-<p>--------------------------------------------------------------------------------</p>
                     </div>
                 </div>
 
@@ -2293,7 +2372,7 @@ Imagine 50 machines sending readings every second over normal HTTP. HTTP has big
                 </div>
             </article>
 
-            <article class="slide-card" id="slide-12" data-index="11" data-label="Slide 12 / 18" data-search="STORAGE ARCHITECTURE (তিনটি বিশেষায়িত ডেটাবেজ কেন?) 5. Polyglot Data Storage ৩টি আলাদা ডেটাবেজ কেন ব্যবহার করা হয়েছে তা খুব সহজ যুক্তিতে বোঝানো। &quot;As a Data Engineer, putting every kind of data into one database (ডাটাবেজ) slows things down fast. So we picked three storage tools, each built for one job:
+            <article class="slide-card" id="slide-12" data-index="11" data-label="Slide 12 / 18" data-search="STORAGE ARCHITECTURE (তিনটি বিশেষায়িত ডেটাবেজ কেন?) STORAGE ARCHITECTURE তিনটি বিশেষায়িত ডেটাবেজ কেন? 5. Polyglot Data Storage ৩টি আলাদা ডেটাবেজ কেন ব্যবহার করা হয়েছে তা খুব সহজ যুক্তিতে বোঝানো। &quot;As a Data Engineer, putting every kind of data into one database (ডাটাবেজ) slows things down fast. So we picked three storage tools, each built for one job:
 
 First, PostgreSQL (পোস্ট-গ্রে-এস-কিউ-এল) for business records — buyer orders, use">
                 <div class="slide-header">
@@ -2310,7 +2389,7 @@ First, PostgreSQL (পোস্ট-গ্রে-এস-কিউ-এল) for bus
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             Copy Speech
                         </button>
-                        <a href="index.html#slide-12" target="_blank" class="btn-deck-link">
+                        <a href="/index.html#slide-12" data-local-href="index.html#slide-12" target="_blank" class="btn-deck-link">
                             View Slide ↗
                         </a>
                     </div>
@@ -2337,7 +2416,6 @@ First, PostgreSQL (পোস্ট-গ্রে-এস-কিউ-এল) for bus
 <p>Second, <span class="tech-inline">TimescaleDB</span> <span class="bn-pron">(টাইম-স্কেল-ডি-বি)</span> for time-based sensor data. Since we save millions of sensor rows, a normal table gets really slow over time. <span class="tech-inline">TimescaleDB</span> runs inside <span class="tech-inline">PostgreSQL</span> using smart time-based tables called <span class="tech-inline">Hypertables</span> <span class="bn-pron">(হাইপার-টেবলস)</span> — it splits data by time on its own and shrinks storage space by up to 95 percent!</p>
 <p>And third, <span class="tech-inline">AWS S3</span> <span class="bn-pron">(এ-ডব্লিউ-এস এস-থ্রি)</span> for heavy files — like fabric scan photos and PDF reports.</p>
 <p>So when a manager checks a batch history, all three work smoothly side by side.&quot;</p>
-<p>--------------------------------------------------------------------------------</p>
                     </div>
                 </div>
 
@@ -2367,7 +2445,7 @@ First, PostgreSQL (পোস্ট-গ্রে-এস-কিউ-এল) for bus
                 </div>
             </article>
 
-            <article class="slide-card" id="slide-13" data-index="12" data-label="Slide 13 / 18" data-search="REAL-TIME DELIVERY PIPELINE (লাইভ আপডেট বনাম হিস্টোরিক্যাল রিপোর্ট) 2. Real-time Data Serving অপারেটরের লাইভ স্ক্রিন আর ডিরেক্টরের হিস্টোরিক্যাল রিপোর্ট আলাদা চ্যানেলে রাখার কারণ সহজভাবে বলা। &quot;Saving data is half the job — showing it cleanly to different people is just as important.
+            <article class="slide-card" id="slide-13" data-index="12" data-label="Slide 13 / 18" data-search="REAL-TIME DELIVERY PIPELINE (লাইভ আপডেট বনাম হিস্টোরিক্যাল রিপোর্ট) REAL-TIME DELIVERY PIPELINE লাইভ আপডেট বনাম হিস্টোরিক্যাল রিপোর্ট 2. Real-time Data Serving অপারেটরের লাইভ স্ক্রিন আর ডিরেক্টরের হিস্টোরিক্যাল রিপোর্ট আলাদা চ্যানেলে রাখার কারণ সহজভাবে বলা। &quot;Saving data is half the job — showing it cleanly to different people is just as important.
 
 ▶ The Problem:
 Floor workers need instant (ইনস্ট্যান্ট) live updates without hitting refresh. Meanwhile, the client&#x27;s directors (ডিরেক্টর) load hea">
@@ -2385,7 +2463,7 @@ Floor workers need instant (ইনস্ট্যান্ট) live updates with
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             Copy Speech
                         </button>
-                        <a href="index.html#slide-13" target="_blank" class="btn-deck-link">
+                        <a href="/index.html#slide-13" data-local-href="index.html#slide-13" target="_blank" class="btn-deck-link">
                             View Slide ↗
                         </a>
                     </div>
@@ -2417,7 +2495,6 @@ Floor workers need instant (ইনস্ট্যান্ট) live updates with
 <div class="cue-block cue-result"><div class="cue-heading">▶ The Result:</div>
 <p>Even when a director loads a 30-day energy report, the live machine screen on the floor stays super fast.&quot;</p>
 </div>
-<p>--------------------------------------------------------------------------------</p>
                     </div>
                 </div>
 
@@ -2447,7 +2524,7 @@ Floor workers need instant (ইনস্ট্যান্ট) live updates with
                 </div>
             </article>
 
-            <article class="slide-card" id="slide-14" data-index="13" data-label="Slide 14 / 18" data-search="FEATURE 05 — ERP INTEGRATION (ফ্যাক্টরি থেকে অফিসের ই-আর-পি অটোমেশন) 3. Enterprise ERP Bridge ক্লায়েন্টের অফিসের ERP সফটওয়্যারের সাথে ফ্যাক্টরি ফ্লোর কীভাবে অটোমেটিক যুক্ত হলো তা বলা। &quot;Feature five solves a gap the client directly asked for in our very first office meeting — connecting the factory floor with their head-office ERP (ই-আর-পি) software.
+            <article class="slide-card" id="slide-14" data-index="13" data-label="Slide 14 / 18" data-search="FEATURE 05 — ERP INTEGRATION (ফ্যাক্টরি থেকে অফিসের ই-আর-পি অটোমেশন) FEATURE 05 — ERP INTEGRATION ফ্যাক্টরি থেকে অফিসের ই-আর-পি অটোমেশন 3. Enterprise ERP Bridge ক্লায়েন্টের অফিসের ERP সফটওয়্যারের সাথে ফ্যাক্টরি ফ্লোর কীভাবে অটোমেটিক যুক্ত হলো তা বলা। &quot;Feature five solves a gap the client directly asked for in our very first office meeting — connecting the factory floor with their head-office ERP (ই-আর-পি) software.
 
 ▶ The Problem:
 Like most big textile groups, the client already uses an">
@@ -2465,7 +2542,7 @@ Like most big textile groups, the client already uses an">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             Copy Speech
                         </button>
-                        <a href="index.html#slide-14" target="_blank" class="btn-deck-link">
+                        <a href="/index.html#slide-14" data-local-href="index.html#slide-14" target="_blank" class="btn-deck-link">
                             View Slide ↗
                         </a>
                     </div>
@@ -2497,7 +2574,6 @@ Like most big textile groups, the client already uses an">
 <div class="cue-block cue-result"><div class="cue-heading">▶ The Result:</div>
 <p>Zero two-day delays, zero manual typing errors, and 100 percent clear stock tracking for the client.&quot;</p>
 </div>
-<p>--------------------------------------------------------------------------------</p>
                     </div>
                 </div>
 
@@ -2527,7 +2603,7 @@ Like most big textile groups, the client already uses an">
                 </div>
             </article>
 
-            <article class="slide-card" id="slide-15" data-index="14" data-label="Slide 15 / 18" data-search="COMPLETE 4-ZONE ARCHITECTURE (পুরো সিস্টেমের ৪-জোন ব্লুপ্রিন্ট) 2. 4-Zone Scalable Blueprint ৪টি জোনে পুরো আর্কিটেকচার ব্লুপ্রিন্ট এক নজরে দেখানো এবং এটি কত সহজে স্কেল করা যায় তা বলা। &quot;If you look at this slide, this is our full architecture (আর্কিটেকচার) blueprint (ব্লুপ্রিন্ট) in four clear zones:
+            <article class="slide-card" id="slide-15" data-index="14" data-label="Slide 15 / 18" data-search="COMPLETE 4-ZONE ARCHITECTURE (পুরো সিস্টেমের ৪-জোন ব্লুপ্রিন্ট) COMPLETE 4-ZONE ARCHITECTURE পুরো সিস্টেমের ৪-জোন ব্লুপ্রিন্ট 2. 4-Zone Scalable Blueprint ৪টি জোনে পুরো আর্কিটেকচার ব্লুপ্রিন্ট এক নজরে দেখানো এবং এটি কত সহজে স্কেল করা যায় তা বলা। &quot;If you look at this slide, this is our full architecture (আর্কিটেকচার) blueprint (ব্লুপ্রিন্ট) in four clear zones:
 
 Zone one is the Physical Factory — stenters, dyeing machines, looms (লুমস), cameras, and over 100 sensors.
 Zone two is the">
@@ -2545,7 +2621,7 @@ Zone two is the">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             Copy Speech
                         </button>
-                        <a href="index.html#slide-15" target="_blank" class="btn-deck-link">
+                        <a href="/index.html#slide-15" data-local-href="index.html#slide-15" target="_blank" class="btn-deck-link">
                             View Slide ↗
                         </a>
                     </div>
@@ -2568,9 +2644,8 @@ Zone two is the">
                     </div>
                     <div class="speech-box" id="speech-text-15">
                         <p>&quot;If you look at this slide, this is our full architecture <span class="bn-pron">(আর্কিটেকচার)</span> blueprint <span class="bn-pron">(ব্লুপ্রিন্ট)</span> in four clear zones:</p>
-<p>Zone one is the Physical Factory — stenters, dyeing machines, looms <span class="bn-pron">(লুমস)</span>, cameras, and over 100 sensors.<br>Zone two is the Connection Layer — Edge Gateways <span class="bn-pron">(এজ গেটওয়ে)</span> reading <span class="tech-inline">Modbus</span> <span class="bn-pron">(মডবাস)</span> or <span class="tech-inline">OPC-UA</span> <span class="bn-pron">(ও-পি-সি ইউ-এ)</span>, linked to our <span class="tech-inline">EMQX</span> <span class="tech-inline">MQTT</span> Broker <span class="bn-pron">(ই-এম-কিউ-এক্স ব্রোকার)</span>.<br>Zone three is the Core &amp; Storage Layer — our <span class="tech-inline">FastAPI</span> <span class="bn-pron">(ফাস্ট-এ-পি-আই)</span> backend, AI vision models, <span class="tech-inline">Digital Twin</span> <span class="bn-pron">(ডিজিটাল টুইন)</span> state, and our three databases: <span class="tech-inline">PostgreSQL</span> <span class="bn-pron">(পোস্ট-গ্রে-এস-কিউ-এল)</span>, <span class="tech-inline">TimescaleDB</span> <span class="bn-pron">(টাইম-স্কেল-ডি-বি)</span>, and <span class="tech-inline">AWS S3</span> <span class="bn-pron">(এ-ডব্লিউ-এস এস-থ্রি)</span>.<br>Zone four is Delivery &amp; Business Apps — the <span class="tech-inline">Next.js</span> <span class="bn-pron">(নেক্সট-জে-এস)</span> dashboard <span class="bn-pron">(ড্যাশবোর্ড)</span>, mobile app, SMS alerts, and the <span class="tech-inline">ERP</span> <span class="bn-pron">(ই-আর-পি)</span> bridge.</p>
+<p>Zone one is the Physical Factory — stenters, dyeing machines, looms <span class="bn-pron">(লুমস)</span>, cameras, and over 100 sensors.<br>Zone two is the Connection Layer — <span class="tech-inline">Edge Gateways</span> <span class="bn-pron">(এজ গেটওয়ে)</span> reading <span class="tech-inline">Modbus</span> <span class="bn-pron">(মডবাস)</span> or <span class="tech-inline">OPC-UA</span> <span class="bn-pron">(ও-পি-সি ইউ-এ)</span>, linked to our <span class="tech-inline">EMQX</span> <span class="tech-inline">MQTT</span> Broker <span class="bn-pron">(ই-এম-কিউ-এক্স ব্রোকার)</span>.<br>Zone three is the Core &amp; Storage Layer — our <span class="tech-inline">FastAPI</span> <span class="bn-pron">(ফাস্ট-এ-পি-আই)</span> backend, AI vision models, <span class="tech-inline">Digital Twin</span> <span class="bn-pron">(ডিজিটাল টুইন)</span> state, and our three databases: <span class="tech-inline">PostgreSQL</span> <span class="bn-pron">(পোস্ট-গ্রে-এস-কিউ-এল)</span>, <span class="tech-inline">TimescaleDB</span> <span class="bn-pron">(টাইম-স্কেল-ডি-বি)</span>, and <span class="tech-inline">AWS S3</span> <span class="bn-pron">(এ-ডব্লিউ-এস এস-থ্রি)</span>.<br>Zone four is Delivery &amp; Business Apps — the <span class="tech-inline">Next.js</span> <span class="bn-pron">(নেক্সট-জে-এস)</span> dashboard <span class="bn-pron">(ড্যাশবোর্ড)</span>, mobile app, SMS alerts, and the <span class="tech-inline">ERP</span> <span class="bn-pron">(ই-আর-পি)</span> bridge.</p>
 <p>And you know, the client wanted to make sure they could grow later. Because each layer is cleanly separated, if they add 50 more machines in another building tomorrow, we just add gateways in Zones one and two — zero core code changes needed.&quot;</p>
-<p>--------------------------------------------------------------------------------</p>
                     </div>
                 </div>
 
@@ -2600,7 +2675,7 @@ Zone two is the">
                 </div>
             </article>
 
-            <article class="slide-card" id="slide-16" data-index="15" data-label="Slide 16 / 18" data-search="MEASURABLE BUSINESS OUTCOMES (গাজীপুর মিলে বাস্তব ফলাফল ও আরওআই) 6. Client ROI &amp; Impact গাজীপুর টেক্সটাইল মিলে পাওয়া বাস্তব ও সন্তোষজনক ফলাফলগুলো দেখানো। &quot;At the end of the day, great engineering should deliver real business wins. On this slide, you&#x27;re seeing live numbers from the client&#x27;s Gazipur (গাজীপুর) Textile Mill number four:
+            <article class="slide-card" id="slide-16" data-index="15" data-label="Slide 16 / 18" data-search="MEASURABLE BUSINESS OUTCOMES (গাজীপুর মিলে বাস্তব ফলাফল ও আরওআই) MEASURABLE BUSINESS OUTCOMES গাজীপুর মিলে বাস্তব ফলাফল ও আরওআই 6. Client ROI &amp; Impact গাজীপুর টেক্সটাইল মিলে পাওয়া বাস্তব ও সন্তোষজনক ফলাফলগুলো দেখানো। &quot;At the end of the day, great engineering should deliver real business wins. On this slide, you&#x27;re seeing live numbers from the client&#x27;s Gazipur (গাজীপুর) Textile Mill number four:
 
 Out of 26 connected machines, 24 are running non-stop righ">
                 <div class="slide-header">
@@ -2617,7 +2692,7 @@ Out of 26 connected machines, 24 are running non-stop righ">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             Copy Speech
                         </button>
-                        <a href="index.html#slide-16" target="_blank" class="btn-deck-link">
+                        <a href="/index.html#slide-16" data-local-href="index.html#slide-16" target="_blank" class="btn-deck-link">
                             View Slide ↗
                         </a>
                     </div>
@@ -2642,7 +2717,6 @@ Out of 26 connected machines, 24 are running non-stop righ">
                         <p>&quot;At the end of the day, great engineering should deliver real business wins. On this slide, you&#x27;re seeing live numbers from the client&#x27;s Gazipur <span class="bn-pron">(গাজীপুর)</span> Textile Mill number four:</p>
 <p>Out of 26 connected machines, 24 are running non-stop right now, and 2 are offline for planned maintenance <span class="bn-pron">(মেইনটেন্যান্স)</span> — so nothing is hidden anymore.<br>Stenter heat is steady at 185.5 degrees with zero critical alerts.<br>In one day, we tracked 42,500 meters of fabric in real time.<br>With AI vision inspection, the <span class="tech-inline">Right-First-Time</span> <span class="bn-pron">(রাইট-ফার্স্ট-টাইম)</span> quality pass rate hit 99.2 percent.<br>And overall machine efficiency <span class="bn-pron">(এফিশিয়েন্সি)</span> — known as <span class="tech-inline">OEE</span> <span class="bn-pron">(ও-ই-ই)</span> — jumped by 14 percent in just four months.</p>
 <p>Now the client can simply open a tablet from anywhere in the world and see how their whole factory is running.&quot;</p>
-<p>--------------------------------------------------------------------------------</p>
                     </div>
                 </div>
 
@@ -2672,7 +2746,7 @@ Out of 26 connected machines, 24 are running non-stop righ">
                 </div>
             </article>
 
-            <article class="slide-card" id="slide-17" data-index="16" data-label="Slide 17 / 18" data-search="AI AUTOMATION &amp; FUTURE ROADMAP (এ-আই অটোমেশন ও ভবিষ্যৎ পরিকল্পনা) 2. AI &amp; Autonomous Roadmap ভবিষ্যতের AI Automation ও Predictive Maintenance পরিকল্পনা সহজ ও স্মার্টভাবে তুলে ধরা। &quot;Because those first four months went so well, we also planned a five-step future roadmap (রোডম্যাপ) with the client to bring in even smarter AI automation (এ-আই অটোমেশন):
+            <article class="slide-card" id="slide-17" data-index="16" data-label="Slide 17 / 18" data-search="AI AUTOMATION &amp; FUTURE ROADMAP (এ-আই অটোমেশন ও ভবিষ্যৎ পরিকল্পনা) AI AUTOMATION &amp; FUTURE ROADMAP এ-আই অটোমেশন ও ভবিষ্যৎ পরিকল্পনা 2. AI &amp; Autonomous Roadmap ভবিষ্যতের AI Automation ও Predictive Maintenance পরিকল্পনা সহজ ও স্মার্টভাবে তুলে ধরা। &quot;Because those first four months went so well, we also planned a five-step future roadmap (রোডম্যাপ) with the client to bring in even smarter AI automation (এ-আই অটোমেশন):
 
 Step one is Connect More — bringing the rest of the factory machine">
                 <div class="slide-header">
@@ -2689,7 +2763,7 @@ Step one is Connect More — bringing the rest of the factory machine">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             Copy Speech
                         </button>
-                        <a href="index.html#slide-17" target="_blank" class="btn-deck-link">
+                        <a href="/index.html#slide-17" data-local-href="index.html#slide-17" target="_blank" class="btn-deck-link">
                             View Slide ↗
                         </a>
                     </div>
@@ -2712,8 +2786,7 @@ Step one is Connect More — bringing the rest of the factory machine">
                     </div>
                     <div class="speech-box" id="speech-text-17">
                         <p>&quot;Because those first four months went so well, we also planned a five-step future roadmap <span class="bn-pron">(রোডম্যাপ)</span> with the client to bring in even smarter AI automation <span class="bn-pron">(এ-আই অটোমেশন)</span>:</p>
-<p>Step one is Connect More — bringing the rest of the factory machines into the same <span class="tech-inline">Digital Twin</span> <span class="bn-pron">(ডিজিটাল টুইন)</span>, so the client gets 100 percent live coverage <span class="bn-pron">(কভারেজ)</span>.<br>Step two is Full Auto Inspection <span class="bn-pron">(ইন্সপেকশন)</span> — where cameras check every meter of fabric on their own, so workers don&#x27;t need to click photos manually <span class="bn-pron">(ম্যানুয়ালি)</span>.<br>Step three is Smart Past Data — using months of <span class="tech-inline">TimescaleDB</span> <span class="bn-pron">(টাইম-স্কেল-ডি-বি)</span> data to predict <span class="bn-pron">(প্রিডিক্ট)</span> how dyes behave in winter or summer.<br>Step four is <span class="tech-inline">Predictive Maintenance</span> <span class="bn-pron">(প্রিডিক্টিভ মেইনটেন্যান্স)</span> — watching motor vibration <span class="bn-pron">(ভাইব্রেশন)</span> and extra heat, so AI warns the team before any machine breaks down.<br>And step five is <span class="tech-inline">Closed-Loop Control</span> <span class="bn-pron">(ক্লোজড-লুপ কন্ট্রোল)</span> — where the <span class="tech-inline">Digital Twin</span> <span class="bn-pron">(ডিজিটাল টুইন)</span> itself safely sends small speed or heat updates straight back to the machine PLC <span class="bn-pron">(পি-এল-সি)</span> on its own.&quot;</p>
-<p>--------------------------------------------------------------------------------</p>
+<p>Step one is Connect More — bringing the rest of the factory machines into the same <span class="tech-inline">Digital Twin</span> <span class="bn-pron">(ডিজিটাল টুইন)</span>, so the client gets 100 percent live coverage <span class="bn-pron">(কভারেজ)</span>.<br>Step two is Full Auto Inspection <span class="bn-pron">(ইন্সপেকশন)</span> — where cameras check every meter of fabric on their own, so workers don&#x27;t need to click photos manually <span class="bn-pron">(ম্যানুয়ালি)</span>.<br>Step three is Smart Past Data — using months of <span class="tech-inline">TimescaleDB</span> <span class="bn-pron">(টাইম-স্কেল-ডি-বি)</span> data to predict <span class="bn-pron">(প্রিডিক্ট)</span> how dyes behave in winter or summer.<br>Step four is <span class="tech-inline">Predictive Maintenance</span> <span class="bn-pron">(প্রিডিক্টিভ মেইনটেন্যান্স)</span> — watching motor vibration <span class="bn-pron">(ভাইব্রেশন)</span> and extra heat, so AI warns the team before any machine breaks down.<br>And step five is <span class="tech-inline">Closed-Loop Control</span> <span class="bn-pron">(ক্লোজড-লুপ কন্ট্রোল)</span> — where the <span class="tech-inline">Digital Twin</span> <span class="bn-pron">(ডিজিটাল টুইন)</span> itself safely sends small speed or heat updates straight back to the machine <span class="tech-inline">PLC</span> <span class="bn-pron">(পি-এল-সি)</span> on its own.&quot;</p>
                     </div>
                 </div>
 
@@ -2743,7 +2816,7 @@ Step one is Connect More — bringing the rest of the factory machine">
                 </div>
             </article>
 
-            <article class="slide-card" id="slide-18" data-index="17" data-label="Slide 18 / 18" data-search="CONCLUSION &amp; Q&amp;A (সমাপ্তি ও প্রশ্নোত্তর পর্ব) 6. Summary &amp; Panel Q/A আত্মবিশ্বাসের সাথে প্রজেক্টের মূল কথা শেষ করে ইন্টারভিউয়ারকে প্রশ্নের জন্য আমন্ত্রণ জানানো। So to wrap things up, AutoTaskX (অটো-টাস্ক-এক্স) isn&#x27;t just a demo or theory. It started when a prominent (প্রমিনেন্ট) Bangladeshi textile client walked into our office asking for full automation (অটোমেশন) and a live Digital Twin (ডিজিটাল ট">
+            <article class="slide-card" id="slide-18" data-index="17" data-label="Slide 18 / 18" data-search="CONCLUSION &amp; Q&amp;A (সমাপ্তি ও প্রশ্নোত্তর পর্ব) CONCLUSION &amp; Q&amp;A সমাপ্তি ও প্রশ্নোত্তর পর্ব 6. Summary &amp; Panel Q/A আত্মবিশ্বাসের সাথে প্রজেক্টের মূল কথা শেষ করে ইন্টারভিউয়ারকে প্রশ্নের জন্য আমন্ত্রণ জানানো। So to wrap things up, AutoTaskX (অটো-টাস্ক-এক্স) isn&#x27;t just a demo or theory. It started when a prominent (প্রমিনেন্ট) Bangladeshi textile client walked into our office asking for full automation (অটোমেশন) and a live Digital Twin (ডিজিটাল ট">
                 <div class="slide-header">
                     <div class="slide-badge-title">
                         <div class="slide-top-row">
@@ -2758,7 +2831,7 @@ Step one is Connect More — bringing the rest of the factory machine">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             Copy Speech
                         </button>
-                        <a href="index.html#slide-18" target="_blank" class="btn-deck-link">
+                        <a href="/index.html#slide-18" data-local-href="index.html#slide-18" target="_blank" class="btn-deck-link">
                             View Slide ↗
                         </a>
                     </div>
@@ -2817,7 +2890,6 @@ Step one is Connect More — bringing the rest of the factory machine">
                 <span class="section-header-badge">Interview Panel Master Cheat Sheet</span>
                 <h2 class="section-main-title">6 Key Technical Questions &amp; Fluent English Answers</h2>
                 <p class="section-subtext">Easy-to-read international English answers for Digital Twin &amp; Data Engineer interviews (with Bangla pronunciation for tricky words).</p>
-
                 <div class="qa-card">
                     <div class="qa-header">
                         <div class="qa-q">প্রশ্ন ১: &ldquo;How do you keep the <span class="tech-inline">Digital Twin</span> <span class="bn-pron">(ডিজিটাল টুইন)</span> always in sync with the physical machines?&rdquo;</div>
@@ -2828,10 +2900,9 @@ Step one is Connect More — bringing the rest of the factory machine">
                     </div>
                     <div class="qa-ans" id="qa-ans-১">
                         <strong>Answer:</strong><br>
-                        &ldquo;You know, every machine has an <span class="tech-inline">Edge Gateway</span> <span class="bn-pron">(এজ গেটওয়ে)</span> reading sensors every 100 milliseconds <span class="bn-pron">(মিলিসেকেন্ড)</span>. It converts <span class="bn-pron">(কনভার্টস)</span> the reading into clean JSON <span class="bn-pron">(জে-সন)</span> and sends it over <span class="tech-inline">MQTT</span> <span class="bn-pron">(এম-কিউ-টি-টি)</span> to our <span class="tech-inline">EMQX</span> Broker <span class="bn-pron">(ই-এম-কিউ-এক্স ব্রোকার)</span>. Our <span class="tech-inline">FastAPI</span> <span class="bn-pron">(ফাস্ট-এ-পি-আই)</span> backend picks it up right away, updates the <span class="tech-inline">Digital Twin</span> in memory, saves history to <span class="tech-inline">TimescaleDB</span> <span class="bn-pron">(টাইম-স্কেল-ডি-বি)</span>, and pushes live updates to the dashboard <span class="bn-pron">(ড্যাশবোর্ড)</span> via <span class="tech-inline">WebSockets</span> <span class="bn-pron">(ওয়েব-সকেট)</span> — all in under 25 milliseconds <span class="bn-pron">(মিলিসেকেন্ড)</span>.&rdquo;
+                        &ldquo;You know, every machine has an <span class="tech-inline">Edge Gateway</span> <span class="bn-pron">(এজ গেটওয়ে)</span> reading sensors every 100 milliseconds <span class="bn-pron">(মিলিসেকেন্ড)</span>. It converts <span class="bn-pron">(কনভার্টস)</span> the reading into clean <span class="tech-inline">JSON</span> <span class="bn-pron">(জে-সন)</span> and sends it over <span class="tech-inline">MQTT</span> <span class="bn-pron">(এম-কিউ-টি-টি)</span> to our <span class="tech-inline">EMQX</span> Broker <span class="bn-pron">(ই-এম-কিউ-এক্স ব্রোকার)</span>. Our <span class="tech-inline">FastAPI</span> <span class="bn-pron">(ফাস্ট-এ-পি-আই)</span> backend picks it up right away, updates the <span class="tech-inline">Digital Twin</span> in memory, saves history to <span class="tech-inline">TimescaleDB</span> <span class="bn-pron">(টাইম-স্কেল-ডি-বি)</span>, and pushes live updates to the dashboard <span class="bn-pron">(ড্যাশবোর্ড)</span> via <span class="tech-inline">WebSockets</span> <span class="bn-pron">(ওয়েব-সকেট)</span> — all in under 25 milliseconds <span class="bn-pron">(মিলিসেকেন্ড)</span>.&rdquo;
                     </div>
                 </div>
-
                 <div class="qa-card">
                     <div class="qa-header">
                         <div class="qa-q">প্রশ্ন ২: &ldquo;Why did you pick <span class="tech-inline">MQTT</span> <span class="bn-pron">(এম-কিউ-টি-টি)</span> instead of regular HTTP APIs <span class="bn-pron">(এইচ-টি-টি-পি এ-পি-আই)</span> for sensor data?&rdquo;</div>
@@ -2845,7 +2916,6 @@ Step one is Connect More — bringing the rest of the factory machine">
                         &ldquo;To be honest, HTTP <span class="bn-pron">(এইচ-টি-টি-পি)</span> is great for normal web pages, but when sensors send data every second, HTTP headers <span class="bn-pron">(হেডার)</span> are too heavy and slow things down — creating a bottleneck <span class="bn-pron">(বটলনেক)</span> on factory Wi-Fi. <span class="tech-inline">MQTT</span> <span class="bn-pron">(এম-কিউ-টি-টি)</span> only uses a tiny 2-byte header over an always-open connection. Plus, with QoS Level 1 <span class="bn-pron">(কিউ-ও-এস লেভেল ওয়ান)</span>, even if Wi-Fi flickers for a moment, we don&#x27;t drop important machine readings.&rdquo;
                     </div>
                 </div>
-
                 <div class="qa-card">
                     <div class="qa-header">
                         <div class="qa-q">প্রশ্ন ৩: &ldquo;Why <span class="tech-inline">TimescaleDB</span> <span class="bn-pron">(টাইম-স্কেল-ডি-বি)</span>? Why not just plain <span class="tech-inline">PostgreSQL</span> <span class="bn-pron">(পোস্ট-গ্রে-এস-কিউ-এল)</span> or MongoDB <span class="bn-pron">(মঙ্গো-ডি-বি)</span>?&rdquo;</div>
@@ -2859,7 +2929,6 @@ Step one is Connect More — bringing the rest of the factory machine">
                         &ldquo;Actually <span class="bn-pron">(অ্যাকচুয়ালি)</span>, we needed both worlds for the client. Orders and dye recipes need clean relational <span class="bn-pron">(রিলেশনাল)</span> tables, so <span class="tech-inline">PostgreSQL</span> <span class="bn-pron">(পোস্ট-গ্রে-এস-কিউ-এল)</span> gives us rock-solid accuracy <span class="bn-pron">(অ্যাকিউরেসি)</span>. But putting millions of sensor rows in a regular table makes searches slow over time. Because <span class="tech-inline">TimescaleDB</span> <span class="bn-pron">(টাইম-স্কেল-ডি-বি)</span> runs right inside <span class="tech-inline">PostgreSQL</span> using time-based <span class="tech-inline">Hypertables</span> <span class="bn-pron">(হাইপার-টেবলস)</span>, it splits data by time on its own and saves up to 95 percent disk space — all in one database system.&rdquo;
                     </div>
                 </div>
-
                 <div class="qa-card">
                     <div class="qa-header">
                         <div class="qa-q">প্রশ্ন ৪: &ldquo;What happens if the factory internet drops while uploading a 20MB inspection <span class="bn-pron">(ইন্সপেকশন)</span> image?&rdquo;</div>
@@ -2870,10 +2939,9 @@ Step one is Connect More — bringing the rest of the factory machine">
                     </div>
                     <div class="qa-ans" id="qa-ans-৪">
                         <strong>Answer:</strong><br>
-                        &ldquo;That&#x27;s a real issue we saw during our mill visit, so we handled it right at the edge. On the Edge PC <span class="bn-pron">(এজ পি-সি)</span>, we built a local <span class="tech-inline">FIFO</span> disk queue <span class="bn-pron">(ফিফো ডিস্ক কিউ)</span>. Every photo saves to the local disk first, and we never delete it until <span class="tech-inline">AWS S3</span> <span class="bn-pron">(এ-ডব্লিউ-এস এস-থ্রি)</span> confirms a successful upload. Once internet is back, waiting photos upload in exact order — zero lost frames.&rdquo;
+                        &ldquo;That&#x27;s a real issue we saw during our mill visit, so we handled it right at the edge. On the <span class="tech-inline">Edge PC</span> <span class="bn-pron">(এজ পি-সি)</span>, we built a local <span class="tech-inline">FIFO</span> disk queue <span class="bn-pron">(ফিফো ডিস্ক কিউ)</span>. Every photo saves to the local disk first, and we never delete it until <span class="tech-inline">AWS S3</span> <span class="bn-pron">(এ-ডব্লিউ-এস এস-থ্রি)</span> confirms a successful upload. Once internet is back, waiting photos upload in exact order — zero lost frames.&rdquo;
                     </div>
                 </div>
-
                 <div class="qa-card">
                     <div class="qa-header">
                         <div class="qa-q">প্রশ্ন ৫: &ldquo;Why did you choose <span class="tech-inline">FastAPI</span> <span class="bn-pron">(ফাস্ট-এ-পি-আই)</span> over Django <span class="bn-pron">(জ্যাঙ্গো)</span> for the backend?&rdquo;</div>
@@ -2884,10 +2952,9 @@ Step one is Connect More — bringing the rest of the factory machine">
                     </div>
                     <div class="qa-ans" id="qa-ans-৫">
                         <strong>Answer:</strong><br>
-                        &ldquo;Basically <span class="bn-pron">(বেসিক্যালি)</span>, we had hundreds of live IoT streams and <span class="tech-inline">WebSocket</span> <span class="bn-pron">(ওয়েব-সকেট)</span> dashboards <span class="bn-pron">(ড্যাশবোর্ডস)</span> running at the same time. Django <span class="bn-pron">(জ্যাঙ্গো)</span> is mostly built for traditional <span class="bn-pron">(ট্র্যাডিশনাল)</span> one-by-one web requests and feels heavier for non-stop streaming. <span class="tech-inline">FastAPI</span> <span class="bn-pron">(ফাস্ট-এ-পি-আই)</span> has native async support <span class="bn-pron">(<span class="tech-inline">AsyncIO</span> / অ্যাসিঙ্ক-আই-ও)</span>, so it handles many live <span class="tech-inline">MQTT</span> <span class="bn-pron">(এম-কিউ-টি-টি)</span> and <span class="tech-inline">WebSocket</span> connections at once using much less CPU <span class="bn-pron">(সি-পি-ইউ)</span> and memory.&rdquo;
+                        &ldquo;Basically <span class="bn-pron">(বেসিক্যালি)</span>, we had hundreds of live IoT streams and <span class="tech-inline">WebSocket</span> <span class="bn-pron">(ওয়েব-সকেট)</span> dashboards <span class="bn-pron">(ড্যাশবোর্ডস)</span> running at the same time. Django <span class="bn-pron">(জ্যাঙ্গো)</span> is mostly built for traditional <span class="bn-pron">(ট্র্যাডিশনাল)</span> one-by-one web requests and feels heavier for non-stop streaming. <span class="tech-inline">FastAPI</span> <span class="bn-pron">(ফাস্ট-এ-পি-আই)</span> has native async support <span class="bn-pron">(AsyncIO / অ্যাসিঙ্ক-আই-ও)</span>, so it handles many live <span class="tech-inline">MQTT</span> <span class="bn-pron">(এম-কিউ-টি-টি)</span> and <span class="tech-inline">WebSocket</span> connections at once using much less CPU <span class="bn-pron">(সি-পি-ইউ)</span> and memory.&rdquo;
                     </div>
                 </div>
-
                 <div class="qa-card">
                     <div class="qa-header">
                         <div class="qa-q">প্রশ্ন ৬: &ldquo;How is AI automation <span class="bn-pron">(এ-আই অটোমেশন)</span> actually helping here instead of just being a buzzword <span class="bn-pron">(বাজওয়ার্ড)</span>?&rdquo;</div>
@@ -2898,10 +2965,9 @@ Step one is Connect More — bringing the rest of the factory machine">
                     </div>
                     <div class="qa-ans" id="qa-ans-৬">
                         <strong>Answer:</strong><br>
-                        &ldquo;&quot;To be honest, the client didn&#x27;t want AI just for show — they wanted real business results. So we used it in three practical <span class="bn-pron">(প্র্যাকটিক্যাল)</span> ways: first, <span class="tech-inline">OpenCV</span> <span class="bn-pron">(ওপেন-সি-ভি)</span> and <span class="tech-inline">YOLO</span> <span class="bn-pron">(ইয়োলো)</span> catching tiny &lt;0.5mm fabric flaws at 120 meters per minute; second, smart heat alerts that stopped fabric from burning at 192 degrees; and third, storing clean historical <span class="bn-pron">(হিস্টোরিক্যাল)</span> data in <span class="tech-inline">TimescaleDB</span> <span class="bn-pron">(টাইম-স্কেল-ডি-বি)</span> so we can spot motor vibration <span class="bn-pron">(ভাইব্রেশন)</span> issues early with <span class="tech-inline">Predictive Maintenance</span> <span class="bn-pron">(প্রিডিক্টিভ মেইনটেন্যান্স)</span>.&quot;&rdquo;
+                        &ldquo;To be honest, the client didn&#x27;t want AI just for show — they wanted real business results. So we used it in three practical <span class="bn-pron">(প্র্যাকটিক্যাল)</span> ways: first, <span class="tech-inline">OpenCV</span> <span class="bn-pron">(ওপেন-সি-ভি)</span> and <span class="tech-inline">YOLO</span> <span class="bn-pron">(ইয়োলো)</span> catching tiny &lt;0.5mm fabric flaws at 120 meters per minute; second, smart heat alerts that stopped fabric from burning at 192 degrees; and third, storing clean historical <span class="bn-pron">(হিস্টোরিক্যাল)</span> data in <span class="tech-inline">TimescaleDB</span> <span class="bn-pron">(টাইম-স্কেল-ডি-বি)</span> so we can spot motor vibration <span class="bn-pron">(ভাইব্রেশন)</span> issues early with <span class="tech-inline">Predictive Maintenance</span> <span class="bn-pron">(প্রিডিক্টিভ মেইনটেন্যান্স)</span>.&rdquo;
                     </div>
                 </div>
-
             </section>
         </main>
     </div>
@@ -2921,7 +2987,8 @@ Step one is Connect More — bringing the rest of the factory machine">
             <button class="btn-ctrl" id="closeDrawerBtn" type="button">✕ Close</button>
         </div>
         <div class="mobile-drawer-list" id="mobileDrawerList">
-            <a href="index.html" target="_blank" class="mobile-drawer-deck">🖥️ Open 18-Slide Presentation Deck ↗</a>
+            <a href="/index.html" data-local-href="index.html" target="_blank" class="mobile-drawer-deck">🖥️ Open 18-Slide Presentation Deck ↗</a>
+            <a href="/guide/bd" data-local-href="guide-bd.html" class="mobile-drawer-lang">🇧🇩 বাংলা ভার্সন গাইড দেখুন (/guide/bd) →</a>
             <a href="#slide-01" class="mobile-drawer-item active" data-index="0">
                 <span class="nav-num">01</span>
                 <div class="mobile-drawer-titles">
@@ -3065,6 +3132,24 @@ Step one is Connect More — bringing the rest of the factory machine">
     </div>
 
     <script>
+        const I18N = {"copiedToast": "Copied to clipboard!", "copiedBtn": "✓ Copied!", "focusAll": "📜 All", "focusOne": "🎯 Focus", "fontPrefix": "Font: "};
+
+        // Resolve clean Vercel routes (/guide, /guide/bd) safely when opened locally via file:// or simple static server
+        (function normalizeLocalLinks() {
+            const rewriteLocal = () => {
+                document.querySelectorAll('a[data-local-href]').forEach(a => {
+                    a.setAttribute('href', a.getAttribute('data-local-href'));
+                });
+            };
+            if (window.location.protocol === 'file:') {
+                rewriteLocal();
+            } else if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                fetch('/guide/bd', { method: 'HEAD' }).then(res => {
+                    if (!res.ok) rewriteLocal();
+                }).catch(() => {});
+            }
+        })();
+
         function fallbackCopyText(text) {
             const ta = document.createElement('textarea');
             ta.value = text;
@@ -3081,9 +3166,9 @@ Step one is Connect More — bringing the rest of the factory machine">
             if (!el) return;
             const text = el.innerText;
             const done = () => {
-                showToast("Copied to clipboard!");
+                showToast(I18N.copiedToast);
                 const originalText = btn.innerHTML;
-                btn.innerHTML = '✓ Copied!';
+                btn.innerHTML = I18N.copiedBtn;
                 btn.style.color = '#059669';
                 setTimeout(() => {
                     btn.innerHTML = originalText;
@@ -3255,7 +3340,7 @@ Step one is Connect More — bringing the rest of the factory machine">
             document.body.classList.toggle('focus-mode', enabled);
             if (focusBtn) {
                 focusBtn.classList.toggle('active-state', enabled);
-                focusBtn.innerHTML = enabled ? '📜 All' : '🎯 Focus';
+                focusBtn.innerHTML = enabled ? I18N.focusAll : I18N.focusOne;
             }
             try { localStorage.setItem('ax_guide_focus', enabled ? '1' : '0'); } catch (e) {}
             if (enabled) {
@@ -3330,7 +3415,7 @@ Step one is Connect More — bringing the rest of the factory machine">
             }
         });
 
-        // Font Size Controls (persisted, comfy range 14px - 24px)
+        // Font Size Controls (persisted, comfy range 13px - 24px)
         const defaultFont = window.innerWidth <= 768 ? 17 : 16;
         let currentFontSize = parseInt(localStorage.getItem('ax_guide_fontsize') || '', 10) || defaultFont;
         document.documentElement.style.setProperty('--base-font-size', currentFontSize + 'px');
@@ -3340,7 +3425,7 @@ Step one is Connect More — bringing the rest of the factory machine">
                 currentFontSize += 1;
                 document.documentElement.style.setProperty('--base-font-size', currentFontSize + 'px');
                 try { localStorage.setItem('ax_guide_fontsize', String(currentFontSize)); } catch (e) {}
-                showToast('Font: ' + currentFontSize + 'px');
+                showToast(I18N.fontPrefix + currentFontSize + 'px');
             }
         });
 
@@ -3349,7 +3434,7 @@ Step one is Connect More — bringing the rest of the factory machine">
                 currentFontSize -= 1;
                 document.documentElement.style.setProperty('--base-font-size', currentFontSize + 'px');
                 try { localStorage.setItem('ax_guide_fontsize', String(currentFontSize)); } catch (e) {}
-                showToast('Font: ' + currentFontSize + 'px');
+                showToast(I18N.fontPrefix + currentFontSize + 'px');
             }
         });
 

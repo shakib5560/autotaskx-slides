@@ -34,7 +34,8 @@ This repository is pre-configured as a zero-build static site (`vercel.json` + `
    ```
 3. Once deployed:
    - `/` serves the 18-slide presentation (`index.html`)
-   - `/guide` (or `/guide.html`) serves the full Bengali interview speaking guide (`guide.html`)
+   - `/guide` (or `/guide.html`) serves the fluent English speaker guide with Bangla pronunciation cues (`guide.html`)
+   - `/guide/bd` (or `/guide-bd.html`) serves the full Bangla presentation guide (`guide-bd.html`)
 
 ---
 
