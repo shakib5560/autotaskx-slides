@@ -1869,7 +1869,7 @@ Think about it — when fabric flies through a machine at 80 to 120 meters per m
 </div>
 <p>As frames come in, <span class="tech-inline">OpenCV</span> <span class="bn-pron">(ওপেন-সি-ভি)</span> prepares the fabric strip, and our <span class="tech-inline">YOLO</span> <span class="bn-pron">(ইয়োলো)</span> AI model draws boxes around any flaw smaller than 0.5 millimeters <span class="bn-pron">(মিলিমিটার)</span> and tags what kind of defect <span class="bn-pron">(ডিফেক্ট)</span> it is.</p>
 <div class="cue-block cue-result"><div class="cue-heading">▶ The Result:</div>
-<p>Now every meter gets checked automatically <span class="bn-pron">(অটোমেটিক্যালি)</span> with a clean digital report — no more guesswork <span class="bn-pron">(গেস-ওয়ার্ক)</span>.&quot;</p>
+<p>Now every meter gets checked on its own with a clean digital report — no more guesswork <span class="bn-pron">(গেস-ওয়ার্ক)</span>.&quot;</p>
 </div>
 <p>--------------------------------------------------------------------------------</p>
                     </div>
@@ -2103,7 +2103,7 @@ When we visited the client&#x27;s factory, we noticed right away that the machin
                     <div class="speech-box" id="speech-text-09">
                         <p>&quot;This slide shows the heart of our <span class="tech-inline">Digital Twin</span> <span class="bn-pron">(ডিজিটাল টুইন)</span> engine — we call it <span class="tech-inline">Textile OS</span> <span class="bn-pron">(টেক্সটাইল ও-এস)</span>.</p>
 <div class="cue-block cue-info"><div class="cue-heading">▶ What We Saw on the Mill Visit:</div>
-<p>When we visited the client&#x27;s factory, we noticed right away that the machines didn&#x27;t speak the same language. They had brand-new German Monforts <span class="bn-pron">(মনফোর্টস)</span> stenters, Italian machines, and even 30-year-old controllers <span class="bn-pron">(কন্ট্রোলার)</span>. Some talked over <span class="tech-inline">Modbus</span> <span class="bn-pron">(মডবাস)</span>, some used Siemens S7 <span class="bn-pron">(সিমেন্স এস-সেভেন)</span>, and others used <span class="tech-inline">OPC-UA</span> <span class="bn-pron">(ও-পি-সি ইউ-এ)</span> or <span class="tech-inline">RS-485</span> <span class="bn-pron">(আর-এস ফোর-এইটি-ফাইভ)</span>. Still, the client wanted every single machine in one <span class="tech-inline">Digital Twin</span>.</p>
+<p>When we visited the client&#x27;s factory, we noticed right away that the machines didn&#x27;t speak the same language. They had modern <span class="bn-pron">(মডার্ন)</span> German stenters <span class="bn-pron">(স্টেন্টার)</span>, Italian machines, and even 30-year-old controllers <span class="bn-pron">(কন্ট্রোলার)</span>. Some talked over <span class="tech-inline">Modbus</span> <span class="bn-pron">(মডবাস)</span>, some used Siemens S7 <span class="bn-pron">(সিমেন্স এস-সেভেন)</span>, and others used <span class="tech-inline">OPC-UA</span> <span class="bn-pron">(ও-পি-সি ইউ-এ)</span> or <span class="tech-inline">RS-485</span> <span class="bn-pron">(আর-এস ফোর-এইটি-ফাইভ)</span>. Still, the client wanted every single machine in one <span class="tech-inline">Digital Twin</span>.</p>
 </div>
 <div class="cue-block cue-solution"><div class="cue-heading">▶ Our Solution:</div>
 <p>So we built <span class="tech-inline">Textile OS</span> as a smart translator layer.<br>Our Edge Gateways <span class="bn-pron">(এজ গেটওয়ে)</span> read each machine in its own native language — heat, humidity <span class="bn-pron">(হিউমিডিটি)</span>, steam pressure, speed, and power usage.<br>At the edge, we convert all those different signals into one clean, standard JSON <span class="bn-pron">(জে-সন)</span> format.<br>That clean stream updates a live virtual <span class="bn-pron">(ভার্চুয়াল)</span> twin for every machine in our backend.</p>
@@ -2182,7 +2182,7 @@ First, inside the Stenter">
                     <div class="speech-box" id="speech-text-10">
                         <p>&quot;You know, the client wanted true real-time updates, so keeping delay ultra-low — what we call latency <span class="bn-pron">(লেইটেন্সি)</span> — was huge for us on the backend. Let&#x27;s trace just one temperature reading right here on Slide 10:</p>
 <p>First, inside the Stenter machine, a <span class="tech-inline">PT100</span> <span class="bn-pron">(পি-টি হান্ড্রেড)</span> sensor reads 185.5 degrees every 100 milliseconds <span class="bn-pron">(মিলিসেকেন্ড)</span>.<br>Next, the IoT Gateway <span class="bn-pron">(গেটওয়ে)</span> turns that signal into a tiny <span class="tech-inline">MQTT</span> <span class="bn-pron">(এম-কিউ-টি-টি)</span> packet.<br>It travels over the factory network to our <span class="tech-inline">FastAPI</span> <span class="bn-pron">(ফাস্ট-এ-পি-আই)</span> backend.<br>AutoTaskX checks the safety limit, updates the <span class="tech-inline">Digital Twin</span>, saves it to <span class="tech-inline">TimescaleDB</span> <span class="bn-pron">(টাইম-স্কেল-ডি-বি)</span>, and pushes it to the live screen.</p>
-<p>In fact, let&#x27;s click &#x27;Animate Data Flow&#x27; right here on the slide — you can literally <span class="bn-pron">(লিটারালি)</span> watch all six steps finish in under 25 milliseconds <span class="bn-pron">(মিলিসেকেন্ড)</span>!&quot;</p>
+<p>In fact, let&#x27;s click &#x27;Animate Data Flow&#x27; right here on the slide — you can actually <span class="bn-pron">(অ্যাকচুয়ালি)</span> watch all six steps finish in under 25 milliseconds <span class="bn-pron">(মিলিসেকেন্ড)</span>!&quot;</p>
 <p>--------------------------------------------------------------------------------</p>
                     </div>
                 </div>
@@ -2334,7 +2334,7 @@ First, PostgreSQL (পোস্ট-গ্রে-এস-কিউ-এল) for bus
                     <div class="speech-box" id="speech-text-12">
                         <p>&quot;As a Data Engineer, putting every kind of data into one database <span class="bn-pron">(ডাটাবেজ)</span> slows things down fast. So we picked three storage tools, each built for one job:</p>
 <p>First, <span class="tech-inline">PostgreSQL</span> <span class="bn-pron">(পোস্ট-গ্রে-এস-কিউ-এল)</span> for business records — buyer orders, user accounts, machine profiles, and dye recipes where accuracy <span class="bn-pron">(অ্যাকিউরেসি)</span> matters most.</p>
-<p>Second, <span class="tech-inline">TimescaleDB</span> <span class="bn-pron">(টাইম-স্কেল-ডি-বি)</span> for time-based sensor data. Since we save millions of sensor rows, a normal table gets really slow over time. <span class="tech-inline">TimescaleDB</span> runs inside <span class="tech-inline">PostgreSQL</span> using smart time-based tables called <span class="tech-inline">Hypertables</span> <span class="bn-pron">(হাইপার-টেবলস)</span> — it organizes <span class="bn-pron">(অর্গানাইজেস)</span> data by time on its own and shrinks storage space by up to 95 percent!</p>
+<p>Second, <span class="tech-inline">TimescaleDB</span> <span class="bn-pron">(টাইম-স্কেল-ডি-বি)</span> for time-based sensor data. Since we save millions of sensor rows, a normal table gets really slow over time. <span class="tech-inline">TimescaleDB</span> runs inside <span class="tech-inline">PostgreSQL</span> using smart time-based tables called <span class="tech-inline">Hypertables</span> <span class="bn-pron">(হাইপার-টেবলস)</span> — it splits data by time on its own and shrinks storage space by up to 95 percent!</p>
 <p>And third, <span class="tech-inline">AWS S3</span> <span class="bn-pron">(এ-ডব্লিউ-এস এস-থ্রি)</span> for heavy files — like fabric scan photos and PDF reports.</p>
 <p>So when a manager checks a batch history, all three work smoothly side by side.&quot;</p>
 <p>--------------------------------------------------------------------------------</p>
@@ -2641,7 +2641,7 @@ Out of 26 connected machines, 24 are running non-stop righ">
                     <div class="speech-box" id="speech-text-16">
                         <p>&quot;At the end of the day, great engineering should deliver real business wins. On this slide, you&#x27;re seeing live numbers from the client&#x27;s Gazipur <span class="bn-pron">(গাজীপুর)</span> Textile Mill number four:</p>
 <p>Out of 26 connected machines, 24 are running non-stop right now, and 2 are offline for planned maintenance <span class="bn-pron">(মেইনটেন্যান্স)</span> — so nothing is hidden anymore.<br>Stenter heat is steady at 185.5 degrees with zero critical alerts.<br>In one day, we tracked 42,500 meters of fabric in real time.<br>With AI vision inspection, the <span class="tech-inline">Right-First-Time</span> <span class="bn-pron">(রাইট-ফার্স্ট-টাইম)</span> quality pass rate hit 99.2 percent.<br>And overall machine efficiency <span class="bn-pron">(এফিশিয়েন্সি)</span> — known as <span class="tech-inline">OEE</span> <span class="bn-pron">(ও-ই-ই)</span> — jumped by 14 percent in just four months.</p>
-<p>Now the client can literally <span class="bn-pron">(লিটারালি)</span> open a tablet from anywhere in the world and see how their whole factory is running.&quot;</p>
+<p>Now the client can simply open a tablet from anywhere in the world and see how their whole factory is running.&quot;</p>
 <p>--------------------------------------------------------------------------------</p>
                     </div>
                 </div>
@@ -2672,9 +2672,9 @@ Out of 26 connected machines, 24 are running non-stop righ">
                 </div>
             </article>
 
-            <article class="slide-card" id="slide-17" data-index="16" data-label="Slide 17 / 18" data-search="AI AUTOMATION &amp; FUTURE ROADMAP (এ-আই অটোমেশন ও ভবিষ্যৎ পরিকল্পনা) 2. AI &amp; Autonomous Roadmap ভবিষ্যতের AI Automation ও Predictive Maintenance পরিকল্পনা সহজভাবে তুলে ধরা। &quot;Because those first four months worked so well, we also planned a five-step future roadmap (রোডম্যাপ) with the client to bring in even smarter AI automation (এ-আই অটোমেশন):
+            <article class="slide-card" id="slide-17" data-index="16" data-label="Slide 17 / 18" data-search="AI AUTOMATION &amp; FUTURE ROADMAP (এ-আই অটোমেশন ও ভবিষ্যৎ পরিকল্পনা) 2. AI &amp; Autonomous Roadmap ভবিষ্যতের AI Automation ও Predictive Maintenance পরিকল্পনা সহজ ও স্মার্টভাবে তুলে ধরা। &quot;Because those first four months went so well, we also planned a five-step future roadmap (রোডম্যাপ) with the client to bring in even smarter AI automation (এ-আই অটোমেশন):
 
-Step one is Connect More — linking spinning, weaving, and knittin">
+Step one is Connect More — bringing the rest of the factory machine">
                 <div class="slide-header">
                     <div class="slide-badge-title">
                         <div class="slide-top-row">
@@ -2700,7 +2700,7 @@ Step one is Connect More — linking spinning, weaving, and knittin">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
                         স্লাইডের মূল লক্ষ্য (Slide Objective)
                     </div>
-                    ভবিষ্যতের <span class="tech-inline">AI Automation</span> ও <span class="tech-inline">Predictive Maintenance</span> পরিকল্পনা সহজভাবে তুলে ধরা।
+                    ভবিষ্যতের <span class="tech-inline">AI Automation</span> ও <span class="tech-inline">Predictive Maintenance</span> পরিকল্পনা সহজ ও স্মার্টভাবে তুলে ধরা।
                 </div>
 
                 <div class="speech-section">
@@ -2711,8 +2711,8 @@ Step one is Connect More — linking spinning, weaving, and knittin">
                         </div>
                     </div>
                     <div class="speech-box" id="speech-text-17">
-                        <p>&quot;Because those first four months worked so well, we also planned a five-step future roadmap <span class="bn-pron">(রোডম্যাপ)</span> with the client to bring in even smarter AI automation <span class="bn-pron">(এ-আই অটোমেশন)</span>:</p>
-<p>Step one is Connect More — linking spinning, weaving, and knitting machines for 100 percent floor coverage.<br>Step two is Full Auto Inspection — putting auto camera triggers on unrolling frames so every meter scans hands-free.<br>Step three is Smart Historical AI — using months of <span class="tech-inline">TimescaleDB</span> data to predict <span class="bn-pron">(প্রিডিক্ট)</span> how dyes behave across different seasons.<br>Step four is <span class="tech-inline">Predictive Maintenance</span> <span class="bn-pron">(প্রিডিক্টিভ মেইনটেন্যান্স)</span> — watching motor vibration <span class="bn-pron">(ভাইব্রেশন)</span> and bearing heat so AI warns engineers before a part breaks.<br>And step five is <span class="tech-inline">Closed-Loop Control</span> — where the <span class="tech-inline">Digital Twin</span> can safely send small speed or heat adjustments straight back to the machine PLC on its own.&quot;</p>
+                        <p>&quot;Because those first four months went so well, we also planned a five-step future roadmap <span class="bn-pron">(রোডম্যাপ)</span> with the client to bring in even smarter AI automation <span class="bn-pron">(এ-আই অটোমেশন)</span>:</p>
+<p>Step one is Connect More — bringing the rest of the factory machines into the same <span class="tech-inline">Digital Twin</span> <span class="bn-pron">(ডিজিটাল টুইন)</span>, so the client gets 100 percent live coverage <span class="bn-pron">(কভারেজ)</span>.<br>Step two is Full Auto Inspection <span class="bn-pron">(ইন্সপেকশন)</span> — where cameras check every meter of fabric on their own, so workers don&#x27;t need to click photos manually <span class="bn-pron">(ম্যানুয়ালি)</span>.<br>Step three is Smart Past Data — using months of <span class="tech-inline">TimescaleDB</span> <span class="bn-pron">(টাইম-স্কেল-ডি-বি)</span> data to predict <span class="bn-pron">(প্রিডিক্ট)</span> how dyes behave in winter or summer.<br>Step four is <span class="tech-inline">Predictive Maintenance</span> <span class="bn-pron">(প্রিডিক্টিভ মেইনটেন্যান্স)</span> — watching motor vibration <span class="bn-pron">(ভাইব্রেশন)</span> and extra heat, so AI warns the team before any machine breaks down.<br>And step five is <span class="tech-inline">Closed-Loop Control</span> <span class="bn-pron">(ক্লোজড-লুপ কন্ট্রোল)</span> — where the <span class="tech-inline">Digital Twin</span> <span class="bn-pron">(ডিজিটাল টুইন)</span> itself safely sends small speed or heat updates straight back to the machine PLC <span class="bn-pron">(পি-এল-সি)</span> on its own.&quot;</p>
 <p>--------------------------------------------------------------------------------</p>
                     </div>
                 </div>
@@ -2781,7 +2781,7 @@ Step one is Connect More — linking spinning, weaving, and knittin">
                     </div>
                     <div class="speech-box" id="speech-text-18">
                         <p>So to wrap things up, AutoTaskX <span class="bn-pron">(অটো-টাস্ক-এক্স)</span> isn&#x27;t just a demo or theory. It started when a prominent <span class="bn-pron">(প্রমিনেন্ট)</span> Bangladeshi textile client walked into our office asking for full automation <span class="bn-pron">(অটোমেশন)</span> and a live <span class="tech-inline">Digital Twin</span> <span class="bn-pron">(ডিজিটাল টুইন)</span>. After visiting their factory, gathering the requirements, and drawing the software blueprint <span class="bn-pron">(ব্লুপ্রিন্ট)</span>, our three-developer core team built both the backend and frontend in four months — and as one of the main backend engineers doing around 40 to 50 percent of the work, seeing it run 24/7 on a real factory floor feels awesome.</p>
-<p>By mixing clean <span class="tech-inline">Data Engineering</span>, fast <span class="tech-inline">MQTT</span> streaming, live <span class="tech-inline">Digital Twin</span> updates, and practical <span class="bn-pron">(প্র্যাকটিক্যাল)</span> AI automation, we turned isolated <span class="bn-pron">(আইসোলেটেড)</span> machines into one connected smart mill.</p>
+<p>By mixing clean <span class="tech-inline">Data Engineering</span>, fast <span class="tech-inline">MQTT</span> streaming, live <span class="tech-inline">Digital Twin</span> updates, and practical <span class="bn-pron">(প্র্যাকটিক্যাল)</span> AI automation, we turned disconnected <span class="bn-pron">(ডিসকানেক্টেড)</span> machines into one connected smart mill.</p>
 <p>Thank you so much for listening! I&#x27;d be really happy to answer any questions you have about our backend architecture <span class="bn-pron">(আর্কিটেকচার)</span>, <span class="tech-inline">Digital Twin</span> <span class="bn-pron">(ডিজিটাল টুইন)</span> setup, <span class="tech-inline">MQTT</span> <span class="bn-pron">(এম-কিউ-টি-টি)</span> flow, or AI pipeline <span class="bn-pron">(পাইপলাইন)</span> — feel free to ask anything.</p>
                     </div>
                 </div>

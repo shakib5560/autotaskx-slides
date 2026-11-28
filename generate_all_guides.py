@@ -140,7 +140,7 @@ And second, a mobile app for floor checkers to snap quick spot photos.
 As frames come in, OpenCV (ওপেন-সি-ভি) prepares the fabric strip, and our YOLO (ইয়োলো) AI model draws boxes around any flaw smaller than 0.5 millimeters (মিলিমিটার) and tags what kind of defect (ডিফেক্ট) it is.
 
 ▶ The Result:
-Now every meter gets checked automatically (অটোমেটিক্যালি) with a clean digital report — no more guesswork (গেস-ওয়ার্ক)."
+Now every meter gets checked on its own with a clean digital report — no more guesswork (গেস-ওয়ার্ক)."
 
 --------------------------------------------------------------------------------
 SLIDE 07: KEY CHALLENGE & SOLUTION — IMAGE & DATA OFFLOADING (বড় ছবি বনাম সার্ভার স্পিড)
@@ -198,7 +198,7 @@ SLIDE 09: TEXTILE OS & DIGITAL TWIN CORE (ভিন্ন ভিন্ন মে
 "This slide shows the heart of our Digital Twin (ডিজিটাল টুইন) engine — we call it Textile OS (টেক্সটাইল ও-এস).
 
 ▶ What We Saw on the Mill Visit:
-When we visited the client's factory, we noticed right away that the machines didn't speak the same language. They had brand-new German Monforts (মনফোর্টস) stenters, Italian machines, and even 30-year-old controllers (কন্ট্রোলার). Some talked over Modbus (মডবাস), some used Siemens S7 (সিমেন্স এস-সেভেন), and others used OPC-UA (ও-পি-সি ইউ-এ) or RS-485 (আর-এস ফোর-এইটি-ফাইভ). Still, the client wanted every single machine in one Digital Twin.
+When we visited the client's factory, we noticed right away that the machines didn't speak the same language. They had modern (মডার্ন) German stenters (স্টেন্টার), Italian machines, and even 30-year-old controllers (কন্ট্রোলার). Some talked over Modbus (মডবাস), some used Siemens S7 (সিমেন্স এস-সেভেন), and others used OPC-UA (ও-পি-সি ইউ-এ) or RS-485 (আর-এস ফোর-এইটি-ফাইভ). Still, the client wanted every single machine in one Digital Twin.
 
 ▶ Our Solution:
 So we built Textile OS as a smart translator layer.
@@ -224,7 +224,7 @@ Next, the IoT Gateway (গেটওয়ে) turns that signal into a tiny MQTT
 It travels over the factory network to our FastAPI (ফাস্ট-এ-পি-আই) backend.
 AutoTaskX checks the safety limit, updates the Digital Twin, saves it to TimescaleDB (টাইম-স্কেল-ডি-বি), and pushes it to the live screen.
 
-In fact, let's click 'Animate Data Flow' right here on the slide — you can literally (লিটারালি) watch all six steps finish in under 25 milliseconds (মিলিসেকেন্ড)!"
+In fact, let's click 'Animate Data Flow' right here on the slide — you can actually (অ্যাকচুয়ালি) watch all six steps finish in under 25 milliseconds (মিলিসেকেন্ড)!"
 
 --------------------------------------------------------------------------------
 SLIDE 11: WHY MQTT? DATA TRANSPORT DECISION (এম-কিউ-টি-টি কেন ব্যবহার করলাম?)
@@ -259,7 +259,7 @@ SLIDE 12: STORAGE ARCHITECTURE (তিনটি বিশেষায়িত �
 
 First, PostgreSQL (পোস্ট-গ্রে-এস-কিউ-এল) for business records — buyer orders, user accounts, machine profiles, and dye recipes where accuracy (অ্যাকিউরেসি) matters most.
 
-Second, TimescaleDB (টাইম-স্কেল-ডি-বি) for time-based sensor data. Since we save millions of sensor rows, a normal table gets really slow over time. TimescaleDB runs inside PostgreSQL using smart time-based tables called Hypertables (হাইপার-টেবলস) — it organizes (অর্গানাইজেস) data by time on its own and shrinks storage space by up to 95 percent!
+Second, TimescaleDB (টাইম-স্কেল-ডি-বি) for time-based sensor data. Since we save millions of sensor rows, a normal table gets really slow over time. TimescaleDB runs inside PostgreSQL using smart time-based tables called Hypertables (হাইপার-টেবলস) — it splits data by time on its own and shrinks storage space by up to 95 percent!
 
 And third, AWS S3 (এ-ডব্লিউ-এস এস-থ্রি) for heavy files — like fabric scan photos and PDF reports.
 
@@ -340,23 +340,23 @@ In one day, we tracked 42,500 meters of fabric in real time.
 With AI vision inspection, the Right-First-Time (রাইট-ফার্স্ট-টাইম) quality pass rate hit 99.2 percent.
 And overall machine efficiency (এফিশিয়েন্সি) — known as OEE (ও-ই-ই) — jumped by 14 percent in just four months.
 
-Now the client can literally (লিটারালি) open a tablet from anywhere in the world and see how their whole factory is running."
+Now the client can simply open a tablet from anywhere in the world and see how their whole factory is running."
 
 --------------------------------------------------------------------------------
 SLIDE 17: AI AUTOMATION & FUTURE ROADMAP (এ-আই অটোমেশন ও ভবিষ্যৎ পরিকল্পনা)
 [পিলার: AI Automation & Future Scalability]
 ================================================================================
 স্লাইডের উদ্দেশ্য:
-ভবিষ্যতের AI Automation ও Predictive Maintenance পরিকল্পনা সহজভাবে তুলে ধরা।
+ভবিষ্যতের AI Automation ও Predictive Maintenance পরিকল্পনা সহজ ও স্মার্টভাবে তুলে ধরা।
 
 [কীভাবে বলবেন — স্পোকেন স্ক্রিপ্ট]:
-"Because those first four months worked so well, we also planned a five-step future roadmap (রোডম্যাপ) with the client to bring in even smarter AI automation (এ-আই অটোমেশন):
+"Because those first four months went so well, we also planned a five-step future roadmap (রোডম্যাপ) with the client to bring in even smarter AI automation (এ-আই অটোমেশন):
 
-Step one is Connect More — linking spinning, weaving, and knitting machines for 100 percent floor coverage.
-Step two is Full Auto Inspection — putting auto camera triggers on unrolling frames so every meter scans hands-free.
-Step three is Smart Historical AI — using months of TimescaleDB data to predict (প্রিডিক্ট) how dyes behave across different seasons.
-Step four is Predictive Maintenance (প্রিডিক্টিভ মেইনটেন্যান্স) — watching motor vibration (ভাইব্রেশন) and bearing heat so AI warns engineers before a part breaks.
-And step five is Closed-Loop Control — where the Digital Twin can safely send small speed or heat adjustments straight back to the machine PLC on its own."
+Step one is Connect More — bringing the rest of the factory machines into the same Digital Twin (ডিজিটাল টুইন), so the client gets 100 percent live coverage (কভারেজ).
+Step two is Full Auto Inspection (ইন্সপেকশন) — where cameras check every meter of fabric on their own, so workers don't need to click photos manually (ম্যানুয়ালি).
+Step three is Smart Past Data — using months of TimescaleDB (টাইম-স্কেল-ডি-বি) data to predict (প্রিডিক্ট) how dyes behave in winter or summer.
+Step four is Predictive Maintenance (প্রিডিক্টিভ মেইনটেন্যান্স) — watching motor vibration (ভাইব্রেশন) and extra heat, so AI warns the team before any machine breaks down.
+And step five is Closed-Loop Control (ক্লোজড-লুপ কন্ট্রোল) — where the Digital Twin (ডিজিটাল টুইন) itself safely sends small speed or heat updates straight back to the machine PLC (পি-এল-সি) on its own."
 
 --------------------------------------------------------------------------------
 SLIDE 18: CONCLUSION & Q&A (সমাপ্তি ও প্রশ্নোত্তর পর্ব)
@@ -368,7 +368,7 @@ SLIDE 18: CONCLUSION & Q&A (সমাপ্তি ও প্রশ্নোত�
 [কীভাবে বলবেন — স্পোকেন স্ক্রিপ্ট]:
 "So to wrap things up, AutoTaskX (অটো-টাস্ক-এক্স) isn't just a demo or theory. It started when a prominent (প্রমিনেন্ট) Bangladeshi textile client walked into our office asking for full automation (অটোমেশন) and a live Digital Twin (ডিজিটাল টুইন). After visiting their factory, gathering the requirements, and drawing the software blueprint (ব্লুপ্রিন্ট), our three-developer core team built both the backend and frontend in four months — and as one of the main backend engineers doing around 40 to 50 percent of the work, seeing it run 24/7 on a real factory floor feels awesome.
 
-By mixing clean Data Engineering, fast MQTT streaming, live Digital Twin updates, and practical (প্র্যাকটিক্যাল) AI automation, we turned isolated (আইসোলেটেড) machines into one connected smart mill.
+By mixing clean Data Engineering, fast MQTT streaming, live Digital Twin updates, and practical (প্র্যাকটিক্যাল) AI automation, we turned disconnected (ডিসকানেক্টেড) machines into one connected smart mill.
 
 Thank you so much for listening! I'd be really happy to answer any questions you have about our backend architecture (আর্কিটেকচার), Digital Twin (ডিজিটাল টুইন) setup, MQTT (এম-কিউ-টি-টি) flow, or AI pipeline (পাইপলাইন) — feel free to ask anything."
 
