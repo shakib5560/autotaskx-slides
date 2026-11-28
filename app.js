@@ -517,6 +517,30 @@
         showSlide(target);
       }
     });
+
+    // Touch swipe navigation for mobile devices
+    let touchStartX = 0;
+    let touchStartY = 0;
+    const stage = document.getElementById('app-container');
+    if (stage) {
+      stage.addEventListener('touchstart', (e) => {
+        if (e.changedTouches && e.changedTouches.length === 1) {
+          touchStartX = e.changedTouches[0].clientX;
+          touchStartY = e.changedTouches[0].clientY;
+        }
+      }, { passive: true });
+      stage.addEventListener('touchend', (e) => {
+        if (!e.changedTouches || e.changedTouches.length !== 1) return;
+        if (overviewModal && !overviewModal.classList.contains('modal-hidden')) return;
+        if (notesDrawer && !notesDrawer.classList.contains('drawer-hidden')) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        const dy = e.changedTouches[0].clientY - touchStartY;
+        if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+          if (dx < 0) nextSlide();
+          else prevSlide();
+        }
+      }, { passive: true });
+    }
   }
 
   if (document.readyState === 'loading') {
